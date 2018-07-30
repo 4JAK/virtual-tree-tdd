@@ -1,36 +1,50 @@
 package org.wecancodeit.virtualtreetdd;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class VirtualTree {
 
-  @Id @GeneratedValue private Long id;
-  public String name;
-  // growth is increased per correct question answered
-  private int growth = 0;
+	@Id
+	@GeneratedValue
+	private Long id;
+	public String name;
+	// growth is increased per correct question answered
+	private int growth = 0;
 
-  public VirtualTree(String name) {
-    this.name = name;
-  }
+	@OneToMany(mappedBy = "virtualTree")
+	private Collection<Branch> branches;
 
-  protected VirtualTree() {}
+	public VirtualTree(String name) {
+		this.name = name;
+	}
 
-  public Long getId() {
-    return id;
-  }
+	protected VirtualTree() {
 
-  public String getName() {
-    return name;
-  }
+	}
 
-  public int getGrowth() {
-    return growth;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public void water() {
-    this.growth += 5;
-  }
+	public String getName() {
+		return name;
+	}
+
+	public Collection<Branch> getBranches() {
+		return branches;
+	}
+
+	public int getGrowth() {
+		return growth;
+	}
+
+	public void water() {
+		this.growth += 5;
+	}
 }

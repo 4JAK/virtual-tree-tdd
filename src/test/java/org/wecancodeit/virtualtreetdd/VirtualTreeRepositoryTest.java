@@ -14,22 +14,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @DataJpaTest
 public class VirtualTreeRepositoryTest {
 
-  @Autowired VirtualTreeRepository vTreeRepo;
+	@Autowired
+	VirtualTreeRepository vTreeRepo;
 
-  @Mock VirtualTree vTree;
+	@Mock
+	VirtualTree vTree;
 
-  @Before
-  public void saveTreeSetup() {
-    vTree = vTreeRepo.save(new VirtualTree("Java"));
-  }
+	@Before
+	public void saveTreeSetup() {
+		vTree = vTreeRepo.save(new VirtualTree("Java"));
+	}
 
-  @Test
-  public void shouldBeAbleToSaveVirtualTreeToRepo() throws Exception {
-    assertNotNull(vTreeRepo.exists(1L));
-  }
+	@Test
+	public void shouldBeAbleToSaveVirtualTreeToRepo() throws Exception {
+		assertNotNull(vTreeRepo.exists(1L));
+	}
 
-  @Test
-  public void virtualTreeShouldHaveGeneratedId() {
-    assertNotNull(vTreeRepo.findOne(1L));
-  }
+	@Test
+	public void virtualTreeShouldHaveGeneratedId() {
+		assertNotNull(vTreeRepo.findOne(1L));
+	}
 }
