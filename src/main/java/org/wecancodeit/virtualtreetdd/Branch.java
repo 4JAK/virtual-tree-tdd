@@ -1,9 +1,12 @@
 package org.wecancodeit.virtualtreetdd;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Branch {
@@ -15,6 +18,9 @@ public class Branch {
 	
 	@ManyToOne
 	private VirtualTree virtualTree;
+	
+	@OneToMany(mappedBy = "branch")
+	private Collection<Cluster> clusters;
 	
 	public Branch (String name, VirtualTree virtualTree) {
 		this.name = name;
@@ -37,6 +43,11 @@ public class Branch {
 	public VirtualTree getVirtualTree() {
 		
 		return virtualTree;
+	}
+
+	public Collection<Cluster> getClusters() {
+		
+		return clusters;
 	}
 	
 }
