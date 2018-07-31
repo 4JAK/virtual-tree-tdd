@@ -1,0 +1,115 @@
+body {
+    font-family: Work Sans, sans-serif;
+}
+.login {
+    height: 100vh;
+}
+
+.form-container {
+    float: right;
+    width: 45%;
+    margin-right: 5%;
+    padding: 100px 0;
+}
+
+.login img {
+    margin-left: 5%;
+    padding: 144px 0;
+}
+
+input[type=text], select { 
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+input[type=submit], select { 
+    width: 45%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    height: 30%;
+}
+
+button {
+    width: 45%;
+    background-color:  #4285f4;
+    color: white;
+    padding: 5px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+/* TL;DR About */
+
+.tldr-about {
+    height: 100vh;
+}
+
+.tldr-about h1 {
+    text-align: center;
+    margin-top: 13%;
+    font-size: 5vh;
+}
+
+ul {
+    padding-top: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    padding: 100px 0;
+    margin-left: 16%;
+}
+
+li {
+    padding-top: 0px;
+    margin: 0 20px;
+    flex-basis: calc(40% - 7px);
+    
+}
+
+/* action-message */
+
+.action-message {
+    height: 100vh;
+}
+
+.action-message-container {
+    float: right;
+    width: 45%;
+    margin-right: 5%;
+    padding: 230px 0;
+}
+
+.action-message img {
+    margin-left: 5%;
+    padding: 144px 0;
+}
+
+/* login.html */
+
+.login-redirect {
+    height: 40vh;
+}
+
+.login-redirect-container {
+    text-align: center;
+    margin-top: 13%;
+    font-size: 3vh;
+}
+
+.login-redirect button {
+    margin-top: 2%;
+    padding: 25px 20px;
+    border-radius: 40px;
+    font-size: 2vh;
+}
