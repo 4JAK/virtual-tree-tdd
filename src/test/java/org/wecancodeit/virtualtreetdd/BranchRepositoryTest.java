@@ -1,11 +1,16 @@
 package org.wecancodeit.virtualtreetdd;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.BDDMockito.*;
+import static org.junit.Assert.assertThat;
+
+import java.util.Collection;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -16,34 +21,81 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
 public class BranchRepositoryTest {
-	
+
+	@Autowired
+	private BranchRepository branchRepo;
+
+	@Autowired
+	private VirtualTreeRepository vTreeRepo;
+
+	@Autowired
+	private ClusterRepository clusterRepo;
+
+	// The entity manager is used so that we can clear out any memory from JPA
+	// so that the entity that we are testing for IS the entity we want to grab
 	@Resource
-	BranchRepository branchRepo;
-	
-	@Resource
-	VirtualTreeRepository vTreeRepo;
+	private EntityManager em;
 
 	@Mock
-	Branch branch;
-	
-	@Mock
-	VirtualTree tree;
-	
+	private Branch testBranch;
 
-	@Before
-	public void saveBranchSetup() {		
-		tree = vTreeRepo.save(new VirtualTree("Java Tree"));
-		branch = branchRepo.save(new Branch("Java Branch", tree));
-	}
+	@Mock
+	private Cluster testCluster;
+
+	@Mock
+	private VirtualTree testTree;
 
 	@Test
 	public void shouldBeAbleToSaveBranchToRepo() throws Exception {
+		testBranch = branchRepo.save(new Branch("Java Branch", null));
+
+		em.flush();
+		em.clear();
+
 		assertNotNull(branchRepo.exists(1L));
 	}
 
 	@Test
 	public void branchShouldHaveGeneratedId() throws Exception {
-		assertNotNull(branchRepo.findOne(2L));
+		testBranch = branchRepo.save(new Branch("Java Branch", null));
+		Long branchId = testBranch.getId();
+
+		em.flush();
+		em.clear();
+		
+		Long expectedId = branchRepo.findOne(branchId).getId();
+		
+		assertThat(expectedId, is(equalTo(branchId)));
+	}
+	
+	@Test
+	public void shouldHaveVirtualTree() throws Exception {
+		testTree = vTreeRepo.save(new VirtualTree("Java Tree"));
+		testBranch = branchRepo.save(new Branch("Java Branch", testTree));
+		Long branchId = testBranch.getId();
+		
+		em.flush();
+		em.clear();
+		
+		Branch underTestBranch = branchRepo.findOne(branchId);
+		VirtualTree underTestTree = underTestBranch.getVirtualTree();
+		
+		assertThat(underTestBranch.getVirtualTree(), is(underTestTree));
+	}
+
+	@Test
+	public void shouldHaveClusters() throws Exception {
+		testBranch = branchRepo.save(new Branch("Java Branch", null));
+		testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
+
+		Long branchId = testBranch.getId();
+		
+		em.flush(); // save and synchronize the database
+		em.clear(); // any entity that is not saved will be cleared from memory, like closing an application
+		
+		Collection<Cluster> underTestBranchClusters = branchRepo.findOne(branchId).getClusters();
+
+		assertThat(underTestBranchClusters.size(), is(greaterThan(0)));
 	}
 
 }

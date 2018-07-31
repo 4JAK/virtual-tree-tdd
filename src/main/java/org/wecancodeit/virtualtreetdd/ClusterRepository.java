@@ -4,9 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VirtualTreeRepository extends CrudRepository<VirtualTree, Long> {
+public interface ClusterRepository extends CrudRepository<Cluster, Long> {
 
-	// Search by the name of the tree
-	VirtualTree findByName(String treeName);
-	
 }
