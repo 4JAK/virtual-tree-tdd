@@ -23,8 +23,13 @@ public class VirtualTreeControllerTest {
   @MockBean private VirtualTreeRepository vTreeRepo;
 
   @Test
+  public void indexMappingShouldReturn2xxSuccessful() throws Exception {
+    mvc.perform(get("/")).andExpect(status().is2xxSuccessful());
+  }
+
+  @Test
   public void homeMappingShouldReturn2xxSuccessful() throws Exception {
-    mvc.perform(get("/home")).andExpect(status().is2xxSuccessful());
+    mvc.perform(get("/home")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
   @Test
@@ -39,6 +44,6 @@ public class VirtualTreeControllerTest {
 
   @Test
   public void homeMappingViewNameShouldBeVirtualTree() throws Exception {
-    mvc.perform(get("/home")).andExpect(view().name(is("HomePage")));
+    mvc.perform(get("/home")).andExpect(view().name(is("home")));
   }
 }

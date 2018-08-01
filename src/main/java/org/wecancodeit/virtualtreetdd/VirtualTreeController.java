@@ -10,9 +10,14 @@ public class VirtualTreeController {
 		
 	@Autowired private VirtualTreeRepository vTreeRepo;
 	
+	@RequestMapping(value = "/")
+	public String index() {
+		return "index";
+	}
+	
 	@RequestMapping(value = "/home")
 	public String home(Model model) {
 		model.addAttribute("virtualTree", vTreeRepo.findAll());
-		return "HomePage";
+		return "home";
 	}
 }
