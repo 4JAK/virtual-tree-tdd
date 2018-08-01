@@ -9,5 +9,5 @@ import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 @Repository
 public interface BeanRepository extends CrudRepository<Bean, Long> {
 
-  Collection<Bean> findAllByQuestionType(QuestionType trueorfalse);
+  Collection<Bean> findAllByQuestionType(QuestionType typeOfQuestion);
 }
