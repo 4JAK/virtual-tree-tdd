@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Java Beans | Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="HomePage.css"/>
     <script src="main.js"></script>
 </head>
 <body>
 
     <!-- Page opens after login -->
 
-    <div class="container">
+    <div class="profile-container">
         <div class="profile">
             <div class="profile-image">
-                <img src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82">
+                <img src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"/>
             </div>
-            <h2 class="profile-user-name">janedoe_</h1> 
+            <h2 class="profile-user-name"> 
+                Hello, johndoe_ <br />
+                Welcome back!
+            </h1> 
         </div>
     </div>
 
     <!-- End of user profile -->
 
-    <hr>
+    <hr />
 
     <h1>Pick up where you left off:</h1>
 
-    <div class="concept-1-box">
+    <div class = "concept-container">
+        <div class="concept">
             <h2>Course 1</h2>
 
             <!-- Courses started Resume button redirects to Clusters -->
 
-            <button> Resume &rarr;</button>
+            <button class = "resume"> Resume &rarr;</button>
         </div>
     
-        <div class="concept-2-box">
+        <div class="concept">
             <h2>Course 2</h2>
-            <button> Resume &rarr; </button>
+            <button class = "resume"> Resume &rarr; </button>
         </div>
-     
-    <hr>
+    </div>
+    
+    <hr />
 
     <h1>Start something new!</h1>
 
-        <div class="concept-1-box">
+    <div class = "concept-container">
+        <div class="concept">
              <h2>Course 3</h2>
 
              <!-- Courses not started Get Started button redirects to Beans -->
 
-             <button> Get Started &rarr; </button>
+             <button class="start"> Get Started &rarr; </button>
         </div>
-
+    </div>    
 </body>
 </html>

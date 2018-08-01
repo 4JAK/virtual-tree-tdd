@@ -1,0 +1,77 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.profile-container {
+    height: 38vh;
+    margin-top: 6%;
+}
+
+img {
+    border-radius: 80%;
+    height: 200px;
+    
+}
+
+.profile-image {
+    float: left;
+    margin-left: 10%;
+}
+
+.profile h2 {
+    float: right;
+    margin-right: 50%;
+    margin-top: 5%;
+    line-height: 45px;
+}
+
+/* CONCEPT BOXES  */
+
+h1 {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+
+.concept-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.concept-container > div {
+    background-color: #f1f1f1;
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    text-align: center;
+    line-height: 80px;
+    margin-left: 5%;
+    border-radius: 25px;
+    
+}
+
+/* BUTTONS */
+
+.resume {
+    width: 45%;
+    background-color:  #4285f4;
+    color: white;
+    padding: 5px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.start {
+    width: 45%;
+    background-color:  #4CAF50;
+    color: white;
+    padding: 5px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
