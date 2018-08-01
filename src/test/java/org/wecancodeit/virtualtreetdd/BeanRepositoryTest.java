@@ -1,6 +1,7 @@
 package org.wecancodeit.virtualtreetdd;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
@@ -15,6 +16,7 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -26,7 +28,7 @@ public class BeanRepositoryTest {
 
   @Test
   public void shouldBeAbleToSaveBeanToRepo() throws Exception {
-    testBean = beanRepo.save(new Bean("Java Bean Example", null, null, null, null));
+    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, null));
     Long beanId = testBean.getId();
 
     em.flush();
@@ -39,7 +41,7 @@ public class BeanRepositoryTest {
   @Test
   public void beanShouldHaveRelationshipToCluster() throws Exception {
     Cluster testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
-    testBean = beanRepo.save(new Bean("Java Bean Example", null, null, null, testCluster));
+    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, testCluster));
     Long beanId = testBean.getId();
 
     em.flush();
@@ -53,7 +55,7 @@ public class BeanRepositoryTest {
   @Test
   public void clusterShouldHaveRelationshipToBean() throws Exception {
     Cluster testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
-    testBean = beanRepo.save(new Bean("Java Bean Example", null, null, null, testCluster));
+    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, testCluster));
     Long beanId = testBean.getId();
     Long clusterId = testCluster.getId();
 
@@ -68,7 +70,7 @@ public class BeanRepositoryTest {
 
   @Test
   public void shouldBeAbleToDeleteBeanFromRepo() throws Exception {
-    testBean = beanRepo.save(new Bean("Java Bean Example", null, null, null, null));
+    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, null));
     Long beanId = testBean.getId();
 
     em.flush();
@@ -76,5 +78,17 @@ public class BeanRepositoryTest {
 
     beanRepo.delete(beanId);
     assertNull(beanRepo.findOne(beanId));
+  }
+  
+  @Test
+  public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() throws Exception {
+	  testBean = beanRepo.save(new Bean(QuestionType.TrueOrFalse, "Java Bean Example", null, null, null, null));
+	  Bean testBean2 = beanRepo.save(new Bean(QuestionType.TrueOrFalse, "Java Bean Example 2", null, null, null, null));
+	  Bean testBean3 = beanRepo.save(new Bean(QuestionType.FillInTheBlanks, "Java Bean Example 3", null, null, null, null));
+	  
+	  em.flush();
+	  em.clear();
+	  
+	  assertThat(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse).size(), is(equalTo(2)));
   }
 }
