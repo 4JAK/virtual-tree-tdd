@@ -14,6 +14,13 @@ public class Bean {
   private String questionNum;
   private String question;
   private String answer;
+  private QuestionType questionType;
+
+  protected enum QuestionType {
+    TrueOrFalse,
+    Checkboxes,
+    FillInTheBlanks
+  }
 
   @ManyToOne private Cluster cluster;
 
@@ -24,7 +31,14 @@ public class Bean {
    * @param answer
    * @param cluster - Cluster of which the bean is owned by
    */
-  public Bean(String example, String questionNum, String question, String answer, Cluster cluster) {
+  public Bean(
+      QuestionType type,
+      String example,
+      String questionNum,
+      String question,
+      String answer,
+      Cluster cluster) {
+    this.questionType = type;
     this.example = example;
     this.questionNum = questionNum;
     this.question = question;
@@ -57,4 +71,8 @@ public class Bean {
   }
 
   protected Bean() {}
+
+  public QuestionType getQuestionType() { // TODO Auto-generated method stub
+    return questionType;
+  }
 }
