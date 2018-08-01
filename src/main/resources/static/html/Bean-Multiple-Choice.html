@@ -2,47 +2,65 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Learn: Test Driven Development in Java | Java Beans</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/Bean-Multiple-Choice.css" />
+    <script src="../js/sidebar.js"></script>
+    
 </head>
 <body>
+    <!-- <h1>Learn: Test Driven Development in Java</h1>    -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h2>Learn</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                
+            <!-- Button closes slide-out-lesson -->
+            
+            <a href="javascript:void(0)" class="button" onclick="closeNav()"><button> Get Started &rarr;</button></a>
+        </div>
+        
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  
+        <div class = "quiz-container">
+            <h1> Quiz interface </h1> 
+            <div class = "question">
+                <p> <span>1.</span> What does CSS stand for? </p>
+            </div>
+                <ul class = "answers">
+                    <li id = "i-answer-box">
+                        <p><span>a.</span> Computer Style Sheets </p> 
+                    </li>
+                    <li id = "c-answer-box">
+                        <p><span>b.</span> Cascading Style Sheets </p> 
+                    </li>
+                    <li id = "i-answer-box">
+                        <p><span>c.</span> Colorful Style Sheets </p> 
+                    </li>
+                    <li id = "i-answer-box">
+                        <p><span>d.</span> Creative Style Sheets </p> 
+                    </li> 
+                </ul>
+        </div>
+</div>
 
-        <!-- CodePen example for question-box: https://codepen.io/FlorinPop17/pen/qqYNgW -->
-        <!-- CodePen example for slide-out-lesson: https://codepen.io/kenchernoff/pen/GKqBa -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Correct!</h2>
+                <button>&rarr;</button>
+            </div>
+        </div>
 
-    <header>
-        <h1>Learn: Test Driven Development in Java</h1>
-        <!-- Unicode for hamburger menu to close/open slide-out-lesson -->
-        &#8801;
-    </header>
-    <div class="slide-out-lesson">
-        <h2>Learn</h2>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-        <!-- Button closes slide-out-lesson -->
-        <button> Get Started &rarr;</button>
-    </div>
-    <div class="question-box">
-        <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit?</h2>
-         <ul class="answers">
-             <li>Answer</li>
-             <li>Answer</li>
-             <li>Answer</li>
-             <li>Answer</li>
-         </ul>
-        <!-- Open correct/incorrect modal box accordingly -->
-        <button>Submit</button>
-    </div>
-        <!-- Modal pop-ups for when a question is answered correctly/incorrectly -->
-    <div class="correct-answer-modal">
-        <h2>Correct!</h2>
-        <button>&rarr;</button>
-    </div>
-    <div class="incorrect-answer-modal">
-        <h2>Incorrect!</h2>
-        <button>&#8635;</button>
-    </div>
+        <div id="Modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Incorrect!</h2>
+                <button>&#8635;</button>
+        </div>
+        </div>
+   
 </body>
+<script src="../js/answer-modal.js"></script>
 </html>
