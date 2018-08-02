@@ -31,7 +31,7 @@ public class VirtualTreeRepositoryTest {
 	private VirtualTree testTree;
 
 	@Test
-	public void shouldBeAbleToSaveVirtualTreeToRepo() throws Exception {
+	public void shouldBeAbleToSaveVirtualTreeToRepo() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		
@@ -42,7 +42,7 @@ public class VirtualTreeRepositoryTest {
 	}
 
 	@Test
-	public void virtualTreeShouldHaveGeneratedId() throws Exception {
+	public void virtualTreeShouldHaveGeneratedId() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		
@@ -55,7 +55,7 @@ public class VirtualTreeRepositoryTest {
 	}
 	
 	@Test 
-	public void virtualTreeFromRepoShouldHaveName() throws Exception {
+	public void virtualTreeFromRepoShouldHaveName() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		String treeName = testTree.getName();
