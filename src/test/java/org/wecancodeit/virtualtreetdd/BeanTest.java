@@ -26,6 +26,11 @@ public class BeanTest {
   }
 
   @Test
+  public void beanShouldHaveCluster() {
+    assertNotNull(testBean.getCluster());
+  }
+
+  @Test
   public void beanShouldHaveSingleQuestion() {
     String underTestBeanQuestion = testBean.getQuestion();
     assertNotNull(underTestBeanQuestion);
@@ -39,10 +44,5 @@ public class BeanTest {
   @Test
   public void beanQuestionTypeShouldNotBeTrueOrFalse() {
     assertThat(testBean.getQuestionType(), is(not(QuestionType.FillInTheBlanks)));
-  }
-
-  @Test
-  public void beanShouldHaveCluster() {
-    assertNotNull(testBean.getCluster());
   }
 }
