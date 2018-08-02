@@ -16,7 +16,7 @@ public class BeanTest {
   @Before
   public void setUp() {
     Cluster testCluster = new Cluster();
-    testBean = new Bean(QuestionType.TrueOrFalse, "What is 42?", "The answer to life", testCluster);
+    testBean = new Bean(testCluster, null, QuestionType.TrueOrFalse, "a question", "42");
   }
 
   @Test
