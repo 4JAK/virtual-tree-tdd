@@ -10,69 +10,59 @@ import javax.persistence.ManyToOne;
 public class Bean {
   @Id @GeneratedValue private Long id;
 
-  @Lob private String example;
+  @ManyToOne private Cluster cluster;
   private String questionNum;
-  private String question;
-  private String answer;
   private QuestionType questionType;
+  @Lob private String question;
+  private String answer;
 
   protected enum QuestionType {
+    Drag_n_Drop,
+    FillInTheBlanks,
+    MultipleChoice,
     TrueOrFalse,
-    Checkboxes,
-    FillInTheBlanks
   }
 
-  @ManyToOne private Cluster cluster;
-
   /**
-   * @param example - The example given before the question that is going to be asked
-   * @param questionNum
-   * @param question - The question that will be shown
-   * @param answer
-   * @param cluster - Cluster of which the bean is owned by
+   * @param cluster - The 'Lesson' that the bean is attached to | Cluster DragNDrop, or
+   *     MultipleChoice | QuestionType
+   * @param questionNum | String
+   * @param questionType - The question that will be shown i.e. TrueOrFalse, FillInTheBlanks,
+   * @param question - Question to ask | String
+   * @param answer | String
    */
   public Bean(
-      QuestionType type,
-      String example,
-      String questionNum,
-      String question,
-      String answer,
-      Cluster cluster) {
-    this.questionType = type;
-    this.example = example;
+      Cluster cluster, String questionNum, QuestionType type, String question, String answer) {
+    this.cluster = cluster;
     this.questionNum = questionNum;
+    this.questionType = type;
     this.question = question;
     this.answer = answer;
-    this.cluster = cluster;
   }
 
   public Long getId() {
     return id;
   }
 
-  public String getExample() {
-    return example;
+  public String getQuestion() {
+    return question;
   }
 
   public String getQuestionNum() {
     return questionNum;
   }
 
-  public String getQuestion() {
-    return question;
-  }
-
   public String getAnswer() {
     return answer;
+  }
+
+  public QuestionType getQuestionType() {
+    return questionType;
   }
 
   public Cluster getCluster() {
     return cluster;
   }
 
-  protected Bean() {}
-
-  public QuestionType getQuestionType() { // TODO Auto-generated method stub
-    return questionType;
-  }
+  public Bean() {}
 }
