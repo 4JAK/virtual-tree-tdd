@@ -10,9 +10,9 @@ import static org.junit.Assert.assertTrue;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -24,11 +24,19 @@ public class BeanRepositoryTest {
   @Autowired private BeanRepository beanRepo;
   @Autowired private ClusterRepository clusterRepo;
   @Resource private EntityManager em;
-  @Mock private Bean testBean;
+  private Bean testBean;
+  private Cluster testCluster;
 
+  @Before
+  public void setUp() {
+    testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
+    testBean =
+        beanRepo.save(new Bean(QuestionType.TrueOrFalse, "What is 0 + 1?", "1", testCluster));
+  }
+
+  
   @Test
-  public void shouldBeAbleToSaveBeanToRepo() throws Exception {
-    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, null));
+  public void shouldBeAbleToSaveBeanToRepo() {
     Long beanId = testBean.getId();
 
     em.flush();
@@ -39,9 +47,7 @@ public class BeanRepositoryTest {
   }
 
   @Test
-  public void beanShouldHaveRelationshipToCluster() throws Exception {
-    Cluster testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
-    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, testCluster));
+  public void beanShouldHaveRelationshipToCluster() {
     Long beanId = testBean.getId();
 
     em.flush();
@@ -53,9 +59,7 @@ public class BeanRepositoryTest {
   }
 
   @Test
-  public void clusterShouldHaveRelationshipToBean() throws Exception {
-    Cluster testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
-    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, testCluster));
+  public void clusterShouldHaveRelationshipToBean() {
     Long beanId = testBean.getId();
     Long clusterId = testCluster.getId();
 
@@ -69,8 +73,7 @@ public class BeanRepositoryTest {
   }
 
   @Test
-  public void shouldBeAbleToDeleteBeanFromRepo() throws Exception {
-    testBean = beanRepo.save(new Bean(null, "Java Bean Example", null, null, null, null));
+  public void shouldBeAbleToDeleteBeanFromRepo() {
     Long beanId = testBean.getId();
 
     em.flush();
@@ -81,14 +84,26 @@ public class BeanRepositoryTest {
   }
   
   @Test
-  public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() throws Exception {
-	  testBean = beanRepo.save(new Bean(QuestionType.TrueOrFalse, "Java Bean Example", null, null, null, null));
-	  Bean testBean2 = beanRepo.save(new Bean(QuestionType.TrueOrFalse, "Java Bean Example 2", null, null, null, null));
-	  Bean testBean3 = beanRepo.save(new Bean(QuestionType.FillInTheBlanks, "Java Bean Example 3", null, null, null, null));
-	  
-	  em.flush();
-	  em.clear();
-	  
-	  assertThat(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse).size(), is(equalTo(2)));
+  public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() {
+    Bean testBean2 =
+        beanRepo.save(
+            new Bean(QuestionType.TrueOrFalse, "What is the answer suppose to be?", "1", null));
+    Bean testBean3 =
+        beanRepo.save(
+            new Bean(QuestionType.Drag_n_Drop, "What is the answer suppose to be?", "1", null));
+
+    Long testBeanId = testBean.getId();
+    Long testBean2Id = testBean2.getId();
+    Long testBean3Id = testBean3.getId();
+
+    em.flush();
+    em.clear();
+    
+    Bean resultTestBean = beanRepo.findOne(testBeanId);
+    Bean resultTestBean2 = beanRepo.findOne(testBean2Id);
+    Bean resultTestBean3 = beanRepo.findOne(testBean3Id);
+
+    assertTrue(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse).contains(resultTestBean));
+    assertThat(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse).size(), is(equalTo(2)));
   }
 }
