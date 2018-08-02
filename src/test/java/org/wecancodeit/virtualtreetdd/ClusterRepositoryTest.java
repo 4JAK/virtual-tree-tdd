@@ -65,8 +65,8 @@ public class ClusterRepositoryTest {
   @Test
   public void clusterShouldEstablishBeanRelationship() {
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
-    Bean testBean1 = beanRepo.save(new Bean(null, null, null, testCluster));
-    Bean testBean2 = beanRepo.save(new Bean(null, null, null, testCluster));
+    Bean testBean1 = beanRepo.save(new Bean(testCluster, null, null, "What is 0 + 1?", "1"));
+    Bean testBean2 = beanRepo.save(new Bean(testCluster, null, null, "What is 0 + 1?", "1"));
 
     Long clusterId = testCluster.getId();
     Long beanOneId = testBean1.getId();
