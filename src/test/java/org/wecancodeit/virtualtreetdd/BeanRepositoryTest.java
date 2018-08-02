@@ -31,7 +31,7 @@ public class BeanRepositoryTest {
   public void setUp() {
     testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
     testBean =
-        beanRepo.save(new Bean(QuestionType.TrueOrFalse, "What is 0 + 1?", "1", testCluster));
+        beanRepo.save(new Bean(testCluster, "1", QuestionType.TrueOrFalse, "What is 0 + 1?", "1"));
   }
 
   
@@ -86,11 +86,9 @@ public class BeanRepositoryTest {
   @Test
   public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() {
     Bean testBean2 =
-        beanRepo.save(
-            new Bean(QuestionType.TrueOrFalse, "What is the answer suppose to be?", "1", null));
+    		beanRepo.save(new Bean(testCluster, "1", QuestionType.TrueOrFalse, "What is 0 + 1?", "1"));
     Bean testBean3 =
-        beanRepo.save(
-            new Bean(QuestionType.Drag_n_Drop, "What is the answer suppose to be?", "1", null));
+    		beanRepo.save(new Bean(testCluster, "1", QuestionType.Drag_n_Drop, "What is 0 + 1?", "1"));
 
     Long testBeanId = testBean.getId();
     Long testBean2Id = testBean2.getId();
