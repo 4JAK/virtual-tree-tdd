@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Java Beans | Clusters</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/Cluster.css}" href="/css/Cluster.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/Cluster.css}" href="../static/css/Cluster.css" />
 </head>
+
 <body>
-
+    <nav>
+        <a th:href="@{/home}">
+            Home Page
+        </a>
+    </nav>
     <!-- Boxes containing concepts - when clicked open Beans -->
-<h1>Test Driven Development in Java</h1>
+    <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
 
-<div class = "concept-container">
-    <div class="concept">
-        <h2>Introduction</h2>
-    </div>
+    <div class="concept-container">
 
-    <div class="concept">
-        <h2>Module 2</h2>
+        <ul class="clusterBeans">
+            <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == MultipleChoice">
+                <aside th:text="${bean.lesson}">
+
+                </aside>
+                <p th:text="|Question type: ${bean.questionType}|"></p>
+                <p th:text="${bean.question}"></p>
+                <input class="bean-radio" th:each="answer : ${bean.answers}" type="radio">
+                    <span th:text="${answer}"></span>
+                </input>
+            </li>
+        </ul>
     </div>
-    <div class="concept">
-        <h2>Module 3</h2>
-    </div>
-</div> 
 </body>
+
 </html>

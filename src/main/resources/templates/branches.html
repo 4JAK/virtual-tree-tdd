@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
- 
+
 </head>
+
 <body>
-   
+    <nav>
+        <a th:href="@{/home}">
+            Home Page
+        </a>
+    </nav>
+    <h2>All modules you dummy</h2>
+    <ol>
+        <li th:each="branch : ${branches}">
+            <a th:href="|@{/cluster/}${branch.id}|" th:text="${branch.name}">
+            </a>
+        </li>
+    </ol>
 </body>
+
 </html>
