@@ -28,6 +28,17 @@ public class Lesson {
     this.image = image;
   }
 
+  @Override
+  public String toString() {
+    return "Lesson [id="
+        + id
+        + ",\nexample="
+        + example
+        + ",\nimage="
+        + image
+        + "]";
+  }
+
   public Long getId() {
     return id;
   }
@@ -39,10 +50,10 @@ public class Lesson {
   public String getImage() {
     return image;
   }
-  
+
   public Collection<Bean> getBeans() {
-	  return beans;
+    return beans;
   }
-  
+
   public Lesson() {}
 }
