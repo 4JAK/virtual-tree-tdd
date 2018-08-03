@@ -28,10 +28,10 @@ public class ApiController {
 		return (Collection<VirtualTree>) vTreeRepo.findAll();
 	}
 	
-	@RequestMapping("/virtualtrees/{virtualTreeId}/branches")
-	public Collection<Branch> getBranches(@PathVariable(name = "virtualTreeId") Long virtualTreeId) {
-			
-		return vTreeRepo.findOne(virtualTreeId).getBranches();
+	@RequestMapping ("/virtualtrees/1/branches")
+	public Collection<Branch> getBranches() {
+		return vTreeRepo.findOne(1L).getBranches();
+
 	}
 
 }
