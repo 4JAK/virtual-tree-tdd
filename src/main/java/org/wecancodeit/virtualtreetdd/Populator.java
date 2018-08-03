@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-@Service
+//@Service
 public class Populator implements CommandLineRunner {
 
 	@Autowired
@@ -37,14 +37,14 @@ public class Populator implements CommandLineRunner {
 
 		Bean tddQuestion1 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson1Tdd(), null)), "1", QuestionType.MultipleChoice,
 				getQuestion1Tdd(), getCorrectAnswer1Tdd(), getAnswersFor1Tdd()));
-		Bean tddQuestion2 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson2Tdd(), null)), "2", QuestionType.MultipleChoice,
-				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd()));
-		Bean tddQuestion3 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson3Tdd(), null)), "3", QuestionType.FillInTheBlanks,
-				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd()));
-		Bean tddQuestion4 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson4Tdd(), null)), "4", QuestionType.FillInTheBlanks,
-				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd()));
-		Bean tddQuestion5 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson5Tdd(), null)), "5", QuestionType.TrueOrFalse,
-				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
+//		Bean tddQuestion2 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson2Tdd(), null)), "2", QuestionType.MultipleChoice,
+//				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd()));
+//		Bean tddQuestion3 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson3Tdd(), null)), "3", QuestionType.FillInTheBlanks,
+//				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd()));
+//		Bean tddQuestion4 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson4Tdd(), null)), "4", QuestionType.FillInTheBlanks,
+//				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd()));
+//		Bean tddQuestion5 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson5Tdd(), null)), "5", QuestionType.TrueOrFalse,
+//				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
 
 		
 		
