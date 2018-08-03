@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-//@Service
+@Service
 public class Populator implements CommandLineRunner {
 
 	@Autowired
