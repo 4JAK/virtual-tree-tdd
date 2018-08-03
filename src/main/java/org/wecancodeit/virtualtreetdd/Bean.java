@@ -55,6 +55,27 @@ public class Bean {
     this.answers = answers;
   }
 
+  @Override
+  public String toString() {
+    return "Bean [id="
+        + id
+        + ",\ncluster="
+        + cluster
+        + ",\nlesson="
+        + lesson
+        + ",\nquestionNum="
+        + questionNum
+        + ",\nquestionType="
+        + questionType
+        + ",\nquestion="
+        + question
+        + ",\nanswers="
+        + answers
+        + ",\ncorrectAnswer="
+        + correctAnswer
+        + "]";
+  }
+
   public Long getId() {
     return id;
   }
