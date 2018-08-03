@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Branch {
 	
@@ -16,9 +18,11 @@ public class Branch {
 	private Long id;
 	private String name;
 	
+	@JsonIgnore
 	@ManyToOne
 	private VirtualTree virtualTree;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "branch")
 	private Collection<Cluster> clusters;
 	
