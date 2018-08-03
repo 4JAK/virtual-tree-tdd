@@ -3,6 +3,7 @@ package org.wecancodeit.virtualtreetdd;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,7 @@ public class ApiController {
 	@RequestMapping ("/virtualtrees/1/branches")
 	public Collection<Branch> getBranches() {
 		return vTreeRepo.findOne(1L).getBranches();
+
 	}
 
 }
