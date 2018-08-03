@@ -15,7 +15,7 @@ public class Populator implements CommandLineRunner {
 	BranchRepository branchRepo;
 
 	@Autowired
-	VirtualTreeRepository virtualTreeRepo;
+	VirtualTreeRepository vTreeRepo;
 
 	@Autowired
 	ClusterRepository clusterRepo;
@@ -29,22 +29,22 @@ public class Populator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		VirtualTree javaTree = new VirtualTree("javaTree");
+		VirtualTree javaTree = vTreeRepo.save(new VirtualTree("javaTree"));
 
-		Branch introTddBranch = new Branch("Intro To TDD", javaTree);
+		Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
 
-		Cluster clusterTdd = new Cluster("Introduction To Test Driven Development", introTddBranch);
+		Cluster clusterTdd = clusterRepo.save(new Cluster("Introduction To Test Driven Development", introTddBranch));
 
-		Bean tddQuestion1 = new Bean(clusterTdd, new Lesson(getLesson1Tdd(), null), "1", QuestionType.MultipleChoice,
-				getQuestion1Tdd(), getCorrectAnswer1Tdd(), getAnswersFor1Tdd());
-		Bean tddQuestion2 = new Bean(clusterTdd, new Lesson(getLesson2Tdd(), null), "2", QuestionType.MultipleChoice,
-				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd());
-		Bean tddQuestion3 = new Bean(clusterTdd, new Lesson(getLesson3Tdd(), null), "3", QuestionType.FillInTheBlanks,
-				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd());
-		Bean tddQuestion4 = new Bean(clusterTdd, new Lesson(getLesson4Tdd(), null), "4", QuestionType.FillInTheBlanks,
-				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd());
-		Bean tddQuestion5 = new Bean(clusterTdd, new Lesson(getLesson5Tdd(), null), "5", QuestionType.TrueOrFalse,
-				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd());
+		Bean tddQuestion1 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson1Tdd(), null)), "1", QuestionType.MultipleChoice,
+				getQuestion1Tdd(), getCorrectAnswer1Tdd(), getAnswersFor1Tdd()));
+		Bean tddQuestion2 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson2Tdd(), null)), "2", QuestionType.MultipleChoice,
+				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd()));
+		Bean tddQuestion3 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson3Tdd(), null)), "3", QuestionType.FillInTheBlanks,
+				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd()));
+		Bean tddQuestion4 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson4Tdd(), null)), "4", QuestionType.FillInTheBlanks,
+				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd()));
+		Bean tddQuestion5 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson5Tdd(), null)), "5", QuestionType.TrueOrFalse,
+				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
 
 		
 		
@@ -52,24 +52,24 @@ public class Populator implements CommandLineRunner {
 		// JUnit Branch
 		
 		
-		Branch jUnit = new Branch("Intro to JUnit", javaTree);
+		Branch jUnit = branchRepo.save(new Branch("Intro to JUnit", javaTree));
 		// JUnit Cluster
-		Cluster clusterJUnit = new Cluster("Introduction To JUnit Testing", jUnit);
+		Cluster clusterJUnit = clusterRepo.save(new Cluster("Introduction To JUnit Testing", jUnit));
 		// JUnit Questions Section 1/3
-		Bean jUnitQ1 = new Bean(clusterJUnit, new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png"), "1", QuestionType.MultipleChoice,
-				getLesson1Question1JUnit(), getCorrectAnswerLesson1Answer1JUnit(), getAnswersForLesson1Answer1JUnit());
-		Bean jUnitQ2 = new Bean(clusterJUnit, new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png"), "2", QuestionType.TrueOrFalse,
-				getLesson1Question2JUnit(), getCorrectAnswerLesson1Answer2JUnit(), getAnswersForLesson1Answer2JUnit());
-		Bean jUnitQ3 = new Bean(clusterJUnit, new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png"), "3", QuestionType.FillInTheBlanks,
-				getLesson1Question3JUnit(), getCorrectAnswerLesson1Answer3JUnit(), getAnswersForLesson1Answer3JUnit());
-		Bean jUnitQ4 = new Bean(clusterJUnit, new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png"), "4", QuestionType.FillInTheBlanks,
-				getLesson1Question4JUnit(), getCorrectAnswerLesson1Answer4JUnit(), getAnswersForLesson1Answer4JUnit());
-		Bean jUnitQ5 = new Bean(clusterJUnit, new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png"), "5", QuestionType.TrueOrFalse,
-				getLesson1Question5JUnit(), getCorrectAnswerLesson1Answer5JUnit(), getAnswersForLesson1Answer5JUnit());
+		Bean jUnitQ1 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")), "1", QuestionType.MultipleChoice,
+				getLesson1Question1JUnit(), getCorrectAnswerLesson1Answer1JUnit(), getAnswersForLesson1Answer1JUnit()));
+		Bean jUnitQ2 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")), "2", QuestionType.TrueOrFalse,
+				getLesson1Question2JUnit(), getCorrectAnswerLesson1Answer2JUnit(), getAnswersForLesson1Answer2JUnit()));
+		Bean jUnitQ3 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")), "3", QuestionType.FillInTheBlanks,
+				getLesson1Question3JUnit(), getCorrectAnswerLesson1Answer3JUnit(), getAnswersForLesson1Answer3JUnit()));
+		Bean jUnitQ4 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")), "4", QuestionType.FillInTheBlanks,
+				getLesson1Question4JUnit(), getCorrectAnswerLesson1Answer4JUnit(), getAnswersForLesson1Answer4JUnit()));
+		Bean jUnitQ5 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")), "5", QuestionType.TrueOrFalse,
+				getLesson1Question5JUnit(), getCorrectAnswerLesson1Answer5JUnit(), getAnswersForLesson1Answer5JUnit()));
 		
 		//This bean shows a passing 1st test 
-		Bean jUnitLesson02bean01 = new Bean(clusterJUnit, new Lesson(getLesson2JUnit(), "Test_1_Pass.png"), "1", QuestionType.TrueOrFalse,
-				getLesson1Question5JUnit(), getCorrectAnswerLesson1Answer5JUnit(), getAnswersForLesson1Answer5JUnit());
+		Bean jUnitLesson02bean01 = beanRepo.save(new Bean(clusterJUnit,lessonRepo.save(new Lesson(getLesson2JUnit(), "Test_1_Pass.png")), "1", QuestionType.TrueOrFalse,
+				getLesson1Question5JUnit(), getCorrectAnswerLesson1Answer5JUnit(), getAnswersForLesson1Answer5JUnit()));
 		
 		
 		
@@ -79,23 +79,23 @@ public class Populator implements CommandLineRunner {
 		
 
 		// Hamcrest / JUnit transition Branch
-		Branch hamcrest = new Branch("Hamcrest/JUnit", javaTree);
+		Branch hamcrest = branchRepo.save(new Branch("Hamcrest/JUnit", javaTree));
 		
 		// Hamcrest & JUnit Cluster
-		Cluster clusterHamcrestJUnit = new Cluster("Introduction To Hamcrest/JUnit", jUnit);
+		Cluster clusterHamcrestJUnit = clusterRepo.save(new Cluster("Introduction To Hamcrest/JUnit", jUnit));
 		
 		// Hamcrest & JUnit Beans
-		Bean jUnitHamcrestQ1 = new Bean(clusterHamcrestJUnit, new Lesson(getLesson1JUnitHamcrest(), "Test_2_Requirements.png"), "1", QuestionType.MultipleChoice,
-				getLesson1Question1JUnitHamcrest(), getCorrectAnswerLesson1Answer1JUnitHamcrest(), getAnswersForLesson1Answer1JUnitHamcrest());
-		Bean jUnitHamcrestQ2 = new Bean(clusterHamcrestJUnit, new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png"), "2", QuestionType.TrueOrFalse,
-				getLesson2Question1JUnitHamcrest(), getCorrectAnswerLesson2Answer1JUnitHamcrest(), getAnswersForLesson2Answer1JUnitHamcrest());
-		Bean jUnitHamcrestQ3 = new Bean(clusterHamcrestJUnit, new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png"), "3", QuestionType.TrueOrFalse,
-				getLesson2Question2JUnitHamcrest(), getCorrectAnswerLesson2Answer3JUnitHamcrest(), getAnswersForLesson2Answer2JUnitHamcrest());
-		Bean jUnitHamcrestQ4 = new Bean(clusterHamcrestJUnit, new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png"), "4", QuestionType.MultipleChoice,
-				getLesson2Question3JUnitHamcrest(), getCorrectAnswerLesson2Answer3JUnitHamcrest(), getAnswersForLesson2Answer3JUnitHamcrest());
+		Bean jUnitHamcrestQ1 = beanRepo.save(new Bean(clusterHamcrestJUnit,lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Requirements.png")), "1", QuestionType.MultipleChoice,
+				getLesson1Question1JUnitHamcrest(), getCorrectAnswerLesson1Answer1JUnitHamcrest(), getAnswersForLesson1Answer1JUnitHamcrest()));
+		Bean jUnitHamcrestQ2 = beanRepo.save(new Bean(clusterHamcrestJUnit,lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")), "2", QuestionType.TrueOrFalse,
+				getLesson2Question1JUnitHamcrest(), getCorrectAnswerLesson2Answer1JUnitHamcrest(), getAnswersForLesson2Answer1JUnitHamcrest()));
+		Bean jUnitHamcrestQ3 = beanRepo.save(new Bean(clusterHamcrestJUnit,lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")), "3", QuestionType.TrueOrFalse,
+				getLesson2Question2JUnitHamcrest(), getCorrectAnswerLesson2Answer3JUnitHamcrest(), getAnswersForLesson2Answer2JUnitHamcrest()));
+		Bean jUnitHamcrestQ4 = beanRepo.save(new Bean(clusterHamcrestJUnit,lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")), "4", QuestionType.MultipleChoice,
+				getLesson2Question3JUnitHamcrest(), getCorrectAnswerLesson2Answer3JUnitHamcrest(), getAnswersForLesson2Answer3JUnitHamcrest()));
 		
-		Bean jUnitHamcrestLesson02bean01 = new Bean(clusterHamcrestJUnit, new Lesson(getLesson1JUnitHamcrest(), "Test_2_Code_Added.png"), "1", QuestionType.MultipleChoice,
-				getLesson1Question1JUnitHamcrest(), getCorrectAnswerLesson1Answer1JUnitHamcrest(), getAnswersForLesson1Answer1JUnitHamcrest());
+		Bean jUnitHamcrestLesson02bean01 = beanRepo.save(new Bean(clusterHamcrestJUnit,lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Code_Added.png")), "1", QuestionType.MultipleChoice,
+				getLesson1Question1JUnitHamcrest(), getCorrectAnswerLesson1Answer1JUnitHamcrest(), getAnswersForLesson1Answer1JUnitHamcrest()));
 		
 		
 
@@ -166,11 +166,11 @@ public class Populator implements CommandLineRunner {
 	}
 
 	public String getQuestion3Tdd() {
-		return "The 1st of the 3 A�s of TDD is to _____. When you _____ in the context of TDD you are initializing and setting the values of the variables that you are about to test for in that block of code";
+		return "The 1st of the 3's of TDD is to _____. When you _____ in the context of TDD you are initializing and setting the values of the variables that you are about to test for in that block of code";
 	}
 
 	public String getQuestion4Tdd() {
-		return "The 2nd of the 3 A�s of  TDD is to ___. To ___ is to call the method which we intend to test";
+		return "The 2nd of the 3's of  TDD is to ___. To ___ is to call the method which we intend to test";
 	}
 
 	public String getQuestion5Tdd() {
@@ -206,21 +206,21 @@ public class Populator implements CommandLineRunner {
 		return answers;
 	}
 
-	public Collection<String> getAnswersFor2Tdd() {
-
-	}
-
-	public Collection<String> getAnswersFor3Tdd() {
-
-	}
-
-	public Collection<String> getAnswersFor4Tdd() {
-
-	}
-
-	public Collection<String> getAnswersFor5Tdd() {
-
-	}
+//	public Collection<String> getAnswersFor2Tdd() {
+//
+//	}
+//
+//	public Collection<String> getAnswersFor3Tdd() {
+//
+//	}
+//
+//	public Collection<String> getAnswersFor4Tdd() {
+//
+//	}
+//
+//	public Collection<String> getAnswersFor5Tdd() {
+//
+//	}
 	
 	
 	
@@ -240,8 +240,8 @@ public class Populator implements CommandLineRunner {
 	}
 	public String getLesson1JUnit() {
 		return "1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.\n" + 
-				"2. This test is failing because the “VirtualTree” class does not exist. After we run the test and it fails, we then create the class.\n" + 
-				"3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the  “VirtualTree” object exists, using the variable “treeTest”. In this case, “treeTest” is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.\n" + 
+				"2. This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.\n" + 
+				"3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.\n" + 
 				"4. The @Test annotation is needed to run the test through the JUnit console.\n" + 
 				"";	
 	}
@@ -375,14 +375,14 @@ public class Populator implements CommandLineRunner {
 	}
 
 	public String getLesson2JUnitHamcrest() {
-		return "1. We are testing to check the properties of our object “treeTest”. The new method “assertThat()” uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.\n" + 
+		return "1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.\n" + 
 				"2. The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.\n" + 
-				"3. The Hamcrest method “is()” decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The “not()” method can be added inside of the “is()” method to make “is(not( ))”. Example: assertThat(“word”,is(not(equalTo(“words”))));\n" + 
-				"4. The Hamcrest method “equalTo()”is checking to see if the first parameter is (equal to()) the second parameter.";
+				"3. The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));\n" + 
+				"4. The Hamcrest method equalTo()is checking to see if the first parameter is (equal to()) the second parameter.";
 	}
 
 	public String getLesson3JUnitHamcrest() {
-		return "Once we add the constructor with a String parameter, the method getName() and we pass “Java Tree” as our String , the assertThat method will return a passing test.";
+		return "Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.";
 	}
 	
 	//Lesson1 
