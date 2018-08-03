@@ -37,14 +37,14 @@ public class Populator implements CommandLineRunner {
 
 		Bean tddQuestion1 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson1Tdd(), null)), "1", QuestionType.MultipleChoice,
 				getQuestion1Tdd(), getCorrectAnswer1Tdd(), getAnswersFor1Tdd()));
-//		Bean tddQuestion2 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson2Tdd(), null)), "2", QuestionType.MultipleChoice,
-//				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd()));
-//		Bean tddQuestion3 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson3Tdd(), null)), "3", QuestionType.FillInTheBlanks,
-//				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd()));
-//		Bean tddQuestion4 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson4Tdd(), null)), "4", QuestionType.FillInTheBlanks,
-//				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd()));
-//		Bean tddQuestion5 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson5Tdd(), null)), "5", QuestionType.TrueOrFalse,
-//				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
+		Bean tddQuestion2 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson2Tdd(), null)), "2", QuestionType.MultipleChoice,
+				getQuestion2Tdd(), getCorrectAnswer2Tdd(), getAnswersFor2Tdd()));
+		Bean tddQuestion3 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson3Tdd(), null)), "3", QuestionType.FillInTheBlanks,
+				getQuestion3Tdd(), getCorrectAnswer3Tdd(), getAnswersFor3Tdd()));
+		Bean tddQuestion4 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson4Tdd(), null)), "4", QuestionType.FillInTheBlanks,
+				getQuestion4Tdd(), getCorrectAnswer4Tdd(), getAnswersFor4Tdd()));
+		Bean tddQuestion5 = beanRepo.save(new Bean(clusterTdd,lessonRepo.save(new Lesson(getLesson5Tdd(), null)), "5", QuestionType.TrueOrFalse,
+				getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
 
 		
 		
@@ -182,45 +182,71 @@ public class Populator implements CommandLineRunner {
 	}
 
 	public String getCorrectAnswer2Tdd() {
-		return "";
+		return "We use TDD to make sure that our code is doing what we expect it to do.";
 	}
 
 	public String getCorrectAnswer3Tdd() {
-		return "";
+		return "arrange";
 	}
 
 	public String getCorrectAnswer4Tdd() {
-		return "";
+		return "act";
 	}
 
 	public String getCorrectAnswer5Tdd() {
-		return "";
+		return "true";
 	}
 
 	public Collection<String> getAnswersFor1Tdd() {
-		ArrayList answers = new ArrayList();
+		ArrayList<String> answers = new ArrayList<String>();
 		String answer1 = "TDD is a programming language.";
 		String answer2 = "TDD is keeping your test as failing even though your code is working as you expect it to.";
 		String answer3 = "TDD is a style of writing code and then testing it.";
 		String answer4 = "TDD is the discipline of writing failing tests before production code throughout the entire application.";
+		answers.add(answer1);
+		answers.add(answer2);
+		answers.add(answer3);
+		answers.add(answer4);
 		return answers;
 	}
 
-//	public Collection<String> getAnswersFor2Tdd() {
-//
-//	}
-//
-//	public Collection<String> getAnswersFor3Tdd() {
-//
-//	}
-//
-//	public Collection<String> getAnswersFor4Tdd() {
-//
-//	}
-//
-//	public Collection<String> getAnswersFor5Tdd() {
-//
-//	}
+	public Collection<String> getAnswersFor2Tdd() {
+		ArrayList<String> answers = new ArrayList<String>();
+		String answer1 = "We use TDD so that the code we produce is immutable and nothing can be added to the code.";
+		String answer2 = "We use TDD to decrease the speed in which it takes for a project to be developed";
+		String answer3 = "We use TDD to use less programmers when developing a project.";
+		String answer4 = "We use TDD to make sure that our code is doing what we expect it to do.";
+		answers.add(answer1);
+		answers.add(answer2);
+		answers.add(answer3);
+		answers.add(answer4);
+		return answers;
+	}
+
+	public Collection<String> getAnswersFor3Tdd() {
+		ArrayList<String> answers = new ArrayList<String>();
+		String answer1 = "arrange";
+		String answer2 = "arrange";
+		answers.add(answer1);
+		answers.add(answer2);
+		return answers;
+	}
+
+	public Collection<String> getAnswersFor4Tdd() {
+		ArrayList<String> answers = new ArrayList<String>();
+		String answer1 = "act";
+		String answer2 = "act";
+		answers.add(answer1);
+		answers.add(answer2);
+		return answers;
+	}
+
+	public Collection<String> getAnswersFor5Tdd() {
+		ArrayList<String> answers = new ArrayList<String>();
+		String answer = "true";
+		answers.add(answer);
+		return answers;
+	}
 	
 	
 	
