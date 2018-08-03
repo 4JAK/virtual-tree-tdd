@@ -35,11 +35,23 @@ public class ApiControllerTest {
 		assertThat(status, is(HttpStatus.OK));
 	}
 	
+	@Test public void shouldNotBeOkayForVirtualTrees() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/2", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
 	@Test
 	public void shouldBeOkForBranches() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
-
+	
+	@Test
+	public void shouldBeOkForClusters() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.OK));
+	}
 }
