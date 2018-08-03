@@ -96,8 +96,8 @@ public class Bean {
     return answers;
   }
 
-  public QuestionType getQuestionType() {
-    return questionType;
+  public String getQuestionType() {
+    return questionType.toString();
   }
 
   public Cluster getCluster() {

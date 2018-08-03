@@ -54,7 +54,10 @@
 
     <div class="concept-container">
         <div class="concept">
-            <h2 th:text="${virtualTree.name}">Course 3</h2>
+            <h2 th:each="tree : ${virtualTree}">
+                <a th:href="@{/branches/}" th:text="${tree.name}">
+                </a>
+            </h2>
 
             <!-- Courses not started Get Started button redirects to Beans -->
 
