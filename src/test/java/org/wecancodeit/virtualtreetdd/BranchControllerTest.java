@@ -25,43 +25,43 @@ public class BranchControllerTest {
 
   @Mock VirtualTree virtualTree;
 
-  @Test
+  @Test //Branch mapping should return 2xx successful
   public void branchMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/branch/1")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //Grammatical error should return 4xx client error
   public void branchMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/brances/1")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //Branch mapping attribute should have branch
   public void branchMappingAttributeShouldHaveHaveBranch() throws Exception {
     mvc.perform(get("/branch/1")).andExpect(model().attribute("branch", is(branchRepo.findAll())));
   }
 
-  @Test
+  @Test //View name should be "branch"
   public void branchMappingViewNameShouldBeBranch() throws Exception {
     mvc.perform(get("/branch/1")).andExpect(view().name(is("branch")));
   }
 
-  @Test
+  @Test //"branches" should return "Ok" and 2xx status
   public void branchesMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/branches")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //grammatical error should return 4xx client error
   public void branchesMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/brances")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //branches mapping attribute should return all branches
   public void branchesMappingAttributeShouldHaveHaveBranches() throws Exception {
     mvc.perform(get("/branches"))
         .andExpect(model().attribute("branches", is(branchRepo.findAll())));
   }
 
-  @Test
+  @Test //view name should be "branches"
   public void branchesMappingViewNameShouldBeBranches() throws Exception {
     mvc.perform(get("/branches")).andExpect(view().name(is("branches")));
   }

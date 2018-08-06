@@ -17,41 +17,41 @@ public class BeanTest {
 
   private Bean testBean;
 
-  @Before
+  @Before //makes a cluster with bean
   public void setUp() {
     Cluster testCluster = new Cluster();
     testBean =
         new Bean(testCluster, null, null, QuestionType.TrueOrFalse, "a question", "42", null);
   }
 
-  @Test
+  @Test //Instantiation check != null
   public void shouldBeAbleToInstaniate() {
     Bean underTestBean = new Bean();
     assertNotNull(underTestBean);
   }
 
-  @Test
+  @Test //Checks to see if testBean has a testCluster
   public void beanShouldHaveCluster() {
     assertNotNull(testBean.getCluster());
   }
 
-  @Test
+  @Test //Checks to see if a bean has a question
   public void beanShouldHaveSingleQuestion() {
     String underTestBeanQuestion = testBean.getQuestion();
     assertNotNull(underTestBeanQuestion);
   }
 
-  @Test
+  @Test //check should return that the question type is TrueOrFalse
   public void beanQuestionTypeShouldBeTrueOrFalse() {
     assertThat(testBean.getQuestionType(), is(QuestionType.TrueOrFalse));
   }
 
-  @Test
+  @Test //check should return that the question type is FillInTheBlanks
   public void beanQuestionTypeShouldNotBeTrueOrFalse() {
     assertThat(testBean.getQuestionType(), is(not(QuestionType.FillInTheBlanks)));
   }
 
-  @Test
+  @Test //Checks to see if a bean contains multiple answers (1 Correct ,  1:many not correct)
   public void beanQuestionShouldHaveMultipleAnswers() {
     String answer1 = "answer1";
     String answer2 = "answer2";
