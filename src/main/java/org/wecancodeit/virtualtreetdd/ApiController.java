@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -51,6 +52,30 @@ public class ApiController {
 									@PathVariable(name = "clusterId") Long clusterId) {
 		
 		return clusterRepo.findOne(clusterId).getBeans();
+	}
+	
+	@RequestMapping (value = "/virtualtrees/{treeId}/branches/{branchId}/clusters/{clusterId}/beans/{beanId}", method = RequestMethod.GET)
+	public Bean getBean(@PathVariable(name = "treeId") Long treeId, 
+									@PathVariable(name = "branchId") Long branchId,
+									@PathVariable(name = "clusterId") Long clusterId,
+									@PathVariable(name = "beanId") Long beanId) {
+		
+		return beanRepo.findOne(beanId);
+		
+	}
+	
+	@RequestMapping (value = "/beans/{beanId}/checkanswer", method = RequestMethod.GET) 
+	public boolean checkAnswerOfBean(@PathVariable(name = "beanId") Long beanId,
+									@RequestParam(value = "answerToCheck") String answerToCheck) {
+		
+		String correctAnswer = beanRepo.findOne(beanId).getCorrectAnswer();
+		
+		if(!correctAnswer.equalsIgnoreCase(answerToCheck)) {
+			
+			return false;
+		}
+		return true;
+		
 	}
 	
 	

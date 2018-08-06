@@ -9,7 +9,7 @@
     <h2 th:text="${bean.question}"></h2>
     <ul>
       <li th:each="answer : ${bean.answers}">
-        <input type="radio" th:text="${answer}"/>
+        <input type="radio" th:text="${answer}" th:name="${answer}"/>
       </li>
     </ul>
 </body>
