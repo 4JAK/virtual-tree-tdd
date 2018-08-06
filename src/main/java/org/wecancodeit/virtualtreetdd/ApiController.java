@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,14 +24,34 @@ public class ApiController {
 	@Autowired
 	BeanRepository beanRepo;
 	
-	@RequestMapping ("/virtualtrees")
+	@RequestMapping (value = "/virtualtrees", method = RequestMethod.GET)
 	public Collection<VirtualTree> getVirtualTrees() {
+		
 		return (Collection<VirtualTree>) vTreeRepo.findAll();
 	}
 	
-	@RequestMapping ("/virtualtrees/{id}/branches")
-	public Collection<Branch> getBranches(@PathVariable(name = "id") Long id) {
-		return vTreeRepo.findOne(id).getBranches();
+	@RequestMapping (value = "/virtualtrees/{treeId}/branches", method = RequestMethod.GET)
+	public Collection<Branch> getBranches(@PathVariable(name = "treeId") Long treeId) {
+		
+		return vTreeRepo.findOne(treeId).getBranches();
 
 	}
+	
+	@RequestMapping (value = "/virtualtrees/{treeId}/branches/{branchId}/clusters", method = RequestMethod.GET)
+	public Collection<Cluster> getClusters(@PathVariable(name = "treeId") Long treeId, 
+											@PathVariable(name = "branchId") Long branchId) {
+		
+		return branchRepo.findOne(branchId).getClusters();
+	
+	}
+	
+	@RequestMapping (value = "/virtualtrees/{treeId}/branches/{branchId}/clusters/{clusterId}/beans", method = RequestMethod.GET)
+	public Collection<Bean> getBeans(@PathVariable(name = "treeId") Long treeId, 
+									@PathVariable(name = "branchId") Long branchId,
+									@PathVariable(name = "clusterId") Long clusterId) {
+		
+		return clusterRepo.findOne(clusterId).getBeans();
+	}
+	
+	
 }
