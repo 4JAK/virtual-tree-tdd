@@ -13,22 +13,22 @@ public class ClusterTest {
 
   @Mock private Cluster testCluster;
 
-  @Before
+  @Before 
   public void clusterSetup() {
     testCluster = new Cluster("Java Cluster", new Branch());
   }
 
-  @Test
+  @Test //  test shows that a new cluster can be created 
   public void shouldBeAbleToCreateNewCluster() {
     assertNotNull(testCluster);
   }
 
-  @Test
+  @Test //shows that cluster has name and that the getter for name works
   public void shouldHaveName() {
     assertThat(testCluster.getName(), is(equalTo("Java Cluster")));
   }
 
-  @Test
+  @Test // shows that cluster should have a branch
   public void clusterShouldHaveBranch() {
     assertNotNull(testCluster.getBranch());
   }

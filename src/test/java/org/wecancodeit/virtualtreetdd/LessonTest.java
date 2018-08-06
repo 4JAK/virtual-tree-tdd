@@ -7,7 +7,7 @@ import org.junit.Test;
 public class LessonTest {
   private Lesson testLesson;
 
-  @Test
+  @Test // test shows that test created new class of Lesson
   public void shouldBeAbleToInstantiateClass() {
     testLesson = new Lesson();
     assertNotNull(testLesson);

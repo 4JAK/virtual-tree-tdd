@@ -14,21 +14,21 @@ public class BranchTest {
   @Mock private Branch testBranch;
 
   @Before
-  public void branchSetup() {
+  public void branchSetup() { //shows that a branch is apart of a tree
     testBranch = new Branch("Java Branch", new VirtualTree());
   }
 
-  @Test
+  @Test // should show that creating a new branch yields a new branch
   public void shouldBeAbleToCreateNewBranch() {
     assertNotNull(testBranch);
   }
 
-  @Test
+  @Test // test to show that each branch has a name and is able to get that name
   public void shouldHaveName() {
     assertThat(testBranch.getName(), is(equalTo("Java Branch")));
   }
 
-  @Test
+  @Test // test shows that a branch should have a virtual tree it is apart of
   public void shouldHaveVirtualTree() {
     assertNotNull(testBranch.getVirtualTree());
   }

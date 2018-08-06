@@ -15,27 +15,27 @@ public class VirtualTreeTest {
   @Mock private VirtualTree testTree;
   
   @Before
-  public void treeSetup() {
+  public void treeSetup() { // test to show that new tree class is made
 	  testTree = new VirtualTree("Java Tree");
   }
 
   @Test
-  public void shouldBeAbleToCreateNewVirtualTree() {
+  public void shouldBeAbleToCreateNewVirtualTree() { // test to show that a created tree exists
     assertNotNull(testTree);
   }
 
   @Test
-  public void shouldHaveName() {
+  public void shouldHaveName() { // test to show that a tree has a name and that it's getter works
     assertThat(testTree.getName(), is(equalTo("Java Tree")));
   }
 
   @Test
-  public void shouldHaveGrowthUnit() {
+  public void shouldHaveGrowthUnit() { // test to show that tree has a growth amount
 	  assertNotNull(testTree.getGrowth());
   }
   
   @Test
-  public void wateringTreeIncreasesGrowth() {
+  public void wateringTreeIncreasesGrowth() { // test to show that watering increases growth
 	  testTree.water();
 	  assertThat(testTree.getGrowth(), is(greaterThan(0)));
   } 
