@@ -28,7 +28,7 @@ public class BeanRepositoryTest {
   private Bean testBean;
   private Cluster testCluster;
 
-  @Before
+  @Before //Creates Cluster and Bean for each individual test, flushes & clears
   public void setUp() {
     testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
     testBean =
@@ -36,7 +36,7 @@ public class BeanRepositoryTest {
   }
 
   
-  @Test
+  @Test //Saves bean to repo
   public void shouldBeAbleToSaveBeanToRepo() {
     Long beanId = testBean.getId();
 
@@ -47,7 +47,7 @@ public class BeanRepositoryTest {
     assertNotNull(underTestBean);
   }
 
-  @Test
+  @Test //Checks bean's relationship or "name" to Cluster
   public void beanShouldHaveRelationshipToCluster() {
     Long beanId = testBean.getId();
 
@@ -59,7 +59,7 @@ public class BeanRepositoryTest {
     assertThat(underTestBean.getCluster().getName(), is("Java Bean Cluster"));
   }
 
-  @Test
+  @Test //Checks to see if Cluster contains a linked bean
   public void clusterShouldHaveRelationshipToBean() {
     Long beanId = testBean.getId();
     Long clusterId = testCluster.getId();
@@ -73,7 +73,7 @@ public class BeanRepositoryTest {
     assertTrue(underTestCluster.getBeans().contains(underTestBean));
   }
 
-  @Test
+  @Test //Checks to see if deleted bean is now == null
   public void shouldBeAbleToDeleteBeanFromRepo() {
     Long beanId = testBean.getId();
 
@@ -84,7 +84,7 @@ public class BeanRepositoryTest {
     assertNull(beanRepo.findOne(beanId));
   }
   
-  @Test
+  @Test //Checks to see if searching by "QuestionType" return's results "TrueOrFalse"
   public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() {
     Bean testBean2 =
     		beanRepo.save(new Bean(testCluster, null, "First question", QuestionType.TrueOrFalse, "This is a question?", "true", null));

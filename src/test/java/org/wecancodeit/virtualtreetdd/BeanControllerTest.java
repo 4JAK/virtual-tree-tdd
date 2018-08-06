@@ -26,43 +26,43 @@ public class BeanControllerTest {
   
   @Mock private Bean testBean;
 
-  @Test
+  @Test //returns status "Ok" and 2xx successful
   public void beansMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/beans")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //4xx error due to grammatical error in URL
   public void beansMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/beens")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //URL should contain attribute "beans" and contain all beans
   public void beansMappingAttributeShouldHaveHaveBeans() throws Exception {
     mvc.perform(get("/beans")).andExpect(model().attribute("beans", is(beanRepo.findAll())));
   }
 
-  @Test
+  @Test //The view name should be "beans"
   public void beansMappingViewNameShouldBeBeans() throws Exception {
     mvc.perform(get("/beans")).andExpect(view().name(is("beans")));
   }
   
-  @Test
+  @Test //status should be "Ok" and 2xx successful
   public void beanMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/bean/1")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //URL Grammatical error should return 4xx Client Error
   public void beanMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/been/1")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //The Mock bean should be the 1st mapping attribute 
   public void beanMappingAttributeShouldHaveHaveBean() throws Exception {
     given(beanRepo.findOne(1L)).willReturn(testBean);
     mvc.perform(get("/bean/1")).andExpect(model().attribute("bean", is(testBean)));
   }
 
-  @Test
+  @Test //View name should be "bean"
   public void beanMappingViewNameShouldBeBean() throws Exception {
     mvc.perform(get("/bean/1")).andExpect(view().name(is("bean")));
   }
