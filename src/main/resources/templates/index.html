@@ -3,85 +3,73 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Jave Beans</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css"/>
+    <title>Java Beans</title>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans|Oswald" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/src/main/resources/static/css/index.css"/>
 </head>
 <body>
     <section class="login">
-      <img src="http://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg" height="400" />
+      <img src="/src/main/resources/static/images/Artboard 1.png"/>
         <div class = "form-container">
-            <h2>TEST FIRST.</h2>
-            <h2>CODE BETTER.</h2>
-            <h2>TOGETHER.</h2>
+            <h2><strong>Test first. Code better. Together.</strong></h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, nostrum in eligendi earum assumenda at distinctio dicta corporis quam veniam non quas accusantium. Nihil hic distinctio laborum ratione autem? Iste!</p>
         
             <form action="/login">
-                <input type="text" name="uname" placeholder="Username" /><br />
-                <input type="text" name="Password" placeholder="Password" /><br />
-                <input type="submit" value="Login &rarr;" />
+                <input type="text" name="uname" placeholder="Username"><br>
+                <input type="text" name="Password" placeholder="Password"><br>
+                <input type="submit" value="Login &rarr;">
             </form>
-
-            <button>
-                <p>Login with Google &rarr;</p>
-            </button>
     </div>
     </section>
-
-    <hr />
 
     <!-- Too Long, Didn't Read version of About Page -->
 
     <section class = "tldr-about">
 
+        <div class = "tldr-about-container">
         <h1>Code more efficiently with TDD</h1>
 
-        <ul>
-            <li>
+        <div class="flex-grid-thirds">
+            <div class="col">
+                <img src = "/src/main/resources/static/images/focus.svg" height="110"/>
                 <h2>Clear Focus</h2>
                 <p>
                     You're more productive while coding, and TDD helps keep that productivity high by narrowing your focus. It forces you to think about smaller chunks of functionality at a time rather than the application as a whole.
                 </p>
-            </li>
-            <li>
-                <h2>Tidier Code</h2>
+            </div>
+            <div class="col">
+                    <img src = "/src/main/resources/static/images/archive.svg" height="110"/>
+                    <h2>Living Documentation</h2>
+                    <p>
+                        Tests can serve as documentation to a developer. Also you can see the expected inputs a method requires and what you can expect as outcome, all based on the assertions made in the test.
+                    </p>
+            </div>
+            <div class="col">
+                    <img src = "/src/main/resources/static/images/clean.svg" height="110"/>
+                    <h2>Tidier Code</h2>
+                
                 <p>
                     Your tests are only interfacing with public methods, so you have a much better idea of what can be made private. You code more efficent and it reduces the chance of creating un-needed or redundant code.
-                </p>
-            </li>
-            <li>
-                <h2>Fewer Bugs</h2>
-                <p>
-                    You save time down the line that would be spent fixing bugs that have popped up and need time to figure out. This also helps define what the bug actually is, as you always need reproducible steps.
-                </p>
-            </li>
-            <li>
-                <h2>Living Documentation</h2>
-                <p>
-                    Tests can serve as documentation to a developer. Also you can see the expected inputs a method requires and what you can expect as outcome, all based on the assertions made in the test.
-                </p>
-            </li>
-        </ul>
-
+                </p> 
+            </div>
+          </div>
     </section>
 
-    <hr />
 
     <!-- Snippet to encourage a sign-up -->
 
     <section class = "action-message">
 
-        <img src="http://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg" height="400" />
     
         <div class = "action-message-container">
-            <h1>TDD is becoming the standard practice for coders to avoid the obstacles of traditional programming.</h1>
-            <p>Using a clear way to create clean code that finds the bugs and avoids pitfalls that plagued coders in the past it helps build your program in a safer more efficient way</p>
+            <h1>TDD is becoming the industry standard</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis voluptatibus doloremque harum minima beatae ad!</p>
         </div>
 
-    </section>
+        <img src="/src/main/resources/static/images/Artboard 2.png" height="670" width="600">
 
-    <hr />
+    </section>
 
     <!-- Redirect to login.html -->
 
