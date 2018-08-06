@@ -38,7 +38,7 @@ public class BranchRepositoryTest {
 
   @Mock private VirtualTree testTree;
 
-  @Test
+  @Test //Checks to see if a branch is saved in repo
   public void shouldBeAbleToSaveBranchToRepo() {
     testBranch = branchRepo.save(new Branch("Java Branch", null));
 
@@ -49,7 +49,7 @@ public class BranchRepositoryTest {
     assertNotNull(branchRepo.exists(1L));
   }
 
-  @Test
+  @Test//Checks to see if branch has a generated Id
   public void branchShouldHaveGeneratedId() {
     testBranch = branchRepo.save(new Branch("Java Branch", null));
     Long branchId = testBranch.getId();
@@ -62,7 +62,7 @@ public class BranchRepositoryTest {
     assertThat(expectedId, is(equalTo(branchId)));
   }
 
-  @Test
+  @Test //Checks branch for a tree
   public void shouldHaveVirtualTree() {
     testTree = vTreeRepo.save(new VirtualTree("Java Tree"));
     testBranch = branchRepo.save(new Branch("Java Branch", testTree));
@@ -77,7 +77,7 @@ public class BranchRepositoryTest {
     assertThat(underTestBranch.getVirtualTree(), is(underTestTree));
   }
 
-  @Test
+  @Test //Checks for a cluster
   public void shouldHaveClusters() {
     testBranch = branchRepo.save(new Branch("Java Branch", null));
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
