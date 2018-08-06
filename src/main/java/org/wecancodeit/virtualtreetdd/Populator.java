@@ -93,7 +93,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "1",
+                "6",
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnit(),
                 getCorrectAnswerLesson1Answer1JUnit(),
@@ -103,7 +103,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "2",
+                "7",
                 QuestionType.TrueOrFalse,
                 getLesson1Question2JUnit(),
                 getCorrectAnswerLesson1Answer2JUnit(),
@@ -113,7 +113,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "3",
+                "8",
                 QuestionType.FillInTheBlanks,
                 getLesson1Question3JUnit(),
                 getCorrectAnswerLesson1Answer3JUnit(),
@@ -123,7 +123,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "4",
+                "9",
                 QuestionType.FillInTheBlanks,
                 getLesson1Question4JUnit(),
                 getCorrectAnswerLesson1Answer4JUnit(),
@@ -133,7 +133,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "5",
+                "10",
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
                 getCorrectAnswerLesson1Answer5JUnit(),
@@ -145,7 +145,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnit(), "Test_1_Pass.png")),
-                "1",
+                "11",
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
                 getCorrectAnswerLesson1Answer5JUnit(),
@@ -164,7 +164,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Requirements.png")),
-                "1",
+                "12",
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnitHamcrest(),
                 getCorrectAnswerLesson1Answer1JUnitHamcrest(),
@@ -174,7 +174,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "2",
+                "13",
                 QuestionType.TrueOrFalse,
                 getLesson2Question1JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer1JUnitHamcrest(),
@@ -184,7 +184,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "3",
+                "14",
                 QuestionType.TrueOrFalse,
                 getLesson2Question2JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
@@ -194,7 +194,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "4",
+                "15",
                 QuestionType.MultipleChoice,
                 getLesson2Question3JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
