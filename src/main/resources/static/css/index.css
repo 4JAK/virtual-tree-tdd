@@ -120,14 +120,12 @@ ul {
     border: solid 2px;
     border-color: #3DCB9A;
     padding: 34px;
-    /* border-radius: 20px; */
     background-color:white;
     color: #313E4F;
 }
 
 .flex-grid-thirds .col:hover {
-
-box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 
 }
 
