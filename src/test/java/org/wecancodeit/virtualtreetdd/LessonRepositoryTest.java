@@ -21,7 +21,7 @@ public class LessonRepositoryTest {
   @Autowired private BeanRepository beanRepo;
   @Resource private EntityManager em;
 
-  @Test
+  @Test //shows that a lesson is able to be saved to lesson repo
   public void shouldBeAbleToSaveLessonToRepo() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
 
@@ -34,8 +34,8 @@ public class LessonRepositoryTest {
 
     assertThat(lessonRepo.findOne(lessonId), is(resultLesson));
   }
-
-  @Test
+ 
+  @Test //shows that a lesson can have more than one bean 
   public void lessonShouldEstablishRelationshipToBeans() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
     Bean testBean1 = beanRepo.save(new Bean(null, underTestLesson, null, null, null, null, null));

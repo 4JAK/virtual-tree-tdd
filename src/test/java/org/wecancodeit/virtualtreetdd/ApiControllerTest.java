@@ -30,61 +30,53 @@ public class ApiControllerTest {
 	}
 
 	@Test
-	public void shouldBeOkForVirtualTrees() {
+	public void shouldBeOkForVirtualTrees() { //test to show that there is a path to virtual tree
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
 
-	@Test
-	public void shouldNotBeOkayForVirtualTrees() {
+	@Test public void shouldNotBeOkayForVirtualTrees() { //test to show that there is no other virtual tree currently
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/2", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.NOT_FOUND));
 	}
 
 	@Test
-	public void shouldBeOkForBranches() {
+	public void shouldBeOkForBranches() { //shows that there is a path to  branch that is apart of a tree
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
 
-	@Test
-	public void shouldNotBeOkayForBranches() {
+	@Test public void shouldNotBeOkayForBranches() { //shows that wrong spelling of branch will bring up not found error
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/brances", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.NOT_FOUND));
 	}
 
 	@Test
-	public void shouldBeOkForClusters() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters",
-				String.class);
+	public void shouldBeOkForClusters() { //test to show that there is a path to clusters
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
-
-	@Test
-	public void shouldNotBeOkayForClusters() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clustes",
-				String.class);
+	
+	@Test public void shouldNotBeOkayForClusters() { // test to show that wrong spelling of clusters will show not found error
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clustes", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.NOT_FOUND));
 	}
 
 	@Test
-	public void shouldBeOkForBeans() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/beans",
-				String.class);
+	public void shouldBeOkForBeans() { //test to show that there is a pathway to beans from tree and branch and cluster
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/beans", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
-
-	@Test
-	public void shouldNotBeOkayForBeans() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans",
-				String.class);
+	
+	@Test public void shouldNotBeOkayForBeans() { // test to show that wrong spelling of bean will return not found page
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.NOT_FOUND));
 	}

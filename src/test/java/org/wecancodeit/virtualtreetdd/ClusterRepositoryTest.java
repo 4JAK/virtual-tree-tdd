@@ -29,7 +29,7 @@ public class ClusterRepositoryTest {
   private Cluster testCluster;
   private Branch testBranch;
 
-  @Test
+  @Test //test shows that cluster is able to save to repo
   public void shouldBeAbleToSaveClusterToRepo() {
     testCluster = clusterRepo.save(new Cluster("Java Cluster", null));
     Long clusterId = testCluster.getId();
@@ -40,7 +40,7 @@ public class ClusterRepositoryTest {
     assertNotNull(clusterRepo.exists(clusterId));
   }
 
-  @Test
+  @Test //test shows that a cluster has a id
   public void clusterShouldHaveGeneratedId() {
     testCluster = clusterRepo.save(new Cluster("Java Cluster", null));
     Long clusterId = testCluster.getId();
@@ -51,7 +51,7 @@ public class ClusterRepositoryTest {
     assertThat(clusterId, is(equalTo(1L)));
   }
 
-  @Test
+  @Test // test shows cluster should have branch it is attachted to and save both
   public void clusterFromRepoShouldHaveBranch() {
     testBranch = branchRepo.save(new Branch("Java Branch", null));
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
@@ -62,7 +62,7 @@ public class ClusterRepositoryTest {
     assertNotNull(testCluster.getBranch());
   }
 
-  @Test
+  @Test // shows that a bean is attached to a cluster and a cluster can have more than one bean
   public void clusterShouldEstablishBeanRelationship() {
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
     Bean testBean1 = beanRepo.save(new Bean(testCluster, null, null, null, null, null, null));

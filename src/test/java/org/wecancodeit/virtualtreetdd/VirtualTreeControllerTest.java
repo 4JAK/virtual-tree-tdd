@@ -22,27 +22,27 @@ public class VirtualTreeControllerTest {
 
   @MockBean private VirtualTreeRepository vTreeRepo;
 
-  @Test
+  @Test //shows that index mapping path is good
   public void indexMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/")).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //shows that home mapping path is good
   public void homeMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/home")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //shows that homes is not a good mapping path to home
   public void homeMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/homes")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //shows that home page should have a virtual tree
   public void homeMappingAttributeShouldHaveHaveVirtualTree() throws Exception {
     mvc.perform(get("/home")).andExpect(model().attribute("virtualTree", is(vTreeRepo.findAll())));
   }
 
-  @Test
+  @Test //shows that home mapping name is home
   public void homeMappingViewNameShouldBeVirtualTree() throws Exception {
     mvc.perform(get("/home")).andExpect(view().name(is("home")));
   }
