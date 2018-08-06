@@ -9,12 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Bean {
   @Id @GeneratedValue private Long id;
 
+  @JsonIgnore
   @ManyToOne private Cluster cluster;
+  
+  @JsonIgnore
   @ManyToOne private Lesson lesson;
+  
   private String questionNum;
   private QuestionType questionType;
   @Lob private String question;

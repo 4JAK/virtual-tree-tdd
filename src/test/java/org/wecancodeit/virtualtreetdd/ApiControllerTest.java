@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -78,5 +79,47 @@ public class ApiControllerTest {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
+	@Test
+	public void shouldBeOkForSingleBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/beans/1", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test public void shouldNotBeOkayForSingleBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans/1", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
+	@Test
+	public void shouldBeOkForCheckAnswerOfBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/1/checkanswer?answerToCheck=test1", String.class);
+		HttpStatus status = response.getStatusCode();		
+		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test 
+	public void shouldNotBeOkayForCheckAnswerOfBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/beeans/1/checkanswer?answerToCheck=test1", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
+	@Test
+	public void shouldReturnFalseForCorrectAnswerToBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/1/checkanswer?answerToCheck=test1", String.class);
+		String body = response.getBody();		
+		assertThat(body, is("false"));
+		
+	}
+	
+	@Test
+	public void shouldReturnTrueForCorrectAnswerToBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true", String.class);
+		String body = response.getBody();
+		assertThat(body, is("true"));
 	}
 }
