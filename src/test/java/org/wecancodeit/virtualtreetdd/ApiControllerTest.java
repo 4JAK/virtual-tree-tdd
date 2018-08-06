@@ -48,10 +48,35 @@ public class ApiControllerTest {
 		assertThat(status, is(HttpStatus.OK));
 	}
 	
+	@Test public void shouldNotBeOkayForBranches() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/brances", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
 	@Test
 	public void shouldBeOkForClusters() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test public void shouldNotBeOkayForClusters() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clustes", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
+	}
+	
+	@Test
+	public void shouldBeOkForBeans() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/beans", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test public void shouldNotBeOkayForBeans() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.NOT_FOUND));
 	}
 }
