@@ -25,44 +25,44 @@ public class ClusterControllerTest {
   @MockBean private ClusterRepository clusterRepo;
   @Mock private Cluster cluster;
 
-  @Test
+  @Test //shows that mapping is correct
   public void clusterMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/cluster/1")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test // shows that misspelling cluster gives back error
   public void clusterMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/clustr/1")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //shows that cluster/1 returns proper cluster
   public void clusterMappingAttributeShouldHaveHaveCluster() throws Exception {
     given(clusterRepo.findOne(1L)).willReturn(cluster);
     mvc.perform(get("/cluster/1")).andExpect(model().attribute("cluster", is(cluster)));
   }
 
-  @Test
+  @Test //shows that cluster mapping name is cluster
   public void clusterMappingViewNameShouldBeCluster() throws Exception {
     mvc.perform(get("/cluster/1")).andExpect(view().name(is("cluster")));
   }
 
-  @Test
+  @Test //shows that clusters mapping to correct
   public void clustersMappingShouldReturn2xxSuccessful() throws Exception {
     mvc.perform(get("/clusters")).andExpect(status().isOk()).andExpect(status().is2xxSuccessful());
   }
 
-  @Test
+  @Test //shows that misspelling of cluster gives back error
   public void clustersMappingShouldReturn4xxError() throws Exception {
     mvc.perform(get("/clustrs")).andExpect(status().is4xxClientError());
   }
 
-  @Test
+  @Test //shows that clusters shows more than one cluster
   public void clustersMappingAttributeShouldHaveHaveClusters() throws Exception {
     mvc.perform(get("/clusters"))
         .andExpect(model().attribute("clusters", is(clusterRepo.findAll())));
   }
 
-  @Test
+  @Test //shows that  clusters path has name of clusters
   public void clustersMappingViewNameShouldBeClusters() throws Exception {
     mvc.perform(get("/clusters")).andExpect(view().name(is("clusters")));
   }
