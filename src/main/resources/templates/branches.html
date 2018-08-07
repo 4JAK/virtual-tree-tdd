@@ -17,14 +17,12 @@
         </a>
     </nav>
     <h2>Modules</h2>
-        <div class="concept-container">
             <ol>
                 <li th:each="branch : ${branches}">
                     <a th:href="|@{/cluster/}${branch.id}|" th:text="${branch.name}">
             </a>
         </li>
     </ol>
-</div>
 </body>
 
 </html>
