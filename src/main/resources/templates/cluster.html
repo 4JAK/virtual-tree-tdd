@@ -28,7 +28,7 @@
                 </aside>
                 <p th:text="|Question type: ${bean.questionType}|"></p>
                 <p th:text="${bean.question}"></p>
-                <input class="bean-radio" th:each="answer : ${bean.answers}" type="radio">
+                <input class="bean-radio" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
                     <span th:text="${answer}"></span>
                 </input>
             </li>
