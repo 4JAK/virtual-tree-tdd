@@ -1,18 +1,15 @@
 /*
- * This is a full stack web/Java educational application designed to properly a user Test Driven Development
- * from start to finish. This self-education program also defines testing and the fundamental basics involved
- * in Java JUnit testing in conjunction with the Hamcrest & Mockito Libraries in particular. The website
- * contains a home/login page , profile page, a hierarchical structure for learning of trees , branches,
- * clusters, beans(questions). The questions are of type multiple choice , true or false, drag and drop, fill in the
- * blank. 
- * 
- * 
+ * PlanT'DD is a full-stack web application and Test Driven Development educational tool. This self-learning program takes you through the 
+ * fundamentals of Java JUnit testing with the Hamcrest and Mockito Libraries. The website contains a login page, profile page, and lessons 
+ * on the creation of a Virtual Tree through TDD. Users must correctly answer questions before they can proceed to the next lesson.
+ * The questions are either multiple choice , true or false, drag and drop, or fill in the blank. With each correct answer, the user's 
+ * Virtual Tree sapling matures into a full-grown tree. Once the lessons are finished, the user will receive a certificate of completion.
  * 
  * The application uses: Java,Spring,Hibernate,Thymleaf,HTML,CSS,JavaScript and JPA.
  * 
- * 
  * @Version: 1.0
- * @Author(s): Julian Perge, Jeanne Clair, Jaylen Guevara-Kirksey Bey, Kevin Cobb, Amal Ali, James Zebreski
+ *
+ * @Authors: Julian Perge, Jeanne Clair, Jaylen Guevara-Kirksey Bey, Kevin Cobb, Amal Ali, and James Zebreski
  */
 
 
