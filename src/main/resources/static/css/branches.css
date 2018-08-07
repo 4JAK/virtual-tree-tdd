@@ -1,0 +1,40 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 5%;
+    font-size:4vh; 
+}
+
+ol {
+    list-style-type: none;
+}
+
+ol {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+ol > li {
+    margin-top: 15%;
+    background-color: #ffffff;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    text-align: center;
+    line-height: 300px;
+    margin-left: 5%;
+    border-radius: 100%;
+    border: solid;
+    border-color: #3DCB9A;
+    font-size: 2.5vh; 
+    color: black; 
+}
+
+ol > li:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
