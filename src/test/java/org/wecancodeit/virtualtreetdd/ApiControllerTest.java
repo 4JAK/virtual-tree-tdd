@@ -28,9 +28,10 @@ public class ApiControllerTest {
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
-
+	
+	//test to show that there is a path to virtual tree
 	@Test
-	public void shouldBeOkForVirtualTrees() { //test to show that there is a path to virtual tree
+	public void shouldBeOkForVirtualTrees() { 
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/virtualtrees", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
@@ -131,17 +132,17 @@ public class ApiControllerTest {
 	
 	@Test
 	public void shouldBeOkForNextBeanFromClusterCollection() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/bean", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=1", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
 	}
 
-	@Test
-	public void shouldNotBeOkayForNextBeanFromClusterCollection() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/bean", String.class);
-		HttpStatus status = response.getStatusCode();
-		assertThat(status, is(HttpStatus.NOT_FOUND));
-	}
+//	@Test
+//	public void shouldNotBeOkayForNextBeanFromClusterCollection() {
+//		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/bean", String.class);
+//		HttpStatus status = response.getStatusCode();
+//		assertThat(status, is(HttpStatus.NOT_FOUND));
+//	}
 	
 //	@Test
 //	public void shouldGetNextBeanFromClusterCollection() {

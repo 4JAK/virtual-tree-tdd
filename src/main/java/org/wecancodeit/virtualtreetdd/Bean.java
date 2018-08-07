@@ -21,7 +21,7 @@ public class Bean {
   @JsonIgnore
   @ManyToOne private Lesson lesson;
   
-  private String questionNum;
+  private int questionNum;
   private QuestionType questionType;
   @Lob private String question;
   @ElementCollection private Collection<String> answers;
@@ -47,7 +47,7 @@ public class Bean {
   public Bean(
       Cluster cluster,
       Lesson lesson,
-      String questionNum,
+      int questionNum,
       QuestionType type,
       String question,
       String correctAnswer,
@@ -90,7 +90,7 @@ public class Bean {
     return question;
   }
 
-  public String getQuestionNum() {
+  public int getQuestionNum() {
     return questionNum;
   }
 

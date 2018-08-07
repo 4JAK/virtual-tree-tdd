@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-//@Service
+@Service
 public class Populator implements CommandLineRunner {
 
   @Autowired BranchRepository branchRepo;
@@ -36,7 +36,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson1Tdd(), null)),
-                "1",
+                1,
                 QuestionType.MultipleChoice,
                 getQuestion1Tdd(),
                 getCorrectAnswer1Tdd(),
@@ -46,7 +46,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson2Tdd(), null)),
-                "2",
+                2,
                 QuestionType.MultipleChoice,
                 getQuestion2Tdd(),
                 getCorrectAnswer2Tdd(),
@@ -56,7 +56,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson3Tdd(), null)),
-                "3",
+                3,
                 QuestionType.FillInTheBlanks,
                 getQuestion3Tdd(),
                 getCorrectAnswer3Tdd(),
@@ -66,7 +66,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson4Tdd(), null)),
-                "4",
+                4,
                 QuestionType.FillInTheBlanks,
                 getQuestion4Tdd(),
                 getCorrectAnswer4Tdd(),
@@ -76,7 +76,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson5Tdd(), null)),
-                "5",
+                5,
                 QuestionType.TrueOrFalse,
                 getQuestion5Tdd(),
                 getCorrectAnswer5Tdd(),
@@ -93,7 +93,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "6",
+                6,
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnit(),
                 getCorrectAnswerLesson1Answer1JUnit(),
@@ -103,7 +103,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "7",
+                7,
                 QuestionType.TrueOrFalse,
                 getLesson1Question2JUnit(),
                 getCorrectAnswerLesson1Answer2JUnit(),
@@ -113,7 +113,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "8",
+                8,
                 QuestionType.FillInTheBlanks,
                 getLesson1Question3JUnit(),
                 getCorrectAnswerLesson1Answer3JUnit(),
@@ -123,7 +123,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "9",
+                9,
                 QuestionType.FillInTheBlanks,
                 getLesson1Question4JUnit(),
                 getCorrectAnswerLesson1Answer4JUnit(),
@@ -133,7 +133,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
-                "10",
+                10,
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
                 getCorrectAnswerLesson1Answer5JUnit(),
@@ -145,7 +145,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnit(), "Test_1_Pass.png")),
-                "11",
+                11,
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
                 getCorrectAnswerLesson1Answer5JUnit(),
@@ -164,7 +164,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Requirements.png")),
-                "12",
+                12,
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnitHamcrest(),
                 getCorrectAnswerLesson1Answer1JUnitHamcrest(),
@@ -174,7 +174,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "13",
+                13,
                 QuestionType.TrueOrFalse,
                 getLesson2Question1JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer1JUnitHamcrest(),
@@ -184,7 +184,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "14",
+                14,
                 QuestionType.TrueOrFalse,
                 getLesson2Question2JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
@@ -194,7 +194,7 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-                "15",
+                15,
                 QuestionType.MultipleChoice,
                 getLesson2Question3JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),

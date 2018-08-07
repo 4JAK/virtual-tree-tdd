@@ -1,6 +1,7 @@
 package org.wecancodeit.virtualtreetdd;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -76,6 +77,13 @@ public class ApiController {
 		}
 		return true;
 		
+	}
+	
+	@RequestMapping (value = "/clusters/{clusterId}/getnextbean", method = RequestMethod.GET)
+	public Bean getNextBean(@PathVariable(name = "clusterId") Long clusterId,
+							@RequestParam(value = "currentBeanQuestionNum") int currentBeanQuestionNum) {
+			System.out.println(beanRepo.findByQuestionNum(2));	
+		return beanRepo.findByQuestionNum(2); 
 	}
 	
 	
