@@ -26,12 +26,34 @@
                 <aside th:text="${bean.lesson}">
 
                 </aside>
-                <p th:text="|Question type: ${bean.questionType}|"></p>
-                <p th:text="${bean.question}"></p>
-                <input class="bean-radio" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
-                    <span th:text="${answer}"></span>
+                <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
+                <p class="multipleChoiceQuestion" th:text="${bean.question}"></p>
+                <input class="bean-radio-multipleChoice" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
+                    <span th:text="${answer}"></span><br/>
                 </input>
             </li>
+
+            <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == TrueOrFalse">
+                    <aside th:text="${bean.lesson}">
+    
+                    </aside>
+                    <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
+                    <p class="trueOrFalseQuestion" th:text="${bean.question}"></p>
+                    <input class="bean-radio-trueOrFalse" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
+                        <span th:text="${answer}"></span><br/>
+                    </input>
+                </li>
+
+                <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == FillInTheBlank">
+                        <aside th:text="${bean.lesson}">
+        
+                        </aside>
+                        <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
+                        <p class="fillInTheBlankQuestion" th:text="${bean.question}"></p>
+                        <input class="bean-radio-fillInTheBlank" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
+                            <span th:text="${answer}"></span><br/>
+                        </input>
+                    </li>
         </ul>
     </div>
 </body>
