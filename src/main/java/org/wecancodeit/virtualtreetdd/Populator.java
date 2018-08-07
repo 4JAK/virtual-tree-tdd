@@ -24,7 +24,7 @@ public class Populator implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    VirtualTree javaTree = vTreeRepo.save(new VirtualTree("javaTree"));
+    VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree"));
 
     Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
 
@@ -175,7 +175,7 @@ public class Populator implements CommandLineRunner {
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
                 "13",
-                QuestionType.TrueOrFalse,
+                QuestionType.MultipleChoice,
                 getLesson2Question1JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer1JUnitHamcrest(),
                 getAnswersForLesson2Answer1JUnitHamcrest()));
@@ -566,7 +566,7 @@ public class Populator implements CommandLineRunner {
   // Lesson1
   // True or false
   public String getLesson1Question1JUnitHamcrest() {
-    return "We run a failing test before we create the method(s) necessary to retrieve information from other classes. (Getters)";
+    return "We run a failing test before we create a method (Getter) necessary to retrieve information from other classes.";
   }
   // Lesson 2
   public String getLesson2Question1JUnitHamcrest() {
