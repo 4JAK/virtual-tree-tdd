@@ -1,0 +1,19 @@
+form {
+    margin: 21% 0 0 47%;
+}
+
+input[type=submit]{
+    margin: 1% 0 0 4.5%;
+    border-width: .2em;
+}
+
+h1 {
+    margin: 0 47%;
+    font-display: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+footer{
+    margin: 15% 0 0 49%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
