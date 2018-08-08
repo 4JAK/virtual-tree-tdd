@@ -13,4 +13,6 @@ public interface BeanRepository extends CrudRepository<Bean, Long> {
 
 Bean findByQuestionNum(int currentBeanQuestionNum);
 
+Bean findFirstByQuestionNum(int beanQuestionNum);
+
 }
