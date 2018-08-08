@@ -26,3 +26,18 @@ h1 {
     border-radius: 100%;
     box-shadow: 5px 10px;  
 }
+
+.bean-radio-multipleChoice{
+    margin: 4% 0 4%;
+    align-items: baseline;
+}
+.trueOrFalseQuestion{
+    margin-bottom:5%;
+}
+
+aside{
+    display: none;
+}
+.questionType{
+    margin-bottom: 2%;
+}
