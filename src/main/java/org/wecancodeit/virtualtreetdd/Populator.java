@@ -174,13 +174,8 @@ public class Populator implements CommandLineRunner {
             new Bean(
                 clusterHamcrestJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
-<<<<<<< HEAD
                 13,
                 QuestionType.TrueOrFalse,
-=======
-                "13",
-                QuestionType.MultipleChoice,
->>>>>>> e446160028c83e879d30545599edb8185559ee3b
                 getLesson2Question1JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer1JUnitHamcrest(),
                 getAnswersForLesson2Answer1JUnitHamcrest()));
