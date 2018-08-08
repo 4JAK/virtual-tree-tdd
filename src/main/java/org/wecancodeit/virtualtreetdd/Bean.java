@@ -35,8 +35,7 @@ public class Bean {
   }
 
   /**
-   * @param cluster - The 'Lesson' that the bean is attached to | Cluster DragNDrop, or
-   *     MultipleChoice | QuestionType
+   * @param cluster - The 'Lesson' that the bean is attached to | Cluster
    * @param lesson - The lesson that is used to display the example for the bean | Lesson
    * @param questionNum | String
    * @param questionType - The question that will be shown i.e. TrueOrFalse, FillInTheBlanks,

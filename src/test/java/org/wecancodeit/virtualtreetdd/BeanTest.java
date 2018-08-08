@@ -16,12 +16,12 @@ import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 public class BeanTest {
 
   private Bean testBean;
+  Cluster testCluster = new Cluster();
 
   @Before //makes a cluster with bean
   public void setUp() {
-    Cluster testCluster = new Cluster();
-    testBean =
-        new Bean(testCluster, null, null, QuestionType.TrueOrFalse, "a question", "42", null);
+    testBean = new Bean(testCluster, null, 0, QuestionType.TrueOrFalse, "a question", null, null);
+//        new Bean(testCluster, null, null, QuestionType.TrueOrFalse, "a question", 42, null);
   }
 
   @Test //Instantiation check != null
@@ -43,7 +43,7 @@ public class BeanTest {
 
   @Test //check should return that the question type is TrueOrFalse
   public void beanQuestionTypeShouldBeTrueOrFalse() {
-    assertThat(testBean.getQuestionType(), is(QuestionType.TrueOrFalse));
+    assertThat(testBean.getQuestionType(), is("TrueOrFalse"));
   }
 
   @Test //check should return that the question type is FillInTheBlanks
@@ -58,7 +58,7 @@ public class BeanTest {
     String correctAnswer = "this is correct";
     Collection<String> answerCollection = Arrays.asList(answer1, answer2, correctAnswer);
 
-    Bean underTestBean = new Bean(null, null, null, null, null, null, answerCollection);
+    Bean underTestBean = new Bean(testCluster, null, 0, QuestionType.Drag_n_Drop, "answer to life", "42", answerCollection);
 
     assertThat(underTestBean.getAnswers().size(), is(greaterThan(1)));
   }

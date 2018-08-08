@@ -32,7 +32,7 @@ public class BeanRepositoryTest {
   public void setUp() {
     testCluster = clusterRepo.save(new Cluster("Java Bean Cluster", null));
     testBean =
-        beanRepo.save(new Bean(testCluster, null, "First question", QuestionType.FillInTheBlanks, "This is a question?", "true", null));
+        beanRepo.save(new Bean(testCluster, null, 0, QuestionType.TrueOrFalse, "a question", null, null));
   }
 
   
@@ -87,9 +87,9 @@ public class BeanRepositoryTest {
   @Test //Checks to see if searching by "QuestionType" return's results "TrueOrFalse"
   public void shouldBeAbleToQueryAllBeansOfQuestionTypeTrueOrFalse() {
     Bean testBean2 =
-    		beanRepo.save(new Bean(testCluster, null, "First question", QuestionType.TrueOrFalse, "This is a question?", "true", null));
+    		beanRepo.save(new Bean(null, null, 1, QuestionType.TrueOrFalse, "This is a question?", "true", null));
     Bean testBean3 =
-    		beanRepo.save(new Bean(testCluster, null, "First question", QuestionType.TrueOrFalse, "This is a question? 2", "true", null));
+    		beanRepo.save(new Bean(null, null, 2, QuestionType.TrueOrFalse, "This is a question? 2", "true", null));
 
     Long testBeanId = testBean.getId();
     Long testBean2Id = testBean2.getId();
@@ -102,7 +102,7 @@ public class BeanRepositoryTest {
     Bean resultTestBean2 = beanRepo.findOne(testBean2Id);
     Bean resultTestBean3 = beanRepo.findOne(testBean3Id);
 
-    assertThat(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse), containsInAnyOrder(resultTestBean2, resultTestBean3));
-    assertThat(beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse).size(), is(equalTo(2)));
+    assertThat(beanRepo.findAllByQuestionType(Bean.QuestionType.TrueOrFalse), containsInAnyOrder(resultTestBean, resultTestBean2, resultTestBean3));
+    assertThat(beanRepo.findAllByQuestionType(Bean.QuestionType.TrueOrFalse).size(), is(equalTo(3)));
   }
 }

@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -38,8 +39,8 @@ public class LessonRepositoryTest {
   @Test //shows that a lesson can have more than one bean 
   public void lessonShouldEstablishRelationshipToBeans() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
-    Bean testBean1 = beanRepo.save(new Bean(null, underTestLesson, null, null, null, null, null));
-    Bean testBean2 = beanRepo.save(new Bean(null, underTestLesson, null, null, null, null, null));
+    Bean testBean1 = beanRepo.save(new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
+    Bean testBean2 = beanRepo.save(new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
 
     Long lessonId = underTestLesson.getId();
     Long testBean1Id = testBean1.getId();
