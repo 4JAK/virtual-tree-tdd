@@ -82,8 +82,9 @@ public class ApiController {
 	@RequestMapping (value = "/clusters/{clusterId}/getnextbean", method = RequestMethod.GET)
 	public Bean getNextBean(@PathVariable(name = "clusterId") Long clusterId,
 							@RequestParam(value = "currentBeanQuestionNum") int currentBeanQuestionNum) {
-			System.out.println(beanRepo.findByQuestionNum(2));	
-		return beanRepo.findByQuestionNum(2); 
+				
+		int nextBeanQuestionNum = currentBeanQuestionNum + 1;
+		return beanRepo.findFirstByQuestionNum(nextBeanQuestionNum); 
 	}
 	
 	
