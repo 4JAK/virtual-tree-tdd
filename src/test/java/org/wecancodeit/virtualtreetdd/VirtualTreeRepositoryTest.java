@@ -30,8 +30,8 @@ public class VirtualTreeRepositoryTest {
 	@Mock
 	private VirtualTree testTree;
 
-	@Test
-	public void shouldBeAbleToSaveVirtualTreeToRepo() throws Exception {
+	@Test //shows that a tree can be saved to tree repo
+	public void shouldBeAbleToSaveVirtualTreeToRepo() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		
@@ -41,8 +41,8 @@ public class VirtualTreeRepositoryTest {
 		assertTrue(vTreeRepo.exists(treeId));
 	}
 
-	@Test
-	public void virtualTreeShouldHaveGeneratedId() throws Exception {
+	@Test //shows that tree has a generated id
+	public void virtualTreeShouldHaveGeneratedId() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		
@@ -54,8 +54,8 @@ public class VirtualTreeRepositoryTest {
 		assertNotNull(vTreeRepo.findOne(expectedId));
 	}
 	
-	@Test 
-	public void virtualTreeFromRepoShouldHaveName() throws Exception {
+	@Test  //shows that tree has a name and that the getter for name works 
+	public void virtualTreeFromRepoShouldHaveName() {
 		testTree = vTreeRepo.save(new VirtualTree("Java"));
 		Long treeId = testTree.getId();
 		String treeName = testTree.getName();

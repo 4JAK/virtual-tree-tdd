@@ -11,27 +11,25 @@ import org.mockito.Mock;
 
 public class BranchTest {
 
-	@Mock
-	private Branch testBranch;
+  @Mock private Branch testBranch;
 
-	@Before
-	public void branchSetup() {
-		testBranch = new Branch("Java Branch", new VirtualTree());
-	}
+  @Before
+  public void branchSetup() { //shows that a branch is apart of a tree
+    testBranch = new Branch("Java Branch", new VirtualTree());
+  }
 
-	@Test
-	public void shouldBeAbleToCreateNewBranch() {
-		assertNotNull(testBranch);
-	}
+  @Test // should show that creating a new branch yields a new branch
+  public void shouldBeAbleToCreateNewBranch() {
+    assertNotNull(testBranch);
+  }
 
-	@Test
-	public void shouldHaveName() {
-		assertThat(testBranch.getName(), is(equalTo("Java Branch")));
-	}
+  @Test // test to show that each branch has a name and is able to get that name
+  public void shouldHaveName() {
+    assertThat(testBranch.getName(), is(equalTo("Java Branch")));
+  }
 
-	@Test
-	public void shouldHaveVirtualTree() {
-		assertNotNull(testBranch.getVirtualTree());
-	}
-
+  @Test // test shows that a branch should have a virtual tree it is apart of
+  public void shouldHaveVirtualTree() {
+    assertNotNull(testBranch.getVirtualTree());
+  }
 }

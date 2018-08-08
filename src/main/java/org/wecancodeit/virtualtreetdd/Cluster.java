@@ -16,18 +16,17 @@ public class Cluster {
 
   @ManyToOne private Branch branch;
 
+  // a collection of questions
   @OneToMany(mappedBy = "cluster")
   private Collection<Bean> beans;
 
+  /**
+   * @param name | String
+   * @param branch - Branch of which the cluster is owned by | Branch
+   */
   public Cluster(String name, Branch branch) {
     this.name = name;
     this.branch = branch;
-  }
-
-  public Cluster() {}
-
-  public Collection<Bean> getBeans() {
-    return beans;
   }
 
   public Long getId() {
@@ -41,4 +40,10 @@ public class Cluster {
   public Branch getBranch() {
     return branch;
   }
+
+  public Collection<Bean> getBeans() {
+    return beans;
+  }
+
+  public Cluster() {}
 }
