@@ -12,7 +12,7 @@
 
 <body>
     <nav>
-        <a th:href="@{/home}">
+        <a class="home-page-btn" th:href="@{/home}">
             Home Page
         </a>
     </nav>
@@ -27,7 +27,7 @@
 
                 </aside>
                 <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                <p class="multipleChoiceQuestion" th:text="${bean.question}"></p>
+                <p class="multipleChoiceQuestion question" th:text="${bean.question}"></p>
                 <input class="bean-radio-multipleChoice" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
                     <span th:text="${answer}"></span><br/>
                 </input>
@@ -38,7 +38,7 @@
     
                     </aside>
                     <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                    <p class="trueOrFalseQuestion" th:text="${bean.question}"></p>
+                    <p class="trueOrFalseQuestion question" th:text="${bean.question}"></p>
                     <input class="bean-radio-trueOrFalse" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
                         <span th:text="${answer}"></span><br/>
                     </input>
@@ -49,7 +49,7 @@
         
                         </aside>
                         <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                        <p class="fillInTheBlankQuestion" th:text="${bean.question}"></p>
+                        <p class="fillInTheBlankQuestion question" th:text="${bean.question}"></p>
                         <input class="bean-radio-fillInTheBlank" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
                             <span th:text="${answer}"></span><br/>
                         </input>
