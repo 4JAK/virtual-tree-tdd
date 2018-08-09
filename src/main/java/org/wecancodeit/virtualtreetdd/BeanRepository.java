@@ -11,8 +11,7 @@ public interface BeanRepository extends CrudRepository<Bean, Long> {
 
   Collection<Bean> findAllByQuestionType(QuestionType typeOfQuestion);
 
-Bean findByQuestionNum(int currentBeanQuestionNum);
+  Bean findByQuestionNum(int currentBeanQuestionNum);
 
-Bean findFirstByQuestionNum(int beanQuestionNum);
-
+  Bean findFirstByQuestionNum(int beanQuestionNum);
 }

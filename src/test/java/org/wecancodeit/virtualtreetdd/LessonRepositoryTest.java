@@ -22,7 +22,7 @@ public class LessonRepositoryTest {
   @Autowired private BeanRepository beanRepo;
   @Resource private EntityManager em;
 
-  @Test //shows that a lesson is able to be saved to lesson repo
+  @Test // shows that a lesson is able to be saved to lesson repo
   public void shouldBeAbleToSaveLessonToRepo() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
 
@@ -35,24 +35,28 @@ public class LessonRepositoryTest {
 
     assertThat(lessonRepo.findOne(lessonId), is(resultLesson));
   }
- 
-  @Test //shows that a lesson can have more than one bean 
+
+  @Test // shows that a lesson can have more than one bean
   public void lessonShouldEstablishRelationshipToBeans() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
-    Bean testBean1 = beanRepo.save(new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
-    Bean testBean2 = beanRepo.save(new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
+    Bean testBean1 =
+        beanRepo.save(
+            new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
+    Bean testBean2 =
+        beanRepo.save(
+            new Bean(null, underTestLesson, 0, QuestionType.TrueOrFalse, "a question", null, null));
 
     Long lessonId = underTestLesson.getId();
     Long testBean1Id = testBean1.getId();
     Long testBean2Id = testBean2.getId();
-    
+
     em.flush();
     em.clear();
 
     Lesson resultLesson = lessonRepo.findOne(lessonId);
     Bean resultBean1 = beanRepo.findOne(testBean1Id);
     Bean resultBean2 = beanRepo.findOne(testBean2Id);
-    
+
     assertThat(resultLesson.getBeans(), containsInAnyOrder(resultBean1, resultBean2));
   }
 }
