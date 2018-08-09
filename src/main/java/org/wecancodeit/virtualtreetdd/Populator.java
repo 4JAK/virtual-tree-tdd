@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-@Service
+//@Service
 public class Populator implements CommandLineRunner {
 
   @Autowired BranchRepository branchRepo;
@@ -434,7 +434,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question2JUnit() {
-    return "If the class doesn’t exist, the object instantiated will be equal to null and asserting that the Object is equal to null will make the test fail in JUnit.";
+    return "If the class doesn't exist, the object instantiated will be equal to null and asserting that the Object is equal to null will make the test fail in JUnit.";
   }
 
   public String getLesson1Question3JUnit() {
