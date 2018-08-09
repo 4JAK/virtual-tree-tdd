@@ -25,6 +25,7 @@ public class Bean {
   @ElementCollection private Collection<String> answers;
   private String correctAnswer;
 
+  //Different types of questions
   protected enum QuestionType {
     Drag_n_Drop,
     FillInTheBlanks,

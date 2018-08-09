@@ -19,7 +19,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class VirtualTreeTddApplication {
-
+	
+  //Main method
   public static void main(String[] args) {
     SpringApplication.run(VirtualTreeTddApplication.class, args);
   }

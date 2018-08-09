@@ -21,13 +21,13 @@ public class Populator implements CommandLineRunner {
 
   @Autowired LessonRepository lessonRepo;
 
-  @Override
+  @Override // Command Line Runner method
   public void run(String... args) throws Exception {
-
+	// Virtual tree for Java Testing & TDD
     VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree"));
-
+    //First Branch
     Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
-
+    //01Branch01Cluster
     Cluster clusterTdd =
         clusterRepo.save(new Cluster("Introduction To Test Driven Development", introTddBranch));
 
@@ -82,12 +82,11 @@ public class Populator implements CommandLineRunner {
                 getCorrectAnswer5Tdd(),
                 getAnswersFor5Tdd()));
 
-    // JUnit Branch
-
+    // JUnit Branch, Second branch
     Branch jUnit = branchRepo.save(new Branch("Intro to JUnit", javaTree));
-    // JUnit Cluster
+    // JUnit 02Branch01Cluster 
     Cluster clusterJUnit = clusterRepo.save(new Cluster("Introduction To JUnit Testing", jUnit));
-    // JUnit Questions Section 1/3
+    // JUnit Questions 
     Bean jUnitQ1 =
         beanRepo.save(
             new Bean(
@@ -151,10 +150,10 @@ public class Populator implements CommandLineRunner {
                 getCorrectAnswerLesson1Answer5JUnit(),
                 getAnswersForLesson1Answer5JUnit()));
 
-    // Hamcrest / JUnit transition Branch
+    // Hamcrest / JUnit transition 03Branch
     Branch hamcrest = branchRepo.save(new Branch("Hamcrest/JUnit", javaTree));
 
-    // Hamcrest & JUnit Cluster
+    // Hamcrest & JUnit Cluster 03Branch01Cluster
     Cluster clusterHamcrestJUnit =
         clusterRepo.save(new Cluster("Introduction To Hamcrest/JUnit", jUnit));
 
