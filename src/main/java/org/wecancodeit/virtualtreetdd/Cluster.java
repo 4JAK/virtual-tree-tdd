@@ -28,6 +28,16 @@ public class Cluster {
     this.name = name;
     this.branch = branch;
   }
+  
+  public Bean getBean(int questionNum) {
+	  Bean correctBean = null;
+	  for (Bean bean : beans) {
+		  if (bean.getQuestionNum() == questionNum) {
+			  correctBean = bean;
+		  }
+	  }
+	  return correctBean;
+  }
 
   public Long getId() {
     return id;

@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -144,10 +145,11 @@ public class ApiControllerTest {
 //		assertThat(status, is(HttpStatus.NOT_FOUND));
 //	}
 	
-//	@Test
-//	public void shouldGetNextBeanFromClusterCollection() {
-//		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/beans/", String.class);
-//		
-//		
-//	}
+	@Test
+	public void shouldGetNextBeanFromClusterCollection() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=1", String.class);
+		boolean body = response.getBody().contains("\"id\":2");
+		System.out.println(response.getBody()); 
+		assertThat(body, is(true));
+	}
 }

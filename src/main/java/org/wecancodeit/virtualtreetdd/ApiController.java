@@ -70,9 +70,7 @@ public class ApiController {
 									@RequestParam(value = "answerToCheck") String answerToCheck) {
 		
 		String correctAnswer = beanRepo.findOne(beanId).getCorrectAnswer();
-		
-		if(!correctAnswer.equalsIgnoreCase(answerToCheck)) {
-			
+		if(!correctAnswer.equalsIgnoreCase(answerToCheck.trim())) {
 			return false;
 		}
 		return true;
@@ -82,9 +80,8 @@ public class ApiController {
 	@RequestMapping (value = "/clusters/{clusterId}/getnextbean", method = RequestMethod.GET)
 	public Bean getNextBean(@PathVariable(name = "clusterId") Long clusterId,
 							@RequestParam(value = "currentBeanQuestionNum") int currentBeanQuestionNum) {
-				
-		int nextBeanQuestionNum = currentBeanQuestionNum + 1;
-		return beanRepo.findFirstByQuestionNum(nextBeanQuestionNum); 
+		Cluster currentCluster = clusterRepo.findOne(clusterId);
+		return currentCluster.getBean(currentBeanQuestionNum + 1); 
 	}
 	
 	

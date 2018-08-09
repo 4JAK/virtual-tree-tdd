@@ -590,7 +590,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswerLesson2Answer1JUnitHamcrest() {
-    return "A Value & Matcher statement.";
+    return "A Value and Matcher statement.";
   }
 
   public String getCorrectAnswerLesson2Answer2JUnitHamcrest() {
@@ -616,7 +616,7 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson2Answer1JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "A Value & Matcher statement.";
+    String answer1 = "A Value and Matcher statement.";
     String answer2 = "Value";
     String answer3 = "A return method";
     String answer4 = "No minimum value";
