@@ -4,8 +4,9 @@ body {
 
 h2 {
     text-align: center;
-    margin-top: 5%;
+    margin: 5% 0 0 2%;
     font-size:4vh; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 ol {
@@ -14,7 +15,7 @@ ol {
 
 ol {
     margin-top: 5%;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     margin-bottom: 5%;
 }
@@ -22,19 +23,27 @@ ol {
 ol > li {
     margin-top: 15%;
     background-color: #ffffff;
-    width: 300px;
-    height: 300px;
-    margin: 20px;
+    width: 125px;
+    height: 125px;
+    margin: 55px auto;
     text-align: center;
-    line-height: 300px;
-    margin-left: 5%;
+    line-height: 125px;
+    /* margin-left: 41%; */
     border-radius: 100%;
     border: solid;
     border-color: #3DCB9A;
     font-size: 2.5vh; 
-    color: black; 
+    color: black;
+    
 }
+
+
 
 ol > li:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+.vl {
+    margin: 0 0 0 48.5%;
+    border-left: 4px solid green;
+    height: 500px;
 }
