@@ -1,0 +1,39 @@
+{
+  "name": "virtual-tree-tdd",
+  "version": "1.0.0",
+  "description": "Learn TDD through Java Unit Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start --single-run --browsers ChromeHeadless,FirefoxHeadless,IE karma.conf.js || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4JAK/virtual-tree-tdd.git"
+  },
+  "keywords": [
+    "java",
+    "tdd",
+    "testing",
+    "test",
+    "driven",
+    "development",
+    "unit"
+  ],
+  "author": "Julian Perge, Jeanne Clair, Kevin Cobb, Amal Ali, Jaylen Guevara-Kirksey Bey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4JAK/virtual-tree-tdd/issues"
+  },
+  "homepage": "https://github.com/4JAK/virtual-tree-tdd#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "karma": "^2.0.5",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^5.2.0",
+    "puppeteer": "^1.6.2"
+  }
+}
