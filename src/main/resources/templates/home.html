@@ -35,18 +35,26 @@
 
     <div class="concept-container">
         <div class="concept">
-            <h2>Course 1</h2>
+            <h2>Introduction to TDD</h2>
 
             <!-- Courses started Resume button redirects to Clusters -->
 
-            <button class="resume"> Resume &rarr;</button>
+            <button class="resume" th:href="@{/cluster/1}"> Resume &rarr;</button>
         </div>
 
         <div class="concept">
-            <h2>Course 2</h2>
-            <button class="resume"> Resume &rarr; </button>
+            <h2>JUnit Testing</h2>
+            <button class="resume" th:href="@{/cluster/2}"> Resume &rarr; </button>
         </div>
+
+        <div class="concept">
+            <h2>JUnit/Hamcrest</h2>
+            <button class="resume" th:href="@{/cluster/3}"> Resume &rarr; </button>
+        </div>
+    
     </div>
+
+    
 
     <hr />
 
