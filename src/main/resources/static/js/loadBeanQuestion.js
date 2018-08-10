@@ -1,24 +1,33 @@
 function renderBean(response) {  
   if (this.status === 200 && this.readyState === 4) {
     const bean = JSON.parse(response.target.response);
-    const ul = document.querySelector('.clusterBeans');
-    ul.innerHTML = `
-    <li class="bean">
-      <p class="beanQuestion">${bean.question}</p>
-    </li>
+    const fieldset = document.querySelector('.clusterBeans');
+    fieldset.innerHTML = `
+    <legend class="questionLegend">
+      <strong class="beanQuestion">${bean.question}</strong>
+    </legend>
     `;
-    const beanQuestionTag = document.querySelector('.beanQuestion');
+    // We still have our Bean object, and what do our objects have?
+    // Collections! And we can iterate over them like so
     bean.answers.forEach((answer) => {
-      ul.innerHTML += `
-      <input class="${bean.id}" type="radio" name="radioGroup" value="${bean.questionNum}">
-        ${answer}
-      </input>`;
+      fieldset.innerHTML += `
+      <label for="radioGroup">
+        <input class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
+          ${answer}
+        </input>
+      </label>`;
     });
+
+    // Grab the strong tag from it's id
+    const currentQuestionNum = document.getElementById('currentQuestionNum');
+    // Set the innerHTML to the next bean's question num
+    currentQuestionNum.innerHTML = `${bean.questionNum}`;
 
     btnNextQuestion.setAttribute('disabled', 'true');
   }
 }
 
+// API call for grabbing the next bean in the cluster
 function getNextBeanQuestion() {
   const xhr = new XMLHttpRequest();
   const clusterId = document.URL.split('/')[4];
@@ -33,5 +42,8 @@ function getNextBeanQuestion() {
   xhr.send();
 }
 
-
+// Currently, btnNextQuestion doesn't exist in this file, however,
+// we're not declaring it with a const because it DOES exist in our other files,
+// therefore throwing an error of redeclaration.
+// 
 btnNextQuestion.addEventListener('click', getNextBeanQuestion);
