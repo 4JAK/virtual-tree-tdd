@@ -325,7 +325,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getQuestion5Tdd() {
-    return "assertThat(actual, is(equalTo(expectedGrowthAfterWatering)));  will give you a passing test. True or False?";
+    return "assertThat(actual, is(equalTo(expectedGrowthAfterWatering)));  will give you a passing test.";
   }
 
   public String getCorrectAnswer1Tdd() {
