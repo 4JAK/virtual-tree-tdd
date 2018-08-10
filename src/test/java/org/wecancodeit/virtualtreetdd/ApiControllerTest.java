@@ -1,6 +1,7 @@
 package org.wecancodeit.virtualtreetdd;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import javax.annotation.Resource;
@@ -138,18 +139,24 @@ public class ApiControllerTest {
 		assertThat(status, is(HttpStatus.OK));
 	}
 
-//	@Test
-//	public void shouldNotBeOkayForNextBeanFromClusterCollection() {
-//		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/bean", String.class);
-//		HttpStatus status = response.getStatusCode();
-//		assertThat(status, is(HttpStatus.NOT_FOUND));
-//	}
+	// Our API call right now is checking a cluster for its beans,
+	// so cluster 1 has 5 beans, but cluster 2 only has 4
+	// Lets test trying to grab a question that doesn't exist in a cluster
+	@Test
+	public void shouldNotBeOkayForNextBeanFromClusterCollection() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=5", String.class);
+		// We're not testing the connection because we know the connection TO the API works.
+		
+		// response.getBody() being a Bean object, because that is what our API call is returning
+		assertNull(response.getBody());
+	}
 	
 	@Test
 	public void shouldGetNextBeanFromClusterCollection() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=1", String.class);
-		boolean body = response.getBody().contains("\"id\":2");
-		System.out.println(response.getBody()); 
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=3", String.class);
+		// Since it's a bean object that we're returning, 
+		// we can check it's if it contains the questionNum property, which it should 
+		boolean body = response.getBody().contains("\"questionNum\":4"); 
 		assertThat(body, is(true));
 	}
 }
