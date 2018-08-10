@@ -1,8 +1,13 @@
 .gradle
 /build/
+<<<<<<< HEAD
 /node_modules
 /coverage
 /plantdd-db
+=======
+node_modules/
+/coverage
+>>>>>>> master
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

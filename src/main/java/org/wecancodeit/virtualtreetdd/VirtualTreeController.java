@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller // Controller for virtual tree
 public class VirtualTreeController {
 		
 	@Autowired private VirtualTreeRepository vTreeRepo;

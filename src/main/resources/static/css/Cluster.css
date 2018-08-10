@@ -41,6 +41,7 @@ aside{
 .questionType{
     margin-bottom: 2%;
 }
+<<<<<<< HEAD
 
 .clusterBeans {
     align-items: flex-start;
@@ -58,4 +59,22 @@ aside{
 .bean {
     display: flex;
     flex-direction: column;
+=======
+ul{
+    font-family: Helvetica;
+}
+.home-page-btn{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.questionType{
+    font-size: 75%;
+}
+.question{
+ 
+    font-size: 120%;
+}
+.questionType{
+    list-style-type: none;
+    /* display: none; */
+>>>>>>> master
 }

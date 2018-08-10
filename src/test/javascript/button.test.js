@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+=======
+// require('babel-register');
+// require('babel-polyfill');
+
+>>>>>>> master
 /* eslint-disable */
 
 describe('Submit Answer Button Suite', function() {
 
   const ul = document.createElement('ul');
+<<<<<<< HEAD
   ul.setAttribute('class', 'clusterBeans');
+=======
+>>>>>>> master
   const li = document.createElement('li');
   const rdoButton1 = document.createElement('input');
   rdoButton1.setAttribute('type', 'radio');
@@ -18,6 +27,7 @@ describe('Submit Answer Button Suite', function() {
   ul.appendChild(li);
   ul.appendChild(submitButton);
   document.body.appendChild(ul);
+<<<<<<< HEAD
   /* What it looks like
     <body>
       <ul>
@@ -29,6 +39,8 @@ describe('Submit Answer Button Suite', function() {
       </ul>
     </body>
   */
+=======
+>>>>>>> master
 
   it('should return selectedAnswer for id when radio button is clicked', () => {
     rdoButton2.click();
@@ -39,6 +51,7 @@ describe('Submit Answer Button Suite', function() {
   it('should return true for checked property of radio button', () => {
     expect(rdoButton2.checked).to.deep.equal(true);
   });
+<<<<<<< HEAD
 
   it('should return true for checked property of radio button', () => {
     expect(rdoButton1.checked).to.deep.equal(false);
@@ -50,3 +63,17 @@ describe('Submit Answer Button Suite', function() {
     expect(bean.getAttribute('disabled')).to.deep.equal(true);
   });
 });
+=======
+  
+  // it('should return true from checkAnswerOfBean API call ', () => {
+  //   const promise = webix.ajax().get(`http://localhost:8080/api/beans/1/checkanswer?answerToCheck=${rdoButton2.innerText}`, JSON.stringify(test));
+  //   promise.then(function (resp) {
+  //     console.log('resp', app.util.inspect(resp));
+  //     done();
+  //   }).fail(function (err) {
+  //     console.log('err', app.util.inspect(promise));
+  //     throw(promise.state);
+  //   });
+  // });
+});
+>>>>>>> master

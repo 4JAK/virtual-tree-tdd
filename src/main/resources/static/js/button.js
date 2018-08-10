@@ -5,6 +5,7 @@
   if ( typeof NodeList.prototype.forEach === "function" ) return false;
   NodeList.prototype.forEach = Array.prototype.forEach;
 })();
+<<<<<<< HEAD
 // Grab the next question button
 const btnNextQuestion = document.getElementById('nextQuestion');
 // Set the buttons attribute to disabled
@@ -20,6 +21,13 @@ function setIdOfCheckedRadioButton() {
   // if not null by checking if there's at least 1 element in the query
   if (rdoButtons[0]) {
     // for each queried button
+=======
+
+function setIdOfCheckedRadioButton() {
+  // console.log(`Target: ${event.target}`);
+  const rdoButtons = document.querySelectorAll('input[type="radio"]');
+  if (rdoButtons[0]) {
+>>>>>>> master
     rdoButtons.forEach((rdoButton) => {
       if (rdoButton.checked === false) {
         rdoButton.removeAttribute('id');
@@ -29,6 +37,7 @@ function setIdOfCheckedRadioButton() {
     });
   }
 }
+<<<<<<< HEAD
 // Grab the submit answer button
 const btnSubmitAnswer = document.getElementById('submitAnswer');
 // Grab the unordered list of where the bean is at
@@ -108,10 +117,26 @@ function checkIfAnswerIsCorrect(response) {
       // With the modal, we can add it in the HTML instead of a popup,
       // with text being added inside, indicating whether or not they were correct.
       console.log('Wrong...');
+=======
+
+// function addEventListeners() {
+// }
+// addEventListeners();
+
+function checkIfAnswerIsCorrect(response) {
+  if (this.status === 200 && this.readyState === 4) {
+    const answer = JSON.parse(response.target.response);
+    if (answer === true) {
+      console.log("Yay you're right!");
+    } else {
+      console.log('Wrong...');
+      
+>>>>>>> master
     }
   }
 }
 
+<<<<<<< HEAD
 function enableSubmitButtonOnRadioSelect() {
   // if the id exists, which it should
   if (document.getElementById('selectedAnswer')) {
@@ -137,3 +162,19 @@ function getAnswerToCheck() {
   xhr.addEventListener('readystatechange', checkIfAnswerIsCorrect);
   xhr.send();
 }
+=======
+function getAnswerToCheck() {
+  const rdoClicked = document.getElementById('selectedAnswer');
+  const beanId = rdoClicked.value;
+  const answerToCheck = rdoClicked.textContent;
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `/api/beans/${beanId}/checkanswer?answerToCheck=${answerToCheck}`, true);
+  xhr.addEventListener('readystatechange', checkIfAnswerIsCorrect);
+  xhr.send();
+}
+
+// const clusterBeansUl = document.querySelector('.clusterBeans');
+// const btnSubmitAnswer = document.getElementById('submitAnswer');
+// clusterBeansUl.addEventListener('click', setIdOfCheckedRadioButton);
+// btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
+>>>>>>> master
