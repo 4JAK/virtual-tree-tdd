@@ -2,6 +2,7 @@
 /build/
 /node_modules
 /coverage
+/plantdd-db
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
