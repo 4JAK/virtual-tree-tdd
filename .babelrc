@@ -1,7 +1,3 @@
 {
-<<<<<<< HEAD
  "presets": [ "env" ]
-=======
-	presets: ['env']
->>>>>>> master
 }

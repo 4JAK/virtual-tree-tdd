@@ -4,11 +4,7 @@
   "description": "Learn TDD through Java Unit Testing",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "karma start karma.conf.js"
-=======
-    "test": "karma start --reporters clear-screen,dots,coverage --single-run"
->>>>>>> master
   },
   "repository": {
     "type": "git",
