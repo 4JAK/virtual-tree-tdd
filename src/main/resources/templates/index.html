@@ -15,10 +15,10 @@
             <h2><strong>Test first. Code better. Together.</strong></h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, nostrum in eligendi earum assumenda at distinctio dicta corporis quam veniam non quas accusantium. Nihil hic distinctio laborum ratione autem? Iste!</p>
         
-            <form action="/login">
+            <form action="/home.html">
                 <input type="text" name="uname" placeholder="Username" /><br/>
                 <input type="text" name="Password" placeholder="Password" /><br/>
-                <input type="submit" value="Login &rarr;" />
+                <a th:href="|@{/home}|"><input type="submit" value="Login &rarr;" /></a>
             </form>
     </div>
     </section>
@@ -76,7 +76,7 @@
         <div class = "login-redirect-container">
             <h2>It is time to start refactoring your workflow</h2>
             <p>Because learning TDD might just revolutionize the way you look at code</p>
-            <button>Get Started &rarr;</button>
+            <a th:href="|@{/home}|"><button>Get Started &rarr;</button></a>
         </div>
     </section>
 
