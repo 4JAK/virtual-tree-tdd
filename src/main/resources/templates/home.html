@@ -38,18 +38,18 @@
             <h2>Introduction to TDD</h2>
 
             <!-- Courses started Resume button redirects to Clusters -->
-
-            <button class="resume" th:href="@{/cluster/1}"> Resume &rarr;</button>
+            
+            <button class="resume"><a th:href="|@{/cluster/1}|"> Resume &rarr;</a></button>
         </div>
 
         <div class="concept">
             <h2>JUnit Testing</h2>
-            <button class="resume" th:href="@{/cluster/2}"> Resume &rarr; </button>
+            <button class="resume"><a th:href="|@{/cluster/2}|"> Resume &rarr;</a></button>
         </div>
 
         <div class="concept">
             <h2>JUnit/Hamcrest</h2>
-            <button class="resume" th:href="@{/cluster/3}"> Resume &rarr; </button>
+            <button class="resume"><a th:href="|@{/cluster/3}|"> Resume &rarr;</a></button>
         </div>
     
     </div>
@@ -69,7 +69,7 @@
 
             <!-- Courses not started Get Started button redirects to Beans -->
 
-            <button class="start"> Get Started &rarr; </button>
+            <button class="start"><a th:href="@{/branches/}">Get Started &rarr;</a></button>
         </div>
     </div>
 </body>
