@@ -9,7 +9,7 @@ h1 {
 .concept-container {
     margin-top: 5%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 5%;
     margin-bottom: 5%;
 }
@@ -40,4 +40,22 @@ aside{
 }
 .questionType{
     margin-bottom: 2%;
+}
+
+.clusterBeans {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.beanQuestion {
+    font-size: 1.5rem;
+}
+
+.bean {
+    display: flex;
+    flex-direction: column;
 }
