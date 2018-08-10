@@ -9,7 +9,7 @@ h1 {
 .concept-container {
     margin-top: 5%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 5%;
     margin-bottom: 5%;
 }
@@ -41,9 +41,29 @@ aside{
 .questionType{
     margin-bottom: 2%;
 }
-ul{
+
+.clusterBeans {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.beanQuestion {
+    font-size: 1.5rem;
+}
+
+.bean {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
     font-family: Helvetica;
 }
+
 .home-page-btn{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -51,7 +71,6 @@ ul{
     font-size: 75%;
 }
 .question{
- 
     font-size: 120%;
 }
 .questionType{

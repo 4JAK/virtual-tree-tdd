@@ -20,42 +20,33 @@
     <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
 
     <div class="concept-container">
+        <fieldset class="clusterBeans">
+            <aside th:text="${cluster.beans[0].lesson}">
+            </aside>
 
-        <ul class="clusterBeans">
-            <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == MultipleChoice">
-                <aside th:text="${bean.lesson}">
+            <legend class="questionLegend">
+                <strong th:text="${cluster.beans[0].question}"></strong>
+            </legend>
 
-                </aside>
-                <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                <p class="multipleChoiceQuestion question" th:text="${bean.question}"></p>
-                <input class="bean-radio-multipleChoice" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
-                    <span th:text="${answer}"></span><br/>
-                </input>
-            </li>
+            <label th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+                <input th:class="${cluster.beans[0].id}" 
+                    name="radioGroup" 
+                    th:text="${answer}"
+                    type="radio" th:value="${cluster.beans[0].questionNum}" />
+            </label>
+        </fieldset>
+        <button id="submitAnswer" disabled="true"> Submit </button>
 
-            <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == TrueOrFalse">
-                    <aside th:text="${bean.lesson}">
-    
-                    </aside>
-                    <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                    <p class="trueOrFalseQuestion question" th:text="${bean.question}"></p>
-                    <input class="bean-radio-trueOrFalse" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
-                        <span th:text="${answer}"></span><br/>
-                    </input>
-                </li>
+        <footer>
+            Current Question #:
+            <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
+            <strong id="clusterSize" th:text="| / ${cluster.beans.size()}|"></strong>
+        </footer>
 
-                <li class="bean" th:each="bean : ${cluster.beans}" th:if="${bean.questionType} == FillInTheBlank">
-                        <aside th:text="${bean.lesson}">
-        
-                        </aside>
-                        <p class="questionType" th:text="|Question type: ${bean.questionType}|"></p>
-                        <p class="fillInTheBlankQuestion question" th:text="${bean.question}"></p>
-                        <input class="bean-radio-fillInTheBlank" th:each="answer : ${bean.answers}" type="radio" name="radioGroup">
-                            <span th:text="${answer}"></span><br/>
-                        </input>
-                    </li>
-        </ul>
+        <button id="nextQuestion">Next Question </button>
     </div>
+    <script th:src="@{/js/button.js}"></script>
+    <script th:src="@{/js/loadBeanQuestion.js}"></script>
 </body>
 
 </html>
