@@ -16,7 +16,8 @@ public class VirtualTree {
 	public String name;
 	// growth is increased per correct question answered
 	private int growth = 0;
-
+	
+	//branches mapping
 	@OneToMany(mappedBy = "virtualTree")
 	private Collection<Branch> branches;
 

@@ -15,18 +15,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Bean {
   @Id @GeneratedValue private Long id;
 
-  @JsonIgnore
-  @ManyToOne private Cluster cluster;
-  
-  @JsonIgnore
-  @ManyToOne private Lesson lesson;
-  
+  @JsonIgnore @ManyToOne private Cluster cluster;
+
+  @JsonIgnore @ManyToOne private Lesson lesson;
+
   private int questionNum;
   private QuestionType questionType;
   @Lob private String question;
   @ElementCollection private Collection<String> answers;
   private String correctAnswer;
 
+  //Different types of questions
   protected enum QuestionType {
     Drag_n_Drop,
     FillInTheBlanks,
