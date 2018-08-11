@@ -29,8 +29,6 @@ function setIdOfCheckedRadioButton() {
     });
   }
 }
-// Grab the submit answer button
-const btnSubmitAnswer = document.getElementById('submitAnswer');
 // Grab the unordered list of where the bean is at
 const clusterBeansUl = document.querySelector('.clusterBeans');
 // add event listeners to the unordered list and submit answer button
@@ -45,6 +43,8 @@ function addEventListeners() {
 addEventListeners();
 
 function checkIfBeanIsLastInCluster() {
+  // Grab the submit answer button
+  const btnSubmitAnswer = document.getElementById('submitAnswer');
   // Grab the selected answer radio button
   const bean = document.getElementById('selectedAnswer');
   // Value of the radio button, which is the bean's questionNum, 
@@ -55,7 +55,11 @@ function checkIfBeanIsLastInCluster() {
   // Check if the bean is the last in the cluster
   if (beanQuestionNum === clusterSize) {
     btnSubmitAnswer.setAttribute('disabled', 'true');
+  }else{
+    return false;
+
   }
+  return true;
 }
 
 function checkIfAnswerIsCorrect(response) {
