@@ -12,9 +12,14 @@
 
 <body>
     <nav>
-        <a class="home-page-btn" th:href="@{/home}">
+        <ul>
+        <li><a class="home-page-btn" th:href="@{/}">
             Home Page
-        </a>
+        </a></li>
+        <li><a th:href="@{/home}">
+            Profile
+        </a></li>
+    </ul>
     </nav>
     <!-- Boxes containing concepts - when clicked open Beans -->
     <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
