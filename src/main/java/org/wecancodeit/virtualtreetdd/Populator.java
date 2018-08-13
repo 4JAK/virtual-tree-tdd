@@ -212,22 +212,26 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Tdd() {
-    return "Lesson 1\r\n"
+    return "<h2>Lesson 1</h2>"
+      
+        + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>\r\n"
+      
+        + "<h3>3 Laws of TDD are:</h3>\r\n"
+    
+        +"<ol>"
+        + "<li>Only write production code in order to make a failing unit test pass.</li>\r\n"
         + "\r\n"
-        + "Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:\r\n"
+        + "<li>Write no more of a test than that which is required to make it fail.</li>\r\n"
         + "\r\n"
-        + "3 Laws of TDD are:\r\n"
-        + "\r\n"
-        + "Only write production code in order to make a failing unit test pass.\r\n"
-        + "\r\n"
-        + "Write no more of a test than that which is required to make it fail.\r\n"
-        + "\r\n"
-        + "Do not write more production code than is necessary to make a failing unit test pass.\r\n"
-        + "\r\n"
-        + "3 A�s of TDD are:\r\n"
-        + "Arrange\r\n"
-        + "Act\r\n"
-        + "Assert\r\n"
+        + "<li>Do not write more production code than is necessary to make a failing unit test pass.</li>\r\n"
+        +"</ol>" 
+        +"\r\n"
+        + "<h3>3 A&#39;s of TDD are:</h3>\r\n"
+        +"<ol>"
+        + "<li>Arrange</li>\r\n"
+        + "<li>Act</li>\r\n"
+        + "<li>Assert</li>\r\n"
+        +"</ol>"
         + "";
   }
 

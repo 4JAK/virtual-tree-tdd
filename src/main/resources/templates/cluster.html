@@ -24,19 +24,24 @@
             <div id="slide-out-lesson">
                 <a href="javascript:void(0)" class="closebtn">&times;</a>
                 <img th:src="${cluster.beans[0].lesson.image}" />
-                <aside th:text="${cluster.beans[0].lesson.example}"></aside>
+                <aside th:utext="${cluster.beans[0].lesson.example}"></aside>
             </div>
             <span style="font-size:30px;cursor:pointer" class="openbtn">&#9776; Lesson</span>
             <legend class="questionLegend">
                 <strong th:text="${cluster.beans[0].question}"></strong>
             </legend>
 
+            <ol>
             <label th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+            <li>
                 <input th:class="${cluster.beans[0].id}" 
                     name="radioGroup" 
                     th:text="${answer}"
                     type="radio" th:value="${cluster.beans[0].questionNum}" />
-            </label>
+            </li>
+                </label>
+            </ol>
+            
         </div>
         <button id="submitAnswer" disabled="true"> Submit </button>
 
