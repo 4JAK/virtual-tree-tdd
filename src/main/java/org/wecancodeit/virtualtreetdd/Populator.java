@@ -23,11 +23,11 @@ public class Populator implements CommandLineRunner {
 
   @Override // Command Line Runner method
   public void run(String... args) throws Exception {
-	// Virtual tree for Java Testing & TDD
+    // Virtual tree for Java Testing & TDD
     VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree"));
-    //First Branch
+    // First Branch
     Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
-    //01Branch01Cluster
+    // 01Branch01Cluster
     Cluster clusterTdd =
         clusterRepo.save(new Cluster("Introduction To Test Driven Development", introTddBranch));
 
@@ -84,9 +84,9 @@ public class Populator implements CommandLineRunner {
 
     // JUnit Branch, Second branch
     Branch jUnit = branchRepo.save(new Branch("Intro to JUnit", javaTree));
-    // JUnit 02Branch01Cluster 
+    // JUnit 02Branch01Cluster
     Cluster clusterJUnit = clusterRepo.save(new Cluster("Introduction To JUnit Testing", jUnit));
-    // JUnit Questions 
+    // JUnit Questions
     Bean jUnitQ1 =
         beanRepo.save(
             new Bean(
@@ -101,7 +101,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 7,
                 QuestionType.TrueOrFalse,
                 getLesson1Question2JUnit(),
@@ -111,7 +111,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 8,
                 QuestionType.FillInTheBlanks,
                 getLesson1Question3JUnit(),
@@ -121,7 +121,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 9,
                 QuestionType.FillInTheBlanks,
                 getLesson1Question4JUnit(),
@@ -131,7 +131,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 10,
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
@@ -143,7 +143,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson2JUnit(), "Test_1_Pass.png")),
+                lessonRepo.save(new Lesson(getLesson2JUnit(), "/images/Test_1_Pass.png")),
                 11,
                 QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
@@ -162,7 +162,8 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterHamcrestJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Requirements.png")),
+                lessonRepo.save(
+                    new Lesson(getLesson1JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 12,
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnitHamcrest(),
@@ -172,7 +173,8 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterHamcrestJUnit,
-                lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
+                lessonRepo.save(
+                    new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 13,
                 QuestionType.TrueOrFalse,
                 getLesson2Question1JUnitHamcrest(),
@@ -182,7 +184,8 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterHamcrestJUnit,
-                lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
+                lessonRepo.save(
+                    new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 14,
                 QuestionType.TrueOrFalse,
                 getLesson2Question2JUnitHamcrest(),
@@ -192,63 +195,55 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterHamcrestJUnit,
-                lessonRepo.save(new Lesson(getLesson2JUnitHamcrest(), "Test_2_Requirements.png")),
+                lessonRepo.save(
+                    new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 15,
                 QuestionType.MultipleChoice,
                 getLesson2Question3JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
                 getAnswersForLesson2Answer3JUnitHamcrest()));
 
-//    Bean jUnitHamcrestLesson02bean01 =
-//        beanRepo.save(
-//            new Bean(
-//                clusterHamcrestJUnit,
-//                lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(), "Test_2_Code_Added.png")),
-//                "1",
-//                QuestionType.MultipleChoice,
-//                getLesson1Question1JUnitHamcrest(),
-//                getCorrectAnswerLesson1Answer1JUnitHamcrest(),
-//                getAnswersForLesson1Answer1JUnitHamcrest()));
+    //    Bean jUnitHamcrestLesson02bean01 =
+    //        beanRepo.save(
+    //            new Bean(
+    //                clusterHamcrestJUnit,
+    //                lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(),
+    // "Test_2_Code_Added.png")),
+    //                "1",
+    //                QuestionType.MultipleChoice,
+    //                getLesson1Question1JUnitHamcrest(),
+    //                getCorrectAnswerLesson1Answer1JUnitHamcrest(),
+    //                getAnswersForLesson1Answer1JUnitHamcrest()));
   }
 
   public String getLesson1Tdd() {
     return "<h2>Lesson 1</h2>"
-      
         + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>"
-      
         + "<h3>3 Laws of TDD are:</h3>"
-    
-        +"<ol>"
+        + "<ol>"
         + "<li>Only write production code in order to make a failing unit test pass.</li>"
-        
         + "<li>Write no more of a test than that which is required to make it fail.</li>"
-        
         + "<li>Do not write more production code than is necessary to make a failing unit test pass.</li>"
-        +"</ol>" 
-        
+        + "</ol>"
         + "<h3>3 A&#39;s of TDD are:</h3>"
-        +"<ol>"
+        + "<ol>"
         + "<li>Arrange</li>"
         + "<li>Act</li>"
         + "<li>Assert</li>"
-        +"</ol>"
+        + "</ol>"
         + "";
   }
 
   public String getLesson2Tdd() {
     return "<h2>Lesson 2</h2>"
-        
         + "<h3>Why do we use TDD?</h3>"
-        
         + "<p>TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</p>"
         + "";
   }
 
   public String getLesson3Tdd() {
     return "<h2>Lesson 3</h2>"
-        
         + "<p>The 1st of the 3 A&#39;s of TDD is to arrange. When you arrange, you are initializing and setting the values of the variables that you are about to test for in that block of code. For example:</p>"
-        
         + "<p>public class ArrangeExample{\r\n"
         + "\r\n"
         + "@Test\r\n"
@@ -267,7 +262,6 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson4Tdd() {
     return "<h2>Lesson 4</h2>"
-        
         + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables.</p>"
         + "\r\n"
         + "<p>public class ActExample{\r\n"
@@ -290,7 +284,6 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson5Tdd() {
     return "<h2>Lesson 5</h2>"
-      
         + "<p>The 3rd of the 3 A&#39;s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do .</p>"
         + "\r\n"
         + "<p>public class assertExample{\r\n"
@@ -415,14 +408,14 @@ public class Populator implements CommandLineRunner {
 
   public String getLessonJUnit() {
     return "<h2>Lesson 6</h2>"
-    	+"<h3>What is JUnit Testing?</h3>"
+        + "<h3>What is JUnit Testing?</h3>"
         + "<p>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</p>"
         + "";
   }
 
   public String getLesson1JUnit() {
-    return "<h2>Lesson 7</h2>" 
-    	+ "<p>1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</p>"
+    return "<h2>Lesson 7</h2>"
+        + "<p>1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</p>"
         + "<p>2. This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.</p>"
         + "<p>3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.</p>"
         + "<p>4. The @Test annotation is needed to run the test through the JUnit console.</p>"
@@ -431,7 +424,7 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson2JUnit() {
     return "<h2>Lesson 8</h2>"
-    		+ "<p>After we create the VirtualTree class,  we run our test again and get our first passing test.</p>";
+        + "<p>After we create the VirtualTree class,  we run our test again and get our first passing test.</p>";
   }
 
   // Questions JUnit
@@ -455,8 +448,8 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question4JUnit() {
-    return "<h2>Lesson 9</h2>" 
-    	+ "<p>@Test\n"
+    return "<h2>Lesson 9</h2>"
+        + "<p>@Test\n"
         + "Public void shouldBeAbleToInstantiateClass(){\n"
         + "\n"
         + "Cluster cluster = new Cluster();\n"
@@ -467,7 +460,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question5JUnit() {
-    return "True or False";
+    return "JUnit is a testing framework used in an IDE to determine if code being tested is doing what it is expected to do.";
   }
 
   public String getCorrectAnswerLesson1Answer1JUnit() {
@@ -557,12 +550,12 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson1JUnitHamcrest() {
     return "<h2>Lesson 10</h2>"
-    	+ "<p>Our 2nd test demonstrated here is failing as expected because our class does not have the getName() method, a constructor that can be built with a String parameter, or a String variable in our class to store the data.</p>";
+        + "<p>Our 2nd test demonstrated here is failing as expected because our class does not have the getName() method, a constructor that can be built with a String parameter, or a String variable in our class to store the data.</p>";
   }
 
   public String getLesson2JUnitHamcrest() {
-    return "<h2>Lesson 11</h2>" 
-    	+ "<p>1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</p>"
+    return "<h2>Lesson 11</h2>"
+        + "<p>1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</p>"
         + "<p>2. The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</p>"
         + "<p>3. The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));</p>"
         + "<p>4. The Hamcrest method equalTo()is checking to see if the first parameter is (equal to()) the second parameter.</p>";
@@ -570,7 +563,7 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson3JUnitHamcrest() {
     return "<h2>Lesson 12</h2>"
-    		+ "<p>Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.</p>";
+        + "<p>Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.</p>";
   }
 
   // Lesson1

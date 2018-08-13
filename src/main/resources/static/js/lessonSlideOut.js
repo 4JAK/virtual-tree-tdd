@@ -1,16 +1,15 @@
-
-const openButton = document.querySelector(".openbtn");
-
-openButton.addEventListener("click", openNav);
-
-function openNav() {
-   document.getElementById("slide-out-lesson").style.width = "70%";
+function toggleLessonView() {
+  document.getElementById('slide-out-lesson').classList.toggle('openLesson');
+  // document.getElementById('slide-out-lesson').classList.add('openLesson');
 }
 
-const closeButton = document.querySelector(".closebtn");
+// function closeLessonView() {
+//   document.getElementById('slide-out-lesson').classList.remove('openLesson');
+//   document.getElementById('slide-out-lesson').classList.add('closedLesson');
+// }
 
-closeButton.addEventListener("click", closeNav);
+const openButton = document.querySelector('.openbtn');
+openButton.addEventListener('click', toggleLessonView);
 
-function closeNav() {
-   document.getElementById("slide-out-lesson").style.width = "0";
-}
+const closedButton = document.querySelector('.closebtn');
+closedButton.addEventListener('click', toggleLessonView);
