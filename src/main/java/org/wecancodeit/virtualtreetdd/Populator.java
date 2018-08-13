@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-//@Service
+@Service
 public class Populator implements CommandLineRunner {
 
   @Autowired BranchRepository branchRepo;
@@ -214,33 +214,33 @@ public class Populator implements CommandLineRunner {
   public String getLesson1Tdd() {
     return "<h2>Lesson 1</h2>"
       
-        + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>\r\n"
+        + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>"
       
-        + "<h3>3 Laws of TDD are:</h3>\r\n"
+        + "<h3>3 Laws of TDD are:</h3>"
     
         +"<ol>"
-        + "<li>Only write production code in order to make a failing unit test pass.</li>\r\n"
-        + "\r\n"
-        + "<li>Write no more of a test than that which is required to make it fail.</li>\r\n"
-        + "\r\n"
-        + "<li>Do not write more production code than is necessary to make a failing unit test pass.</li>\r\n"
+        + "<li>Only write production code in order to make a failing unit test pass.</li>"
+        
+        + "<li>Write no more of a test than that which is required to make it fail.</li>"
+        
+        + "<li>Do not write more production code than is necessary to make a failing unit test pass.</li>"
         +"</ol>" 
-        +"\r\n"
-        + "<h3>3 A&#39;s of TDD are:</h3>\r\n"
+        
+        + "<h3>3 A&#39;s of TDD are:</h3>"
         +"<ol>"
-        + "<li>Arrange</li>\r\n"
-        + "<li>Act</li>\r\n"
-        + "<li>Assert</li>\r\n"
+        + "<li>Arrange</li>"
+        + "<li>Act</li>"
+        + "<li>Assert</li>"
         +"</ol>"
         + "";
   }
 
   public String getLesson2Tdd() {
-    return "Lesson 2\r\n"
-        + "\r\n"
-        + "Why do we use TDD?\r\n"
-        + " \r\n"
-        + "TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.\r\n"
+    return "<h2>Lesson 2</h2>"
+        
+        + "<h3>Why do we use TDD?</h3>"
+        
+        + "<p>TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</p>"
         + "";
   }
 
