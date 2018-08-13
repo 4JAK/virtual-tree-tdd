@@ -3,6 +3,7 @@
 node_modules/
 coverage/
 plantdd-db/
+plantdd-db/plantdd.mv.db
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

@@ -17,6 +17,7 @@ public class Branch {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	private boolean branchCompleted;
 	
 	@JsonIgnore
 	@ManyToOne
@@ -29,6 +30,7 @@ public class Branch {
 	public Branch (String name, VirtualTree virtualTree) {
 		this.name = name;
 		this.virtualTree = virtualTree;
+		this.branchCompleted = false;
 	}
 	
 	public Branch() {
@@ -53,5 +55,24 @@ public class Branch {
 		
 		return clusters;
 	}
+
+	public boolean isBranchCompleted() {
+		return branchCompleted;
+	}
+
+	public void setBranchCompleted() {
+		this.branchCompleted = true;
+	}
+	
+	public boolean checkCompletedClusters() {
+		for(Cluster cluster : clusters) {
+			if(!cluster.isClusterCompleted()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
 	
 }

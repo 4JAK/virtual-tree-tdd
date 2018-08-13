@@ -76,7 +76,10 @@ public class ApiController {
 		String correctAnswer = beanRepo.findOne(beanId).getCorrectAnswer();
 		if(!correctAnswer.equalsIgnoreCase(answerToCheck.trim())) {
 			return false;
+		} else {
+			beanRepo.findOne(beanId).setCompletedQuestion();
 		}
+		
 		return true;
 		
 	}
@@ -87,4 +90,5 @@ public class ApiController {
 		Cluster currentCluster = clusterRepo.findOne(clusterId);
 		return currentCluster.getBean(currentBeanQuestionNum + 1); 
 	}
+	
 }
