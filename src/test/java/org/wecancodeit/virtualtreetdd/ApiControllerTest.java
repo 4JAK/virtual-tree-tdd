@@ -8,8 +8,10 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +25,10 @@ public class ApiControllerTest {
 
 	@Resource
 	TestRestTemplate restTemplate;
+	
+	@MockBean private BeanRepository beanRepo;
+	  
+	@Mock private Bean testBean;
 
 	@Test
 	public void canary() {
@@ -158,5 +164,20 @@ public class ApiControllerTest {
 		// we can check it's if it contains the questionNum property, which it should 
 		boolean body = response.getBody().contains("\"questionNum\":4"); 
 		assertThat(body, is(true));
+	}
+	
+	@Test
+	public void shouldMakeIsCompletedVariableTrueForBean() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true",
+				String.class);
+		String body = response.getBody();
+		assertThat(testBean.isCompletedQuestion() , is(true));
+	}
+	
+	@Test
+	public void shouldReturnJavaTreeCompletedPage() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/JavaTreeCompleted", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.OK));
 	}
 }

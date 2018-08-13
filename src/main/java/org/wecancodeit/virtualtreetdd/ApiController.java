@@ -71,7 +71,51 @@ public class ApiController {
 		String correctAnswer = beanRepo.findOne(beanId).getCorrectAnswer();
 		if(!correctAnswer.equalsIgnoreCase(answerToCheck.trim())) {
 			return false;
+		} else {
+			beanRepo.findOne(beanId).setCompletedQuestion();
+			Cluster cluster = beanRepo.findOne(beanId).getCluster();
+			Branch branch = cluster.getBranch();
+			VirtualTree vTree = branch.getVirtualTree();
+			int beansCompletedSize = 0;
+			int clustersCompletedSize = 0;
+			int branchesCompletedSize = 0;
+			
+			//for each bean in the cluster derived from the bean
+			for(Bean bean : cluster.getBeans()) {
+				
+				if(bean.isCompletedQuestion()) {
+				beansCompletedSize++;
+				
+					if(beansCompletedSize == cluster.getBeans().size()) {
+					cluster.setClusterCompleted();
+						//for each branch derived from the cluster
+						for(Cluster clusterCompleted : branch.getClusters()) {
+							
+							if(clusterCompleted.isClusterCompleted()) {
+								clustersCompletedSize++;
+								
+								if(beansCompletedSize == clusterCompleted.getBeans().size()) {
+									branch.setBranchCompleted();
+									//for the tree derived from the branch
+									for(Branch branchCompleted : vTree.getBranches()) {
+										
+										if(branchCompleted.isBranchCompleted()) {
+											branchesCompletedSize ++;
+											//if all the branches are completed , sets the virtual tree to completed
+											if(branchesCompletedSize == vTree.getBranches().size()) {
+												
+												vTree.setCompletedTree();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
+		
 		return true;
 		
 	}
@@ -82,4 +126,5 @@ public class ApiController {
 		Cluster currentCluster = clusterRepo.findOne(clusterId);
 		return currentCluster.getBean(currentBeanQuestionNum + 1); 
 	}
+	
 }

@@ -15,6 +15,7 @@ public class Cluster {
   private String name;
 
   @ManyToOne private Branch branch;
+  private boolean clusterCompleted;
 
   // a collection of questions
   @OneToMany(mappedBy = "cluster")
@@ -27,6 +28,7 @@ public class Cluster {
   public Cluster(String name, Branch branch) {
     this.name = name;
     this.branch = branch;
+    this.clusterCompleted = false;
   }
   
   public Bean getBean(int questionNum) {
@@ -55,5 +57,13 @@ public class Cluster {
     return beans;
   }
 
+  public boolean isClusterCompleted() {
+	return clusterCompleted;
+  }
+
+  public void setClusterCompleted() {
+	this.clusterCompleted = true;
+  }
+
   public Cluster() {}
-}
+  }
