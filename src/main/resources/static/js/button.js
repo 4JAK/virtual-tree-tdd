@@ -5,11 +5,6 @@
   if ( typeof NodeList.prototype.forEach === "function" ) return false;
   NodeList.prototype.forEach = Array.prototype.forEach;
 })();
-// Grab the next question button
-const btnNextQuestion = document.getElementById('nextQuestion');
-// Set the buttons attribute to disabled
-// so a user can't skip the question
-btnNextQuestion.setAttribute('disabled', 'true');
 
 // When called, will loop throug all radio buttons
 // and see if their property 'checked' is true
@@ -30,11 +25,12 @@ function setIdOfCheckedRadioButton() {
   }
 }
 // Grab the unordered list of where the bean is at
-const clusterBeansUl = document.querySelector('.clusterBeans');
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
+  const clusterBeansUl = document.querySelector('.clusterBeans');
   clusterBeansUl.addEventListener('click', setIdOfCheckedRadioButton);
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
+  const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
   btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
 }
@@ -119,11 +115,12 @@ function checkIfAnswerIsCorrect(response) {
 function enableSubmitButtonOnRadioSelect() {
   // if the id exists, which it should
   if (document.getElementById('selectedAnswer')) {
-    btnSubmitAnswer.removeAttribute('disabled');
+    document.getElementById('submitAnswer').removeAttribute('disabled');
   }
 }
 
 function getAnswerToCheck() {
+  document.getElementById('nextQuestion').removeAttribute('disabled');
   // Grab the currently selected radio button
   const rdoClicked = document.getElementById('selectedAnswer');
   // From the radio, it's class attribute is the bean id
