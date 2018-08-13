@@ -11,6 +11,19 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <nav>
+        <ul>
+        <li><a th:href="@{/}">
+            Home Page
+        </a></li>
+        <li><a th:href="@{/home}">
+            Profile
+        </a></li>
+        <li><a th:href="@{/}">
+                Logout
+        </a></li>
+        </ul>
+        </nav>
     <div>
         <h2>About the project</h2>
          <p class="project">Utilizing a Java based Spring framework planT'DD allows users to learn the priciples and technics of test driven development. Several styles of engaging interactive questions and visual examples allow users a simple and fun way to build their knowledge. The program was built using the knowledge attained by the team during thier 14 week full time bootcamp. Including a Java written back-end it also uses Java-Script, and Ajax to populate pages using Thymeleaf, Css, and HTML to create a smooth cohesive feel.</p>
@@ -21,6 +34,6 @@
          <p class="team">The 4JAK team consits of Jeane, Julian, James, Jaylen, Amal and Kevin. As students at the WeCanCodeIT full-stack boot camp we have learned a strong foundation of Java based software development that is reflected in this TDD learning application. Please check us out on Linked-in and Github!</p>
              
     </div>
-    <footer>&2018</footer>
+    <footer>&copy;2018</footer>
 </body>
 </html>

@@ -46,4 +46,8 @@ public class VirtualTreeControllerTest {
   public void homeMappingViewNameShouldBeVirtualTree() throws Exception {
     mvc.perform(get("/home")).andExpect(view().name(is("home")));
   }
+  @Test //shows the about page mapping is good
+  public void aboutPageMappingShouldReturn2xxSuccessfull() throws Exception {
+	  mvc.perform(get("/about")).andExpect(status().is2xxSuccessful());
+  }
 }
