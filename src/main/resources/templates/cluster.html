@@ -20,7 +20,7 @@
     <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
 
     <div class="concept-container">
-        <div class="clusterBeans">
+        <div id="clusterId" class="clusterBeans" th:value="${cluster.id}">
             <div id="slide-out-lesson">
                 <a href="javascript:void(0)" class="closebtn">&times;</a>
                 <img th:src="${cluster.beans[0].lesson.image}" />
@@ -47,8 +47,8 @@
 
         <footer>
             Current Question #:
-            <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
-            <strong id="clusterSize" th:text="| / ${cluster.beans.size()}|"></strong>
+            <strong id="currentQuestionNum" th:value="${cluster.beans[0].questionNum}" th:text="${cluster.beans[0].questionNum}"></strong>
+            <strong id="clusterSize" th:value="${cluster.beans.size()}"></strong>
         </footer>
 
         <button id="nextQuestion">Next Question </button>
