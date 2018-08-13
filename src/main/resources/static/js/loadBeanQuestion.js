@@ -1,6 +1,6 @@
 function renderBean(response) {
-  console.log(response);
   if (this.status === 200 && this.readyState === 4) {
+    console.log('hit render bean');
     const bean = JSON.parse(response.target.response);
     const fieldset = document.querySelector('.clusterBeans');
     fieldset.innerHTML = `
@@ -42,31 +42,19 @@ function getNextBeanQuestion() {
   const beanQuestionNum = document.getElementById('currentQuestionNum').getAttribute('value');
   // Grab the cluster size
   const clusterSize = document.getElementById('clusterSize');
-  
   // Grab the button for going to the next question
   const btnNextQuestion = document.getElementById('nextQuestion');
-  console.log(clusterId);
-  
-  if (beanQuestionNum === clusterSize) {
-    console.log('hit true');
-    
+  if (beanQuestionNum === clusterSize) {    
     btnNextQuestion.setAttribute('disabled', 'true');
   }
-
-  
+  console.log('hit next bean function');
   xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
   xhr.addEventListener('readystatechange', renderBean);
   xhr.send();
 }
-
 
 function addEventListeners() {
   const btnNextQuestion = document.getElementById('nextQuestion');
   btnNextQuestion.addEventListener('click', getNextBeanQuestion);
 }
 addEventListeners();
-
-// Currently, btnNextQuestion doesn't exist in this file, however,
-// we're not declaring it with a const because it DOES exist in our other files,
-// therefore throwing an error of redeclaration.
-// 
