@@ -17,7 +17,7 @@ public class Bean {
 
   @JsonIgnore @ManyToOne private Cluster cluster;
 
-  @JsonIgnore @ManyToOne private Lesson lesson;
+  @ManyToOne private Lesson lesson;
 
   private int questionNum;
   private QuestionType questionType;

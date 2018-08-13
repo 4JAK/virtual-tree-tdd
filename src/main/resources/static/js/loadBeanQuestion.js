@@ -3,6 +3,14 @@ function renderBean(response) {
     console.log('hit render bean');
     const bean = JSON.parse(response.target.response);
     const fieldset = document.querySelector('.clusterBeans');
+    const imgTag = document.querySelector('#slide-out-lesson > img');
+    const asideTag = document.querySelector('#slide-out-lesson > aside');
+    if (bean.lesson.image != null) {
+      imgTag.setAttribute(`src`, `${bean.lesson.image}`)
+      
+      }
+    
+    asideTag.innerHTML= bean.lesson.example;
     fieldset.innerHTML = `
     <legend class="questionLegend">
       <strong class="beanQuestion">${bean.question}</strong>
