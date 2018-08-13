@@ -75,3 +75,11 @@ h1 {
     border-radius: 40px;
     cursor: pointer;
 }
+button a {
+    text-decoration: none;
+    color: white;
+}
+h2 a{
+    text-decoration: none;
+    color: black;
+} 

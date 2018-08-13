@@ -9,9 +9,10 @@ describe('Submit Answer Button Suite', function() {
   rdoButton1.setAttribute('type', 'radio');
   const rdoButton2 = document.createElement('input');
   rdoButton2.setAttribute('type', 'radio');
-  rdoButton2.setAttribute('value', '1');
+  rdoButton2.setAttribute('value', '5');
   const spanOfAnswer = document.createTextNode('TDD is a programming language.');
   const submitButton = document.createElement('button');
+  submitButton.id= "submitAnswer";
   li.appendChild(rdoButton1);
   li.appendChild(rdoButton2);
   rdoButton2.appendChild(spanOfAnswer);
@@ -27,6 +28,8 @@ describe('Submit Answer Button Suite', function() {
         </li>
         <button id="submitAnswer"></button>
       </ul>
+      <footer>
+      </footer>
     </body>
   */
 
@@ -45,8 +48,27 @@ describe('Submit Answer Button Suite', function() {
   });
 
   it('bean question num should be equal to cluster size', () => {
-    const bean = document.getElementById('selectedAnswer');
-    checkIfBeanIsLast();
-    expect(bean.getAttribute('disabled')).to.deep.equal(true);
+    const footer = document.createElement('footer');
+    ul.appendChild(footer);
+    const strong1 = document.createElement('strong');
+    const strong2 = document.createElement('strong');
+    footer.appendChild(strong2);
+    footer.appendChild(strong1);
+  strong1.setAttribute("id", "currentQuestionNum");
+  strong1.innerText = rdoButton2.value
+  strong2.setAttribute("id", "clusterSize");
+  const textOfStrong2 = document.createTextNode("5");
+  strong2.appendChild(textOfStrong2);
+
+    const beanIsLast = checkIfBeanIsLastInCluster();
+    expect(beanIsLast).to.deep.equal(true);
+
   });
+
+  it('submit button should be disabled on last bean if true', () => {
+    checkIfBeanIsLastInCluster()
+    
+    expect(submitButton.getAttribute('disabled')).to.deep.equal("true");
+  })
+  
 });
