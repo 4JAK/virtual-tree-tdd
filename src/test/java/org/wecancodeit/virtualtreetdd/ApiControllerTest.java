@@ -25,8 +25,6 @@ public class ApiControllerTest {
 
 	@Resource
 	TestRestTemplate restTemplate;
-	
-	@MockBean private BeanRepository beanRepo;
 	  
 	@Mock private Bean testBean;
 
@@ -170,7 +168,6 @@ public class ApiControllerTest {
 	public void shouldMakeIsCompletedVariableTrueForBean() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true",
 				String.class);
-		String body = response.getBody();
 		assertThat(testBean.isCompletedQuestion() , is(true));
 	}
 	

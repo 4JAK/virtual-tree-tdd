@@ -64,6 +64,15 @@ public class Branch {
 		this.branchCompleted = true;
 	}
 	
+	public boolean checkCompletedClusters() {
+		for(Cluster cluster : clusters) {
+			if(!cluster.isClusterCompleted()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	
 	
 }

@@ -61,4 +61,13 @@ public class VirtualTree {
 		this.completedTree = true;
 	}
 	
+	public boolean checkCompletedBranches() {
+		for(Branch branch : branches) {
+			if(!branch.isBranchCompleted()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

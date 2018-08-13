@@ -64,6 +64,15 @@ public class Cluster {
   public void setClusterCompleted() {
 	this.clusterCompleted = true;
   }
+  
+  public boolean checkCompletedBeans() {
+	  for(Bean bean : beans) {
+			if(!bean.isCompletedQuestion()) {
+				return false;
+			}
+		}
+		return true;
+  }
 
   public Cluster() {}
   }
