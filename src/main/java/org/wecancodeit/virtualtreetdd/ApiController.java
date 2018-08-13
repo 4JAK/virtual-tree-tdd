@@ -94,7 +94,7 @@ public class ApiController {
 							if(clusterCompleted.isClusterCompleted()) {
 								clustersCompletedSize++;
 								
-								if(clustersCompletedSize == clusterCompleted.getBeans().size()) {
+								if(clustersCompletedSize == branch.getClusters().size()) {
 									branch.setBranchCompleted();
 									//for the tree derived from the branch
 									for(Branch branchCompleted : vTree.getBranches()) {
