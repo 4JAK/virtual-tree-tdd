@@ -91,7 +91,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 6,
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnit(),
