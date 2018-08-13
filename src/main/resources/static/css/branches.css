@@ -1,3 +1,18 @@
+nav{
+   
+    
+}
+nav li{
+    align-content: center;
+    list-style-type: none;
+    display:inline;
+}
+li a{
+    text-decoration: none;
+    
+    
+    margin-right: 2%;
+}
 body {
     font-family: 'Work Sans', sans-serif;
 }
