@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
-//@Service
+@Service
 public class Populator implements CommandLineRunner {
 
   @Autowired BranchRepository branchRepo;
@@ -91,7 +91,7 @@ public class Populator implements CommandLineRunner {
         beanRepo.save(
             new Bean(
                 clusterJUnit,
-                lessonRepo.save(new Lesson(getLesson1JUnit(), "Test_1_Error_Display.png")),
+                lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 6,
                 QuestionType.MultipleChoice,
                 getLesson1Question1JUnit(),
@@ -212,44 +212,48 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Tdd() {
-    return "Lesson 1\r\n"
-        + "\r\n"
-        + "Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:\r\n"
-        + "\r\n"
-        + "3 Laws of TDD are:\r\n"
-        + "\r\n"
-        + "Only write production code in order to make a failing unit test pass.\r\n"
-        + "\r\n"
-        + "Write no more of a test than that which is required to make it fail.\r\n"
-        + "\r\n"
-        + "Do not write more production code than is necessary to make a failing unit test pass.\r\n"
-        + "\r\n"
-        + "3 A�s of TDD are:\r\n"
-        + "Arrange\r\n"
-        + "Act\r\n"
-        + "Assert\r\n"
+    return "<h2>Lesson 1</h2>"
+      
+        + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>"
+      
+        + "<h3>3 Laws of TDD are:</h3>"
+    
+        +"<ol>"
+        + "<li>Only write production code in order to make a failing unit test pass.</li>"
+        
+        + "<li>Write no more of a test than that which is required to make it fail.</li>"
+        
+        + "<li>Do not write more production code than is necessary to make a failing unit test pass.</li>"
+        +"</ol>" 
+        
+        + "<h3>3 A&#39;s of TDD are:</h3>"
+        +"<ol>"
+        + "<li>Arrange</li>"
+        + "<li>Act</li>"
+        + "<li>Assert</li>"
+        +"</ol>"
         + "";
   }
 
   public String getLesson2Tdd() {
-    return "Lesson 2\r\n"
-        + "\r\n"
-        + "Why do we use TDD?\r\n"
-        + " \r\n"
-        + "TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.\r\n"
+    return "<h2>Lesson 2</h2>"
+        
+        + "<h3>Why do we use TDD?</h3>"
+        
+        + "<p>TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</p>"
         + "";
   }
 
   public String getLesson3Tdd() {
-    return "Lesson 3\r\n"
-        + "\r\n"
-        + "---The 1st of the 3 A�s of TDD is to arrange. When you arrange, you are initializing and setting the values of the variables that you are about to test for in that block of code. For example:\r\n"
-        + "\r\n"
-        + "public class ArrangeExample{\r\n"
+    return "<h2>Lesson 3</h2>"
+        
+        + "<p>The 1st of the 3 A&#39;s of TDD is to arrange. When you arrange, you are initializing and setting the values of the variables that you are about to test for in that block of code. For example:</p>"
+        
+        + "<p>public class ArrangeExample{\r\n"
         + "\r\n"
         + "@Test\r\n"
         + "public void wateringShouldGiveGrowthToYourTree()  {  \r\n"
-        + "    // arrange  \r\n"
+        + "    <span>// arrange</span>  \r\n"
         + "    int currentGrowth = 10;  \r\n"
         + "    int water = 1;  \r\n"
         + "    int expectedGrowthAfterWatering = 11;  \r\n"
@@ -257,16 +261,16 @@ public class Populator implements CommandLineRunner {
         + "	//act\r\n"
         + "\r\n"
         + "	//assert\r\n"
-        + " } \r\n"
+        + " } </p>\r\n"
         + "";
   }
 
   public String getLesson4Tdd() {
-    return "Lesson 4\r\n"
+    return "<h2>Lesson 4</h2>"
+        
+        + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables.</p>"
         + "\r\n"
-        + "---The 2nd of the 3 A�s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables. \r\n"
-        + "\r\n"
-        + "public class ActExample{\r\n"
+        + "<p>public class ActExample{\r\n"
         + "\r\n"
         + "@Test\r\n"
         + "public void wateringShouldGiveGrowthToVirtualTree()  {  \r\n"
@@ -275,21 +279,21 @@ public class Populator implements CommandLineRunner {
         + "    int waterAmount = 1;  \r\n"
         + "    int expectedGrowthAfterWatering = 11;  \r\n"
         + "    VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);\r\n"
-        + "	//act\r\n"
+        + "	<span>//act</span>\r\n"
         + "	testTree.water(waterAmount)\r\n"
         + "	Int actual  = testTree.getGrowth();\r\n"
         + "\r\n"
         + "	//assert\r\n"
-        + " } \r\n"
+        + " } </p>\r\n"
         + "";
   }
 
   public String getLesson5Tdd() {
-    return "Lesson 5\r\n"
+    return "<h2>Lesson 5</h2>"
+      
+        + "<p>The 3rd of the 3 A&#39;s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do .</p>"
         + "\r\n"
-        + "---The 3rd of the 3 A�s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do . \r\n"
-        + "\r\n"
-        + "public class assertExample{\r\n"
+        + "<p>public class assertExample{\r\n"
         + "\r\n"
         + "@Test\r\n"
         + "public void wateringShouldGiveGrowthToYourTree()  {  \r\n"
@@ -302,9 +306,9 @@ public class Populator implements CommandLineRunner {
         + "	testTree.water(waterAmount);\r\n"
         + "	Int actual  = testTree.getGrowth();\r\n"
         + "\r\n"
-        + "	//assert\r\n"
+        + "	<span>//assert</span>\r\n"
         + "assertThat(actual, is(equalTo(expectedGrowthAfterWatering) )   );\r\n"
-        + " } \r\n"
+        + " } </p>\r\n"
         + "";
   }
 
@@ -410,21 +414,24 @@ public class Populator implements CommandLineRunner {
   // Lesson1 JUnit
 
   public String getLessonJUnit() {
-    return "What is JUnit Testing?\n"
-        + "JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.\n"
+    return "<h2>Lesson 6</h2>"
+    	+"<h3>What is JUnit Testing?</h3>"
+        + "<p>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</p>"
         + "";
   }
 
   public String getLesson1JUnit() {
-    return "1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.\n"
-        + "2. This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.\n"
-        + "3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.\n"
-        + "4. The @Test annotation is needed to run the test through the JUnit console.\n"
+    return "<h2>Lesson 7</h2>" 
+    	+ "<p>1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</p>"
+        + "<p>2. This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.</p>"
+        + "<p>3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.</p>"
+        + "<p>4. The @Test annotation is needed to run the test through the JUnit console.</p>"
         + "";
   }
 
   public String getLesson2JUnit() {
-    return "After we create the VirtualTree class,  we run our test again and get our first passing test.";
+    return "<h2>Lesson 8</h2>"
+    		+ "<p>After we create the VirtualTree class,  we run our test again and get our first passing test.</p>";
   }
 
   // Questions JUnit
@@ -448,13 +455,14 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question4JUnit() {
-    return "@Test\n"
+    return "<h2>Lesson 9</h2>" 
+    	+ "<p>@Test\n"
         + "Public void shouldBeAbleToInstantiateClass(){\n"
         + "\n"
         + "Cluster cluster = new Cluster();\n"
         + "\n"
         + "______NotNull(cluster); \n"
-        + "}\n"
+        + "}</p>\n"
         + "";
   }
 
@@ -548,18 +556,21 @@ public class Populator implements CommandLineRunner {
   // Questions JUnit/Hamcrest Beans
 
   public String getLesson1JUnitHamcrest() {
-    return "Our 2nd test demonstrated here is failing as expected because our class does not have the getName() method, a constructor that can be built with a String parameter, or a String variable in our class to store the data.";
+    return "<h2>Lesson 10</h2>"
+    	+ "<p>Our 2nd test demonstrated here is failing as expected because our class does not have the getName() method, a constructor that can be built with a String parameter, or a String variable in our class to store the data.</p>";
   }
 
   public String getLesson2JUnitHamcrest() {
-    return "1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.\n"
-        + "2. The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.\n"
-        + "3. The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));\n"
-        + "4. The Hamcrest method equalTo()is checking to see if the first parameter is (equal to()) the second parameter.";
+    return "<h2>Lesson 11</h2>" 
+    	+ "<p>1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</p>"
+        + "<p>2. The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</p>"
+        + "<p>3. The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));</p>"
+        + "<p>4. The Hamcrest method equalTo()is checking to see if the first parameter is (equal to()) the second parameter.</p>";
   }
 
   public String getLesson3JUnitHamcrest() {
-    return "Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.";
+    return "<h2>Lesson 12</h2>"
+    		+ "<p>Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.</p>";
   }
 
   // Lesson1

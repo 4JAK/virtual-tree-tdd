@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -20,27 +20,38 @@
     <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
 
     <div class="concept-container">
-        <fieldset class="clusterBeans">
-            <aside th:text="${cluster.beans[0].lesson}">
+
+        <div id="clusterId" class="clusterBeans" th:value="${cluster.id}">
+
+            <aside id="slide-out-lesson" class="openLesson">
+                <a href="javascript:void(0)" class="closebtn">&times;</a>
+                <img id="lessonImage" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
+                <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}">
+
+                </span>
             </aside>
 
-            <legend class="questionLegend">
-                <strong th:text="${cluster.beans[0].question}"></strong>
-            </legend>
+            <span class="openbtn">&#9776; Lesson</span>
 
-            <label th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+            <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
+
+            <section class="beanAnswers">
+              <label th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
                 <input th:class="${cluster.beans[0].id}" 
-                    name="radioGroup" 
-                    th:text="${answer}"
-                    type="radio" th:value="${cluster.beans[0].questionNum}" />
-            </label>
-        </fieldset>
+                      name="radioGroup" 
+                      th:text="${answer}"
+                      type="radio" th:value="${cluster.beans[0].questionNum}" />
+              </label>
+            </section>
+            
+        </div>
+
         <button id="submitAnswer" disabled="true"> Submit </button>
 
         <footer>
             Current Question #:
-            <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
-            <strong id="clusterSize" th:text="| / ${cluster.beans.size()}|"></strong>
+            <strong id="currentQuestionNum" th:value="${cluster.beans[0].questionNum}" th:text="${cluster.beans[0].questionNum}"></strong>
+            <strong id="clusterSize" th:value="${cluster.beans.size()}"></strong>
         </footer>
 
         <button id="nextQuestion">Next Question </button>
@@ -48,5 +59,5 @@
     <script th:src="@{/js/button.js}"></script>
     <script th:src="@{/js/loadBeanQuestion.js}"></script>
 </body>
-
+<script type="text/javascript" th:src="@{/js/lessonSlideOut.js}"></script>
 </html>
