@@ -8,13 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Lesson {
   @Id @GeneratedValue private Long id;
 
   @Lob private String example;
   private String image;
-
+  @JsonIgnore
   @OneToMany(mappedBy = "lesson")
   private Collection<Bean> beans;
 
