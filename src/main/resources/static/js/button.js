@@ -2,7 +2,7 @@
 
 // This is so IE stops complaining when running tests
 (function () {
-  if ( typeof NodeList.prototype.forEach === "function" ) return false;
+  if (typeof NodeList.prototype.forEach === "function") return false;
   NodeList.prototype.forEach = Array.prototype.forEach;
 })();
 
@@ -47,13 +47,12 @@ function checkIfBeanIsLastInCluster() {
   // is assigned to local variable beanQuestionNum
   const beanQuestionNum = bean.value;
   // We can grab the cluster size from the strong tag inside our html
-  const clusterSize = document.getElementById('clusterSize').innerText;
+  const clusterSize = document.getElementById('clusterSize').getAttribute('value');
   // Check if the bean is the last in the cluster
   if (beanQuestionNum === clusterSize) {
     btnSubmitAnswer.setAttribute('disabled', 'true');
-  }else{
+  } else {
     return false;
-
   }
   return true;
 }
@@ -90,7 +89,7 @@ function checkIfAnswerIsCorrect(response) {
     of artists, regardless if deleted, added, or edited an artist, we still rendered
     that specific collection of artists.
 
-  */  
+  */
   if (this.status === 200 && this.readyState === 4) {
     const answer = JSON.parse(response.target.response);
     // answer being the returned value from the API call.
