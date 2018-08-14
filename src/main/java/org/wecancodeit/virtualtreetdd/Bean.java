@@ -17,13 +17,14 @@ public class Bean {
 
   @JsonIgnore @ManyToOne private Cluster cluster;
 
-  @JsonIgnore @ManyToOne private Lesson lesson;
+  @ManyToOne private Lesson lesson;
 
   private int questionNum;
   private QuestionType questionType;
   @Lob private String question;
   @ElementCollection private Collection<String> answers;
   private String correctAnswer;
+  private boolean completedQuestion;
 
   //Different types of questions
   protected enum QuestionType {
@@ -57,6 +58,7 @@ public class Bean {
     this.question = question;
     this.correctAnswer = correctAnswer;
     this.answers = answers;
+    this.completedQuestion = false;
   }
 
   @Override
@@ -111,6 +113,14 @@ public class Bean {
   public Lesson getLesson() {
     return lesson;
   }
+  
+  public boolean isCompletedQuestion() {
+	return completedQuestion;
+  }	
 
-  public Bean() {}
+  public void setCompletedQuestion() {
+	this.completedQuestion = true;
+  }
+
+public Bean() {}
 }

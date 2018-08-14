@@ -21,4 +21,5 @@ public class ClusterController {
     model.addAttribute("cluster", clusterRepo.findOne(id));
     return "cluster";
   }
+  
 }

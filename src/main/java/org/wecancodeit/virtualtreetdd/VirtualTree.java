@@ -15,7 +15,9 @@ public class VirtualTree {
 	private Long id;
 	public String name;
 	// growth is increased per correct question answered
-	private int growth = 0;
+	private int growth;
+	private boolean completedTree;
+	
 	
 	//branches mapping
 	@OneToMany(mappedBy = "virtualTree")
@@ -23,6 +25,8 @@ public class VirtualTree {
 
 	public VirtualTree(String name) {
 		this.name = name;
+		this.growth = 0;
+		this.completedTree = false;
 	}
 
 	protected VirtualTree() {
@@ -48,4 +52,22 @@ public class VirtualTree {
 	public void water() {
 		this.growth += 5;
 	}
+
+	public boolean isCompletedTree() {
+		return completedTree;
+	}
+
+	public void setCompletedTree() {
+		this.completedTree = true;
+	}
+	
+	public boolean checkCompletedBranches() {
+		for(Branch branch : branches) {
+			if(!branch.isBranchCompleted()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

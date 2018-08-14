@@ -60,10 +60,15 @@ public class ApiController {
 									@PathVariable(name = "clusterId") Long clusterId,
 									@PathVariable(name = "beanId") Long beanId) {
 		
-		return beanRepo.findOne(beanId);
-		
+		return beanRepo.findOne(beanId);	
 	}
 	
+	
+	
+	@RequestMapping (value = "/beans/{beanId}", method = RequestMethod.GET) 
+	public Bean getBean(@PathVariable(name = "beanId") Long beanId) {
+		return beanRepo.findOne(beanId);
+	}
 	@RequestMapping (value = "/beans/{beanId}/checkanswer", method = RequestMethod.GET) 
 	public boolean checkAnswerOfBean(@PathVariable(name = "beanId") Long beanId,
 									@RequestParam(value = "answerToCheck") String answerToCheck) {
@@ -71,7 +76,10 @@ public class ApiController {
 		String correctAnswer = beanRepo.findOne(beanId).getCorrectAnswer();
 		if(!correctAnswer.equalsIgnoreCase(answerToCheck.trim())) {
 			return false;
+		} else {
+			beanRepo.findOne(beanId).setCompletedQuestion();
 		}
+		
 		return true;
 		
 	}
@@ -82,4 +90,5 @@ public class ApiController {
 		Cluster currentCluster = clusterRepo.findOne(clusterId);
 		return currentCluster.getBean(currentBeanQuestionNum + 1); 
 	}
+	
 }
