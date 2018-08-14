@@ -1,3 +1,33 @@
+nav li{
+    align-content: center;
+    list-style-type: none;
+    display:inline;
+    float: right;   
+}
+li a{
+    text-decoration: none;
+    margin-right: 2%;
+}
+.btn {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 1px;
+    border-radius: 5px;
+}
+
+.btn {
+    border-color: black;
+    color: green;
+}
+
+.btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
 p {
   white-space: normal;
 }
