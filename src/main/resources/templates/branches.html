@@ -10,16 +10,12 @@
 </head>
 
 <body>
+    <!-- <img src='/images/planTDDlogo.jpg'/> -->
     <nav>
         <ul>
-        <li><a th:href="@{/}">
-            Home Page
+        <li><a th:href="|@{/home}|"><button class="btn">Profile</button>
         </a></li>
-        <li><a th:href="@{/home}">
-            Profile
-        </a></li>
-        <li><a th:href="@{/}">
-           	Logout
+        <li><a th:href="@{/}"><button class="btn">Logout</button>
         </a></li>
     </ul>
     </nav>

@@ -12,23 +12,20 @@
 </head>
 
 <body>
+    
     <nav>
        <ul>
-        <li><a th:href="@{/}">
-            Home Page
+        <li><a th:href="@{/about}"><button class="btn">About</button>
+            
         </a></li>
-        <li><a th:href="@{/about}">
-            About
-        </a></li>
-        <li><a th:href="@{/}">
-                Logout
+        <li><a th:href="@{/}"><button class="btn">Logout</button>
+                
         </a></li>
        </ul>
     </nav>
+    <a th:href='|@{/}|'><img src='/images/planTDDlogo.jpg'/></a>
 
-	<form th:action="@{/JavaTreeCompleted}" METHOD="GET">
-	<h1><a>Java/TDD Certificate Of Completion</a></h1>
-	</form>
+	
 
     <!-- Page opens after login -->
 
@@ -42,8 +39,10 @@
                 <br /> Welcome back!
             </h2>
         </div>
-    </div>
+        <h5 class="certificate"><a>Java/TDD Certificate Of Completion</a></h5>
 
+    </div>
+    
     <!-- End of user profile -->
 
     <hr />
