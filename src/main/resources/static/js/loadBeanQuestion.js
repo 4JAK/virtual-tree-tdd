@@ -9,9 +9,8 @@ function renderBean(response) {
 
     if (bean.lesson.image != null) {
       imageForBeanLesson.setAttribute('src', bean.lesson.image);
-    } else {
-      imageForBeanLesson.setAttribute('src', '');
     }
+    
     beanLessonExample.innerHTML = '';
     beanLessonExample.innerHTML = bean.lesson.example;
     beanQuestion.innerHTML = bean.question;
@@ -20,7 +19,7 @@ function renderBean(response) {
     beanAnswers.innerHTML = '';
     bean.answers.forEach((answer) => {
       beanAnswers.innerHTML += `
-      <label for="radioGroup">
+      <label id="bean-answer" for="radioGroup">
         <input class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}
         </input>

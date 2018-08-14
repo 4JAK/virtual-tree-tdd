@@ -29,25 +29,24 @@
 
             <aside id="slide-out-lesson" class="lessonView">
                 <a href="javascript:void(0)" class="closebtn">&times;</a>
-                <img th:if="${cluster.beans[0].lesson.image} != null" id="lessonImage" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
-                <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}">
-
-                </span>
+                    <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
+                    <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}">
+                    </span>
             </aside>
 
             <span class="openbtn">&#9776; Lesson</span>
+            <div id="question-and-answers">
+                <h4 id="beanQuestion" th:text="${cluster.beans[0].question}"></h4>
 
-            <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
-
-            <section class="beanAnswers">
-              <label th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
-                <input th:class="${cluster.beans[0].id}" 
-                      name="radioGroup" 
-                      th:text="${answer}"
-                      type="radio" th:value="${cluster.beans[0].questionNum}" />
-              </label>
-            </section>
-            
+                <section class="beanAnswers">
+                <label id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+                    <input th:class="${cluster.beans[0].id}" 
+                        name="radioGroup" 
+                        th:text="${answer}" 
+                        type="radio" th:value="${cluster.beans[0].questionNum}" />
+                </label>
+                </section>
+            </div>    
         </div>
 
         <button id="submitAnswer" disabled="true"> Submit </button>
