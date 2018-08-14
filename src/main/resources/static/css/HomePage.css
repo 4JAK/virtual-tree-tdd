@@ -1,12 +1,22 @@
 nav li{
-    align-content: center;
+   
     list-style-type: none;
-    display:inline;
-    float: right;   
+    float: right;
+    margin-top: 7%;
+
 }
+nav{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    margin-top: 3%;
+}
+
 li a{
     text-decoration: none;
-    margin-right: 2%;
+    
+    
+   
 }
 .btn {
     border: 1px solid black;
