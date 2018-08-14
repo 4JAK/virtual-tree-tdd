@@ -2,23 +2,24 @@ function renderBean(response) {
   if (this.status === 200 && this.readyState === 4) {
     console.log('hit render bean');
     const bean = JSON.parse(response.target.response);
-    const fieldset = document.querySelector('.clusterBeans');
-    const imgTag = document.querySelector('#slide-out-lesson > img');
-    const asideTag = document.querySelector('#slide-out-lesson > aside');
+    const beanQuestion = document.getElementById('beanQuestion');
+    const imageForBeanLesson = document.getElementById('lessonImage');
+    const beanLessonExample = document.getElementById('beanLessonExample');
+    const beanAnswers = document.querySelector('.beanAnswers');
+
     if (bean.lesson.image != null) {
-      imgTag.setAttribute(`src`, `${bean.lesson.image}`)
-      
-      }
-    
-    asideTag.innerHTML= bean.lesson.example;
-    fieldset.innerHTML = `
-    <legend class="questionLegend">
-      <strong class="beanQuestion">${bean.question}</strong>
-    </legend>`;
+      imageForBeanLesson.setAttribute('src', bean.lesson.image);
+    } else {
+      imageForBeanLesson.setAttribute('src', '');
+    }
+    beanLessonExample.innerHTML = '';
+    beanLessonExample.innerHTML = bean.lesson.example;
+    beanQuestion.innerHTML = bean.question;
     // We still have our Bean object, and what do our objects have?
     // Collections! And we can iterate over them like so
+    beanAnswers.innerHTML = '';
     bean.answers.forEach((answer) => {
-      fieldset.innerHTML += `
+      beanAnswers.innerHTML += `
       <label for="radioGroup">
         <input class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}

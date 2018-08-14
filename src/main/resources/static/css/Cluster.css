@@ -1,10 +1,15 @@
-aside {
-    
+p {
+  white-space: normal;
 }
 
 body {
     font-family: 'Work Sans', sans-serif;
     background-color: #E9E9E9;
+}
+
+.openbtn {
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .closebtn {
@@ -13,10 +18,6 @@ body {
     padding: 30px;
     margin-left: 75%;
     text-decoration: none;
-}
-
-fieldset {
-    border: none;
 }
 
 img {
@@ -33,10 +34,22 @@ img {
     overflow-y: scroll;
     top:0;
     left: 0;
-    width: 0;
     content: '\A\A';
     white-space: pre;
     background-color: white;
+}
+
+.lessonView {
+  width: 0%;
+}
+
+.openLesson {
+  width: 70%;
+}
+
+.beanAnswers label::after {
+  content: '\A\A';
+  white-space: pre;
 }
 
 
