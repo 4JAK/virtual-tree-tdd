@@ -7,6 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import java.util.Arrays;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -23,7 +26,19 @@ public class ClusterControllerTest {
   @Autowired MockMvc mvc;
 
   @MockBean private ClusterRepository clusterRepo;
+  @MockBean private BeanRepository beanRepo;
   @Mock private Cluster cluster;
+  @Mock private Bean testBean;
+  @Mock private Lesson testLesson;
+  
+  @Before public void setup() {
+	  // The first given is for making sure we actually return a cluster from the repo
+	  given(clusterRepo.findOne(1L)).willReturn(cluster);
+	  // This given is for making sure there are beans in our mocked cluster
+	  given(cluster.getBeans()).willReturn(Arrays.asList(testBean));
+	  // The last given is for that the test bean has a lesson
+	  given(testBean.getLesson()).willReturn(testLesson);
+  }
 
   @Test //shows that mapping is correct
   public void clusterMappingShouldReturn2xxSuccessful() throws Exception {
@@ -37,7 +52,6 @@ public class ClusterControllerTest {
 
   @Test //shows that cluster/1 returns proper cluster
   public void clusterMappingAttributeShouldHaveHaveCluster() throws Exception {
-    given(clusterRepo.findOne(1L)).willReturn(cluster);
     mvc.perform(get("/cluster/1")).andExpect(model().attribute("cluster", is(cluster)));
   }
 
