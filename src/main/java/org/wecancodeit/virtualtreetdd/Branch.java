@@ -73,6 +73,16 @@ public class Branch {
 		return true;
 	}
 	
+	public Cluster getNextCluster( Long currentClusterId) {
+		Cluster cluster = null;
+		for( Cluster currentCluster: clusters) {
+			if(currentCluster.getId()==currentClusterId+1L) {
+				cluster=currentCluster;
+			}
+			
+		}
+		return cluster;
+	}
 	
 	
 }

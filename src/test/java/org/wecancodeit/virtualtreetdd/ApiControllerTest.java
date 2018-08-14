@@ -3,12 +3,14 @@ package org.wecancodeit.virtualtreetdd;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
+import static org.mockito.BDDMockito.*;
 
 import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -25,6 +27,9 @@ public class ApiControllerTest {
 
 	@Resource
 	TestRestTemplate restTemplate;
+	
+	
+	@Autowired private BeanRepository beanRepo;
 	  
 	@Mock private Bean testBean;
 
@@ -159,7 +164,8 @@ public class ApiControllerTest {
 	public void shouldGetNextBeanFromClusterCollection() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getnextbean?currentBeanQuestionNum=3", String.class);
 		// Since it's a bean object that we're returning, 
-		// we can check it's if it contains the questionNum property, which it should 
+		// we can check it's if it contains the questionNum property, which it should
+		System.out.println(response.getBody());
 		boolean body = response.getBody().contains("\"questionNum\":4"); 
 		assertThat(body, is(true));
 	}
@@ -168,6 +174,9 @@ public class ApiControllerTest {
 	public void shouldMakeIsCompletedVariableTrueForBean() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true",
 				String.class);
+		
+//		given(beanRepo.findOne(5L)).willReturn(testBean);
+		
 		assertThat(testBean.isCompletedQuestion() , is(true));
 	}
 	
@@ -176,5 +185,11 @@ public class ApiControllerTest {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/JavaTreeCompleted", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
+	}
+	@Test
+	public void shouldGetNextClusterFromBranchCollection() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/branches/1/getnextcluster?currentClusterId=1", String.class);
+		boolean body = response.getBody().contains("\"id\":2"); 
+		assertThat(body, is(true));
 	}
 }
