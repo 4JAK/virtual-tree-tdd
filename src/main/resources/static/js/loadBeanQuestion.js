@@ -40,31 +40,33 @@ function renderBean(response) {
   }
 }
 
+
 // API call for grabbing the next bean in the cluster
 function getNextBeanQuestion() {
-  const xhr = new XMLHttpRequest();
-  // since the class has a list of classes for the,
-  // we grab the second class for the cluster ID
-  const clusterId = document.getElementById('clusterId').getAttribute('value');
-  // clusterId = parseInt(clusterId, 10);
-  // Grab current question number from the inputs value,
-  // since the inputs value is set to the question number
-  const beanQuestionNum = document.getElementById('currentQuestionNum').getAttribute('value');
-  // Grab the cluster size
-  const clusterSize = document.getElementById('clusterSize');
-  // Grab the button for going to the next question
-  const btnNextQuestion = document.getElementById('nextQuestion');
-  if (beanQuestionNum === clusterSize) {
-    btnNextQuestion.setAttribute('disabled', 'true');
+  if (checkIfBeanIsLastInCluster() === true) {
+    console.log('the bean is last!');
+    
+  } else {
+    const xhr = new XMLHttpRequest();
+    // since the class has a list of classes for the,
+    // we grab the second class for the cluster ID
+    const clusterId = document.getElementById('clusterId').getAttribute('value');
+    // clusterId = parseInt(clusterId, 10);
+    // Grab current question number from the inputs value,
+    // since the inputs value is set to the question number
+    const beanQuestionNum = document.getElementById('currentQuestionNum').getAttribute('value');
+
+    console.log('hit next bean function');
+    xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
+    xhr.addEventListener('readystatechange', renderBean);
+    xhr.send();
   }
-  console.log('hit next bean function');
-  xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
-  xhr.addEventListener('readystatechange', renderBean);
-  xhr.send();
 }
 
 function addEventListeners() {
   const btnNextQuestion = document.getElementById('nextQuestion');
   btnNextQuestion.addEventListener('click', getNextBeanQuestion);
+  btnNextQuestion.addEventListener('click', checkIfBeanIsLastInCluster);
 }
+
 addEventListeners();

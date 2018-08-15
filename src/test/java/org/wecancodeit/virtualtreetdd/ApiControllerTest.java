@@ -1,8 +1,10 @@
 package org.wecancodeit.virtualtreetdd;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import javax.annotation.Resource;
 
@@ -176,5 +178,24 @@ public class ApiControllerTest {
 		ResponseEntity<String> response = restTemplate.getForEntity("/api/JavaTreeCompleted", String.class);
 		HttpStatus status = response.getStatusCode();
 		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test
+	public void shouldBeOkayForLastBeanInCluster() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=1", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	@Test
+	public void shouldReturnTrueForLastBeanInCluster() {
+		ResponseEntity<Boolean> response = restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=5", Boolean.class);
+		assertTrue(response.getBody());
+	}
+	
+	@Test
+	public void shouldReturnFalseForLastBeanInCluster() {
+		ResponseEntity<Boolean> response = restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=4", Boolean.class);
+		assertFalse(response.getBody());
 	}
 }

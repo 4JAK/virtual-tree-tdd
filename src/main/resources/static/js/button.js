@@ -18,6 +18,7 @@ function setIdOfCheckedRadioButton() {
     });
   }
 }
+
 // Grab the unordered list of where the bean is at
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
@@ -26,30 +27,11 @@ function addEventListeners() {
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
   const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
-  btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
+  // btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
 }
 
 // Call method on page load
 addEventListeners();
-
-function checkIfBeanIsLastInCluster() {
-  // Grab the submit answer button
-  const btnSubmitAnswer = document.getElementById('submitAnswer');
-  // Grab the selected answer radio button
-  const bean = document.getElementById('selectedAnswer');
-  // Value of the radio button, which is the bean's questionNum, 
-  // is assigned to local variable beanQuestionNum
-  const beanQuestionNum = bean.value;
-  // We can grab the cluster size from the strong tag inside our html
-  const clusterSize = document.getElementById('clusterSize').getAttribute('value');
-  // Check if the bean is the last in the cluster
-  if (beanQuestionNum === clusterSize) {
-    btnSubmitAnswer.setAttribute('disabled', 'true');
-  } else {
-    return false;
-  }
-  return true;
-}
 
 function checkIfAnswerIsCorrect(response) {
   // this being xhr.
@@ -98,7 +80,7 @@ function checkIfAnswerIsCorrect(response) {
       // we don't want them submitting more than once, once they are correct
       // document.getElementById('submitAnswer').removeAttribute('disabled');
       document.getElementById('nextQuestion').removeAttribute('disabled');
-      checkIfBeanIsLastInCluster();
+      // checkIfBeanIsLastInCluster();
     } else {
       // Ideally, if the value returned is false,
       // we want the modal to pop up, and possibly edit the background color of the text
