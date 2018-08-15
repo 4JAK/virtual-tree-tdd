@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <!-- <img src='/images/planTDDlogo.jpg'/> -->
+    
     <nav>
+       <a th:href='@{/}'><img src='/images/planTDDlogoTransparent.png'/></a> 
         <ul>
         <li><a th:href="@{/home}"><button class="btn">Profile</button>
         </a></li>
-        <li><a th:href="@{/}"><button class="btn">Home</button>
-        </a></li>
+        
     </ul>
     </nav>
     <!-- Boxes containing concepts - when clicked open Beans -->
@@ -40,7 +40,7 @@
 
                 <section class="beanAnswers">
                 <label id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
-                    <input th:class="${cluster.beans[0].id}" 
+                    <input id="answer" th:class="${cluster.beans[0].id}" 
                         name="radioGroup" 
                         th:text="${answer}" 
                         type="radio" th:value="${cluster.beans[0].questionNum}" />
@@ -48,7 +48,7 @@
                 </section>
             </div>    
         </div>
-
+        <div id='submitNext'>
         <button id="submitAnswer" disabled="true"> Submit </button>
 
         <footer>
@@ -58,6 +58,7 @@
         </footer>
 
         <button id="nextQuestion">Next Question </button>
+        </div>
     </div>
     <script th:src="@{/js/button.js}"></script>
     <script th:src="@{/js/loadBeanQuestion.js}"></script>

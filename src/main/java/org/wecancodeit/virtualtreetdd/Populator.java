@@ -429,7 +429,7 @@ public class Populator implements CommandLineRunner {
   public Collection<String> getAnswersFor3Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
     String answer1 = "arrange";
-    String answer2 = "arrange";
+    String answer2 = "act";
     answers.add(answer1);
     answers.add(answer2);
     return answers;
@@ -438,7 +438,7 @@ public class Populator implements CommandLineRunner {
   public Collection<String> getAnswersFor4Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
     String answer1 = "act";
-    String answer2 = "act";
+    String answer2 = "arrange";
     answers.add(answer1);
     answers.add(answer2);
     return answers;
