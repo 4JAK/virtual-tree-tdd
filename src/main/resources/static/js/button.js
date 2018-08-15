@@ -1,11 +1,5 @@
 /* eslint-disable */
 
-// This is so IE stops complaining when running tests
-(function () {
-  if (typeof NodeList.prototype.forEach === "function") return false;
-  NodeList.prototype.forEach = Array.prototype.forEach;
-})();
-
 // When called, will loop throug all radio buttons
 // and see if their property 'checked' is true
 // if a button is checked, will set it's id attribute to 'selectedAnswer' 
@@ -24,6 +18,7 @@ function setIdOfCheckedRadioButton() {
     });
   }
 }
+
 // Grab the unordered list of where the bean is at
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
@@ -32,30 +27,11 @@ function addEventListeners() {
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
   const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
-  btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
+  // btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
 }
 
 // Call method on page load
 addEventListeners();
-
-function checkIfBeanIsLastInCluster() {
-  // Grab the submit answer button
-  const btnSubmitAnswer = document.getElementById('submitAnswer');
-  // Grab the selected answer radio button
-  const bean = document.getElementById('selectedAnswer');
-  // Value of the radio button, which is the bean's questionNum, 
-  // is assigned to local variable beanQuestionNum
-  const beanQuestionNum = bean.value;
-  // We can grab the cluster size from the strong tag inside our html
-  const clusterSize = document.getElementById('clusterSize').getAttribute('value');
-  // Check if the bean is the last in the cluster
-  if (beanQuestionNum === clusterSize) {
-    btnSubmitAnswer.setAttribute('disabled', 'true');
-  } else {
-    return false;
-  }
-  return true;
-}
 
 function checkIfAnswerIsCorrect(response) {
   // this being xhr.
@@ -92,13 +68,19 @@ function checkIfAnswerIsCorrect(response) {
   */
   if (this.status === 200 && this.readyState === 4) {
     const answer = JSON.parse(response.target.response);
+    const selectedAnswer = document.getElementById('selectedAnswer');
     // answer being the returned value from the API call.
     // Since it's a boolean API call, 
     // we only have to check against true or false conditions.
     if (answer === true) {
       console.log("Yay you're right!");
+      document.querySelector('.next-question-modal').removeAttribute('hidden');
       // then remove the disabled attribute from the button since the answer was correct.
-      checkIfBeanIsLastInCluster();
+      // and also the submit answer button because,
+      // we don't want them submitting more than once, once they are correct
+      // document.getElementById('submitAnswer').removeAttribute('disabled');
+      document.getElementById('nextQuestion').removeAttribute('disabled');
+      // checkIfBeanIsLastInCluster();
     } else {
       // Ideally, if the value returned is false,
       // we want the modal to pop up, and possibly edit the background color of the text
@@ -106,6 +88,9 @@ function checkIfAnswerIsCorrect(response) {
 
       // With the modal, we can add it in the HTML instead of a popup,
       // with text being added inside, indicating whether or not they were correct.
+      selectedAnswer.setAttribute('disabled', 'true');
+      selectedAnswer.parentElement.classList.add('incorrectAnswer');
+      document.getElementById('submitAnswer').setAttribute('disabled', 'true');
       console.log('Wrong...');
     }
   }
@@ -119,7 +104,6 @@ function enableSubmitButtonOnRadioSelect() {
 }
 
 function getAnswerToCheck() {
-  document.getElementById('nextQuestion').removeAttribute('disabled');
   // Grab the currently selected radio button
   const rdoClicked = document.getElementById('selectedAnswer');
   // From the radio, it's class attribute is the bean id
