@@ -81,7 +81,6 @@ public class ApiController {
     } else {
       beanRepo.findOne(beanId).setCompletedQuestion();
     }
-
     return true;
   }
 
@@ -98,10 +97,10 @@ public class ApiController {
       @PathVariable(name = "clusterId") Long clusterId,
       @RequestParam(value = "beanId") Long beanId) {
 
-	  Cluster cluster = clusterRepo.findOne(clusterId);
-	  if (!cluster.isLastBean(beanRepo.findOne(beanId))) {
-		  return false;
-	  }
+    Cluster cluster = clusterRepo.findOne(clusterId);
+    if (!cluster.isLastBean(beanRepo.findOne(beanId))) {
+      return false;
+    }
     return true;
   }
 }
