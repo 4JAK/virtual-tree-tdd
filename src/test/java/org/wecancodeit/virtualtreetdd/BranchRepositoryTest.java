@@ -91,4 +91,21 @@ public class BranchRepositoryTest {
 
     assertThat(underTestBranchClusters.size(), is(greaterThan(0)));
   }
+  @Test
+  public void shouldBeAbleToGetNextClusterOnBranch() {
+	 Branch testBranch = branchRepo.save (new Branch(null, testTree));
+	 Cluster testCluster1 = clusterRepo.save (new Cluster(null, testBranch));
+	 Cluster testCluster2 = clusterRepo.save (new Cluster(null, testBranch));
+	 
+	 em.flush();
+	 em.clear();
+	
+	 Cluster nextCluster = testBranch.getNextCluster(testCluster1.getId());
+	 assertThat(nextCluster.getId(), is(equalTo(2L)));
+	 
+	 
+	 
+	 
+  }
+
 }
