@@ -90,5 +90,12 @@ public class ApiController {
 		Cluster currentCluster = clusterRepo.findOne(clusterId);
 		return currentCluster.getBean(currentBeanQuestionNum + 1); 
 	}
-	
+	@RequestMapping (value= "/branches/{branchId}/getnextcluster", method = RequestMethod.GET)
+	public Cluster getNextCluster(@PathVariable(name= "branchId") Long branchId,
+								@RequestParam(value="currentClusterId") Long currentClusterId) {
+		
+		Branch currentBranch = branchRepo.findOne(branchId);
+		
+		return currentBranch.getNextCluster(currentClusterId);
+	}
 }
