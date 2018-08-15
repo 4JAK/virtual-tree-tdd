@@ -12,77 +12,70 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Branch {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String name;
-	private boolean branchCompleted;
-	
-	@JsonIgnore
-	@ManyToOne
-	private VirtualTree virtualTree;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "branch")
-	private Collection<Cluster> clusters;
-	
-	public Branch (String name, VirtualTree virtualTree) {
-		this.name = name;
-		this.virtualTree = virtualTree;
-		this.branchCompleted = false;
-	}
-	
-	public Branch() {
-		
-	}
 
-	public Long getId() {
-		return id;
-	}
-	
-	public String getName() {
-		
-		return name;
-	}
+  @Id @GeneratedValue private Long id;
+  private String name;
+  private boolean branchCompleted;
 
-	public VirtualTree getVirtualTree() {
-		
-		return virtualTree;
-	}
+  @JsonIgnore @ManyToOne private VirtualTree virtualTree;
 
-	public Collection<Cluster> getClusters() {
-		
-		return clusters;
-	}
+  @JsonIgnore
+  @OneToMany(mappedBy = "branch")
+  private Collection<Cluster> clusters;
 
-	public boolean isBranchCompleted() {
-		return branchCompleted;
-	}
+  public Branch(String name, VirtualTree virtualTree) {
+    this.name = name;
+    this.virtualTree = virtualTree;
+    this.branchCompleted = false;
+  }
 
-	public void setBranchCompleted() {
-		this.branchCompleted = true;
-	}
-	
-	public boolean checkCompletedClusters() {
-		for(Cluster cluster : clusters) {
-			if(!cluster.isClusterCompleted()) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public Cluster getNextCluster( Long currentClusterId) {
-		Cluster cluster = null;
-		for( Cluster currentCluster: clusters) {
-			if(currentCluster.getId()==currentClusterId+1L) {
-				cluster=currentCluster;
-			}
-			
-		}
-		return cluster;
-	}
-	
-	
+  public Branch() {}
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+
+    return name;
+  }
+
+  public VirtualTree getVirtualTree() {
+
+    return virtualTree;
+  }
+
+  public Collection<Cluster> getClusters() {
+
+    return clusters;
+  }
+
+  public boolean isBranchCompleted() {
+    return branchCompleted;
+  }
+
+  public void setBranchCompleted() {
+    this.branchCompleted = true;
+  }
+
+  public boolean checkCompletedClusters() {
+    for (Cluster cluster : clusters) {
+      if (!cluster.isClusterCompleted()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public Cluster getNextCluster(Long currentClusterId) {
+    Cluster clusterToReturn = null;
+
+    for (Cluster cluster : clusters) {
+    	if (cluster.getId() == currentClusterId + 1L) {
+    		clusterToReturn = cluster;
+    	}
+    }
+    
+    return clusterToReturn;
+  }
 }

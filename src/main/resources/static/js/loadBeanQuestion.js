@@ -45,7 +45,6 @@ function renderBean(response) {
 function getNextBeanQuestion() {
   if (checkIfBeanIsLastInCluster() === true) {
     console.log('the bean is last!');
-    
   } else {
     const xhr = new XMLHttpRequest();
     // since the class has a list of classes for the,
@@ -55,8 +54,6 @@ function getNextBeanQuestion() {
     // Grab current question number from the inputs value,
     // since the inputs value is set to the question number
     const beanQuestionNum = document.getElementById('currentQuestionNum').getAttribute('value');
-
-    console.log('hit next bean function');
     xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
     xhr.addEventListener('readystatechange', renderBean);
     xhr.send();
@@ -66,7 +63,6 @@ function getNextBeanQuestion() {
 function addEventListeners() {
   const btnNextQuestion = document.getElementById('nextQuestion');
   btnNextQuestion.addEventListener('click', getNextBeanQuestion);
-  btnNextQuestion.addEventListener('click', checkIfBeanIsLastInCluster);
 }
 
 addEventListeners();

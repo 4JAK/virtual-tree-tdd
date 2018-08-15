@@ -102,4 +102,9 @@ public class ApiController {
     }
     return true;
   }
+
+  @RequestMapping(value = "/clusters/{clusterId}/getNextCluster", method = RequestMethod.GET)
+  public Cluster getNextCluster(@PathVariable(name = "clusterId") Long clusterId) {
+    return clusterRepo.findOne(clusterId + 1L);
+  }
 }

@@ -11,6 +11,7 @@ import java.util.Collection;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -37,6 +38,10 @@ public class BranchRepositoryTest {
   @Mock private Cluster testCluster;
 
   @Mock private VirtualTree testTree;
+  
+  @Before public void setup() {
+	  testTree = vTreeRepo.save(new VirtualTree("tree1"));
+  }
 
   @Test //Checks to see if a branch is saved in repo
   public void shouldBeAbleToSaveBranchToRepo() {
@@ -93,19 +98,23 @@ public class BranchRepositoryTest {
   }
   @Test
   public void shouldBeAbleToGetNextClusterOnBranch() {
-	 Branch testBranch = branchRepo.save (new Branch(null, testTree));
-	 Cluster testCluster1 = clusterRepo.save (new Cluster(null, testBranch));
-	 Cluster testCluster2 = clusterRepo.save (new Cluster(null, testBranch));
+	 testBranch = branchRepo.save (new Branch("branch1", testTree));
+	 testCluster = clusterRepo.save (new Cluster("cluster1", testBranch));
+	 Cluster testCluster2 = clusterRepo.save (new Cluster("cluster2", testBranch));
+	 
+	 Long branchId = testBranch.getId();
+	 Long testClusterId = testCluster.getId();
+	 Long testCluster2Id = testCluster2.getId();
 	 
 	 em.flush();
 	 em.clear();
+	 
+	 Branch resultBranch = branchRepo.findOne(branchId);
+	 Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
+	 Cluster resultCluster2 = clusterRepo.findOne(testCluster2Id);
 	
-	 Cluster nextCluster = testBranch.getNextCluster(testCluster1.getId());
-	 assertThat(nextCluster.getId(), is(equalTo(2L)));
-	 
-	 
-	 
-	 
+	 Cluster nextCluster = resultBranch.getNextCluster(resultCluster1.getId());
+	 assertThat(nextCluster.getId(), is(equalTo(2L)));	 
   }
 
 }
