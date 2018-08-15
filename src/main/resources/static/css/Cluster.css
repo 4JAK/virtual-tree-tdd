@@ -29,7 +29,7 @@ li a{
     color: white;
 }
 p {
-  white-space: normal;
+    white-space: normal;
 }
 
 #bean-answer {
@@ -40,7 +40,7 @@ p {
 .beanAnswers label::after {
     content: '\A\A';
     white-space: pre;
-  }
+}
 
 #bean-answer:hover {
     background-color: #C6D984;
@@ -134,6 +134,10 @@ p {
     content: '\A\A';
     white-space: pre;
     background-color: white;
+}
+
+.incorrectAnswer {
+    text-decoration: line-through;
 }
 
 /* p > span {

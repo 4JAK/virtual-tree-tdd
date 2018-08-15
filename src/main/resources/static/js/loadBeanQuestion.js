@@ -10,7 +10,7 @@ function renderBean(response) {
     if (bean.lesson.image != null) {
       imageForBeanLesson.setAttribute('src', bean.lesson.image);
     }
-    
+
     beanLessonExample.innerHTML = '';
     beanLessonExample.innerHTML = bean.lesson.example;
     beanQuestion.innerHTML = bean.question;
@@ -28,12 +28,14 @@ function renderBean(response) {
 
     document.getElementById('currentQuestionNum').setAttribute('value', `${bean.questionNum}`);
     document.getElementById('currentQuestionNum').innerText = bean.questionNum;
+    document.querySelector('.next-question-modal').setAttribute('hidden', 'true');
 
     // Grab the strong tag from it's id
     const currentQuestionNum = document.getElementById('currentQuestionNum');
     // Set the innerHTML to the next bean's question num
     currentQuestionNum.innerHTML = bean.questionNum;
 
+    document.getElementById('submitAnswer').setAttribute('disabled', 'true');
     document.getElementById('nextQuestion').setAttribute('disabled', 'true');
   }
 }
@@ -52,7 +54,7 @@ function getNextBeanQuestion() {
   const clusterSize = document.getElementById('clusterSize');
   // Grab the button for going to the next question
   const btnNextQuestion = document.getElementById('nextQuestion');
-  if (beanQuestionNum === clusterSize) {    
+  if (beanQuestionNum === clusterSize) {
     btnNextQuestion.setAttribute('disabled', 'true');
   }
   console.log('hit next bean function');

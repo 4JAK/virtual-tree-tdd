@@ -1,11 +1,5 @@
 /* eslint-disable */
 
-// This is so IE stops complaining when running tests
-(function () {
-  if (typeof NodeList.prototype.forEach === "function") return false;
-  NodeList.prototype.forEach = Array.prototype.forEach;
-})();
-
 // When called, will loop throug all radio buttons
 // and see if their property 'checked' is true
 // if a button is checked, will set it's id attribute to 'selectedAnswer' 
@@ -92,12 +86,18 @@ function checkIfAnswerIsCorrect(response) {
   */
   if (this.status === 200 && this.readyState === 4) {
     const answer = JSON.parse(response.target.response);
+    const selectedAnswer = document.getElementById('selectedAnswer');
     // answer being the returned value from the API call.
     // Since it's a boolean API call, 
     // we only have to check against true or false conditions.
     if (answer === true) {
       console.log("Yay you're right!");
+      document.querySelector('.next-question-modal').removeAttribute('hidden');
       // then remove the disabled attribute from the button since the answer was correct.
+      // and also the submit answer button because,
+      // we don't want them submitting more than once, once they are correct
+      // document.getElementById('submitAnswer').removeAttribute('disabled');
+      document.getElementById('nextQuestion').removeAttribute('disabled');
       checkIfBeanIsLastInCluster();
     } else {
       // Ideally, if the value returned is false,
@@ -106,6 +106,9 @@ function checkIfAnswerIsCorrect(response) {
 
       // With the modal, we can add it in the HTML instead of a popup,
       // with text being added inside, indicating whether or not they were correct.
+      selectedAnswer.setAttribute('disabled', 'true');
+      selectedAnswer.parentElement.classList.add('incorrectAnswer');
+      document.getElementById('submitAnswer').setAttribute('disabled', 'true');
       console.log('Wrong...');
     }
   }
@@ -119,7 +122,6 @@ function enableSubmitButtonOnRadioSelect() {
 }
 
 function getAnswerToCheck() {
-  document.getElementById('nextQuestion').removeAttribute('disabled');
   // Grab the currently selected radio button
   const rdoClicked = document.getElementById('selectedAnswer');
   // From the radio, it's class attribute is the bean id
