@@ -25,6 +25,7 @@ public class ApiControllerTest {
   @Resource TestRestTemplate restTemplate;
 
   @Mock private Bean testBean;
+  @Mock private Cluster testCluster;
 
   @Test
   public void canary() {
@@ -225,5 +226,11 @@ public class ApiControllerTest {
     ResponseEntity<Boolean> response =
         restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=4", Boolean.class);
     assertFalse(response.getBody());
+  }
+  
+  @Test public void shouldReturnNextClusterIfBeanIsLast() {
+	  ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getNextCluster", String.class);
+	  System.out.println(response.getBody());
+	  assertTrue(response.getBody().contains("\"id\":2"));
   }
 }
