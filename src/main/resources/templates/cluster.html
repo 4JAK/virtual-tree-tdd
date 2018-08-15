@@ -38,7 +38,7 @@
                 <h4 id="beanQuestion" th:text="${cluster.beans[0].question}"></h4>
 
                 <section class="beanAnswers">
-                <label id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+                <label class="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
                     <input id="answer" th:class="${cluster.beans[0].id}" 
                         name="radioGroup" 
                         th:text="${answer}" 
@@ -49,7 +49,7 @@
         </div>
         <div id='submitNext'>
         <button id="submitAnswer" disabled="true"> Submit </button>
-        
+        </div>
         <div hidden="true" class="next-question-modal">
             <p id="answer-modal">Correct! Nice job!</p>
             <button id="nextQuestion" disabled="true">Next Question </button>
