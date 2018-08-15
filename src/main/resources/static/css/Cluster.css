@@ -38,13 +38,14 @@ p {
     white-space: normal;
 }
 .beanAnswers{
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
-#bean-answer {
+.bean-answer {
     /* border-style: solid; */
-    background-color: white;
+    /* background-color: white; */
     font-size: 2.2vh;
     border-style: solid;
     border-radius: 20px;
@@ -72,8 +73,8 @@ p {
     white-space: pre;    
 }
 
-#bean-answer:hover {
-    background-color: #C6D984;
+.bean-answer:hover {
+    background-color: #D7D6D6;
 
 }
 
@@ -110,6 +111,8 @@ h3 {
 
 h4 {
     font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
 }
 
 img {
@@ -173,6 +176,10 @@ p {
 
 .incorrectAnswer {
     text-decoration: line-through;
+    background-color: red;
+}
+.correctAnswer{
+background-color: green;
 }
 
 /* p > span {
