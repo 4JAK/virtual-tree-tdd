@@ -35,7 +35,7 @@ li a{
     color: white;
 }
 p {
-  white-space: normal;
+    white-space: normal;
 }
 .beanAnswers{
     margin-left: auto;
@@ -69,10 +69,8 @@ p {
 
 
 .beanAnswers label::after {
-    
-    white-space: pre;
-    
-  }
+    white-space: pre;    
+}
 
 #bean-answer:hover {
     background-color: #C6D984;
@@ -171,6 +169,10 @@ p {
     margin-top: 6%;
     
     text-align: center;
+}
+
+.incorrectAnswer {
+    text-decoration: line-through;
 }
 
 /* p > span {
