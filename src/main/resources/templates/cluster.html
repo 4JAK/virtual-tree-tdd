@@ -30,8 +30,7 @@
             <aside id="slide-out-lesson" class="lessonView">
                 <a href="javascript:void(0)" class="closebtn">&times;</a>
                     <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
-                    <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}">
-                    </span>
+                    <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
             </aside>
 
             <span class="openbtn">&#9776; Lesson</span>
@@ -50,6 +49,11 @@
         </div>
 
         <button id="submitAnswer" disabled="true"> Submit </button>
+        
+        <div hidden="true" class="next-question-modal">
+            <p id="answer-modal">Correct! Nice job!</p>
+            <button id="nextQuestion" disabled="true">Next Question </button>
+        </div>
 
         <footer>
             Current Question #:
@@ -57,9 +61,9 @@
             <strong id="clusterSize" th:value="${cluster.beans.size()}"></strong>
         </footer>
 
-        <button id="nextQuestion">Next Question </button>
     </div>
     <script th:src="@{/js/button.js}"></script>
+    <script th:src="@{/js/beanIsLastInCluster.js}"></script>
     <script th:src="@{/js/loadBeanQuestion.js}"></script>
 </body>
 <script type="text/javascript" th:src="@{/js/lessonSlideOut.js}"></script>

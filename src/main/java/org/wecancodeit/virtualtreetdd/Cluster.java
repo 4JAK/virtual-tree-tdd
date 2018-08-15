@@ -30,15 +30,15 @@ public class Cluster {
     this.branch = branch;
     this.clusterCompleted = false;
   }
-  
+
   public Bean getBean(int questionNum) {
-	  Bean correctBean = null;
-	  for (Bean bean : beans) {
-		  if (bean.getQuestionNum() == questionNum) {
-			  correctBean = bean;
-		  }
-	  }
-	  return correctBean;
+    Bean correctBean = null;
+    for (Bean bean : beans) {
+      if (bean.getQuestionNum() == questionNum) {
+        correctBean = bean;
+      }
+    }
+    return correctBean;
   }
 
   public Long getId() {
@@ -58,21 +58,28 @@ public class Cluster {
   }
 
   public boolean isClusterCompleted() {
-	return clusterCompleted;
+    return clusterCompleted;
   }
 
   public void setClusterCompleted() {
-	this.clusterCompleted = true;
+    this.clusterCompleted = true;
   }
-  
+
   public boolean checkCompletedBeans() {
-	  for(Bean bean : beans) {
-			if(!bean.isCompletedQuestion()) {
-				return false;
-			}
-		}
-		return true;
+    for (Bean bean : beans) {
+      if (!bean.isCompletedQuestion()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public boolean isLastBean(Bean beanToCheck) {
+    if (beanToCheck != beans.toArray()[beans.size() - 1]) {
+      return false;
+    }
+    return true;
   }
 
   public Cluster() {}
-  }
+}
