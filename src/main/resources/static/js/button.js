@@ -19,6 +19,12 @@ function setIdOfCheckedRadioButton() {
   }
 }
 
+function checkRadio(event) {
+  const labelClicked = event.target;
+  const rdoClick = labelClicked.childNodes[1];
+  rdoClick.checked = true;
+}
+
 // Grab the unordered list of where the bean is at
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
@@ -27,7 +33,12 @@ function addEventListeners() {
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
   const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
-  // btnSubmitAnswer.addEventListener('click', checkIfBeanIsLastInCluster);
+  const labelsForBeanAnswer = document.querySelectorAll('.bean-answer-label');
+  if(labelsForBeanAnswer[0]) {
+    labelsForBeanAnswer.forEach((label) => {
+      label.addEventListener('click', checkRadio);
+    });
+  }
 }
 
 // Call method on page load
@@ -107,7 +118,7 @@ function getAnswerToCheck() {
   // Grab the currently selected radio button
   const rdoClicked = document.getElementById('selectedAnswer');
   // From the radio, it's class attribute is the bean id
-  const beanId = rdoClicked.getAttribute('class');
+  const beanId = rdoClicked.getAttribute('value');
   // Since it's a radio button, we need to grab it's text, 
   // which is the sibling of the input
   // We lowercase it to make sure that when we check it against the server,

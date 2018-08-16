@@ -19,7 +19,7 @@ function renderBean(response) {
     beanAnswers.innerHTML = '';
     bean.answers.forEach((answer) => {
       beanAnswers.innerHTML += `
-      <label id="bean-answer" for="radioGroup">
+      <label value="${bean.id}" id="bean-answer" for="radioGroup">
         <input class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}
         </input>
