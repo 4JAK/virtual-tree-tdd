@@ -11,17 +11,17 @@
 </head>
 
 <body>
-    
     <nav>
-       <a th:href='@{/}'><img src='/images/planTDDlogoTransparent.png'/></a> 
-        <ul>
-        <li><a th:href="@{/home}"><button class="btn">Profile</button>
-        </a></li>
-        
-    </ul>
+        <div class="top-bar-left">
+                <a th:href='@{/}'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
+            </div>
+            <div class="top-bar-center">
+                <h1 th:text="${cluster.name}"></h1>
+            </div>
+            <div class="top-bar-right">
+                <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
+            </div>
     </nav>
-    <!-- Boxes containing concepts - when clicked open Beans -->
-    <h1 th:text="${cluster.name}">Test Driven Development in Java</h1>
 
     <div class="concept-container">
 
@@ -38,7 +38,7 @@
                 <h4 id="beanQuestion" th:text="${cluster.beans[0].question}"></h4>
 
                 <section class="beanAnswers">
-                <label class="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+                <label th:value="${cluster.beans[0].id}" id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
                     <input id="answer" th:class="${cluster.beans[0].id}" 
                         name="radioGroup" 
                         th:text="${answer}" 
