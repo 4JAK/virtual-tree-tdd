@@ -1,19 +1,43 @@
-nav > a > img{
-    height: 50px;
-    width: 200px;
-    float: left;
+
+
+.header-logo {
+
+    /* float: left; */
+    height: 37.5px;
+    width: 150px;
+    padding-left: 15px;
+    padding-top: 10px;
 }
-nav li{
-    align-content: center;
-    list-style-type: none;
-    display:inline;
-    float: right;
-       
+
+#profile-image {
+    border-radius: 100%;
+    height: 37.5px;
+    width: 37.5px;
+    padding-right: 15px;
+    /* padding-top: 4px; */
+
 }
-li a{
-    text-decoration: none;
-    margin-right: 2%;
+
+#submitAnswer {
+    width: 150px;
+    background-color:  #4CAF50;
+    color: white;
+    padding: 5px 20px;
+    margin: 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #c6d888;
+    margin: 0;
+    padding-top: 10px;
+}
+
 .btn {
     border: 1px solid black;
     background-color: transparent;
@@ -43,7 +67,7 @@ p {
     align-items: center;
 
 }
-.bean-answer {
+#bean-answer {
     /* border-style: solid; */
     /* background-color: white; */
     font-size: 2.2vh;
@@ -52,16 +76,13 @@ p {
     padding: 15px;
     margin: 10px;
     margin-left: 0;
-    text-align: center;
+    /* text-align: center; */
     display: flex;
     width: 65vw;
     border-color: #D7D6D6;
+  
+}
 
-   
-}
-#answer{
-   
-}
 
 #beanQuestion{
     text-align: center;
@@ -81,6 +102,7 @@ p {
 body {
     font-family: 'Work Sans', sans-serif;
     background-color: #f5f5f5;
+    margin: 0;
 }
 
 .bold {
@@ -115,17 +137,13 @@ h4 {
     justify-content: center;
 }
 
-img {
+#lessonImage {
     width: 50vw;
     left: 0;
 }
 
-/* #image-example {
-    padding-left: 5vw;
-} */
-
 .lessonView {
-    width: 0%;
+    width: 100%;
   }
 
 li {
@@ -134,11 +152,12 @@ li {
 
 .openbtn {
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding-left: 15px;
   }
 
 .openLesson {
-    width: 100%;
+    width: 0%;
 }
 
 p {
@@ -169,8 +188,7 @@ p {
     background-color: white;
 }
 #submitNext{
-    margin-top: 6%;
-    
+    margin-top: 31.175px;    
     text-align: center;
 }
 
