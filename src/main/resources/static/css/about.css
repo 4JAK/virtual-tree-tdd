@@ -1,0 +1,55 @@
+.header-logo {
+
+    /* float: left; */
+    height: 37.5px;
+    width: 150px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #c6d888;
+    margin: 0;
+    padding-top: 10px;
+}
+
+#profile-image {
+    border-radius: 100%;
+    height: 37.5px;
+    width: 37.5px;
+    padding-right: 15px;
+    /* padding-top: 4px; */
+
+}
+
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.top-bar-right > ul {
+    list-style: none;
+    display: flex;
+    float: right;
+}
+
+.top-bar-right > ul > li > a {
+    display: flex;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.about {
+    padding: 50px;
+    line-height: 30px;
+}
+
+footer {
+    padding-left: 50px;
+}

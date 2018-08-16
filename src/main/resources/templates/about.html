@@ -5,33 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>About | java beans</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="About.css" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/about.css}" href="../static/css/about.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
     
     <script src="main.js"></script>
 </head>
 <body>
     <nav>
-        <ul>
-        <li><a th:href="@{/}">
-            Home Page
-        </a></li>
-        <li><a th:href="@{/home}">
-            Profile
-        </a></li>
-        <li><a th:href="@{/}">
-                Logout
-        </a></li>
-        </ul>
-        </nav>
-    <div>
+        <div class="top-bar-left">
+                <a th:href='@{/}'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
+            </div>
+            <div class="top-bar-right">
+                <ul>
+                    <li><a th:href="@{/home}">
+                        Profile
+                    </a></li>
+                    <li><a th:href="@{/}">
+                            Logout
+                    </a></li>
+                    <li>
+                        <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
+
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    
+    <div class="about">
         <h2>About the project</h2>
-         <p class="project">Utilizing a Java based Spring framework planT'DD allows users to learn the priciples and technics of test driven development. Several styles of engaging interactive questions and visual examples allow users a simple and fun way to build their knowledge. The program was built using the knowledge attained by the team during thier 14 week full time bootcamp. Including a Java written back-end it also uses Java-Script, and Ajax to populate pages using Thymeleaf, Css, and HTML to create a smooth cohesive feel.</p>
-       
-    </div>
-    <div>  
+         <p class="project">Utilizing a Java based Spring framework, planT'DD allows users to learn the priciples and techniques 
+             of test driven development. Several styles of engaging interactive questions and visual examples give users 
+             a simple and fun way to build their knowledge. The program was built using the knowledge attained by the team 
+             during their 14 week full-time bootcamp. Including a Java back-end, it also uses JavaScript and Ajax to 
+             populate pages, as well as Thymeleaf, CSS, and HTML to create a smooth cohesive feel.</p>
+        
         <h2> About the team</h2>
-         <p class="team">The 4JAK team consits of Jeane, Julian, James, Jaylen, Amal and Kevin. As students at the WeCanCodeIT full-stack boot camp we have learned a strong foundation of Java based software development that is reflected in this TDD learning application. Please check us out on Linked-in and Github!</p>
+         <p class="team">The 4JAK team consits of Jeanne, Julian, James, Jaylen, Amal and Kevin. As students at the 
+             We Can Code IT full-stack boot camp, we have learned a strong foundation of Java-based software development 
+             that is reflected in this TDD learning application. Please check us out on Linked-In and Github!</p>
              
     </div>
     <footer>&copy;2018</footer>
