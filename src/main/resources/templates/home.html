@@ -12,20 +12,26 @@
 </head>
 
 <body>
-    
-    <nav>
-       <ul>
-        <li><a th:href="@{/about}"><button class="btn">About</button>
-            
-        </a></li>
-        <li><a th:href="@{/}"><button class="btn">Logout</button>
-                
-        </a></li>
-       </ul>
-    </nav>
-    <a th:href='|@{/}|'><img src='/images/planTDDlogo.jpg'/></a>
 
-	
+    <nav>
+        <div class="top-bar-left">
+                <a th:href='@{/}'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
+            </div>
+            <div class="top-bar-right">
+                <ul>
+                    <li>
+                        <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
+                    </li>
+                    <li><a th:href="@{/}">
+                        Logout
+                     </a></li>
+                    <li><a th:href="@{/about}">
+                        About
+                    </a></li>                
+                </ul>
+        </div>
+    </nav>
+    
 
     <!-- Page opens after login -->
 
@@ -39,7 +45,7 @@
                 <br /> Welcome back!
             </h2>
         </div>
-        <!-- <h5 class="certificate"><a>Java/TDD Certificate Of Completion</a></h5> -->
+        <!-- <! <h5 class="certificate"><a>Java/TDD Certificate Of Completion</a></h5> --> 
 
     </div>
     
