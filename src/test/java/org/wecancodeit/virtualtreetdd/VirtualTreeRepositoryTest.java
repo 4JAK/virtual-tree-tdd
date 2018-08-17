@@ -32,7 +32,7 @@ public class VirtualTreeRepositoryTest {
 
 	@Test //shows that a tree can be saved to tree repo
 	public void shouldBeAbleToSaveVirtualTreeToRepo() {
-		testTree = vTreeRepo.save(new VirtualTree("Java"));
+		testTree = vTreeRepo.save(new VirtualTree("Java", null));
 		Long treeId = testTree.getId();
 		
 		em.flush();
@@ -43,7 +43,7 @@ public class VirtualTreeRepositoryTest {
 
 	@Test //shows that tree has a generated id
 	public void virtualTreeShouldHaveGeneratedId() {
-		testTree = vTreeRepo.save(new VirtualTree("Java"));
+		testTree = vTreeRepo.save(new VirtualTree("Java", null));
 		Long treeId = testTree.getId();
 		
 		em.flush();
@@ -56,7 +56,7 @@ public class VirtualTreeRepositoryTest {
 	
 	@Test  //shows that tree has a name and that the getter for name works 
 	public void virtualTreeFromRepoShouldHaveName() {
-		testTree = vTreeRepo.save(new VirtualTree("Java"));
+		testTree = vTreeRepo.save(new VirtualTree("Java", null));
 		Long treeId = testTree.getId();
 		String treeName = testTree.getName();
 		

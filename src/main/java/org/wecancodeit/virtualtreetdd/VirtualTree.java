@@ -2,6 +2,7 @@ package org.wecancodeit.virtualtreetdd;
 
 import java.util.Collection;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,22 +19,30 @@ public class VirtualTree {
 	private int growth;
 	private boolean completedTree;
 	
+	@ElementCollection
+	private Collection<String> treeImages;
 	
 	//branches mapping
 	@OneToMany(mappedBy = "virtualTree")
 	private Collection<Branch> branches;
 
-	public VirtualTree(String name) {
+	public VirtualTree(String name, Collection<String> treeImages) {
 		this.name = name;
 		this.growth = 0;
 		this.completedTree = false;
+		this.treeImages = treeImages;
 	}
 
 	protected VirtualTree() {
 
 	}
+	
+	
 
-	public Long getId() {
+	public Collection<String> getTreeImages() {
+  return treeImages;}
+
+  public Long getId() {
 		return id;
 	}
 

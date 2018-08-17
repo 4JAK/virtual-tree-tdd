@@ -40,7 +40,7 @@ public class BranchRepositoryTest {
   @Mock private VirtualTree testTree;
   
   @Before public void setup() {
-	  testTree = vTreeRepo.save(new VirtualTree("tree1"));
+	  testTree = vTreeRepo.save(new VirtualTree("tree1", null));
   }
 
   @Test //Checks to see if a branch is saved in repo
@@ -69,7 +69,7 @@ public class BranchRepositoryTest {
 
   @Test //Checks branch for a tree
   public void shouldHaveVirtualTree() {
-    testTree = vTreeRepo.save(new VirtualTree("Java Tree"));
+    testTree = vTreeRepo.save(new VirtualTree("Java Tree", null));
     testBranch = branchRepo.save(new Branch("Java Branch", testTree));
     Long branchId = testBranch.getId();
 

@@ -29,7 +29,7 @@ public class Populator implements CommandLineRunner {
 	@Override // Command Line Runner method
 	public void run(String... args) throws Exception {
 		// Virtual tree for Java Testing & TDD
-		VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree"));
+		VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree", getTreeImages()));
 		// First Branch
 		Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
 		// 01Branch01Cluster
@@ -115,6 +115,28 @@ public class Populator implements CommandLineRunner {
 		// getLesson1Question1JUnitHamcrest(),
 		// getCorrectAnswerLesson1Answer1JUnitHamcrest(),
 		// getAnswersForLesson1Answer1JUnitHamcrest()));
+	}
+	
+	public Collection<String> getTreeImages() {
+		ArrayList<String> treeImages = new ArrayList<String>();
+		treeImages.add("/images/pre-tree.png");
+		treeImages.add("/images/bean-1.png");
+		treeImages.add("/images/bean-2.png");
+		treeImages.add("/images/bean-3.png");
+		treeImages.add("/images/bean-4.png");
+		treeImages.add("/images/bean-5.png");
+		treeImages.add("/images/bean-6.png");
+		treeImages.add("/images/bean-7.png");
+		treeImages.add("/images/bean-8.png");
+		treeImages.add("/images/bean-9.png");
+		treeImages.add("/images/bean-10.png");
+		treeImages.add("/images/bean-11.png");
+		treeImages.add("/images/bean-12.png");
+		treeImages.add("/images/bean-13.png");
+		treeImages.add("/images/bean-14.png");
+		treeImages.add("/images/bean-15.png");
+		return treeImages;
+		
 	}
 
 	public String getLesson1Tdd() {

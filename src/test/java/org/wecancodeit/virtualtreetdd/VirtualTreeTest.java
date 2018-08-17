@@ -16,7 +16,7 @@ public class VirtualTreeTest {
   
   @Before
   public void treeSetup() { // test to show that new tree class is made
-	  testTree = new VirtualTree("Java Tree");
+	  testTree = new VirtualTree("Java Tree", null);
   }
 
   @Test
