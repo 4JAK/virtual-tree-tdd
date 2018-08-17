@@ -102,6 +102,14 @@ p {
 
 }
 
+#bean-tree {
+    height: 9.375rem;
+    right: 8.125rem;
+    top: 4rem;
+    position: absolute;
+    width: 9.375rem;
+}
+
 body {
     font-family: 'Work Sans', sans-serif;
     background-color: #f5f5f5;
