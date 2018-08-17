@@ -9,11 +9,17 @@
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/index.css}" href="/css/index.css"/>
 </head>
 <body>
+    <nav>
+        <a th:href='|@{/}|'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
+    </nav>
     <section class="login">
       <img src="/images/Artboard 1.png"/>
         <div class = "form-container">
             <h2><strong>Test first. Code better. Together.</strong></h2>
-            <p></p>
+
+            <p>Test Driven Development is the standard for creating clean, well documented, 
+                bug-free code. Plan'TDD is designed to teach you the basics of TDD, in a simple 
+                intuitive way, so you can work with others to be successful.</p>
         
             <form action="/home.html">
                 <input type="text" name="uname" placeholder="Username" /><br/>
@@ -63,7 +69,11 @@
     
         <div class = "action-message-container">
             <h1>TDD is becoming the industry standard</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perspiciatis voluptatibus doloremque harum minima beatae ad!</p>
+            <p>To eliminate future bug fixes, more and more companies in the industry are seeing 
+                the value of testing their 
+                software as it's created. The method of Test Driven 
+                Development allows the code to be written along with clear documentation, proving 
+                that each part works in a way other coders can understand.</p>
         </div>
 
         <img src="/images/Artboard 2.png" height="670" width="600" />

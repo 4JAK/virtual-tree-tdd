@@ -1,3 +1,9 @@
+function checkRadio(event) {
+  const labelClicked = event.target;
+  const rdoClick = labelClicked.childNodes[1]; 
+  rdoClick.checked = true;
+}
+
 function renderBean(response) {
   if (this.status === 200 && this.readyState === 4) {
     console.log('hit render bean');
@@ -20,7 +26,7 @@ function renderBean(response) {
     bean.answers.forEach((answer) => {
       beanAnswers.innerHTML += `
       <label value="${bean.id}" id="bean-answer" for="radioGroup">
-        <input class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
+        <input id="answer" class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}
         </input>
       </label>`;
@@ -36,6 +42,12 @@ function renderBean(response) {
 
     document.getElementById('submitAnswer').setAttribute('disabled', 'true');
     document.getElementById('nextQuestion').setAttribute('disabled', 'true');
+    const labelsForBeanAnswer = document.querySelectorAll('#bean-answer');
+    if (labelsForBeanAnswer[0]) {
+      labelsForBeanAnswer.forEach((label) => {
+        label.addEventListener('click', checkRadio);
+      });
+    }
   }
 }
 
