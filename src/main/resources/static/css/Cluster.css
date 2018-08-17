@@ -87,6 +87,7 @@ p {
 }
 
 
+
 #beanQuestion{
     text-align: center;
     font-size: 4vh;
@@ -200,7 +201,7 @@ p {
     background-color: red;
 }
 .correctAnswer{
-background-color: green;
+    background-color: green;
 }
 
 .modal-screen{
@@ -208,8 +209,7 @@ background-color: green;
     position: absolute;
     padding-bottom: 100px;
     opacity: 0.7;
-    /* justify-content: center; */
-    /* align-items: center; */
+  
 }
 
 .next-question-modal{
@@ -218,7 +218,7 @@ background-color: green;
     background: lawngreen;
     min-width: 300px;
     max-width: 500px;
-    /* width: 80vw; */
+   
     border-radius: 5px;
     box-shadow: 0 0 15px 5px black;
     
@@ -226,10 +226,6 @@ background-color: green;
 }
 .modal-open{
     display: block;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* top: 62vh; */
-    /* margin: 10% 40% ;  */
     right: 42vw;
 }
 #nextQuestion{
@@ -243,6 +239,7 @@ background-color: green;
     text-align: center;
 }
 
-/* p > span {
-    font-weight: bold;
-} */
+footer{
+    text-align: center;
+    margin-top: 50px;
+}
