@@ -45,18 +45,26 @@
                         type="radio" th:value="${cluster.beans[0].questionNum}" />
                 </label>
                 </section>
+
             </div>    
         </div>
+
+        
+
         <div id='submitNext'>
+            
+                <div class='modal-screen'>
+                        <div class="next-question-modal">
+                            <p id="answer-modal" class="modal-content">Correct! Nice job!</p>
+                            <button id="nextQuestion" disabled="true">Next Question </button>
+                        </div>
+                    </div>
+
         <button id="submitAnswer" disabled="true"> Submit </button>
         </div>
 
-        <div class='modal-screen'>
-        <div class="next-question-modal">
-            <p id="answer-modal" class="modal-content">Correct! Nice job!</p>
-            <button id="nextQuestion" disabled="true">Next Question </button>
-        </div>
-    </div>
+        
+        
 
         <footer>
             Current Question #:
