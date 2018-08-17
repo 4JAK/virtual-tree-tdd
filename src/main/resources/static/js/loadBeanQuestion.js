@@ -34,7 +34,6 @@ function renderBean(response) {
 
     document.getElementById('currentQuestionNum').setAttribute('value', `${bean.questionNum}`);
     document.getElementById('currentQuestionNum').innerText = bean.questionNum;
-    document.querySelector('.next-question-modal').setAttribute('hidden', 'true');
 
     // Grab the strong tag from it's id
     const currentQuestionNum = document.getElementById('currentQuestionNum');
@@ -58,6 +57,7 @@ function getNextBeanQuestion() {
   if (checkIfBeanIsLastInCluster() === true) {
     console.log('the bean is last!');
   } else {
+    document.querySelector('.modal-screen').classList.remove('modal-open');
     const xhr = new XMLHttpRequest();
     // since the class has a list of classes for the,
     // we grab the second class for the cluster ID

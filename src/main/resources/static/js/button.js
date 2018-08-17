@@ -87,7 +87,7 @@ function checkIfAnswerIsCorrect(response) {
     // we only have to check against true or false conditions.
     if (answer === true) {
       console.log("Yay you're right!");
-      document.querySelector('.next-question-modal').removeAttribute('hidden');
+      document.querySelector('.modal-screen').classList.add('modal-open');
       // then remove the disabled attribute from the button since the answer was correct.
       // and also the submit answer button because,
       // we don't want them submitting more than once, once they are correct
