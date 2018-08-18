@@ -35,8 +35,7 @@
             <span class="openbtn">&#9776; Lesson</span>
             <div id="question-and-answers">
                 <h4 id="beanQuestion" th:text="${cluster.beans[0].question}"></h4>
-                <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[10]}" alt="bean tree" />
-
+                
                 <section class="beanAnswers">
                 <label th:value="${cluster.beans[0].id}" id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
                     <input id="answer" th:class="${cluster.beans[0].id}" 
@@ -72,9 +71,13 @@
             <strong id="clusterSize" th:value="${cluster.beans.size()}"></strong>
         </footer>
     </div>
+
+    <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[10]}" alt="bean tree" />
+
     <script th:src="@{/js/button.js}"></script>
     <script th:src="@{/js/beanIsLastInCluster.js}"></script>
     <script th:src="@{/js/loadBeanQuestion.js}"></script>
+
 </body>
 <script type="text/javascript" th:src="@{/js/lessonSlideOut.js}"></script>
 </html>

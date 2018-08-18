@@ -30,6 +30,7 @@ public class Populator implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// Virtual tree for Java Testing & TDD
 		VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree", getTreeImages()));
+		
 		// First Branch
 		Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
 		// 01Branch01Cluster
