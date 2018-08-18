@@ -19,7 +19,7 @@
         </a></li>
     </ul>
     </nav>
-    <h2>Branches</h2>
+    <h2>Java Testing Branches</h2>
     <ol>
         <li th:each="branch : ${branches}">
             <a th:href="|@{/cluster/}${branch.id}|" th:text="${branch.name}">
