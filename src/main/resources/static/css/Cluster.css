@@ -237,7 +237,7 @@ p {
 
 .modal-open{
     display: block;
-    right: 42vw;
+    right: 40vw;
 }
 #nextQuestion{
     background: aqua;   
