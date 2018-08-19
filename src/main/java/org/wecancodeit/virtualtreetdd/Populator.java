@@ -30,8 +30,9 @@ public class Populator implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// Virtual tree for Java Testing & TDD
 		VirtualTree javaTree = vTreeRepo.save(new VirtualTree("Java Tree", getTreeImages()));
+		
 		// First Branch
-		Branch introTddBranch = branchRepo.save(new Branch("Intro To TDD", javaTree));
+		Branch introTddBranch = branchRepo.save(new Branch("Introduction To TDD", javaTree));
 		// 01Branch01Cluster
 		Cluster clusterTdd = clusterRepo.save(new Cluster("Introduction To Test Driven Development", introTddBranch));
 
@@ -47,7 +48,7 @@ public class Populator implements CommandLineRunner {
 				QuestionType.TrueOrFalse, getQuestion5Tdd(), getCorrectAnswer5Tdd(), getAnswersFor5Tdd()));
 
 		// JUnit Branch, Second branch
-		Branch jUnit = branchRepo.save(new Branch("Intro to JUnit", javaTree));
+		Branch jUnit = branchRepo.save(new Branch("Introduction to JUnit", javaTree));
 		// JUnit 02Branch01Cluster
 		Cluster clusterJUnit = clusterRepo.save(new Cluster("Introduction To JUnit Testing", jUnit));
 		// JUnit Questions
@@ -81,7 +82,7 @@ public class Populator implements CommandLineRunner {
 //    new Bean(cluster, lesson, questionNum, type, question, correctAnswer, answers)
 
 		// Hamcrest / JUnit transition 03Branch
-		Branch hamcrest = branchRepo.save(new Branch("Hamcrest/JUnit", javaTree));
+		Branch hamcrest = branchRepo.save(new Branch("JUnit/Hamcrest Transition", javaTree));
 
 		// Hamcrest & JUnit Cluster 03Branch01Cluster
 		Cluster clusterHamcrestJUnit = clusterRepo.save(new Cluster("Introduction To Hamcrest/JUnit", jUnit));

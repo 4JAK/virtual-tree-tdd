@@ -18,16 +18,16 @@
 
 }
 
+
 #submitAnswer {
     width: 150px;
-    background-color:  #4CAF50;
+    background-color: #4CAF50;
     color: white;
     padding: 5px 20px;
     margin: 0;
     border: none;
     border-radius: 40px;
     cursor: pointer;
-    
 }
 
 nav {
@@ -105,8 +105,8 @@ p {
 
 #bean-tree {
     height: 9.375rem;
-    right: 8.125rem;
-    top: 4rem;
+    right: 0rem;
+    top: 40rem;
     position: absolute;
     width: 9.375rem;
 }
@@ -197,7 +197,12 @@ p {
     left: 0;
     content: '\A\A';
     white-space: pre;
-    background-color: white;
+    background-color: aliceblue;
+    opacity: .99;
+}
+
+#slide-out-lesson p{
+    margin-right: 31%;
 }
 #submitNext{
     margin-top: 31.175px;    
@@ -226,15 +231,13 @@ p {
     background: lawngreen;
     min-width: 300px;
     max-width: 500px;
-   
     border-radius: 5px;
     box-shadow: 0 0 15px 5px black;
-    
-
 }
+
 .modal-open{
     display: block;
-    right: 42vw;
+    right: 40vw;
 }
 #nextQuestion{
     background: aqua;   

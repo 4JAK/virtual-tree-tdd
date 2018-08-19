@@ -37,6 +37,7 @@ li a{
 }
 
 body {
+    margin-top:10%;
     font-family: 'Work Sans', sans-serif;
     background-image: url('../images/branches-background.png');
     background-repeat: none;
@@ -46,6 +47,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow-x: hidden;
+    overflow: hidden;
 }  
 
 h2 {
