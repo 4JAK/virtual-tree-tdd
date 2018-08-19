@@ -8,25 +8,28 @@
     <title>Java Beans | Clusters</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/Cluster.css}" href="../static/css/Cluster.css" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/cluster-slideout-lesson.css}" href="../static/css/cluster-slideout-lesson.css" />
 </head>
 
 <body>
     <nav>
         <div class="top-bar-left">
-                <a th:href='@{/}'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
-            </div>
-            <div class="top-bar-center">
-                <h1 th:text="${cluster.name}"></h1>
-            </div>
-            <div class="top-bar-right">
-                <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
-            </div>
+            <a th:href='@{/}'>
+                <img class="header-logo" src='/images/planTDDlogoTransparent.png'/>
+            </a>
+        </div>
+        <div class="top-bar-center">
+            <h1 th:text="${cluster.name}"></h1>
+        </div>
+        <div class="top-bar-right">
+            <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
+        </div>
     </nav>
 
     <div class="concept-container">
 
-        <div id="clusterId" class="clusterBeans" th:value="${cluster.id}">
-            <aside id="slide-out-lesson" class="lessonView">
+        <div id="clusterBeans" th:value="${cluster.id}">
+            <aside id="slide-out-lesson" class="openLesson">
                 <a href="javascript:void(0)" class="closebtn">&times;</a>
                 <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
                 <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
@@ -34,15 +37,15 @@
             
             <span class="openbtn">&#9776; Lesson</span>
             <div id="question-and-answers">
-                <h4 id="beanQuestion" th:text="${cluster.beans[0].question}"></h4>
+                <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
                 
                 <section class="beanAnswers">
-                <label th:value="${cluster.beans[0].id}" id="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
-                    <input id="answer" th:class="${cluster.beans[0].id}" 
-                        name="radioGroup" 
-                        th:text="${answer}" 
-                        type="radio" th:value="${cluster.beans[0].questionNum}" />
-                </label>
+                    <label th:value="${cluster.beans[0].id}" class="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+                        <input id="answer" th:class="${cluster.beans[0].id}" 
+                            name="radioGroup" 
+                            th:text="${answer}" 
+                            type="radio" th:value="${cluster.beans[0].questionNum}" />
+                    </label>
                 </section>
 
             </div>    
