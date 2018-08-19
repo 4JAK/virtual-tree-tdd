@@ -30,7 +30,7 @@ function beanIsLastInCluster(response) {
 
 function checkIfBeanIsLastInCluster() {
   const xhr = new XMLHttpRequest();
-  const clusterId = document.getElementById('clusterId').getAttribute('value');
+  const clusterId = document.getElementById('clusterBeans').getAttribute('value');
   const beanId = document.getElementById('selectedAnswer').getAttribute('class');
   xhr.addEventListener('readystatechange', beanIsLastInCluster);
   xhr.open('GET', `/api/clusters/${clusterId}/checkBean?beanId=${beanId}`, true);

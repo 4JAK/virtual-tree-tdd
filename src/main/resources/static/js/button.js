@@ -30,12 +30,12 @@ function checkRadio(event) {
 // Grab the unordered list of where the bean is at
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
-  const clusterBeansUl = document.querySelector('.clusterBeans');
+  const clusterBeansUl = document.querySelector('#clusterBeans');
   clusterBeansUl.addEventListener('click', setIdOfCheckedRadioButton);
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
   const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
-  const labelsForBeanAnswer = document.querySelectorAll('#bean-answer');
+  const labelsForBeanAnswer = document.querySelectorAll('.bean-answer');
   if(labelsForBeanAnswer[0]) {
     labelsForBeanAnswer.forEach((label) => {
       label.addEventListener('click', checkRadio);

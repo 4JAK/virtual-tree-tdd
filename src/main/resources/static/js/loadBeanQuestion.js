@@ -25,7 +25,7 @@ function renderBean(response) {
     beanAnswers.innerHTML = '';
     bean.answers.forEach((answer) => {
       beanAnswers.innerHTML += `
-      <label value="${bean.id}" id="bean-answer" for="radioGroup">
+      <label value="${bean.id}" class="bean-answer" for="radioGroup">
         <input id="answer" class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}
         </input>
@@ -42,7 +42,7 @@ function renderBean(response) {
 
     document.getElementById('submitAnswer').setAttribute('disabled', 'true');
     document.getElementById('nextQuestionButton').setAttribute('disabled', 'true');
-    const labelsForBeanAnswer = document.querySelectorAll('#bean-answer');
+    const labelsForBeanAnswer = document.querySelectorAll('.bean-answer');
     if (labelsForBeanAnswer[0]) {
       labelsForBeanAnswer.forEach((label) => {
         label.addEventListener('click', checkRadio);
@@ -61,7 +61,7 @@ function getNextBeanQuestion() {
     const xhr = new XMLHttpRequest();
     // since the class has a list of classes for the,
     // we grab the second class for the cluster ID
-    const clusterId = document.getElementById('clusterId').getAttribute('value');
+    const clusterId = document.getElementById('clusterBeans').getAttribute('value');
     // clusterId = parseInt(clusterId, 10);
     // Grab current question number from the inputs value,
     // since the inputs value is set to the question number
