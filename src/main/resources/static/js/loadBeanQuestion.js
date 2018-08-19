@@ -41,7 +41,7 @@ function renderBean(response) {
     currentQuestionNum.innerHTML = bean.questionNum;
 
     document.getElementById('submitAnswer').setAttribute('disabled', 'true');
-    document.getElementById('nextQuestion').setAttribute('disabled', 'true');
+    document.getElementById('nextQuestionButton').setAttribute('disabled', 'true');
     const labelsForBeanAnswer = document.querySelectorAll('#bean-answer');
     if (labelsForBeanAnswer[0]) {
       labelsForBeanAnswer.forEach((label) => {
@@ -73,7 +73,7 @@ function getNextBeanQuestion() {
 }
 
 function addEventListeners() {
-  const btnNextQuestion = document.getElementById('nextQuestion');
+  const btnNextQuestion = document.getElementById('nextQuestionButton');
   btnNextQuestion.addEventListener('click', getNextBeanQuestion);
 }
 

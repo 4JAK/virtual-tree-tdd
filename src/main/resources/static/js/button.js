@@ -92,7 +92,7 @@ function checkIfAnswerIsCorrect(response) {
       // and also the submit answer button because,
       // we don't want them submitting more than once, once they are correct
       // document.getElementById('submitAnswer').removeAttribute('disabled');
-      document.getElementById('nextQuestion').removeAttribute('disabled');
+      document.getElementById('nextQuestionButton').removeAttribute('disabled');
       // checkIfBeanIsLastInCluster();
     } else {
       // Ideally, if the value returned is false,

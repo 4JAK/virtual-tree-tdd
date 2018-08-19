@@ -1,7 +1,11 @@
-
+.concept-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
 
 .header-logo {
-
     /* float: left; */
     height: 37.5px;
     width: 150px;
@@ -17,7 +21,6 @@
     /* padding-top: 4px; */
 
 }
-
 
 #submitAnswer {
     width: 150px;
@@ -104,11 +107,11 @@ p {
 }
 
 #bean-tree {
-    height: 9.375rem;
-    right: 0rem;
-    top: 40rem;
+    height: 9rem;
+    right: 1rem;
+    top: 30rem;
     position: absolute;
-    width: 9.375rem;
+    width: 12rem;
 }
 
 body {
@@ -172,11 +175,6 @@ li {
     width: 0%;
 }
 
-p {
-    padding-left: 3vw;
-    padding-right: 3vw;
-}
-
 .purple {
     color: purple;
     font-weight: 700;
@@ -220,33 +218,32 @@ p {
 .modal-screen{
     display: none;
     position: absolute;
-    padding-bottom: 100px;
-    opacity: 0.7;
-  
 }
 
 .next-question-modal{
-    
+    align-items: center;
     color: black;
-    background: lawngreen;
-    min-width: 300px;
-    max-width: 500px;
-    border-radius: 5px;
+    background: #c6d888;
     box-shadow: 0 0 15px 5px black;
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    justify-content: center;
+    width: 15rem;
 }
 
 .modal-open{
-    display: block;
-    right: 40vw;
+    display: flex;
+    bottom: 4rem;
 }
-#nextQuestion{
+#nextQuestionButton{
     background: aqua;   
-    width: 100%;
     font-weight: bold;
+    height: 2.5rem;
+    width: 75%;
 }
 #answer-modal{
     color: black;
-    background: lawngreen;
     text-align: center;
 }
 
