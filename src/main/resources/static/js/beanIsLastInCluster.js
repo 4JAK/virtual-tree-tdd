@@ -18,9 +18,9 @@ function beanIsLastInCluster(response) {
   if (this.status === 200 && this.readyState === 4) {
     const res = JSON.parse(response.target.response);
     if (res === true) {
-      document.getElementById('nextQuestion').innerText = 'Next Cluster';
-      document.getElementById('nextQuestion').removeEventListener('click', getNextBeanQuestion);
-      document.getElementById('nextQuestion').addEventListener('click', getNextCluster);
+      document.getElementById('nextQuestionButton').innerText = 'Next Cluster';
+      document.getElementById('nextQuestionButton').removeEventListener('click', getNextBeanQuestion);
+      document.getElementById('nextQuestionButton').addEventListener('click', getNextCluster);
       console.log('is last!');
     } else {
       console.log('Is not last in cluster');
@@ -30,7 +30,7 @@ function beanIsLastInCluster(response) {
 
 function checkIfBeanIsLastInCluster() {
   const xhr = new XMLHttpRequest();
-  const clusterId = document.getElementById('clusterId').getAttribute('value');
+  const clusterId = document.getElementById('clusterBeans').getAttribute('value');
   const beanId = document.getElementById('selectedAnswer').getAttribute('class');
   xhr.addEventListener('readystatechange', beanIsLastInCluster);
   xhr.open('GET', `/api/clusters/${clusterId}/checkBean?beanId=${beanId}`, true);

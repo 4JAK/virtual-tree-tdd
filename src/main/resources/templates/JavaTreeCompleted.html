@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Java Tree Completed!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="About.css" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
-    
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/java-tree-completed.css}" href="../static/css/java-tree-completed.css" />
 </head>
 <body>
-    <div>
-        <h2>Certificate Of Completion</h2>
-         <p class="project">You are so amazing :)</p>
-       	<p>Many Congrats to you friend! ( :</p>
-    </div>
-    
-    <footer>&2018</footer>
+    <header>
+        <h1>Certificate Of Completion</h1>
+    </header>
+    <main class="content">
+        <h2>You are so amazing :)</h2>
+        <img id="bean-tree" th:src="@{/images/bean-15.png}" src="../static/images/bean-15.png" alt="bean tree" />
+    </main>    
+    <footer>
+        &copy; Intergalactice Federation of Love &amp; Peace! 2018
+    </footer>
 </body>
 </html>

@@ -30,12 +30,12 @@ function checkRadio(event) {
 // Grab the unordered list of where the bean is at
 // add event listeners to the unordered list and submit answer button
 function addEventListeners() {
-  const clusterBeansUl = document.querySelector('.clusterBeans');
+  const clusterBeansUl = document.querySelector('#clusterBeans');
   clusterBeansUl.addEventListener('click', setIdOfCheckedRadioButton);
   clusterBeansUl.addEventListener('click', enableSubmitButtonOnRadioSelect);
   const btnSubmitAnswer = document.getElementById('submitAnswer');
   btnSubmitAnswer.addEventListener('click', getAnswerToCheck);
-  const labelsForBeanAnswer = document.querySelectorAll('#bean-answer');
+  const labelsForBeanAnswer = document.querySelectorAll('.bean-answer');
   if(labelsForBeanAnswer[0]) {
     labelsForBeanAnswer.forEach((label) => {
       label.addEventListener('click', checkRadio);
@@ -92,7 +92,7 @@ function checkIfAnswerIsCorrect(response) {
       // and also the submit answer button because,
       // we don't want them submitting more than once, once they are correct
       // document.getElementById('submitAnswer').removeAttribute('disabled');
-      document.getElementById('nextQuestion').removeAttribute('disabled');
+      document.getElementById('nextQuestionButton').removeAttribute('disabled');
       // checkIfBeanIsLastInCluster();
     } else {
       // Ideally, if the value returned is false,
