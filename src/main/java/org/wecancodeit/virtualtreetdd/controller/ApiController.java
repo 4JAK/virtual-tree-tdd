@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.controller;
 
 import java.util.Collection;
 
@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.wecancodeit.virtualtreetdd.entity.Bean;
+import org.wecancodeit.virtualtreetdd.entity.Branch;
+import org.wecancodeit.virtualtreetdd.entity.Cluster;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
+import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
+import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
+import org.wecancodeit.virtualtreetdd.repository.ClusterRepository;
+import org.wecancodeit.virtualtreetdd.repository.VirtualTreeRepository;
 
 @RestController
 @RequestMapping("/api")

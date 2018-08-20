@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.entity;
 
 import java.util.Collection;
 
