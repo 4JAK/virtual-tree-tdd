@@ -1,161 +1,139 @@
-body {
-    font-family: 'Work Sans', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #c6d888;
-    margin: 0;
-    padding-top: 10px;
-}
-
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .concept-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
-}
-
-#clusterBeans {
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
 }
 
 .header-logo {
-    /* float: left; */
-    height: 37.5px;
-    width: 150px;
-    padding-left: 15px;
-    padding-top: 10px;
+  width: 10rem;
 }
 
 #profile-image {
-    border-radius: 100%;
-    height: 37.5px;
-    width: 37.5px;
-    padding-right: 15px;
-    /* padding-top: 4px; */
-    
+  border-radius: 100%;
+  display: flex;
+  width: 4%;
 }
 
-#submitAnswer {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 40px;
-    color: white;
-    cursor: pointer;
-    margin: 0;
-    padding: 5px 20px;
-    width: 150px;
+.enabledSubmitButton {
+  background-color: #4CAF50;
+}
+
+.clusterBeans {
+  display: flex;
+  flex-direction: column;
 }
 
 #question-and-answers {
-    padding-left: 2.5vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.beanAnswers{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    
+#beanQuestion {
+  font-size: 2rem;
+  padding: 5rem 5rem 0 5rem;
+  text-align: center;
+  width: 85vw;
 }
 
-#beanQuestion{
-    font-size: 4vh;
-    text-align: center;
-}
-
-.bean-answer:hover {
-    background-color: #D7D6D6;
+.beanAnswers {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 60vh;
+  justify-content: space-around;
+  width: 25%;
 }
 
 .bean-answer {
-    border-color: #D7D6D6;  
-    border-radius: 20px;
-    border-style: solid;
-    display: flex;
-    font-size: 2.2vh;
-    margin: 10px;
-    margin-left: 0;
-    padding: 15px;
-    width: 65vw;
+  height: 100%;
+  width: 2.5rem;
 }
 
-.beanAnswers label::after {
-    white-space: pre;    
+#submitAnswer {
+  border: none;
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  width: 150px;
+}
+
+.bean-label:hover {
+  background-color: #D7D6D6;
+}
+
+.bean-label {
+  border-color: #D7D6D6;
+  border-radius: 2rem;
+  border-style: solid;
+  display: flex;
+  font-size: 2.2vh;
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 100%;
 }
 
 h4 {
-    font-size: 1.25rem;
-    display: flex;
-    justify-content: center;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
 }
-
-.openbtn {
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding-left: 15px;
-}
-
 
 .incorrectAnswer {
-    text-decoration: line-through;
-    background-color: red;
+  text-decoration: line-through;
+  background-color: red;
 }
 
 .correctAnswer {
-    background-color: green;
+  background-color: green;
 }
 
 .modal-screen {
-    display: none;
-    position: absolute;
+  display: none;
+  position: absolute;
 }
 
 .next-question-modal {
-    align-items: center;
-    color: black;
-    background: #c6d888;
-    box-shadow: 0 0 15px 5px black;
-    display: flex;
-    flex-direction: column;
-    height: 10rem;
-    justify-content: center;
-    width: 15rem;
+  align-items: center;
+  color: black;
+  background: #c6d888;
+  box-shadow: 0 0 15px 5px black;
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  justify-content: center;
+  width: 15rem;
 }
 
 .modal-open {
-    display: flex;
-    bottom: 4rem;
-}
-
-#answer-modal {
-    color: black;
-    text-align: center;
+  display: flex;
+  bottom: 22rem;
 }
 
 #nextQuestionButton {
-    background: aqua;   
-    font-weight: bold;
-    height: 2.5rem;
-    width: 75%;
+  background: aqua;
+  font-weight: bold;
+  height: 2.5rem;
+  width: 75%;
 }
 
 footer {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 #bean-tree {
-    height: 9rem;
-    right: 1rem;
-    top: 30rem;
-    position: absolute;
-    width: 12rem;
+  height: 9rem;
+  right: 1rem;
+  top: 30rem;
+  position: absolute;
+  width: 12rem;
 }

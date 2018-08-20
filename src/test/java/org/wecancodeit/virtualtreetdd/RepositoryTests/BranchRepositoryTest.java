@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.RepositoryTests;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
@@ -18,6 +18,12 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.virtualtreetdd.entity.Branch;
+import org.wecancodeit.virtualtreetdd.entity.Cluster;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
+import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
+import org.wecancodeit.virtualtreetdd.repository.ClusterRepository;
+import org.wecancodeit.virtualtreetdd.repository.VirtualTreeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest

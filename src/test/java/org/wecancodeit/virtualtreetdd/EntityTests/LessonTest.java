@@ -1,8 +1,9 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.EntityTests;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.wecancodeit.virtualtreetdd.entity.Lesson;
 
 public class LessonTest {
   private Lesson testLesson;

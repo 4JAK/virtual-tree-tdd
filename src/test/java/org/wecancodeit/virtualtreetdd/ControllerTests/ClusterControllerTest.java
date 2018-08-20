@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.ControllerTests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.BDDMockito.given;
@@ -18,6 +18,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.virtualtreetdd.controller.ClusterController;
+import org.wecancodeit.virtualtreetdd.entity.Bean;
+import org.wecancodeit.virtualtreetdd.entity.Branch;
+import org.wecancodeit.virtualtreetdd.entity.Cluster;
+import org.wecancodeit.virtualtreetdd.entity.Lesson;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
+import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
+import org.wecancodeit.virtualtreetdd.repository.ClusterRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(ClusterController.class)
@@ -27,15 +35,21 @@ public class ClusterControllerTest {
 
   @MockBean private ClusterRepository clusterRepo;
   @MockBean private BeanRepository beanRepo;
-  @Mock private Cluster cluster;
+  @Mock private VirtualTree testTree;
+  @Mock private Branch testBranch;
+  @Mock private Cluster testCluster;
   @Mock private Bean testBean;
   @Mock private Lesson testLesson;
   
   @Before public void setup() {
 	  // The first given is for making sure we actually return a cluster from the repo
-	  given(clusterRepo.findOne(1L)).willReturn(cluster);
+	  given(clusterRepo.findOne(1L)).willReturn(testCluster);
+	  // This given is for assigning a branch to the mocked cluster and branch
+	  given(testCluster.getBranch()).willReturn(testBranch);
+	  given(testBranch.getVirtualTree()).willReturn(testTree);
+	  given(testTree.getTreeImages()).willReturn(Arrays.asList("images"));
 	  // This given is for making sure there are beans in our mocked cluster
-	  given(cluster.getBeans()).willReturn(Arrays.asList(testBean));
+	  given(testCluster.getBeans()).willReturn(Arrays.asList(testBean));
 	  // The last given is for that the test bean has a lesson
 	  given(testBean.getLesson()).willReturn(testLesson);
   }
@@ -52,7 +66,7 @@ public class ClusterControllerTest {
 
   @Test //shows that cluster/1 returns proper cluster
   public void clusterMappingAttributeShouldHaveHaveCluster() throws Exception {
-    mvc.perform(get("/cluster/1")).andExpect(model().attribute("cluster", is(cluster)));
+    mvc.perform(get("/cluster/1")).andExpect(model().attribute("cluster", is(testCluster)));
   }
 
   @Test //shows that cluster mapping name is cluster

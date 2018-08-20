@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.EntityTests;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -8,6 +8,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.wecancodeit.virtualtreetdd.entity.Branch;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
 
 public class BranchTest {
 
@@ -15,7 +17,7 @@ public class BranchTest {
 
   @Before
   public void branchSetup() { //shows that a branch is apart of a tree
-    testBranch = new Branch("Java Branch", new VirtualTree());
+    testBranch = new Branch("Java Branch", new VirtualTree("Java Tree", null));
   }
 
   @Test // should show that creating a new branch yields a new branch

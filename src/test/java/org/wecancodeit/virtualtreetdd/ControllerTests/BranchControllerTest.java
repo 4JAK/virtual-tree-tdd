@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.ControllerTests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -14,6 +14,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.virtualtreetdd.controller.BranchController;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
+import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
+import org.wecancodeit.virtualtreetdd.repository.VirtualTreeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(BranchController.class)

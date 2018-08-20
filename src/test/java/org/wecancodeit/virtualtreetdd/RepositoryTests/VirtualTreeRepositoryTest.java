@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.RepositoryTests;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
@@ -14,6 +14,8 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
+import org.wecancodeit.virtualtreetdd.repository.VirtualTreeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest

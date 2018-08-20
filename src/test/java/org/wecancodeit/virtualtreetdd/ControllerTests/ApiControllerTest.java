@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.ControllerTests;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertFalse;
@@ -17,6 +17,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.wecancodeit.virtualtreetdd.entity.Bean;
+import org.wecancodeit.virtualtreetdd.entity.Cluster;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -227,10 +229,12 @@ public class ApiControllerTest {
         restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=4", Boolean.class);
     assertFalse(response.getBody());
   }
-  
-  @Test public void shouldReturnNextClusterIfBeanIsLast() {
-	  ResponseEntity<String> response = restTemplate.getForEntity("/api/clusters/1/getNextCluster", String.class);
-	  System.out.println(response.getBody());
-	  assertTrue(response.getBody().contains("\"id\":2"));
+
+  @Test
+  public void shouldReturnNextClusterIfBeanIsLast() {
+    ResponseEntity<String> response =
+        restTemplate.getForEntity("/api/clusters/1/getNextCluster", String.class);
+    System.out.println(response.getBody());
+    assertTrue(response.getBody().contains("\"id\":2"));
   }
 }

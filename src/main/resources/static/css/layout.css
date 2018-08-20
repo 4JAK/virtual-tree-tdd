@@ -1,0 +1,40 @@
+html {
+  /* Sets the overall tone */
+  color: #000;
+  /* Sets base typography */
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  /* Browser specific
+  Makes the page more readable */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  /* Each _line_ of text will be 1.5x
+    the element's current font size
+    font-size = 16,
+    16 * 1.5 = 24px high
+    */
+  line-height: 1.5;
+  /* height is set to 100% of the viewport height */
+  min-height: 100vh;
+  /* 300 px prevents the page from being too narrow */
+  min-width: 300px;
+  /* Prevents page from scrolling horizontally.
+  Preserves vertical scroll */
+  overflow-x: hidden;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  /* currentColor is prefered as it will pick up the color set
+  by html before color: #fff */
+  color: currentColor;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+nav {
+  align-items: center;
+  background-color: #c6d888;
+  display: flex;
+  justify-content: space-between;
+}

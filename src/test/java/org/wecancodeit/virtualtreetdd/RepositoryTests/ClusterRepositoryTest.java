@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.RepositoryTests;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
@@ -14,7 +14,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
+import org.wecancodeit.virtualtreetdd.entity.Bean;
+import org.wecancodeit.virtualtreetdd.entity.Branch;
+import org.wecancodeit.virtualtreetdd.entity.Cluster;
+import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
+import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
+import org.wecancodeit.virtualtreetdd.repository.ClusterRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -66,8 +71,8 @@ public class ClusterRepositoryTest {
   @Test // shows that a bean is attached to a cluster and a cluster can have more than one bean
   public void clusterShouldEstablishBeanRelationship() {
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
-    Bean testBean1 = beanRepo.save(new Bean(testCluster, null, 0, QuestionType.TrueOrFalse, "a question", null, null));
-    Bean testBean2 = beanRepo.save(new Bean(testCluster, null, 0, QuestionType.TrueOrFalse, "a question", null, null));
+    Bean testBean1 = beanRepo.save(new Bean(testCluster, null, 0, "TrueOrFalse", "a question", null, null));
+    Bean testBean2 = beanRepo.save(new Bean(testCluster, null, 0, "TrueOrFalse", "a question", null, null));
 
     Long clusterId = testCluster.getId();
     Long beanOneId = testBean1.getId();

@@ -2,77 +2,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Java Beans | Clusters</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/Cluster.css}" href="../static/css/Cluster.css" />
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/cluster-slideout-lesson.css}" href="../static/css/cluster-slideout-lesson.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/layout.css}" href="/css/layout.css" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/Cluster.css}" href="/css/Cluster.css" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/cluster-slideout-lesson.css}" href="/css/cluster-slideout-lesson.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/minireset.min.css}" href="/css/minireset.min.css" />
+  <title>Java Beans | Clusters</title>
 </head>
 
 <body>
+
+  <div class="concept-container">
+
     <nav>
-        <div class="top-bar-left">
-            <a th:href='@{/}'>
-                <img class="header-logo" src='/images/planTDDlogoTransparent.png'/>
-            </a>
-        </div>
-        <div class="top-bar-center">
-            <h1 th:text="${cluster.name}"></h1>
-        </div>
-        <div class="top-bar-right">
-            <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
-        </div>
+      <a th:href='@{/}'>
+        <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
+      </a>
+      <h1 th:text="${cluster.name}"></h1>
+      <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"
+        alt="picture of user" />
     </nav>
 
-    <div class="concept-container">
+    <main th:id="${cluster.id}" class="clusterBeans">
+      <aside id="slide-out-lesson" class="openLesson">
+        <button class="openbtn">&times; Lesson</button>
+        <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson"
+        />
+        <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
+      </aside>
 
-        <div id="clusterBeans" th:value="${cluster.id}">
-            <aside id="slide-out-lesson" class="openLesson">
-                <a href="javascript:void(0)" class="closebtn">&times;</a>
-                <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson" />
-                <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
-            </aside>
-            
-            <span class="openbtn">&#9776; Lesson</span>
-            <div id="question-and-answers">
-                <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
-                
-                <section class="beanAnswers">
-                    <label th:value="${cluster.beans[0].id}" class="bean-answer" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
-                        <input id="answer" th:class="${cluster.beans[0].id}" 
-                            name="radioGroup" 
-                            th:text="${answer}" 
-                            type="radio" th:value="${cluster.beans[0].questionNum}" />
-                    </label>
-                </section>
+      <div id="question-and-answers">
+        <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
 
-            </div>    
-        </div>
+        <section class="beanAnswers">
+          <label th:id="${cluster.beans[0].id}" class="bean-label" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
+            <input class="bean-answer" name="radioGroup" th:text="${answer}" type="radio" th:value="${cluster.beans[0].questionNum}"/>
+          </label>
+          <button id="submitAnswer" disabled="disabled"> Submit </button>
+          <script th:src="@{/js/enableSubmitButton.js}"></script>
+        </section>
 
-        <button id="submitAnswer" disabled="disabled"> Submit </button>
+      </div>
+    </main>
 
-        <div class='modal-screen'>
-            <div class="next-question-modal">
-                <p id="answer-modal" class="modal-content">Correct! Nice job!</p>
-                <button id="nextQuestionButton" disabled="disabled">Next Question </button>
-            </div>
-        </div>
 
-        <footer>
-            Current Question #:
-            <strong id="currentQuestionNum" th:value="${cluster.beans[0].questionNum}" th:text="${cluster.beans[0].questionNum}"></strong>
-            <strong id="clusterSize" th:value="${cluster.beans.size()}"></strong>
-        </footer>
+    <div class='modal-screen'>
+      <div class="next-question-modal">
+        <p id="answer-modal" class="modal-content">Correct! Nice job!</p>
+        <button id="nextQuestionButton" disabled="disabled">Next Question </button>
+        <script defer="defer" th:src="@{/js/loadBeanQuestion.js}"></script>
+      </div>
     </div>
 
-    <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[10]}" alt="bean tree" />
+    <footer>
+      Current Question #:
+      <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
+      <strong id="clusterSize" th:text="${cluster.beans.size()}"></strong>
+    </footer>
+  </div>
 
-    <script th:src="@{/js/button.js}"></script>
-    <script th:src="@{/js/beanIsLastInCluster.js}"></script>
-    <script th:src="@{/js/loadBeanQuestion.js}"></script>
+  <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[0]}" alt="bean tree" />
+
+  <script th:src="@{/js/button.js}"></script>
+  <script th:src="@{/js/beanIsLastInCluster.js}"></script>
 
 </body>
 <script type="text/javascript" th:src="@{/js/lessonSlideOut.js}"></script>
+
 </html>
