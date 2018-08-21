@@ -233,4 +233,10 @@ public class ApiControllerTest {
 	  System.out.println(response.getBody());
 	  assertTrue(response.getBody().contains("\"id\":2"));
   }
+  @Test
+  public void shouldReturnCompletedHtmlPageIfClusterIsLastOnTree() {
+	  ResponseEntity<Boolean> response = restTemplate.getForEntity("/api/clusters/3/checkIfLastClusterOnTree" , Boolean.class);
+	  boolean isLastCluster = response.getBody();
+	  assertTrue(isLastCluster);
+  }
 }
