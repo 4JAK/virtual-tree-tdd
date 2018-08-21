@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -25,6 +26,11 @@ public class BeanControllerTest {
   @MockBean private BeanRepository beanRepo;
   
   @Mock private Bean testBean;
+  
+  @Before public void setup() {
+  	given(beanRepo.findOne(1L)).willReturn(testBean);
+  	given(testBean.getQuestionType()).willReturn("TrueOrFalse");
+  }
 
   @Test //returns status "Ok" and 2xx successful
   public void beansMappingShouldReturn2xxSuccessful() throws Exception {
@@ -58,7 +64,6 @@ public class BeanControllerTest {
 
   @Test //The Mock bean should be the 1st mapping attribute 
   public void beanMappingAttributeShouldHaveHaveBean() throws Exception {
-    given(beanRepo.findOne(1L)).willReturn(testBean);
     mvc.perform(get("/bean/1")).andExpect(model().attribute("bean", is(testBean)));
   }
 
