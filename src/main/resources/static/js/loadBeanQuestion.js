@@ -32,6 +32,7 @@ function renderBean(response) {
     const currentQuestionNum = document.getElementById('currentQuestionNum');
     // Set the innerHTML to the next bean's question num
     currentQuestionNum.innerText = bean.questionNum;
+    document.getElementById('bean-tree').src = `/images/bean-${currentQuestionNum.innerText}.png`;
 
     // document.getElementById('submitAnswer').setAttribute('disabled', 'disabled');
     document.getElementById('nextQuestionButton').setAttribute('disabled', 'disabled');
@@ -43,6 +44,7 @@ function renderBean(response) {
         label.addEventListener('click', checkRadio);
       });
     }
+
   }
 }
 

@@ -6,6 +6,10 @@
   justify-content: flex-start;
 }
 
+#clusterName {
+  font-size: 1.5rem;
+}
+
 .header-logo {
   width: 10rem;
 }
@@ -30,11 +34,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* justify-content: space-between; */
   width: 100%;
 }
 
 #beanQuestion {
+  font-size: 1.25rem;
   padding: 1rem;
 }
 
@@ -114,7 +118,7 @@ h4 {
 }
 
 #nextQuestionButton {
-  background: aqua;
+  background: lawngreen;
   font-weight: bold;
   height: 2.5rem;
   width: 75%;
