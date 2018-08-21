@@ -25,4 +25,9 @@ public class VirtualTreeController {
 	public String about() {
 		return "about";
 	}
+	
+	@RequestMapping(value = "/JavaTreeCompleted")
+	public String javaTreeCompleted() {
+		return "JavaTreeCompleted";
+	}
 }
