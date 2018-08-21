@@ -478,26 +478,23 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question3JUnit() {
-    return "_____"
-        + "<br />"
-        + "<pre>"
-        + "<span class='purple'>public void</span> shouldBeAbleToInstantiateClass(){"
-        + "	Branch branch = new Branch();"
-        + "	assertNotNull(branch);"
-        + "}"
-        + "</pre>"
-        + "";
+    return "<pre>"
+        + "<p>____</p>"
+        + "<p><span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {</p>"
+        + "<p>	Branch branch = new Branch();</p>"
+        + "<p>	assertNotNull(branch);</p>"
+        + "<p>}</p>"
+        + "</pre>";
   }
 
   public String getLesson1Question4JUnit() {
     return "<pre>"
-        + "<strong>@Test</strong>"
-        + "<span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {"
-        + "<p>Cluster cluster = new Cluster()</p>"
-        + "<p>______NotNull(cluster);</p>"
+        + "<strong>@Test</strong><p></p>"
+        + "<p><span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {</p>"
+        + "<p>	Cluster cluster = new Cluster()</p>"
+        + "<p>	______NotNull(cluster);</p>"
         + "<p>}</p>"
-        + "</pre>"
-        + "";
+        + "</pre>";
   }
 
   public String getLesson1Question5JUnit() {
