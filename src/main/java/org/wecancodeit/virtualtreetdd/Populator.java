@@ -454,12 +454,13 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson1JUnit() {
     return "<h2>Lesson 6</h2>"
-        + "<p>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</p>"
-        + "<p>1. This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</p>"
-        + "<p>2. This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.</p>"
-        + "<p>3. The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.</p>"
-        + "<p>4. The <span class='bold'>@Test</span> annotation is needed to run the test through the JUnit console.</p>"
-        + "";
+		+ "<ol class=\"noCode\">"
+        + "<li>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</li>"
+        + "<li>This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</li>"
+        + "<li>This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.</li>"
+        + "<li>The assertNotNull method used here is part of the JUnit library package. In this example,  we are asserting that the VirtualTree object exists, using the variable treeTest. In this case, treeTest is null because the VirtualTree class does not exist yet, so the test fails. This is how Test Driven Development proceeds throughout the build.</li>"
+        + "<li>The <span class='bold'>@Test</span> annotation is needed to run the test through the JUnit console.</p>"
+        + "</ol>";
   }
 
   public String getLesson2JUnit() {
@@ -614,10 +615,12 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson2JUnitHamcrest() {
     return "<h2>Lesson 9</h2>"
-        + "<p>1. We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</p>"
-        + "<p>2. The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</p>"
-        + "<p>3. The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));</p>"
-        + "<p>4. The Hamcrest method equalTo() is checking to see if the first parameter is (equal to()) the second parameter.</p>";
+		+ "<ol class=\"noCode\">"
+        + "<li>We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</li>"
+        + "<li>The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</li>"
+        + "<li>The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));</li>"
+        + "<li>The Hamcrest method equalTo() is checking to see if the first parameter is (equal to()) the second parameter.</li>"
+        + "</ol>";
   }
 
   public String getLesson3JUnitHamcrest() {
