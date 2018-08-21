@@ -1,4 +1,4 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.entity;
 
 import java.util.Collection;
 
@@ -25,14 +25,6 @@ public class Bean {
   @ElementCollection private Collection<String> answers;
   private String correctAnswer;
   private boolean completedQuestion;
-
-  //Different types of questions
-  protected enum QuestionType {
-    Drag_n_Drop,
-    FillInTheBlanks,
-    MultipleChoice,
-    TrueOrFalse,
-  }
 
   /**
    * @param cluster - The 'Lesson' that the bean is attached to | Cluster

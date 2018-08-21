@@ -15,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.wecancodeit.virtualtreetdd.entity.Bean;
 import org.wecancodeit.virtualtreetdd.entity.Lesson;
+import org.wecancodeit.virtualtreetdd.entity.QuestionType;
 import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
 import org.wecancodeit.virtualtreetdd.repository.LessonRepository;
 
@@ -46,9 +47,9 @@ public class LessonRepositoryTest {
   public void lessonShouldEstablishRelationshipToBeans() {
     Lesson underTestLesson = lessonRepo.save(new Lesson("Example test", "A test image"));
     Bean testBean1 =
-        beanRepo.save(new Bean(null, underTestLesson, 1, "Drag_n_Drop", "a question", "2", null));
+        beanRepo.save(new Bean(null, underTestLesson, 1, QuestionType.Drag_n_Drop, "a question", "2", null));
     Bean testBean2 =
-        beanRepo.save(new Bean(null, underTestLesson, 2, "TrueOrFalse", "a question", "3", null));
+        beanRepo.save(new Bean(null, underTestLesson, 2, QuestionType.TrueOrFalse, "a question", "3", null));
 
     Long lessonId = underTestLesson.getId();
     Long testBean1Id = testBean1.getId();

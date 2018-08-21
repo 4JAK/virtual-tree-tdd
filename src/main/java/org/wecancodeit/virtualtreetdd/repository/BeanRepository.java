@@ -1,10 +1,11 @@
-package org.wecancodeit.virtualtreetdd;
+package org.wecancodeit.virtualtreetdd.repository;
 
 import java.util.Collection;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
+import org.wecancodeit.virtualtreetdd.entity.Bean;
+import org.wecancodeit.virtualtreetdd.entity.QuestionType;
 
 @Repository //Bean Repository
 public interface BeanRepository extends CrudRepository<Bean, Long> {

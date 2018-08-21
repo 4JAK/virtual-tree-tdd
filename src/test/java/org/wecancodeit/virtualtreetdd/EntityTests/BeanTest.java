@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.wecancodeit.virtualtreetdd.entity.Bean;
 import org.wecancodeit.virtualtreetdd.entity.Cluster;
+import org.wecancodeit.virtualtreetdd.entity.QuestionType;
 
 public class BeanTest {
 
@@ -21,7 +22,7 @@ public class BeanTest {
 
   @Before //makes a cluster with bean
   public void setUp() {
-    testBean = new Bean(testCluster, null, 0, "TrueOrFalse", "a question", null, null);
+    testBean = new Bean(testCluster, null, 0, QuestionType.TrueOrFalse, "a question", null, null);
 //        new Bean(testCluster, null, null, QuestionType.TrueOrFalse, "a question", 42, null);
   }
 
@@ -59,7 +60,7 @@ public class BeanTest {
     String correctAnswer = "this is correct";
     Collection<String> answerCollection = Arrays.asList(answer1, answer2, correctAnswer);
 
-    Bean underTestBean = new Bean(testCluster, null, 0, "Drag_n_Drop", "answer to life", "42", answerCollection);
+    Bean underTestBean = new Bean(testCluster, null, 0, QuestionType.Drag_n_Drop, "answer to life", "42", answerCollection);
 
     assertThat(underTestBean.getAnswers().size(), is(greaterThan(1)));
   }

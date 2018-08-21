@@ -25,8 +25,8 @@ function renderBean(response) {
       </label>`;
     });
 
-    beanAnswers.innerHTML += '<button id="submitAnswer"> Submit </button>';
     addEventListenersForButtons();
+    document.getElementById('slide-out-lesson').classList.toggle('closedLesson');
 
     // Grab the strong tag from it's id
     const currentQuestionNum = document.getElementById('currentQuestionNum');

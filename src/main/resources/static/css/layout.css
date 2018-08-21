@@ -13,7 +13,7 @@ html {
     font-size = 16,
     16 * 1.5 = 24px high
     */
-  line-height: 1.5;
+  line-height: 1.25;
   /* height is set to 100% of the viewport height */
   min-height: 100vh;
   /* 300 px prevents the page from being too narrow */
@@ -37,4 +37,5 @@ nav {
   background-color: #c6d888;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }

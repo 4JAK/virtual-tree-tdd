@@ -18,7 +18,9 @@ function setIdOfCheckedRadioButton() {
     });
   }
 }
-function checkRadio(event) {  
+function checkRadio(event) {
+  console.log(event);
+  
   const labelClicked = event.target;
   const rdoForLabelClicked = labelClicked.firstElementChild;
   console.log(rdoForLabelClicked);
@@ -53,9 +55,7 @@ function enableSubmitButtonOnRadioSelect() {
   // Call method on page load
   addEventListenersForButtons();
 
-  function checkIfAnswerIsCorrect(response) {
-    console.log(response);
-    
+  function checkIfAnswerIsCorrect(response) {    
     // this being xhr.
     // Why?
     /*
@@ -125,10 +125,6 @@ function enableSubmitButtonOnRadioSelect() {
     // Grab the currently selected radio button
     const rdoClicked = document.getElementById('selectedAnswer');
     // From the radio, it's class attribute is the bean id
-    console.log(rdoClicked);
-    
-    console.log('hit sumbit');
-    
     const beanId = rdoClicked.parentElement.id;
     // Since it's a radio button, we need to grab it's text, 
     // which is the sibling of the input

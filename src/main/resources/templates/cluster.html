@@ -26,13 +26,14 @@
         alt="picture of user" />
     </nav>
 
+    <aside id="slide-out-lesson" class="openLesson">
+      <span class="openbtn">&times; Lesson</span>
+      <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson"
+      />
+      <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
+    </aside>
+
     <main th:id="${cluster.id}" class="clusterBeans">
-      <aside id="slide-out-lesson" class="openLesson">
-        <button class="openbtn">&times; Lesson</button>
-        <img id="lessonImage" th:if="${cluster.beans[0].lesson.image} != null" th:src="${cluster.beans[0].lesson.image}" alt="image of bean lesson"
-        />
-        <span id="beanLessonExample" th:utext="${cluster.beans[0].lesson.example}"></span>
-      </aside>
 
       <div id="question-and-answers">
         <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
@@ -41,9 +42,10 @@
           <label th:id="${cluster.beans[0].id}" class="bean-label" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
             <input class="bean-answer" name="radioGroup" th:text="${answer}" type="radio" th:value="${cluster.beans[0].questionNum}"/>
           </label>
-          <button id="submitAnswer" disabled="disabled"> Submit </button>
           <script th:src="@{/js/enableSubmitButton.js}"></script>
         </section>
+        
+        <button id="submitAnswer" disabled="disabled"> Submit </button>
 
       </div>
     </main>
@@ -58,13 +60,15 @@
     </div>
 
     <footer>
-      Current Question #:
-      <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
-      <strong id="clusterSize" th:text="${cluster.beans.size()}"></strong>
+      <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[0]}" alt="bean tree" />
+      <section class="question-number-and-cluster-size">
+        <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
+         / 
+        <strong id="clusterSize" th:text="${cluster.beans.size()}"></strong>
+      </section>
     </footer>
-  </div>
 
-  <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[0]}" alt="bean tree" />
+  </div>
 
   <script th:src="@{/js/button.js}"></script>
   <script th:src="@{/js/beanIsLastInCluster.js}"></script>

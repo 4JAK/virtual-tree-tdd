@@ -10,6 +10,7 @@ import org.wecancodeit.virtualtreetdd.entity.Bean;
 import org.wecancodeit.virtualtreetdd.entity.Branch;
 import org.wecancodeit.virtualtreetdd.entity.Cluster;
 import org.wecancodeit.virtualtreetdd.entity.Lesson;
+import org.wecancodeit.virtualtreetdd.entity.QuestionType;
 import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
 import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
 import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
@@ -47,7 +48,7 @@ public class Populator implements CommandLineRunner {
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson1Tdd(), null)),
                 1,
-                "MultipleChoice",
+                QuestionType.MultipleChoice,
                 getQuestion1Tdd(),
                 getCorrectAnswer1Tdd(),
                 getAnswersFor1Tdd()));
@@ -57,7 +58,7 @@ public class Populator implements CommandLineRunner {
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson2Tdd(), null)),
                 2,
-                "MultipleChoice",
+                QuestionType.MultipleChoice,
                 getQuestion2Tdd(),
                 getCorrectAnswer2Tdd(),
                 getAnswersFor2Tdd()));
@@ -67,7 +68,7 @@ public class Populator implements CommandLineRunner {
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson3Tdd(), null)),
                 3,
-                "FillInTheBlanks",
+                QuestionType.FillInTheBlanks,
                 getQuestion3Tdd(),
                 getCorrectAnswer3Tdd(),
                 getAnswersFor3Tdd()));
@@ -77,7 +78,7 @@ public class Populator implements CommandLineRunner {
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson4Tdd(), null)),
                 4,
-                "FillInTheBlanks",
+                QuestionType.FillInTheBlanks,
                 getQuestion4Tdd(),
                 getCorrectAnswer4Tdd(),
                 getAnswersFor4Tdd()));
@@ -87,7 +88,7 @@ public class Populator implements CommandLineRunner {
                 clusterTdd,
                 lessonRepo.save(new Lesson(getLesson5Tdd(), null)),
                 5,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getQuestion5Tdd(),
                 getCorrectAnswer5Tdd(),
                 getAnswersFor5Tdd()));
@@ -103,7 +104,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 6,
-                "MultipleChoice",
+                QuestionType.MultipleChoice,
                 getLesson1Question1JUnit(),
                 getCorrectAnswerLesson1Answer1JUnit(),
                 getAnswersForLesson1Answer1JUnit()));
@@ -113,7 +114,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 7,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getLesson1Question2JUnit(),
                 getCorrectAnswerLesson1Answer2JUnit(),
                 getAnswersForLesson1Answer2JUnit()));
@@ -123,7 +124,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 8,
-                "FillInTheBlanks",
+                QuestionType.FillInTheBlanks,
                 getLesson1Question3JUnit(),
                 getCorrectAnswerLesson1Answer3JUnit(),
                 getAnswersForLesson1Answer3JUnit()));
@@ -133,7 +134,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 9,
-                "FillInTheBlanks",
+                QuestionType.FillInTheBlanks,
                 getLesson1Question4JUnit(),
                 getCorrectAnswerLesson1Answer4JUnit(),
                 getAnswersForLesson1Answer4JUnit()));
@@ -143,7 +144,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson1JUnit(), "/images/Test_1_Error_Display.png")),
                 10,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getLesson1Question5JUnit(),
                 getCorrectAnswerLesson1Answer5JUnit(),
                 getAnswersForLesson1Answer5JUnit()));
@@ -155,7 +156,7 @@ public class Populator implements CommandLineRunner {
                 clusterJUnit,
                 lessonRepo.save(new Lesson(getLesson2JUnit(), "/images/Test_1_Pass.png")),
                 11,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getLesson1Question6JUnit(), // duplicate
                 getCorrectAnswerLesson1Answer6JUnit(),
                 getAnswersForLesson1Answer6JUnit()));
@@ -177,7 +178,7 @@ public class Populator implements CommandLineRunner {
                 lessonRepo.save(
                     new Lesson(getLesson1JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 12,
-                "MultipleChoice",
+                QuestionType.MultipleChoice,
                 getLesson1Question1JUnitHamcrest(),
                 getCorrectAnswerLesson1Answer1JUnitHamcrest(),
                 getAnswersForLesson1Answer1JUnitHamcrest()));
@@ -188,7 +189,7 @@ public class Populator implements CommandLineRunner {
                 lessonRepo.save(
                     new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 13,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getLesson2Question1JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer1JUnitHamcrest(),
                 getAnswersForLesson2Answer1JUnitHamcrest()));
@@ -199,7 +200,7 @@ public class Populator implements CommandLineRunner {
                 lessonRepo.save(
                     new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 14,
-                "TrueOrFalse",
+                QuestionType.TrueOrFalse,
                 getLesson2Question2JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
                 getAnswersForLesson2Answer2JUnitHamcrest()));
@@ -210,7 +211,7 @@ public class Populator implements CommandLineRunner {
                 lessonRepo.save(
                     new Lesson(getLesson2JUnitHamcrest(), "/images/Test_2_Requirements.png")),
                 15,
-                "MultipleChoice",
+                QuestionType.MultipleChoice,
                 getLesson2Question3JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
                 getAnswersForLesson2Answer3JUnitHamcrest()));
@@ -263,8 +264,7 @@ public class Populator implements CommandLineRunner {
         + "<li>1. Arrange</li>"
         + "<li>2. Act</li>"
         + "<li>3. Assert</li>"
-        + "</ol>"
-        + "";
+        + "</ol>";
   }
 
   public String getLesson2Tdd() {
@@ -277,116 +277,63 @@ public class Populator implements CommandLineRunner {
   public String getLesson3Tdd() {
     return "<h2>Lesson 3</h2>"
         + "<p>The 1st of the 3 A&#39;s of TDD is to arrange. When you arrange, you are initializing and setting the values of the variables that you are about to test for in that block of code. For example:</p>"
-        + "<p><span class='purple'>public class</span> ArrangeExample{"
-        + "<br />"
-        + "<br />"
-        + "<pre>"
-        + "<span class='bold'>	@Test</span>"
-        + "<br />"
-        + "<span class='purple'>	public void</span> wateringShouldGiveGrowthToYourTree()  {"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		// arrange</span>"
-        + "<br />"
-        + "   		int currentGrowth = 10;"
-        + "<br />"
-        + "   		int water = 1;"
-        + "<br />"
-        + "   		int expectedGrowthAfterWatering = 11;"
-        + "<br />"
-        + "    		VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		//act</span>"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		//assert</span>"
-        + "<br />"
-        + "	}"
-        + "</pre>"
-        + " } </p>"
-        + "";
+        + "<pre class=\"code\">"
+        + "<p><span class='purple'>public class</span> ArrangeExample {</p>"
+        + "<strong>	@Test</strong>"
+        + "<p><span class='purple'>	public void</span> wateringShouldGiveGrowthToYourTree() {</p>"
+        + "<strong class=\"triple-aaa-tdd\">		//arrange</strong>"
+        + "<p>		int currentGrowth = 10;<p>"
+        + "<p>		int water = 1;</p>"
+        + "<p>		int expectedGrowthAfterWatering = 11;</p>"
+        + "<p>		VirtualTree testTree = new VirtualTree(\"testTree\", currentGrowth);</p>"
+        + "<p class=\"triple-aaa-tdd\">		//act</p>"
+        + "<p class=\"triple-aaa-tdd\">		//assert</p>"
+        + "<p>	}</p>"
+        + "<p>}</p>"
+        + "</pre>";
   }
 
   public String getLesson4Tdd() {
     return "<h2>Lesson 4</h2>"
         + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables.</p>"
-        + "<br />"
-        + "<p><span class='purple'>public class</span> ActExample"
-        + "<br />"
-        + "<br />"
-        + "<pre>"
-        + "<span class='bold'>	@Test</span>"
-        + "<br />"
-        + "<span class='purple'>	public void</span> wateringShouldGiveGrowthToVirtualTree()  {"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		// arrange</span>"
-        + "<br />"
-        + "		int currentGrowth = 10;"
-        + "<br />"
-        + "		int waterAmount = 1;"
-        + "<br />"
-        + "		int expectedGrowthAfterWatering = 11;"
-        + "<br />"
-        + "		VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		//act</span>"
-        + "<br />"
-        + "		testTree.water(waterAmount)"
-        + "<br />"
-        + "		Int actual  = testTree.getGrowth();"
-        + "<br />"
-        + "<br />"
-        + "<span class='bold'>		//assert</span>"
-        + "<br />"
-        + "		}"
-        + "</pre>"
-        + "	} </p>"
-        + "";
+        + "<pre class=\"code\">"
+        + "<p><span class='purple'>public class</span> ActExample { </p>"
+        + "<strong>	@Test</strong>"
+        + "<p><span class='purple'>	public void</span> wateringShouldGiveGrowthToVirtualTree() {</p>"
+        + "<p class=\\\"triple-aaa-tdd\\\">		//arrange</p>"
+        + "<p>		int currentGrowth = 10;<p>"
+        + "<p>		int waterAmount = 1;</p>"
+        + "<p>		int expectedGrowthAfterWatering = 11;</p>"
+        + "<p>		VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);</p>"
+        + "<strong class=\"triple-aaa-tdd\">		//act</strong>"
+        + "<p>		testTree.water(waterAmount)</p>"
+        + "<p>		int actualGrowth  = testTree.getGrowth();</p>"
+        + "<p class=\"triple-aaa-tdd\">		//assert</p>"
+        + "<p>	}</p>"
+        + "<p>}</p>"
+        + "</pre>";
   }
 
   public String getLesson5Tdd() {
     return "<h2>Lesson 5</h2>"
         + "<p>The 3rd of the 3 A&#39;s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do .</p>"
-        + "<br />"
-        + "<br />"
-        + "<p><span class='purple'>public class</span> assertExample{"
-        + "<br />"
-        + "<br />"
-        + "<pre>"
-        + "	<span class='bold'>@Test</span>"
-        + "<br />"
-        + "	<span class='purple'>public void</span> wateringShouldGiveGrowthToYourTree()  {"
-        + "<br />"
-        + "<br />"
-        + "		<span class='bold'>//arrange</span>"
-        + "<br />"
-        + "		int currentGrowth = 10;"
-        + "<br />"
-        + "		int waterAmount = 1;"
-        + "<br />"
-        + "		int expectedGrowthAfterWatering = 11;"
-        + "<br />"
-        + "		VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);"
-        + "<br />"
-        + "<br />"
-        + "		<span class='bold'>//act</span>"
-        + "<br />"
-        + "		testTree.water(waterAmount);"
-        + "<br />"
-        + "		Int actual  = testTree.getGrowth();"
-        + "<br />"
-        + "<br />"
-        + "		<span class='bold'>//assert</span>"
-        + "<br />"
-        + "		assertThat(actual, is(equalTo(expectedGrowthAfterWatering)));"
-        + "<br />"
-        + "		}"
-        + "</pre>"
-        + "	} </p>"
-        + "";
+        + "<pre class=\"code\">"
+        + "<p><span class='purple'>public class</span> AssertExample {</p>"
+        + "<strong>	@Test</strong>"
+        + "<p><span class='purple'>	public void</span> wateringShouldGiveGrowthToYourTree() {</p>"
+        + "<p class=\"triple-aaa-tdd\">		//arrange</p>"
+        + "<p>		int currentGrowth = 10;</p>"
+        + "<p>		int waterAmount = 1;</p>"
+        + "<p>		int expectedGrowthAfterWatering = 11;</p>"
+        + "<p>		VirtualTree testTree= new VirtualTree(\"testTree\", currentGrowth);</p>"
+        + "<p class=\"triple-aaa-tdd\">		//act</p>"
+        + "<p>		testTree.water(waterAmount);</p>"
+        + "<p>		int actualGrowth = testTree.getGrowth();</p>"
+        + "<strong class=\"triple-aaa-tdd\">		//assert</strong>"
+        + "<p>		assertThat(actualGrowth, is(equalTo(expectedGrowthAfterWatering)));</p>"
+        + "<p>	}</p>"
+        + "<p>}</p>"
+        + "</pre>";
   }
 
   public String getQuestion1Tdd() {
@@ -406,7 +353,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getQuestion5Tdd() {
-    return "assertThat(actual, is(equalTo(expectedGrowthAfterWatering)));  will give you a passing test.";
+    return "assertThat(actualAnswer, is(equalTo(expectedAnswer))); will give us a passing test.";
   }
 
   public String getCorrectAnswer1Tdd() {
@@ -534,13 +481,8 @@ public class Populator implements CommandLineRunner {
         + "<br />"
         + "<pre>"
         + "<span class='purple'>public void</span> shouldBeAbleToInstantiateClass(){"
-        + "<br />"
-        + "<br />"
         + "	Branch branch = new Branch();"
-        + "<br />"
-        + "<br />"
         + "	assertNotNull(branch);"
-        + "<br />"
         + "}"
         + "</pre>"
         + "";
@@ -548,17 +490,11 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson1Question4JUnit() {
     return "<pre>"
-        + "<span class='bold'>@Test</span>"
-        + "<br />"
-        + "<span class='purple'>public void</span> shouldBeAbleToInstantiateClass(){\n"
-        + "<br />"
-        + "<br />"
-        + "	Cluster cluster = new Cluster()"
-        + "<br />"
-        + "<br />"
-        + "	______NotNull(cluster);"
-        + "<br />"
-        + "}"
+        + "<strong>@Test</strong>"
+        + "<span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {"
+        + "<p>Cluster cluster = new Cluster()</p>"
+        + "<p>______NotNull(cluster);</p>"
+        + "<p>}</p>"
         + "</pre>"
         + "";
   }
