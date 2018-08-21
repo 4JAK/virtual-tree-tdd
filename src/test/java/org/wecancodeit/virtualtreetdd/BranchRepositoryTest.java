@@ -116,5 +116,28 @@ public class BranchRepositoryTest {
 	 Cluster nextCluster = resultBranch.getNextCluster(resultCluster1.getId());
 	 assertThat(nextCluster.getId(), is(equalTo(2L)));	 
   }
+  @Test
+  public void checkToSeeIfLastClusterOnBranch() {
+	  testBranch = branchRepo.save (new Branch("branch1", testTree));
+	  testCluster = clusterRepo.save (new Cluster("cluster1", testBranch)); 
+		 Cluster testCluster1 = clusterRepo.save (new Cluster("cluster1", testBranch));
+		 
+		 Long branchId = testBranch.getId();
+		 Long testClusterId = testCluster1.getId();
+		 
+		 em.flush();
+		 em.clear();
+		 
+		 Branch resultBranch = branchRepo.findOne(branchId);
+		 Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
+		 
+		 System.out.println(resultBranch.getClusters().size());
+		 
+		 
+		 
+		 
+		 boolean lastClusterOnTree = resultBranch.isLastCluster(resultCluster1);
+		 assertThat(lastClusterOnTree, is(equalTo(true)));
+  }
 
 }

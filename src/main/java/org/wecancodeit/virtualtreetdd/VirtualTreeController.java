@@ -20,8 +20,14 @@ public class VirtualTreeController {
 		model.addAttribute("virtualTree", vTreeRepo.findAll());
 		return "home";
 	}
+	
 	@RequestMapping(value = "/about")
 	public String about() {
 		return "about";
+	}
+	
+	@RequestMapping(value = "/JavaTreeCompleted")
+	public String javaTreeCompleted() {
+		return "JavaTreeCompleted";
 	}
 }
