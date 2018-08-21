@@ -6,12 +6,20 @@
   justify-content: flex-start;
 }
 
+#header-link {
+  height: 100%;
+  max-width: 100px;
+}
+
 #clusterName {
   font-size: 1.5rem;
 }
 
 .header-logo {
-  width: 10rem;
+  height: 37.5px;
+  width: 150px;
+  padding-left: 15px;
+  padding-top: 10px;
 }
 
 #profile-image {
@@ -38,7 +46,7 @@
 }
 
 #beanQuestion {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   padding: 1rem;
 }
 
