@@ -16,9 +16,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.wecancodeit.virtualtreetdd.Bean;
-import org.wecancodeit.virtualtreetdd.BeanController;
-import org.wecancodeit.virtualtreetdd.BeanRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(BeanController.class)

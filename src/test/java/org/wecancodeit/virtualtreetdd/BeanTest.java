@@ -11,9 +11,6 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wecancodeit.virtualtreetdd.Bean;
-import org.wecancodeit.virtualtreetdd.Cluster;
-import org.wecancodeit.virtualtreetdd.QuestionType;
 
 public class BeanTest {
 

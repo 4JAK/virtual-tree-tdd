@@ -3,7 +3,6 @@ package org.wecancodeit.virtualtreetdd;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.wecancodeit.virtualtreetdd.Lesson;
 
 public class LessonTest {
   private Lesson testLesson;

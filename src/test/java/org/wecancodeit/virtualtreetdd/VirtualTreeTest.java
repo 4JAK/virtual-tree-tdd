@@ -9,7 +9,6 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.wecancodeit.virtualtreetdd.VirtualTree;
 
 public class VirtualTreeTest {
 

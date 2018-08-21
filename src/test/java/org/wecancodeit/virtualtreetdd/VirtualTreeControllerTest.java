@@ -13,8 +13,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.wecancodeit.virtualtreetdd.VirtualTreeController;
-import org.wecancodeit.virtualtreetdd.VirtualTreeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(VirtualTreeController.class)

@@ -16,11 +16,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.wecancodeit.virtualtreetdd.Bean;
-import org.wecancodeit.virtualtreetdd.BeanRepository;
-import org.wecancodeit.virtualtreetdd.Cluster;
-import org.wecancodeit.virtualtreetdd.ClusterRepository;
-import org.wecancodeit.virtualtreetdd.QuestionType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest

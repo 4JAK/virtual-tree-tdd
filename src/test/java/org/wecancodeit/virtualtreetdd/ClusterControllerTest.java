@@ -18,14 +18,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.wecancodeit.virtualtreetdd.Bean;
-import org.wecancodeit.virtualtreetdd.BeanRepository;
-import org.wecancodeit.virtualtreetdd.Branch;
-import org.wecancodeit.virtualtreetdd.Cluster;
-import org.wecancodeit.virtualtreetdd.ClusterController;
-import org.wecancodeit.virtualtreetdd.ClusterRepository;
-import org.wecancodeit.virtualtreetdd.Lesson;
-import org.wecancodeit.virtualtreetdd.VirtualTree;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(ClusterController.class)
