@@ -6,17 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
-import org.wecancodeit.virtualtreetdd.entity.Bean;
-import org.wecancodeit.virtualtreetdd.entity.Branch;
-import org.wecancodeit.virtualtreetdd.entity.Cluster;
-import org.wecancodeit.virtualtreetdd.entity.Lesson;
-import org.wecancodeit.virtualtreetdd.entity.QuestionType;
-import org.wecancodeit.virtualtreetdd.entity.VirtualTree;
-import org.wecancodeit.virtualtreetdd.repository.BeanRepository;
-import org.wecancodeit.virtualtreetdd.repository.BranchRepository;
-import org.wecancodeit.virtualtreetdd.repository.ClusterRepository;
-import org.wecancodeit.virtualtreetdd.repository.LessonRepository;
-import org.wecancodeit.virtualtreetdd.repository.VirtualTreeRepository;
 
 @Service
 public class Populator implements CommandLineRunner {
