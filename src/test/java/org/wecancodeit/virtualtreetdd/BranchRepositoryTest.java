@@ -129,7 +129,7 @@ public class BranchRepositoryTest {
     em.clear();
 
     Branch resultBranch = branchRepo.findOne(branchId);
-    assertFalse(resultBranch.isBranchCompleted());
+    assertFalse(resultBranch.isAllClustersComplete());
   }
 
   @Test
@@ -145,7 +145,7 @@ public class BranchRepositoryTest {
     em.clear();
 
     Branch resultBranch = branchRepo.findOne(branchId);
-    assertTrue(resultBranch.isBranchCompleted());
+    assertTrue(resultBranch.isAllClustersComplete());
   }
   
   @Test
