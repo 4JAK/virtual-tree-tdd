@@ -3,9 +3,12 @@ package org.wecancodeit.virtualtreetdd;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.annotation.Resource;
@@ -38,25 +41,27 @@ public class BranchRepositoryTest {
   @Mock private Cluster testCluster;
 
   @Mock private VirtualTree testTree;
-  
-  @Before public void setup() {
-	  testTree = vTreeRepo.save(new VirtualTree("tree1", null));
+
+  @Before
+  public void setup() {
+    testTree = vTreeRepo.save(new VirtualTree("tree1", null));
+    testBranch = branchRepo.save(new Branch("Java Branch", testTree));
+    testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
   }
 
-  @Test //Checks to see if a branch is saved in repo
+  @Test // Checks to see if a branch is saved in repo
   public void shouldBeAbleToSaveBranchToRepo() {
-    testBranch = branchRepo.save(new Branch("Java Branch", null));
+    Long branchId = testBranch.getId();
 
     em.flush(); // save and synchronize the database
     em.clear(); // any entity that is not saved will be cleared from memory,
-    			// like closing an application
+    // like closing an application
 
-    assertNotNull(branchRepo.exists(1L));
+    assertNotNull(branchRepo.exists(branchId));
   }
 
-  @Test//Checks to see if branch has a generated Id
+  @Test // Checks to see if branch has a generated Id
   public void branchShouldHaveGeneratedId() {
-    testBranch = branchRepo.save(new Branch("Java Branch", null));
     Long branchId = testBranch.getId();
 
     em.flush();
@@ -67,10 +72,8 @@ public class BranchRepositoryTest {
     assertThat(expectedId, is(equalTo(branchId)));
   }
 
-  @Test //Checks branch for a tree
+  @Test // Checks branch for a tree
   public void shouldHaveVirtualTree() {
-    testTree = vTreeRepo.save(new VirtualTree("Java Tree", null));
-    testBranch = branchRepo.save(new Branch("Java Branch", testTree));
     Long branchId = testBranch.getId();
 
     em.flush();
@@ -82,11 +85,8 @@ public class BranchRepositoryTest {
     assertThat(underTestBranch.getVirtualTree(), is(underTestTree));
   }
 
-  @Test //Checks for a cluster
+  @Test // Checks for a cluster
   public void shouldHaveClusters() {
-    testBranch = branchRepo.save(new Branch("Java Branch", null));
-    testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));
-
     Long branchId = testBranch.getId();
 
     em.flush();
@@ -96,48 +96,77 @@ public class BranchRepositoryTest {
 
     assertThat(underTestBranchClusters.size(), is(greaterThan(0)));
   }
+
   @Test
   public void shouldBeAbleToGetNextClusterOnBranch() {
-	 testBranch = branchRepo.save (new Branch("branch1", testTree));
-	 testCluster = clusterRepo.save (new Cluster("cluster1", testBranch));
-	 Cluster testCluster2 = clusterRepo.save (new Cluster("cluster2", testBranch));
-	 
-	 Long branchId = testBranch.getId();
-	 Long testClusterId = testCluster.getId();
-	 Long testCluster2Id = testCluster2.getId();
-	 
-	 em.flush();
-	 em.clear();
-	 
-	 Branch resultBranch = branchRepo.findOne(branchId);
-	 Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
-	 Cluster resultCluster2 = clusterRepo.findOne(testCluster2Id);
-	
-	 Cluster nextCluster = resultBranch.getNextCluster(resultCluster1.getId());
-	 assertThat(nextCluster.getId(), is(equalTo(2L)));	 
-  }
-  @Test
-  public void checkToSeeIfLastClusterOnBranch() {
-	  testBranch = branchRepo.save (new Branch("branch1", testTree));
-	  testCluster = clusterRepo.save (new Cluster("cluster1", testBranch)); 
-		 Cluster testCluster1 = clusterRepo.save (new Cluster("cluster1", testBranch));
-		 
-		 Long branchId = testBranch.getId();
-		 Long testClusterId = testCluster1.getId();
-		 
-		 em.flush();
-		 em.clear();
-		 
-		 Branch resultBranch = branchRepo.findOne(branchId);
-		 Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
-		 
-		 System.out.println(resultBranch.getClusters().size());
-		 
-		 
-		 
-		 
-		 boolean lastClusterOnTree = resultBranch.isLastCluster(resultCluster1);
-		 assertThat(lastClusterOnTree, is(equalTo(true)));
+    Cluster testCluster2 = clusterRepo.save(new Cluster("cluster2", testBranch));
+
+    Long branchId = testBranch.getId();
+    Long testClusterId = testCluster.getId();
+    Long testCluster2Id = testCluster2.getId();
+
+    em.flush();
+    em.clear();
+
+    Branch resultBranch = branchRepo.findOne(branchId);
+    Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
+    Cluster resultCluster2 = clusterRepo.findOne(testCluster2Id);
+
+    Cluster nextCluster = resultBranch.getNextCluster(resultCluster1.getId());
+    assertThat(nextCluster.getId(), is(equalTo(resultCluster2.getId())));
   }
 
+  @Test
+  public void shouldReturnFalseForIsCompleted() {
+    testCluster.setClusterCompleted();
+    // Now save the cluster again because we needed to set the boolean value
+    // for whether or not it was completed
+    clusterRepo.save(testCluster);
+    Cluster testCluster2 = clusterRepo.save(new Cluster("cluster1", testBranch));
+    Long branchId = testBranch.getId();
+
+    em.flush();
+    em.clear();
+
+    Branch resultBranch = branchRepo.findOne(branchId);
+    assertFalse(resultBranch.isBranchCompleted());
+  }
+
+  @Test
+  public void shouldReturnTrueForIsCompleted() {
+    testCluster.setClusterCompleted();
+    clusterRepo.save(testCluster);
+    Cluster testCluster2 = new Cluster("cluster1", testBranch);
+    testCluster2.setClusterCompleted();
+    clusterRepo.save(testCluster2);
+    Long branchId = testBranch.getId();
+
+    em.flush();
+    em.clear();
+
+    Branch resultBranch = branchRepo.findOne(branchId);
+    assertTrue(resultBranch.isBranchCompleted());
+  }
+  
+  @Test
+  public void shouldReturnTrueIfClusterIsLastInBranch() {
+    Cluster testCluster2 = clusterRepo.save(new Cluster("cluster2", testBranch));
+    Cluster testCluster3 = clusterRepo.save(new Cluster("cluster3", testBranch));
+    
+    Long branchId = testBranch.getId();
+    Long testClusterId = testCluster.getId();
+    Long testCluster2Id = testCluster2.getId();
+    Long testCluster3Id = testCluster3.getId();
+    
+    em.flush();
+    em.clear();
+
+    Branch resultBranch = branchRepo.findOne(branchId);
+    Cluster resultCluster1 = clusterRepo.findOne(testClusterId);
+    Cluster resultCluster2 = clusterRepo.findOne(testCluster2Id);
+    Cluster resultCluster3 = clusterRepo.findOne(testCluster3Id);
+    
+    Boolean isLastCluster = resultBranch.isLastCluster(resultCluster3);
+    assertTrue(isLastCluster);
+  }
 }
