@@ -5,6 +5,10 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +17,10 @@ import org.mockito.Mock;
 public class VirtualTreeTest {
 
   @Mock private VirtualTree testTree;
-  
+
   @Before
   public void treeSetup() { // test to show that new tree class is made
-	  testTree = new VirtualTree("Java Tree", null);
+    testTree = new VirtualTree("Java Tree", null);
   }
 
   @Test
@@ -31,12 +35,35 @@ public class VirtualTreeTest {
 
   @Test
   public void shouldHaveGrowthUnit() { // test to show that tree has a growth amount
-	  assertNotNull(testTree.getGrowth());
+    assertNotNull(testTree.getGrowth());
   }
-  
+
   @Test
   public void wateringTreeIncreasesGrowth() { // test to show that watering increases growth
-	  testTree.water();
-	  assertThat(testTree.getGrowth(), is(greaterThan(0)));
-  } 
+    testTree.water();
+    assertThat(testTree.getGrowth(), is(greaterThan(0)));
+  }
+
+  @Test
+  public void shouldReturnFalseForTreeCompletionIfSingleBranchIsNotComplete() {
+    Branch testBranch1 = new Branch();
+    Branch testBranch2 = new Branch();
+    testBranch1.setBranchCompleted();
+    testTree.setBranches(Arrays.asList(testBranch1, testBranch2));
+    Boolean allBranchesAreComplete = testTree.isAllBranchesCompleted();
+    assertFalse(allBranchesAreComplete);
+    assertFalse(testTree.isCompletedTree());
+  }
+
+  @Test
+  public void shouldReturnTrueForTreeCompletionIfAllBranchesAreComplete() {
+    Branch testBranch1 = new Branch();
+    Branch testBranch2 = new Branch();
+    testBranch1.setBranchCompleted();
+    testBranch2.setBranchCompleted();
+    testTree.setBranches(Arrays.asList(testBranch1, testBranch2));
+    Boolean allBranchesAreComplete = testTree.isAllBranchesCompleted();
+    assertTrue(allBranchesAreComplete);
+    assertTrue(testTree.isCompletedTree());
+  }
 }
