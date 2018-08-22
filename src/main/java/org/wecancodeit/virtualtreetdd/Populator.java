@@ -208,7 +208,7 @@ public class Populator implements CommandLineRunner {
 
   private String strAnswerTrue = "True";
   private String strAnswerFalse = "False";
-  
+
   public Collection<String> getTreeImages() {
     ArrayList<String> treeImages = new ArrayList<String>();
     treeImages.add("/images/pre-tree.png");
@@ -250,12 +250,12 @@ public class Populator implements CommandLineRunner {
   public String getLesson2Tdd() {
     return "<h2>Lesson 2</h2>"
         + "<h3>Why do we use TDD?</h3>"
-		+ "<ol>"
+        + "<ol>"
         + "<li>TDD creates documentation of our work and ensures that our code is doing what we expect it to do.</li>"
         + "<li>TDD emphasises focusing on one piece of code at a time and is used to make code transmutable.</li>"
         + "<li>This allows the programmer to write manageable code that is able to change as the program develops.</li>"
         + "<li>TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</li>"
-    	+ "</ol>";
+        + "</ol>";
   }
 
   public String getLesson3Tdd() {
@@ -362,62 +362,45 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersFor1Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "TDD is a programming language.";
-    String answer2 =
-        "TDD is keeping your test as failing even though your code is working as you expect it to.";
-    String answer3 = "TDD is a style of writing code and then testing it.";
-    String answer4 =
-        "TDD is the discipline of writing failing tests before production code throughout the entire application.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("TDD is a programming language.");
+    answers.add(
+        "TDD is keeping your test as failing even though your code is working as you expect it to.");
+    answers.add("TDD is a style of writing code and then testing it.");
+    answers.add(
+        "TDD is the discipline of writing failing tests before production code throughout the entire application.");
     return answers;
   }
 
   public Collection<String> getAnswersFor2Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 =
-        "We use TDD so that the code we produce is immutable and nothing can be added to the code.";
-    String answer2 =
-        "We use TDD to decrease the speed in which it takes for a project to be developed";
-    String answer3 = "We use TDD to use less programmers when developing a project.";
-    String answer4 = "We use TDD to make sure that our code is doing what we expect it to do.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add(
+        "We use TDD so that the code we produce is immutable and nothing can be added to the code.");
+    answers.add("We use TDD to decrease the speed in which it takes for a project to be developed");
+    answers.add("We use TDD to use less programmers when developing a project.");
+    answers.add("We use TDD to make sure that our code is doing what we expect it to do.");
     return answers;
   }
 
   public Collection<String> getAnswersFor3Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "arrange";
-    String answer3 = "act";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
+    answers.add("assert");
+    answers.add("arrange");
+    answers.add("act");
     return answers;
   }
 
   public Collection<String> getAnswersFor4Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "arrange";
-    String answer3 = "act";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
+    answers.add("assert");
+    answers.add("arrange");
+    answers.add("act");
     return answers;
   }
 
   public Collection<String> getAnswersFor5Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer = "true";
-    String answer2 = "false";
-    answers.add(answer);
-    answers.add(answer2);
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
@@ -468,7 +451,6 @@ public class Populator implements CommandLineRunner {
         + "</pre>";
   }
 
-
   public String getLesson1Question5JUnit() {
     return "JUnit is a testing framework used in an IDE to determine if code being tested is doing what it is expected to do.";
   }
@@ -503,14 +485,10 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer1JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "Red";
-    String answer2 = "Blue";
-    String answer3 = "Yellow";
-    String answer4 = "Green";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("Red");
+    answers.add("Blue");
+    answers.add("Yellow");
+    answers.add("Green");
     return answers;
   }
 
@@ -523,29 +501,19 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer3JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "@Test";
-    String answer2 = "@Annotation";
-    String answer3 = "@Build";
-    String answer4 = "@GeneratedValue";
-
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
-
+    answers.add("@Test");
+    answers.add("@Annotation");
+    answers.add("@Build");
+    answers.add("@GeneratedValue");
     return answers;
   }
 
   public Collection<String> getAnswersForLesson1Answer4JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "if()";
-    String answer3 = "assertIf";
-    String answer4 = "this.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("assert");
+    answers.add("if()");
+    answers.add("assertIf");
+    answers.add("this.");
     return answers;
   }
 
