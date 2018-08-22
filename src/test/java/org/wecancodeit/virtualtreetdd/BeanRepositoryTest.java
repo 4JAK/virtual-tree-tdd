@@ -107,4 +107,16 @@ public class BeanRepositoryTest {
         beanRepo.findAllByQuestionType(QuestionType.TrueOrFalse),
         containsInAnyOrder(resultTestBean2, resultTestBean3));
   }
+  
+  @Test
+  public void shouldBeTrueForCorrectAnswerToBean() {
+	  Long testBeanId = testBean.getId();
+	  testBean.setCompletedQuestion();
+	  
+	  em.flush();
+	  em.clear();
+	  
+	  Bean resultBean = beanRepo.findOne(testBeanId);
+	  assertTrue(resultBean.isCompletedQuestion());
+  }
 }

@@ -19,12 +19,8 @@ function setIdOfCheckedRadioButton() {
   }
 }
 function checkRadio(event) {
-  console.log(event);
-  
   const labelClicked = event.target;
   const rdoForLabelClicked = labelClicked.firstElementChild;
-  console.log(rdoForLabelClicked);
-  
   rdoForLabelClicked.id = 'selectedAnswer';
   rdoForLabelClicked.checked = true;
   setIdOfCheckedRadioButton();

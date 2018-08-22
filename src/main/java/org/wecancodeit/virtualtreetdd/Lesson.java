@@ -16,6 +16,7 @@ public class Lesson {
 
   @Lob private String example;
   private String image;
+
   @JsonIgnore
   @OneToMany(mappedBy = "lesson")
   private Collection<Bean> beans;
@@ -32,13 +33,7 @@ public class Lesson {
 
   @Override
   public String toString() {
-    return "Lesson [id="
-        + id
-        + ",\nexample="
-        + example
-        + ",\nimage="
-        + image
-        + "]";
+    return "Lesson [id=" + id + ",\nexample=" + example + ",\nimage=" + image + "]";
   }
 
   public Long getId() {

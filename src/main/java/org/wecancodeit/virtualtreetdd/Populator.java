@@ -204,20 +204,11 @@ public class Populator implements CommandLineRunner {
                 getLesson2Question3JUnitHamcrest(),
                 getCorrectAnswerLesson2Answer3JUnitHamcrest(),
                 getAnswersForLesson2Answer3JUnitHamcrest()));
-
-    // Bean jUnitHamcrestLesson02bean01 =
-    // beanRepo.save(
-    // new Bean(
-    // clusterHamcrestJUnit,
-    // lessonRepo.save(new Lesson(getLesson1JUnitHamcrest(),
-    // "Test_2_Code_Added.png")),
-    // "1",
-    // "MultipleChoice",
-    // getLesson1Question1JUnitHamcrest(),
-    // getCorrectAnswerLesson1Answer1JUnitHamcrest(),
-    // getAnswersForLesson1Answer1JUnitHamcrest()));
   }
 
+  private String strAnswerTrue = "True";
+  private String strAnswerFalse = "False";
+  
   public Collection<String> getTreeImages() {
     ArrayList<String> treeImages = new ArrayList<String>();
     treeImages.add("/images/pre-tree.png");
@@ -244,23 +235,27 @@ public class Populator implements CommandLineRunner {
         + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>"
         + "<h3>3 Laws of TDD are:</h3>"
         + "<ol>"
-        + "<li>1. Only write production code in order to make a failing unit test pass.</li>"
-        + "<li>2. Write no more of a test than that which is required to make it fail.</li>"
-        + "<li>3. Do not write more production code than is necessary to make a failing unit test pass.</li>"
+        + "<li>	Only write production code in order to make a failing unit test pass.</li>"
+        + "<li>	Write no more of a test than that which is required to make it fail.</li>"
+        + "<li>	Do not write more production code than is necessary to make a failing unit test pass.</li>"
         + "</ol>"
         + "<h3>3 A&#39;s of TDD are:</h3>"
         + "<ol>"
-        + "<li>1. Arrange</li>"
-        + "<li>2. Act</li>"
-        + "<li>3. Assert</li>"
+        + "<li>	Arrange</li>"
+        + "<li>	Act</li>"
+        + "<li>	Assert</li>"
         + "</ol>";
   }
 
   public String getLesson2Tdd() {
     return "<h2>Lesson 2</h2>"
         + "<h3>Why do we use TDD?</h3>"
-        + "<p>TDD creates documentation of our work and ensures that our code is doing what we expect it to do. TDD emphasises focusing on one piece of code at a time and is used to make code transmutable. This allows the programmer to write manageable code that is able to change as the program develops. TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</p>"
-        + "";
+		+ "<ol>"
+        + "<li>TDD creates documentation of our work and ensures that our code is doing what we expect it to do.</li>"
+        + "<li>TDD emphasises focusing on one piece of code at a time and is used to make code transmutable.</li>"
+        + "<li>This allows the programmer to write manageable code that is able to change as the program develops.</li>"
+        + "<li>TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</li>"
+    	+ "</ol>";
   }
 
   public String getLesson3Tdd() {
@@ -362,7 +357,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswer5Tdd() {
-    return "true";
+    return strAnswerTrue;
   }
 
   public Collection<String> getAnswersFor1Tdd() {
@@ -428,22 +423,9 @@ public class Populator implements CommandLineRunner {
 
   // Beginning of JUnit Bean methods
 
-  // Lesson1 JUnit
-
-  //  public String getLessonJUnit() {
-  //    return "<h2>Lesson 6</h2>"
-  //        + "<h3>What is JUnit Testing?</h3>"
-  //        + "<p>JUnit is a unit testing framework used in an IDE to determine if the code being
-  // tested is doing what you expect. There are many different assertion methods to determine a
-  // pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for
-  // failing, Green for passing. The testing methods are procedural. They do not return anything and
-  // do not take parameters.</p>"
-  //        + "";
-  //  }
-
   public String getLesson1JUnit() {
     return "<h2>Lesson 6</h2>"
-		+ "<ol class=\"noCode\">"
+        + "<ol class=\"noCode\">"
         + "<li>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</li>"
         + "<li>This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</li>"
         + "<li>This test is failing because the VirtualTree class does not exist. After we run the test and it fails, we then create the class.</li>"
@@ -486,6 +468,7 @@ public class Populator implements CommandLineRunner {
         + "</pre>";
   }
 
+
   public String getLesson1Question5JUnit() {
     return "JUnit is a testing framework used in an IDE to determine if code being tested is doing what it is expected to do.";
   }
@@ -499,7 +482,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswerLesson1Answer2JUnit() {
-    return "False";
+    return strAnswerFalse;
   }
 
   public String getCorrectAnswerLesson1Answer3JUnit() {
@@ -511,11 +494,11 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswerLesson1Answer5JUnit() {
-    return "True";
+    return strAnswerTrue;
   }
 
   public String getCorrectAnswerLesson1Answer6JUnit() {
-    return "True";
+    return strAnswerTrue;
   }
 
   public Collection<String> getAnswersForLesson1Answer1JUnit() {
@@ -533,12 +516,8 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer2JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-
-    answers.add(answer1);
-    answers.add(answer2);
-
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
@@ -572,23 +551,15 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer5JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-
-    answers.add(answer1);
-    answers.add(answer2);
-
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
   public Collection<String> getAnswersForLesson1Answer6JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-
-    answers.add(answer1);
-    answers.add(answer2);
-
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
@@ -601,7 +572,7 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson2JUnitHamcrest() {
     return "<h2>Lesson 9</h2>"
-		+ "<ol class=\"noCode\">"
+        + "<ol class=\"noCode\">"
         + "<li>We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</li>"
         + "<li>The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</li>"
         + "<li>The Hamcrest method is() decorates a Matcher and makes it more expressive, so it reads like an English statement. We can chain Matcher statements together to make a desired expressive comparison statement. The not() method can be added inside of the is() method to make is(not( )). Example: assertThat(word,is(not(equalTo(words))));</li>"
@@ -639,7 +610,7 @@ public class Populator implements CommandLineRunner {
 
   // Correct Answer match Strings
   public String getCorrectAnswerLesson1Answer1JUnitHamcrest() {
-    return "True";
+    return strAnswerTrue;
   }
 
   public String getCorrectAnswerLesson2Answer1JUnitHamcrest() {
@@ -647,11 +618,11 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswerLesson2Answer2JUnitHamcrest() {
-    return "False";
+    return strAnswerFalse;
   }
 
   public String getCorrectAnswerLesson2Answer3JUnitHamcrest() {
-    return "True";
+    return strAnswerTrue;
   }
 
   public String getCorrectAnswerLesson2Answer4JUnitHamcrest() {
@@ -660,55 +631,41 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer1JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-    answers.add(answer1);
-    answers.add(answer2);
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
   public Collection<String> getAnswersForLesson2Answer1JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "A Value and Matcher statement.";
-    String answer2 = "Value";
-    String answer3 = "A return method";
-    String answer4 = "No minimum value";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("A Value and Matcher statement");
+    answers.add("Value");
+    answers.add("A return method");
+    answers.add("No minimum value");
     return answers;
   }
 
   public Collection<String> getAnswersForLesson2Answer2JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-    answers.add(answer1);
-    answers.add(answer2);
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
   public Collection<String> getAnswersForLesson2Answer3JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "True";
-    String answer2 = "False";
-    answers.add(answer1);
-    answers.add(answer2);
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
   public Collection<String> getAnswersForLesson2Answer4JUnitHamcrest() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "Hamcrest Matcher methods are used by themselves to determine matching.";
-    String answer2 =
-        "Hamcrest matcher methods are used in conjunction with JUnit testing to make more expressive statements.";
-    String answer3 = "The Hamcrest library methods are used to alter values of variables.";
-    String answer4 = "Hamcrest methods intrinsically increase the success rate of methods.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("Hamcrest Matcher methods are used by themselves to determine matching.");
+    answers.add(
+        "Hamcrest matcher methods are used in conjunction with JUnit testing to make more expressive statements.");
+    answers.add("The Hamcrest library methods are used to alter values of variables.");
+    answers.add("Hamcrest methods intrinsically increase the success rate of methods.");
     return answers;
   }
 }

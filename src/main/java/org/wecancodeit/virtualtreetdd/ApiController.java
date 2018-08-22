@@ -79,6 +79,7 @@ public class ApiController {
       return false;
     } else {
       beanRepo.findOne(beanId).setCompletedQuestion();
+      beanRepo.save(beanRepo.findOne(beanId));
     }
     return true;
   }
@@ -107,17 +108,15 @@ public class ApiController {
   public Cluster getNextCluster(@PathVariable(name = "clusterId") Long clusterId) {
     return clusterRepo.findOne(clusterId + 1L);
   }
-  @RequestMapping(value = "/clusters/{clusterId}/checkIfLastClusterOnTree", method = RequestMethod.GET)
-  public boolean checkIfLastClusterOnTree(
-	      @PathVariable(name = "clusterId") Long clusterId) {
-	    
-	  	
-	    Branch branch = clusterRepo.findOne(clusterId).getBranch();
-	    
-	    if (!branch.isLastCluster(clusterRepo.findOne(clusterId))) {
-	      return false;
-	    }
-	    return true;
-  }
 
+  @RequestMapping(
+      value = "/clusters/{clusterId}/checkIfLastClusterOnTree",
+      method = RequestMethod.GET)
+  public boolean checkIfLastClusterOnTree(@PathVariable(name = "clusterId") Long clusterId) {
+    Branch branch = clusterRepo.findOne(clusterId).getBranch();
+    if (!branch.isLastCluster(clusterRepo.findOne(clusterId))) {
+      return false;
+    }
+    return true;
+  }
 }

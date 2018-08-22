@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -24,8 +24,7 @@ public class ApiControllerTest {
 
   @Resource TestRestTemplate restTemplate;
 
-  @Mock private Bean testBean;
-  @Mock private Cluster testCluster;
+  @Autowired BeanRepository beanRepo;
 
   @Test
   public void canary() {
@@ -78,30 +77,27 @@ public class ApiControllerTest {
     assertThat(status, is(HttpStatus.OK));
   }
 
+  // Test to show that wrong spelling of clusters will show not found error
   @Test
-  public void
-      shouldNotBeOkayForClusters() { // test to show that wrong spelling of clusters will show not
-    // found error
+  public void shouldNotBeOkayForClusters() {
     ResponseEntity<String> response =
         restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clustes", String.class);
     HttpStatus status = response.getStatusCode();
     assertThat(status, is(HttpStatus.NOT_FOUND));
   }
 
+  // Test to show that there is a pathway to beans from tree and branch and cluster
   @Test
-  public void
-      shouldBeOkForBeans() { // test to show that there is a pathway to beans from tree and branch
-    // and cluster
+  public void shouldBeOkForBeans() {
     ResponseEntity<String> response =
         restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/beans", String.class);
     HttpStatus status = response.getStatusCode();
     assertThat(status, is(HttpStatus.OK));
   }
 
+  // Test to show that wrong spelling of bean will return not found page
   @Test
-  public void
-      shouldNotBeOkayForBeans() { // test to show that wrong spelling of bean will return not found
-    // page
+  public void shouldNotBeOkayForBeans() {
     ResponseEntity<String> response =
         restTemplate.getForEntity("/api/virtualtrees/1/branches/1/clusters/1/bans", String.class);
     HttpStatus status = response.getStatusCode();
@@ -157,6 +153,21 @@ public class ApiControllerTest {
     assertThat(body, is("true"));
   }
 
+  // We CAN test if the bean is completed by autowiring the bean repo
+  // Then all we have to do is grab the bean we're checking the answer against,
+  // and assert the value returned from isCompletedQuestion()
+  @Test
+  public void shouldReturnTrueForCompletedAnswerOfBean() {
+    restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true", String.class);
+    assertTrue(beanRepo.findOne(5L).isCompletedQuestion());
+  }
+
+  @Test
+  public void shouldReturnFalseForCompletedAnswerOfBean() {
+    restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=imdumb", String.class);
+    assertFalse(beanRepo.findOne(5L).isCompletedQuestion());
+  }
+
   @Test
   public void shouldBeOkForNextBeanFromClusterCollection() {
     ResponseEntity<String> response =
@@ -192,21 +203,6 @@ public class ApiControllerTest {
   }
 
   @Test
-  public void shouldMakeIsCompletedVariableTrueForBean() {
-    ResponseEntity<String> response =
-        restTemplate.getForEntity("/api/beans/5/checkanswer?answerToCheck=true", String.class);
-    assertThat(testBean.isCompletedQuestion(), is(true));
-  }
-
-  @Test
-  public void shouldReturnJavaTreeCompletedPage() {
-    ResponseEntity<String> response =
-        restTemplate.getForEntity("/api/JavaTreeCompleted", String.class);
-    HttpStatus status = response.getStatusCode();
-    assertThat(status, is(HttpStatus.OK));
-  }
-
-  @Test
   public void shouldBeOkayForLastBeanInCluster() {
     ResponseEntity<String> response =
         restTemplate.getForEntity("/api/clusters/1/checkBean?beanId=1", String.class);
@@ -234,5 +230,13 @@ public class ApiControllerTest {
         restTemplate.getForEntity("/api/clusters/1/getNextCluster", String.class);
     System.out.println(response.getBody());
     assertTrue(response.getBody().contains("\"id\":2"));
+  }
+
+  @Test
+  public void shouldReturnCompletedHtmlPageIfClusterIsLastOnTree() {
+    ResponseEntity<Boolean> response =
+        restTemplate.getForEntity("/api/clusters/3/checkIfLastClusterOnTree", Boolean.class);
+    boolean isLastCluster = response.getBody();
+    assertTrue(isLastCluster);
   }
 }

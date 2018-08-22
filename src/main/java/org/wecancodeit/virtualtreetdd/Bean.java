@@ -105,14 +105,14 @@ public class Bean {
   public Lesson getLesson() {
     return lesson;
   }
-  
-  public boolean isCompletedQuestion() {
-	return completedQuestion;
-  }	
 
-  public void setCompletedQuestion() {
-	this.completedQuestion = true;
+  public boolean isCompletedQuestion() {
+    return completedQuestion;
   }
 
-public Bean() {}
+  public void setCompletedQuestion() {
+    this.completedQuestion = true;
+  }
+
+  public Bean() {}
 }
