@@ -6,6 +6,12 @@
   justify-content: flex-start;
 }
 
+.nav-link {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
 #header-link {
   height: 100%;
   max-width: 100px;
@@ -18,7 +24,7 @@
 #profile-image {
   border-radius: 100%;
   display: flex;
-  width: 4%;
+  height: 100%;
 }
 
 .enabledSubmitButton {
@@ -146,6 +152,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
 .purple {
-  color: purple;  
+  color: purple;
 }
