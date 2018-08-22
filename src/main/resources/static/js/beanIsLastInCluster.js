@@ -14,29 +14,37 @@ function getNextCluster() {
 }
 
 function clusterIsLastInBranch(response) {
+  console.log(response);  
   if (this.status === 200 && this.readyState === 4) {
     const res = JSON.parse(response.target.response);
     if (res === true) {
-      window.location.replace('/JavaTreeCompleted');
+      alert(`Hit API call for cluster is last in branch`);
     }
   }
+}
+
+function isClusterLastInBranch() {
+  const xhr = new XMLHttpRequest();
+  const hrefArray = document.URL.split('/');
+  const clusterId = hrefArray[4];
+  xhr.addEventListener('readystatechange', clusterIsLastInBranch);
+  xhr.open('GET', `/api/clusters/${clusterId}/checkIfLastClusterOnTree?clusterId=${clusterId}`, true);
+  xhr.send();
 }
 
 function beanIsLastInCluster(response) {
   if (this.status === 200 && this.readyState === 4) {
     const res = JSON.parse(response.target.response);
     if (res === true) {
-      const xhr = new XMLHttpRequest();
-      const hrefArray = document.URL.split('/');
-      const clusterId = hrefArray[4];
-      xhr.addEventListener('readystatechange', clusterIsLastInBranch);
-      xhr.open('GET', `/api/clusters/${clusterId}/checkIfLastClusterOnTree?clusterId=${clusterId}`, true);
-      xhr.send();
-      document.getElementById('nextQuestionButton').innerText = 'Next Cluster';
-      document.getElementById('nextQuestionButton').removeEventListener('click', getNextBeanQuestion);
-      document.getElementById('nextQuestionButton').addEventListener('click', getNextCluster);
-    } else {
-      // console.log('Is not last in cluster');
+      if (isClusterLastInBranch() === true) {
+        alert('Hit cluster is last in branch')
+        window.location.replace(`/cluster/${document.URL.split('/')[4]}`);
+      } else {
+        document.getElementById('nextQuestionButton').innerText = 'Next Cluster';
+        document.getElementById('nextQuestionButton').removeEventListener('click', getNextBeanQuestion);
+        document.getElementById('nextQuestionButton').addEventListener('click', getNextCluster);
+        alert('Hit API for cluster is not last in branch, but bean is');
+      }
     }
   }
 }
