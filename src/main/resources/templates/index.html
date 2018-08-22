@@ -11,9 +11,9 @@
     <title>Java Beans</title>
 </head>
 <body>
-    <nav>
-        <a th:href='|@{/}|'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
-    </nav>
+        <a th:href='|@{/}|'>
+            <img class="header-logo" src='/images/planTDDlogoTransparent.png'/>
+        </a>
     <section class="login">
       <img src="/images/Artboard 1.png"/>
         <div class = "form-container">
@@ -39,27 +39,32 @@
         <div class="flex-grid-thirds">
             <div class="col">
                 <img src = "/images/focus.svg" height="110"/>
-                <h2>Clear Focus</h2>
+                <h2>
+                    <strong>Clear Focus</strong>
+                </h2>
                 <p>
                     You're more productive while coding, and TDD helps keep that productivity high by narrowing your focus. It forces you to think about smaller chunks of functionality at a time rather than the application as a whole.
                 </p>
             </div>
             <div class="col">
                     <img src = "/images/archive.svg" height="110"/>
-                    <h2>Living Documentation</h2>
+                    <h2>
+                        <strong>Living Documentation</strong>
+                    </h2>
                     <p>
                         Tests can serve as documentation to a developer. Also you can see the expected inputs a method requires and what you can expect as outcome, all based on the assertions made in the test.
                     </p>
             </div>
             <div class="col">
                     <img src = "/images/clean.svg" height="110"/>
-                    <h2>Tidier Code</h2>
-                
+                    <h2>
+                        <strong>Tidier Code</strong>
+                    </h2>
                 <p>
                     Your tests are only interfacing with public methods, so you have a much better idea of what can be made private. You code more efficent and it reduces the chance of creating un-needed or redundant code.
                 </p> 
             </div>
-          </div>
+        </div>
         </div>
     </section>
 

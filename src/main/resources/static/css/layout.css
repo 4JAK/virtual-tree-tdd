@@ -34,8 +34,22 @@ a {
 
 nav {
   align-items: center;
-  background-color: #c6d888;
+  background-color: #80bf74;
   display: flex;
+  height: 3.5rem;
   justify-content: space-between;
   width: 100%;
+}
+
+nav h1 {
+  font-size: 2rem;
+}
+
+.header-logo {
+  height: 37.5px;
+  padding-left: 15px;
+}
+
+h1 {
+  font-size: 1.5rem;
 }

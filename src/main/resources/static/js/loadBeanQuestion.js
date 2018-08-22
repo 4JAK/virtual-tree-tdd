@@ -39,8 +39,6 @@ function renderBean(response) {
     const beanLabels = document.querySelectorAll('.bean-label');
     if (beanLabels[0]) {
       beanLabels.forEach((label) => {
-        console.log('hit adding event listeners to new labels');
-        
         label.addEventListener('click', checkRadio);
       });
     }

@@ -14,11 +14,10 @@ function getNextCluster() {
 }
 
 function clusterIsLastInBranch(response) {
-  console.log(response);  
   if (this.status === 200 && this.readyState === 4) {
     const res = JSON.parse(response.target.response);
-    if (res === true) {
-      alert(`Hit API call for cluster is last in branch`);
+    if (res === true && document.URL.split('/')[4] === '3') {
+      window.location.replace('/JavaTreeCompleted');
     }
   }
 }
@@ -37,13 +36,11 @@ function beanIsLastInCluster(response) {
     const res = JSON.parse(response.target.response);
     if (res === true) {
       if (isClusterLastInBranch() === true) {
-        alert('Hit cluster is last in branch')
         window.location.replace(`/cluster/${document.URL.split('/')[4]}`);
       } else {
         document.getElementById('nextQuestionButton').innerText = 'Next Cluster';
         document.getElementById('nextQuestionButton').removeEventListener('click', getNextBeanQuestion);
         document.getElementById('nextQuestionButton').addEventListener('click', getNextCluster);
-        alert('Hit API for cluster is not last in branch, but bean is');
       }
     }
   }
@@ -51,7 +48,7 @@ function beanIsLastInCluster(response) {
 
 function checkIfBeanIsLastInCluster() {
   const xhr = new XMLHttpRequest();
-  const clusterId = document.querySelector('.clusterBeans').id;
+  const clusterId = document.URL.split('/')[4];
   const beanId = document.querySelector('.bean-label').id;
   xhr.addEventListener('readystatechange', beanIsLastInCluster);
   xhr.open('GET', `/api/clusters/${clusterId}/checkBean?beanId=${beanId}`, true);

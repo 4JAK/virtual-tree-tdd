@@ -231,15 +231,15 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Tdd() {
-    return "<h2>Lesson 1</h2>"
+    return "<h1>Lesson 1</h1>"
         + "<p>Using Test Driven Development allows for the developer to constantly see that their code is working as intended. The process of creating a test for a piece of code that does not exist yet provides technical documentation for others working on the same project. This process allows developers on the same team to see what the code is doing and feel confident in themselves that they can refactor the code without breaking it. It is a disciplined approach that is based on the following:</p>"
-        + "<h3>3 Laws of TDD are:</h3>"
+        + "<h2>3 Laws of TDD are:</h2>"
         + "<ol>"
         + "<li>	Only write production code in order to make a failing unit test pass.</li>"
         + "<li>	Write no more of a test than that which is required to make it fail.</li>"
         + "<li>	Do not write more production code than is necessary to make a failing unit test pass.</li>"
         + "</ol>"
-        + "<h3>3 A&#39;s of TDD are:</h3>"
+        + "<h2>3 A&#39;s of TDD are:</h2>"
         + "<ol>"
         + "<li>	Arrange</li>"
         + "<li>	Act</li>"
@@ -248,8 +248,8 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson2Tdd() {
-    return "<h2>Lesson 2</h2>"
-        + "<h3>Why do we use TDD?</h3>"
+    return "<h1>Lesson 2</h1>"
+        + "<h2>Why do we use TDD?</h2>"
 		+ "<ol>"
         + "<li>TDD creates documentation of our work and ensures that our code is doing what we expect it to do.</li>"
         + "<li>TDD emphasises focusing on one piece of code at a time and is used to make code transmutable.</li>"
@@ -278,7 +278,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson4Tdd() {
-    return "<h2>Lesson 4</h2>"
+    return "<h1>Lesson 4</h1>"
         + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables.</p>"
         + "<pre class=\"code\">"
         + "<p><span class='purple'>public class</span> ActExample { </p>"
@@ -299,7 +299,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson5Tdd() {
-    return "<h2>Lesson 5</h2>"
+    return "<h1>Lesson 5</h1>"
         + "<p>The 3rd of the 3 A&#39;s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do .</p>"
         + "<pre class=\"code\">"
         + "<p><span class='purple'>public class</span> AssertExample {</p>"
@@ -424,7 +424,7 @@ public class Populator implements CommandLineRunner {
   // Beginning of JUnit Bean methods
 
   public String getLesson1JUnit() {
-    return "<h2>Lesson 6</h2>"
+    return "<h1>Lesson 6</h1>"
         + "<ol class=\"noCode\">"
         + "<li>JUnit is a unit testing framework used in an IDE to determine if the code being tested is doing what you expect. There are many different assertion methods to determine a pass/fail. If a test fails in Eclipse, JUnit brings up a description of the issue: Red for failing, Green for passing. The testing methods are procedural. They do not return anything and do not take parameters.</li>"
         + "<li>This is an example of what a Junit testing bar looks like after running our failing test for the first time. The bar will then change to green once the production code has been written that will make the test pass.</li>"
@@ -435,7 +435,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson2JUnit() {
-    return "<h2>Lesson 7</h2>"
+    return "<h1>Lesson 7</h1>"
         + "<p>After we create the VirtualTree class,  we run our test again and get our first passing test.</p>";
   }
 
@@ -614,7 +614,7 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getCorrectAnswerLesson2Answer1JUnitHamcrest() {
-    return "A Value and Matcher statement.";
+    return "A Value and Matcher statement";
   }
 
   public String getCorrectAnswerLesson2Answer2JUnitHamcrest() {

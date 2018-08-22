@@ -61,11 +61,10 @@
 
     <footer>
       <img id="bean-tree" th:src="${cluster.branch.virtualTree.treeImages[0]}" alt="bean tree" />
-      <section class="question-number-and-cluster-size">
+       <section class="question-number-and-cluster-size"> 
         <strong id="currentQuestionNum" th:text="${cluster.beans[0].questionNum}"></strong>
-         / 
-        <strong id="clusterSize" th:text="${cluster.beans.size()}"></strong>
-      </section>
+        <!-- <strong id="clusterSize" th:text="${cluster.beans.size()}"></strong> -->
+      </section> 
     </footer>
 
   </div>

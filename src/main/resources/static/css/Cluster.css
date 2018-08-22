@@ -138,6 +138,10 @@ footer {
   right: 0;
 }
 
+#currentQuestionNum {
+  display: none;
+}
+
 #bean-tree {
   height: 20rem;
   width: 20rem;
