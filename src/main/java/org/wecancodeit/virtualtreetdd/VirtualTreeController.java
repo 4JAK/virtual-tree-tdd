@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller // Controller for virtual tree
 public class VirtualTreeController {
-
+  
   @Autowired private VirtualTreeRepository vTreeRepo;
 
   @RequestMapping(value = "/")

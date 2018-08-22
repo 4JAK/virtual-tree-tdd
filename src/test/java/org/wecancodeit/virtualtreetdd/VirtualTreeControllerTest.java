@@ -61,4 +61,12 @@ public class VirtualTreeControllerTest {
   public void javaTreeCompletedShouldReturn4xxError() throws Exception {
     mvc.perform(get("/JavaTreesCompleted")).andExpect(status().is4xxClientError());
   }
+  @Test
+  public void javaTreeCompletedShouldReturn2xxSuccessfull() throws Exception {
+	  mvc.perform(get("/JavaTreeCompleted")).andExpect(status().is2xxSuccessful());
+  }
+  @Test
+  public void javaTreeCompletedShouldReturn4xxError() throws Exception {
+	  mvc.perform(get("/JavaTreesCompleted")).andExpect(status().is4xxClientError());
+  }
 }
