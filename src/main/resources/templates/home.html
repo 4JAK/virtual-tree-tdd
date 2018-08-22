@@ -2,106 +2,121 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Java Beans | Profile</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/HomePage.css}" href="/css/HomePage.css" />
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/layout.css}" href="/css/layout.css" />
-    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/minireset.min.css}" href="/css/minireset.min.css" />
-    <script src="main.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/HomePage.css}" href="/css/HomePage.css" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/layout.css}" href="/css/layout.css" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/minireset.min.css}" href="/css/minireset.min.css" />
+  <title>PlanTDD | Profile</title>
 </head>
 
 <body>
 
-    <nav>
-        <div class="top-bar-left">
-                <a id="header-link" th:href='@{/}'>
-                    <img class="header-logo" src='/images/planTDDlogoTransparent.png'/>
-                </a>
-            </div>
-            <div class="top-bar-right">
-                <ul>
-                    <li>
-                        <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
-                    </li>
-                    <li><a th:href="@{/}">
-                        Logout
-                     </a></li>
-                    <li><a th:href="@{/about}">
-                        About
-                    </a></li>                
-                </ul>
-        </div>
-    </nav>
-    
+  <nav>
 
-    <!-- Page opens after login -->
-
-    <div class="profile-container">
-        <div class="profile">
-            <div class="profile-image">
-                <img src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
-            </div>
-            <h2 class="profile-user-name">
-                Hello, johndoe_
-                <br /> Welcome back!
-            </h2>
-        </div>
-        <!-- <! <h5 class="certificate"><a>Java/TDD Certificate Of Completion</a></h5> --> 
-
-    </div>
-    
-    <!-- End of user profile -->
-
-    <hr />
-
-    <h1 class="h1">Pick up where you left off:</h1>
-
-    <div class="concept-container">
-        <div class="concept">
-            <h2>Introduction to TDD</h2>
-
-            <!-- Courses started Resume button redirects to Clusters -->
-            
-            <button class="resume"><a th:href="|@{/cluster/1}|"> Resume &rarr;</a></button>
-        </div>
-
-        <div class="concept">
-            <h2>JUnit Testing</h2>
-            <button class="resume"><a th:href="|@{/cluster/2}|"> Resume &rarr;</a></button>
-        </div>
-
-        <div class="concept">
-            <h2>JUnit/Hamcrest</h2>
-            <button class="resume"><a th:href="|@{/cluster/3}|"> Resume &rarr;</a></button>
-        </div>
-    
+    <div class="top-bar-left">
+      <a id="header-link" th:href='@{/}'>
+        <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
+      </a>
     </div>
 
-    <hr />
+    <div class="top-bar-right">
+      <ul>
+        <li>
+          <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"
+          />
+        </li>
 
-    <h1 class="h1">Start something new!</h1>
+        <li>
+          <a th:href="@{/}">
+            Logout
+          </a>
+        </li>
 
-    <div class="concept-container">
-        <div class="concept">
-            <h2 th:each="tree : ${virtualTree}">
-                <a th:href="@{/branches/}" th:text="${tree.name}">
-                </a>
-            </h2>
+        <li>
+          <a th:href="@{/about}">
+            About
+          </a>
+        </li>
 
-            <!-- Courses not started Get Started button redirects to Beans -->
+      </ul>
+    </div>
 
-            <a th:href="@{/branches/}"><button class="start">Get Started &rarr;</button></a>    
-        </div>
+  </nav>
 
-        <div class="concept">
-            <h2>JavaScript Tree</h2>
-            <p>Coming soon!</p>
-                <!-- Courses not started Get Started button redirects to Beans -->
-            </div>
-        </div>       
+  <!-- Page opens after login -->
+
+  <div class="profile-container">
+    <div class="profile">
+      <div class="profile-image">
+        <img src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
+      </div>
+      <h2 class="profile-user-name">
+        Hello, johndoe_
+        <br /> Welcome back!
+      </h2>
+    </div>
+  </div>
+
+  <!-- End of user profile -->
+
+  <hr />
+
+  <h1 class="h1">Pick up where you left off:</h1>
+
+  <div class="concept-container">
+    <div class="concept">
+      <h2>Introduction to TDD</h2>
+
+      <!-- Courses started Resume button redirects to Clusters -->
+
+      <button class="resume">
+        <a th:href="|@{/cluster/1}|"> Resume &rarr;</a>
+      </button>
+    </div>
+
+    <div class="concept">
+      <h2>JUnit Testing</h2>
+      <button class="resume">
+        <a th:href="|@{/cluster/2}|"> Resume &rarr;</a>
+      </button>
+    </div>
+
+    <div class="concept">
+      <h2>JUnit/Hamcrest</h2>
+      <button class="resume">
+        <a th:href="|@{/cluster/3}|"> Resume &rarr;</a>
+      </button>
+    </div>
+
+  </div>
+
+  <hr />
+
+  <h1 class="h1">Start something new!</h1>
+
+  <div class="concept-container">
+    <div class="concept">
+      <h2 th:each="tree : ${virtualTree}">
+        <a th:href="@{/branches/}" th:text="${tree.name}">
+        </a>
+      </h2>
+
+      <!-- Courses not started Get Started button redirects to Beans -->
+
+      <a th:href="@{/branches/}">
+        <button class="start">Get Started &rarr;</button>
+      </a>
+    </div>
+
+    <div class="concept">
+      <h2>JavaScript Tree</h2>
+      <p>Coming soon!</p>
+      <!-- Courses not started Get Started button redirects to Beans -->
+    </div>
+  </div>
 </body>
 
-</html> 
+</html>
