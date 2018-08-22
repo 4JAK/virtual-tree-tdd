@@ -239,10 +239,4 @@ public class ApiControllerTest {
     boolean isLastCluster = response.getBody();
     assertTrue(isLastCluster);
   }
-  @Test
-  public void shouldReturnCompletedHtmlPageIfClusterIsLastOnTree() {
-	  ResponseEntity<Boolean> response = restTemplate.getForEntity("/api/clusters/3/checkIfLastClusterOnTree" , Boolean.class);
-	  boolean isLastCluster = response.getBody();
-	  assertTrue(isLastCluster);
-  }
 }
