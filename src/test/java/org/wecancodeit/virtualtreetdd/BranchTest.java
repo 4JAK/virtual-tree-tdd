@@ -47,14 +47,18 @@ public class BranchTest {
     testCluster2.setClusterCompleted();
     // Set clusters to the branch
     testBranch.setClusters(Arrays.asList(testCluster, testCluster2));
-    assertTrue(testBranch.isAllClustersComplete());
+    Boolean allClustersInBranchAreComplete = testBranch.isAllClustersComplete();
+    assertTrue(allClustersInBranchAreComplete);
+    assertTrue(testBranch.isBranchCompleted());
   }
 
   @Test
   public void shouldReturnFalseIfAllClustersAreComplete() {
     Cluster testCluster2 = new Cluster("cluster2", testBranch);
     testBranch.setClusters(Arrays.asList(testCluster, testCluster2));
-    assertFalse(testBranch.isAllClustersComplete());
+    Boolean allClustersInBranchAreComplete = testBranch.isAllClustersComplete();
+    assertFalse(allClustersInBranchAreComplete);
+    assertFalse(testBranch.isBranchCompleted());
   }
 
   @Test
