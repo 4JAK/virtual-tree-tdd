@@ -15,13 +15,6 @@
   font-size: 1.5rem;
 }
 
-.header-logo {
-  height: 37.5px;
-  width: 125px;
-  padding-left: 15px;
-  padding-top: 10px;
-}
-
 #profile-image {
   border-radius: 100%;
   display: flex;
