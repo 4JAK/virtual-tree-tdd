@@ -1,12 +1,5 @@
-function checkRadio(event) {
-  const labelClicked = event.target;
-  const rdoClick = labelClicked.childNodes[1]; 
-  rdoClick.checked = true;
-}
-
 function renderBean(response) {
   if (this.status === 200 && this.readyState === 4) {
-    console.log('hit render bean');
     const bean = JSON.parse(response.target.response);
     const beanQuestion = document.getElementById('beanQuestion');
     const imageForBeanLesson = document.getElementById('lessonImage');
@@ -25,29 +18,31 @@ function renderBean(response) {
     beanAnswers.innerHTML = '';
     bean.answers.forEach((answer) => {
       beanAnswers.innerHTML += `
-      <label value="${bean.id}" class="bean-answer" for="radioGroup">
-        <input id="answer" class="${bean.id}" name="radioGroup" type="radio" value="${bean.questionNum}">
+      <label id="${bean.id}" class="bean-label" for="radioGroup">
+        <input class="bean-answer" name="radioGroup" type="radio" value="${bean.questionNum}">
           ${answer}
         </input>
       </label>`;
     });
 
-    document.getElementById('currentQuestionNum').setAttribute('value', `${bean.questionNum}`);
-    document.getElementById('currentQuestionNum').innerText = bean.questionNum;
+    addEventListenersForButtons();
+    document.getElementById('slide-out-lesson').classList.toggle('closedLesson');
 
     // Grab the strong tag from it's id
     const currentQuestionNum = document.getElementById('currentQuestionNum');
     // Set the innerHTML to the next bean's question num
-    currentQuestionNum.innerHTML = bean.questionNum;
+    currentQuestionNum.innerText = bean.questionNum;
+    document.getElementById('bean-tree').src = `/images/bean-${currentQuestionNum.innerText}.png`;
 
-    document.getElementById('submitAnswer').setAttribute('disabled', 'true');
-    document.getElementById('nextQuestionButton').setAttribute('disabled', 'true');
-    const labelsForBeanAnswer = document.querySelectorAll('.bean-answer');
-    if (labelsForBeanAnswer[0]) {
-      labelsForBeanAnswer.forEach((label) => {
+    // document.getElementById('submitAnswer').setAttribute('disabled', 'disabled');
+    document.getElementById('nextQuestionButton').setAttribute('disabled', 'disabled');
+    const beanLabels = document.querySelectorAll('.bean-label');
+    if (beanLabels[0]) {
+      beanLabels.forEach((label) => {
         label.addEventListener('click', checkRadio);
       });
     }
+
   }
 }
 
@@ -61,11 +56,11 @@ function getNextBeanQuestion() {
     const xhr = new XMLHttpRequest();
     // since the class has a list of classes for the,
     // we grab the second class for the cluster ID
-    const clusterId = document.getElementById('clusterBeans').getAttribute('value');
+    const clusterId = document.querySelector('.clusterBeans').id;
     // clusterId = parseInt(clusterId, 10);
     // Grab current question number from the inputs value,
     // since the inputs value is set to the question number
-    const beanQuestionNum = document.getElementById('currentQuestionNum').getAttribute('value');
+    const beanQuestionNum = document.getElementById('currentQuestionNum').innerText;
     xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
     xhr.addEventListener('readystatechange', renderBean);
     xhr.send();

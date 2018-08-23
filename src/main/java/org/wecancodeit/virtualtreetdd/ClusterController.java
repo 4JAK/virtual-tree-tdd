@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller 
+@Controller
 public class ClusterController {
   @Autowired private ClusterRepository clusterRepo;
 
@@ -21,5 +21,4 @@ public class ClusterController {
     model.addAttribute("cluster", clusterRepo.findOne(id));
     return "cluster";
   }
-  
 }

@@ -5,26 +5,29 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/layout.css}" href="/css/layout.css" />
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/branches.css}" href="/css/branches.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/minireset.min.css}" href="/css/minireset.min.css" />
     <title>treeTDD | Branches</title>
 </head>
 
 <body>
     <!-- <img src='/images/planTDDlogo4.png'/> -->
     <nav>
-        <ul>
-        <li><a th:href="|@{/home}|"><button class="btn">Profile</button>
-        </a></li>
-        <li><a th:href="@{/}"><button class="btn">Logout</button>
-        </a></li>
-    </ul>
-    </nav>
-    <h2>Java Testing Branches</h2>
+        <a class="nav-link" th:href='@{/}'>
+            <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
+        </a>
+        <h1 id="clusterName" > Java Tree Branches</h1>
+        <a class="nav-link" th:href="@{/home}">
+            <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"
+                alt="picture of user" />
+        </a>
+      </nav>
     <ol>
         <li th:each="branch : ${branches}">
-            <a th:href="|@{/cluster/}${branch.id}|" th:text="${branch.name}">
+            <a th:href="|@{/cluster/}${branch.id}|">
+                <strong th:text="${branch.name}"></strong>
             </a>
-            <div class="vl"></div>
         </li>
     </ol>
 </body>

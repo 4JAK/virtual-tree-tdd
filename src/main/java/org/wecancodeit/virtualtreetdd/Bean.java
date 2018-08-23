@@ -26,14 +26,6 @@ public class Bean {
   private String correctAnswer;
   private boolean completedQuestion;
 
-  //Different types of questions
-  protected enum QuestionType {
-    Drag_n_Drop,
-    FillInTheBlanks,
-    MultipleChoice,
-    TrueOrFalse,
-  }
-
   /**
    * @param cluster - The 'Lesson' that the bean is attached to | Cluster
    * @param lesson - The lesson that is used to display the example for the bean | Lesson
@@ -113,14 +105,14 @@ public class Bean {
   public Lesson getLesson() {
     return lesson;
   }
-  
-  public boolean isCompletedQuestion() {
-	return completedQuestion;
-  }	
 
-  public void setCompletedQuestion() {
-	this.completedQuestion = true;
+  public boolean isCompletedQuestion() {
+    return completedQuestion;
   }
 
-public Bean() {}
+  public void setCompletedQuestion() {
+    this.completedQuestion = true;
+  }
+
+  public Bean() {}
 }

@@ -1,20 +1,10 @@
-html{
-   height: 100%;
 
-    
-}
-nav li{
+/* nav li {
     align-content: center;
     list-style-type: none;
     display: inline;
     float: right;
-}
-li a{
-    text-decoration: none;
-    
-    
-    margin-right: 2%;
-}
+} */
 
 .btn {
     border: 2px solid black;
@@ -37,17 +27,10 @@ li a{
 }
 
 body {
-    margin-top:10%;
-    font-family: 'Work Sans', sans-serif;
     background-image: url('../images/branches-background.png');
-    background-repeat: none;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    overflow: hidden;
 }  
 
 h2 {
@@ -70,19 +53,17 @@ ol {
 }
 
 ol > li {
-    margin-top: 15%;
     background-color: #ffffff;
-    width: 20vw;
-    height: 30vh;
-    margin: 55px auto;
-    text-align: center;
-    line-height: 30vh;
-    /* margin-left: 41%; */
-    border-radius: 100%;
     border: solid;
     border-color: #3DCB9A;
-    font-size: 2.5vh; 
     color: black;
+    font-size: 2.5vh; 
+    height: 40vh;
+    line-height: 37vh;
+    border-radius: 100%;
+    margin: 55px auto;
+    text-align: center;
+    width: 20vw;
     
 }
 /* ol {
@@ -91,8 +72,17 @@ ol > li {
 ol > li {
     transform: rotate(-180deg);
 } */
+.nav-link {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
 
-
+#profile-image {
+    border-radius: 100%;
+    display: flex;
+    height: 100%;
+}
 
 ol > li:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 

@@ -14,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -52,7 +51,7 @@ public class ClusterRepositoryTest {
     assertThat(clusterId, is(equalTo(1L)));
   }
 
-  @Test // test shows cluster should have branch it is attachted to and save both
+  @Test // test shows cluster should have branch it is attached to and save both
   public void clusterFromRepoShouldHaveBranch() {
     testBranch = branchRepo.save(new Branch("Java Branch", null));
     testCluster = clusterRepo.save(new Cluster("Java Cluster", testBranch));

@@ -15,7 +15,7 @@ public class BranchTest {
 
   @Before
   public void branchSetup() { //shows that a branch is apart of a tree
-    testBranch = new Branch("Java Branch", new VirtualTree());
+    testBranch = new Branch("Java Branch", new VirtualTree("Java Tree", null));
   }
 
   @Test // should show that creating a new branch yields a new branch

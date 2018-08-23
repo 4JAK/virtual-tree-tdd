@@ -1,8 +1,11 @@
-html {
-  height: 100vh;
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
 }
 
-body {
+header {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -17,6 +20,10 @@ body {
 
 #bean-tree {
   display: block;
-  height: 420px;
-  width: 420px;
+  height: 28rem;
+  width: 100%;
+}
+
+footer {
+  font-size: 1.5rem;
 }

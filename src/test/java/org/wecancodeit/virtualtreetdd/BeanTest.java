@@ -11,7 +11,6 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wecancodeit.virtualtreetdd.Bean.QuestionType;
 
 public class BeanTest {
 
@@ -48,7 +47,7 @@ public class BeanTest {
 
   @Test //check should return that the question type is FillInTheBlanks
   public void beanQuestionTypeShouldNotBeTrueOrFalse() {
-    assertThat(testBean.getQuestionType(), is(not(QuestionType.FillInTheBlanks)));
+    assertThat(testBean.getQuestionType(), is(not("FillInTheBlanks")));
   }
 
   @Test //Checks to see if a bean contains multiple answers (1 Correct ,  1:many not correct)

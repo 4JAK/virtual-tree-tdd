@@ -1,16 +1,8 @@
-body {
-    font-family: Work Sans, sans-serif;
-    margin: 0px;
-}
-
 .header-logo {
-
-    /* float: left; */
-    height: 37.5px;
-    width: 150px;
-    padding-left: 50px;
-    padding-top: 10px;
+    height: 5rem;
+    padding-left: 1.5rem;
     position: absolute;
+    top: 2.5rem;
 }
 
 .login {
@@ -32,19 +24,17 @@ body {
 
 .form-container h2 {
     line-height: 55px;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: #313E4F;
     margin-bottom: 2%;
 }
 
 .form-container p {
-    margin-top: 0px;
-    padding-top: 0px; 
-    width: 90%;
-    line-height: 25px;
     color: #8A919C;
-    font-size: .8rem;
-    margin-bottom: 10%;
+    font-size: 0.8rem;
+    line-height: 2rem;
+    margin-bottom: 5%;
+    width: 90%;
 }
 
 input[type=text], select { 
@@ -83,11 +73,15 @@ button {
 
 /* TL;DR About */
 
+.tldr-about-container {
+    height: 49vh;
+}
 
 .tldr-about {
-    margin-top: 10%;
-    height: 90vh;
     background-color: white;
+    height: 100vh;
+    margin-top: 16.7%;
+    width: 100%;
 }
 
 .tldr-about h1 {
@@ -118,10 +112,10 @@ ul {
 }
 
 .flex-grid-thirds {
-    
     display: flex;
     justify-content: space-between;
     color: #3DCB9A;
+    width: 100%;
 }
 
 .flex-grid-thirds .col {
@@ -135,15 +129,23 @@ ul {
     color: #313E4F;
 }
 
-.flex-grid-thirds .col:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+.flex-grid-thirds .col img {
+    height: 45vh;
+}
 
+.flex-grid-thirds .col h2 {
+    padding: 0.5rem;
+}
+
+.flex-grid-thirds .col:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 /* action-message */
 
 .action-message {
     height: 100vh;
+    margin-top: 10%;
 }
 
 .action-message-container {
@@ -155,10 +157,10 @@ ul {
 }
 
 .action-message-container h1 {
-   font-size: 2.5rem;
-   line-height: 150%;
-   margin-bottom: 0px;
- }
+    font-size: 2.5rem;
+    line-height: 150%;
+    margin-bottom: 0px;
+}
 
 .action-message-container p {
     margin-top: 20px;
