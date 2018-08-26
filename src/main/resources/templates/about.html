@@ -8,43 +8,130 @@
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/layout.css}" href="/css/layout.css" />
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/about.css}" href="/css/about.css" />
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/minireset.min.css}" href="/css/minireset.min.css" />
+    <script defer="defer" th:src="@{https://use.fontawesome.com/releases/v5.0.0/js/all.js}"></script>
     <title>About | java beans</title>
 </head>
 <body>
-    <nav>
-        <div class="top-bar-left">
-                <a th:href='@{/}'><img class="header-logo" src='/images/planTDDlogoTransparent.png'/></a>
-            </div>
-            <div class="top-bar-right">
-                <ul>
-                    <li><a th:href="@{/home}">
-                        Profile
-                    </a></li>
-                    <li><a th:href="@{/}">
-                            Logout
-                    </a></li>
-                    <li>
-                        <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg" />
 
-                    </li>
-                </ul>
-        </div>
-    </nav>
-    
-    <div class="about">
-        <h2>About the project</h2>
-         <p class="project">Utilizing a Java based Spring framework, planT'DD allows users to learn the priciples and techniques 
-             of test driven development. Several styles of engaging interactive questions and visual examples give users 
-             a simple and fun way to build their knowledge. The program was built using the knowledge attained by the team 
-             during their 14 week full-time bootcamp. Including a Java back-end, it also uses JavaScript and Ajax to 
-             populate pages, as well as Thymeleaf, CSS, and HTML to create a smooth cohesive feel.</p>
-        
-        <h2> About the team</h2>
-         <p class="team">The 4JAK team consists of Jeanne, Julian, James, Jaylen, Amal and Kevin. As students at the 
-             We Can Code IT full-stack boot camp, we have learned a strong foundation of Java-based software development 
-             that is reflected in this TDD learning application. Please check us out on Linked-In and Github!</p>
-             
+  <nav class="nav">
+
+    <figure class="top-bar-left">
+      <a id="header-link" th:href='@{/}'>
+        <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
+      </a>
+    </figure>
+
+    <div class="nav-links">
+
+      <a class="nav-link" th:href="@{/about}">
+        About
+      </a>
+
+      <a class="nav-link" th:href="@{/}">
+        Logout
+      </a>
+
     </div>
-    <footer>&copy;2018</footer>
+  </nav>
+    
+  <main class="about">
+
+    <section class="projects">
+      <h2>About the project</h2>
+      <p class="project-desc">
+        Utilizing a Java based Spring framework, planT'DD allows users 
+        to learn the priciples and techniques of test driven development.
+      </p>
+      <p class="project-desc">
+        Several styles of engaging interactive questions and visual examples 
+        give users a simple and fun way to build their knowledge.
+      </p>
+      <p class="project-desc">
+        The program was built using the knowledge attained by 
+        the team during their 14 week full-time bootcamp.
+      </p> 
+      <p class="project-desc">
+        Including a Java back-end, it also uses JavaScript and Ajax to 
+        populate pages, as well as Thymeleaf, CSS, and HTML to create a smooth cohesive feel.
+      </p>
+    </section>
+    
+    <section class="team">
+      <h2>About the team</h2>
+
+      <ol class="team-members">
+        The 4JAK team consists of:
+        <li class="team-member">
+            Jeanne Clair
+            <a class="team-member-link" href="https://github.com/jeanneclair">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/jeanne-clair/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="team-member">
+            Julian Perge
+            <a class="team-member-link" href="https://github.com/julian-perge">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/julian-perge/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="team-member">
+            James Zebreski
+            <a class="team-member-link" href="https://github.com/jz1988">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/james-zebreski-794505132/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="team-member">
+            Jaylen Guevara-Kirksey Bey 
+            <a class="team-member-link" href="https://github.com/JG-KB">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/jaylen-guevara-kirksey-bey-098135165/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="team-member">
+            Amal Ali
+            <a class="team-member-link" href="https://github.com/amalali2">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/amal-ali2/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="team-member">
+            Kevin Cobb
+            <a class="team-member-link" href="https://github.com/KevinCobb">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="team-member-link" href="https://www.linkedin.com/in/kevin-cobb-51b135165/">
+              <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+      </ol>
+
+      <p class="team-desc">
+        As students at the We Can Code IT full-stack boot camp, 
+        we have learned a strong foundation of Java-based software development 
+        that is reflected in this TDD learning application.
+      </p>
+      <p class="team-links">
+        Please check us out on Linked-In and Github!
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2018
+  </footer>
+
 </body>
 </html>
