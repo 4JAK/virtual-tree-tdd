@@ -1,55 +1,51 @@
-.header-logo {
-
-    /* float: left; */
-    height: 37.5px;
-    width: 150px;
-    padding-left: 15px;
-    padding-top: 10px;
+.nav-links {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 16rem;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #c6d888;
-    margin: 0;
-    padding-top: 10px;
+.nav-link {
+  border: 2px solid #437E38;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
 }
 
-#profile-image {
-    border-radius: 100%;
-    height: 37.5px;
-    width: 37.5px;
-    padding-right: 15px;
-    /* padding-top: 4px; */
-
+.projects,
+.team {
+  display: grid;
+  grid-template-rows: 5rem;
+  line-height: 2.5rem;
+  padding: 2rem;
 }
 
-body {
-    margin: 0;
-    font-family: 'Work Sans', sans-serif;
+section h2 {
+  font-size: 2rem;
 }
 
-.top-bar-right > ul {
-    list-style: none;
-    display: flex;
-    float: right;
+section p, li {
+  font-size: 1.2rem;
 }
 
-.top-bar-right > ul > li > a {
-    display: flex;
-    margin-top: 15px;
-    margin-right: 10px;
+.team-members {
+  font-size: 1.5rem;
 }
 
-a {
-    text-decoration: none;
+.team-member {
+  align-items: center;
+  display: flex;
+  height: 3.5rem;
 }
 
-.about {
-    padding: 50px;
-    line-height: 30px;
+.team-member-link {
+  font-size: 2rem;
+  margin: 0 0.5rem;
 }
 
 footer {
-    padding-left: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
