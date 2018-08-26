@@ -1,94 +1,55 @@
-
-/* nav li {
-    align-content: center;
-    list-style-type: none;
-    display: inline;
-    float: right;
-} */
-
-.btn {
-    border: 2px solid black;
-    background-color: transparent;
-    color: black;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 1px;
-}
-.btn {
-    border-color: #4CAF50;
-    color: green;
-}
-
-.btn:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-
 body {
-    background-image: url('../images/branches-background.png');
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}  
-
-h2 {
-    text-align: center;
-    margin: 5% 0 0 14%;
-    font-size:4vh; 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url('../images/branches-background.png');
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-
-ol {
-    list-style-type: none;
+.logo-figure {
+  justify-self: flex-start;
 }
 
-ol {
-    margin-top: 5%;
-    display: flex;
-    /* flex-direction: row; */
-    margin-bottom: 5%;
+.logo,
+#profileImage {
+  height: 100%;
 }
 
-ol > li {
-    background-color: #ffffff;
-    border: solid;
-    border-color: #3DCB9A;
-    color: black;
-    font-size: 2.5vh; 
-    height: 40vh;
-    line-height: 37vh;
-    border-radius: 100%;
-    margin: 55px auto;
-    text-align: center;
-    width: 20vw;
-    
-}
-/* ol {
-    transform: rotate(180deg);
-}
-ol > li {
-    transform: rotate(-180deg);
-} */
-.nav-link {
-    align-items: center;
-    display: flex;
-    height: 100%;
+.profile-figure {
+  height: 3rem;
+  justify-self: flex-end;
+  margin-right: 1rem;
 }
 
-#profile-image {
-    border-radius: 100%;
-    display: flex;
-    height: 100%;
+#profileImage {
+  border-radius: 961003px;
 }
 
-ol > li:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+.branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 30vw;
 }
-.vl {
-    margin: 0 0 0 48.5%;
-    
-    /* height: 500px; */
+
+.branch {
+  align-items: center;
+  background-color: #ffffff;
+  border: solid #3DCB9A;
+  border-radius: 100%;
+  color: black;
+  display: flex;
+  font-size: 1.7vw;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.branch:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.branch:active {
+  margin: 3rem;
+}
+
+.branch-text:active {
+  font-size: 85%;
 }

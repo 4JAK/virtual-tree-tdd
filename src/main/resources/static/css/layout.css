@@ -35,13 +35,24 @@ a {
 nav {
   align-items: center;
   background-color: #80bf74;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   height: 3.5rem;
-  justify-content: space-between;
+  justify-items: center;
   width: 100%;
 }
 
-.header-logo {
-  height: 37.5px;
-  padding-left: 15px;
+.logo-figure {
+  height: 2.5rem;
+  justify-self: flex-start;
+  margin-left: 1rem;
+}
+
+.logo,
+#profileImage {
+  height: 100%;
+}
+
+.nav-h1 {
+  font-size: 1.8rem;
 }

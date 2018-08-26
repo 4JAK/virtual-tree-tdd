@@ -12,23 +12,40 @@
 </head>
 
 <body>
-    <!-- <img src='/images/planTDDlogo4.png'/> -->
-    <nav>
-        <a class="nav-link" th:href='@{/}'>
-            <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
+
+    <nav class="nav">
+
+      <figure class="logo-figure">
+        <a id="logo-link" th:href='@{/}'>
+          <img class="logo" src='/images/planTDDlogoTransparent.png' />
         </a>
-        <h1 id="clusterName" > Java Tree Branches</h1>
-        <a class="nav-link" th:href="@{/home}">
-            <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"
-                alt="picture of user" />
+      </figure>
+
+      <h1 class="nav-h1"> Java Tree Branches</h1>
+
+      <figure class="profile-figure">
+        <a id="profile=link" th:href='@{/home}'>
+          <img id="profileImage" 
+                class="profile-image" 
+                src="/images/alfian_tinangon.jpg" 
+                th:src="@{/images/alfian_tinangon.jpg}" 
+                alt="picture of user"/>
         </a>
-      </nav>
-    <ol>
-        <li th:each="branch : ${branches}">
-            <a th:href="|@{/cluster/}${branch.id}|">
-                <strong th:text="${branch.name}"></strong>
-            </a>
+      </figure>
+
+    </nav>
+
+    <main class="main-branches">
+
+      <ol class="branches">
+        <li class="branch" th:each="branch : ${branches}">
+          <a class="branch-link" th:href="|@{/cluster/}${branch.id}|">
+              <strong class="branch-text" th:text="${branch.name}"></strong>
+          </a>
         </li>
-    </ol>
+      </ol>
+
+    </main>
+
 </body>
 </html>
