@@ -37,19 +37,24 @@
 
     <main th:id="${cluster.id}" class="clusterBeans">
 
-      <div id="question-and-answers">
-        <h3 id="beanQuestion" th:text="${cluster.beans[0].question}"></h3>
+        <h2 id="beanQuestion" th:text="${cluster.beans[0].question}"></h2>
 
         <section class="beanAnswers">
-          <label th:id="${cluster.beans[0].id}" class="bean-label" th:each="answer : ${cluster.beans[0].answers}" for="radioGroup">
-            <input class="bean-answer" name="radioGroup" th:text="${answer}" type="radio" th:value="${cluster.beans[0].questionNum}"/>
+          <label th:id="${cluster.beans[0].id}" 
+                  class="bean-label" 
+                  th:each="answer : ${cluster.beans[0].answers}" 
+                  for="radioGroup">
+
+            <input class="rdo-bean-answer" 
+                    name="radioGroup" 
+                    th:text="${answer}" 
+                    type="radio" 
+                    th:value="${cluster.beans[0].questionNum}"/>
           </label>
-          <script th:src="@{/js/enableSubmitButton.js}"></script>
         </section>
         
-        <button id="submitAnswer" disabled="disabled"> Submit </button>
+        <button id="submitAnswer" class="submit-answer" disabled="disabled"> Submit </button>
 
-      </div>
     </main>
 
 

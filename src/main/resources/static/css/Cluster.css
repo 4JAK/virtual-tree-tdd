@@ -21,6 +21,7 @@
   font-size: 1.5rem;
 }
 
+
 #profile-image {
   border-radius: 100%;
   display: flex;
@@ -32,16 +33,10 @@
 }
 
 .clusterBeans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 20%);
   height: 100%;
-  width: 75%;
-}
-
-#question-and-answers {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
 }
 
 #beanQuestion {
@@ -50,18 +45,14 @@
 }
 
 .beanAnswers {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  width: 50%;
+  grid-area: 2 / 1 / 5 / 4;
 }
 
-.bean-answer {
-  height: 100%;
+.rdo-bean-answer {
   width: 2.5rem;
 }
 
-#submitAnswer {
+.submit-answer {
   bottom: 0;
   border: none;
   border-radius: 40px;
@@ -70,6 +61,10 @@
   padding: 1rem;
   position: absolute;
   width: 150px;
+}
+
+#submitAnswer {
+
 }
 
 .bean-label:hover {
