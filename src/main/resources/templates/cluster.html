@@ -17,15 +17,27 @@
 
   <div class="concept-container">
 
-    <nav>
-      <a class="nav-link" th:href='@{/}'>
-        <img class="header-logo" src='/images/planTDDlogoTransparent.png' />
-      </a>
+    <nav class="nav">
+
+      <figure class="logo-figure">
+        <a class="logo-link" th:href='@{/}'>
+          <img class="logo" src='/images/planTDDlogoTransparent.png' />
+        </a>
+
+      </figure>
+
       <h1 id="clusterName" th:text="${cluster.name}"></h1>
-      <a class="nav-link" th:href="@{/home}">
-        <img id="profile-image" src="https://d3iw72m71ie81c.cloudfront.net/01233bfb-d920-4740-ad7b-5d529a1e6129-Alfian_Tinangon.jpg"
-            alt="picture of user" />
-      </a>
+
+      <figure class="profile-figure">
+        <a th:href="@{/home}">
+          <img id="profileImage" 
+                class="profile-image" 
+                src="/images/alfian_tinangon.jpg" 
+                th:src="@{/images/alfian_tinangon.jpg}" 
+                alt="picture of user"/>
+        </a>
+      </figure>
+
     </nav>
 
     <aside id="slide-out-lesson" class="openLesson">
