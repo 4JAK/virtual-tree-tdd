@@ -1,33 +1,30 @@
-body {
+.container {
   background-image: url('../images/branches-background.png');
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 3.5rem;
+  height: 100vh;
 }
 
-.logo-figure {
-  justify-self: flex-start;
-}
-
-.logo,
-#profileImage {
-  height: 100%;
+.nav {
+  grid-column: 1 / -1;
 }
 
 .profile-figure {
   height: 3rem;
-  justify-self: flex-end;
-  margin-right: 1rem;
 }
 
 #profileImage {
   border-radius: 961003px;
 }
 
-.branches {
+.main-branches {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 30vw;
+  grid-column: 1 / -1;
 }
 
 .branch {
@@ -38,6 +35,7 @@ body {
   color: black;
   display: flex;
   font-size: 1.7vw;
+  height: 50%;
   justify-content: center;
   margin: 3rem;
 }
