@@ -23,8 +23,9 @@
 
 .main-branches {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-column: 1 / -1;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .branch {
@@ -35,7 +36,6 @@
   color: black;
   display: flex;
   font-size: 1.7vw;
-  height: 50%;
   justify-content: center;
   margin: 3rem;
 }

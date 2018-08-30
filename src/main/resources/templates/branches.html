@@ -38,13 +38,13 @@
     </nav>
   
     <main class="main-branches">
+      
       <span class="branch" th:each="branch : ${branches}">
         <a class="branch-link" th:href="|@{/cluster/}${branch.id}|">
             <strong class="branch-text" th:text="${branch.name}"></strong>
         </a>
-
       </span>
-  
+
     </main>
 
   </div>
