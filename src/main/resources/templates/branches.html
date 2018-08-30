@@ -13,16 +13,18 @@
 
 <body>
 
-    <nav class="nav">
+  <div class="container">
 
+    <nav class="nav">
+  
       <figure class="logo-figure">
         <a id="logo-link" th:href='@{/}'>
           <img class="logo" src='/images/planTDDlogoTransparent.png' />
         </a>
       </figure>
-
+  
       <h1 class="nav-h1"> Java Tree Branches</h1>
-
+  
       <figure class="profile-figure">
         <a id="profile=link" th:href='@{/home}'>
           <img id="profileImage" 
@@ -32,20 +34,20 @@
                 alt="picture of user"/>
         </a>
       </figure>
-
+  
     </nav>
-
+  
     <main class="main-branches">
-
-      <ol class="branches">
-        <li class="branch" th:each="branch : ${branches}">
-          <a class="branch-link" th:href="|@{/cluster/}${branch.id}|">
-              <strong class="branch-text" th:text="${branch.name}"></strong>
-          </a>
-        </li>
-      </ol>
+      
+      <span class="branch" th:each="branch : ${branches}">
+        <a class="branch-link" th:href="|@{/cluster/}${branch.id}|">
+            <strong class="branch-text" th:text="${branch.name}"></strong>
+        </a>
+      </span>
 
     </main>
+
+  </div>
 
 </body>
 </html>
