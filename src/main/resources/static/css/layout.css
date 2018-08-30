@@ -36,10 +36,9 @@ nav {
   align-items: center;
   background-color: #80bf74;
   display: grid;
+  grid-area: 1 / 1 / 2 / -1;
   grid-template-columns: repeat(3, 1fr);
-  height: 3.5rem;
   justify-items: center;
-  width: 100%;
 }
 
 .logo-figure {
@@ -48,11 +47,20 @@ nav {
   margin-left: 1rem;
 }
 
+.profile-figure {
+  justify-self: flex-end;
+  margin-right: 1rem;
+}
+
 .logo,
-#profileImage {
+.profile-image {
   height: 100%;
 }
 
 .nav-h1 {
   font-size: 1.8rem;
+}
+
+.purple {
+  color: purple;
 }
