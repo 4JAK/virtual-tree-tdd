@@ -1,48 +1,42 @@
 function renderBean(response) {
   if (this.status === 200 && this.readyState === 4) {
-    const bean = JSON.parse(response.target.response);
-    const beanQuestion = document.getElementById('beanQuestion');
-    const imageForBeanLesson = document.getElementById('lessonImage');
-    const beanLessonExample = document.getElementById('beanLessonExample');
-    const beanAnswers = document.querySelector('.beanAnswers');
-
-    if (bean.lesson.image != null) {
-      imageForBeanLesson.setAttribute('src', bean.lesson.image);
-    }
+    const responseBean = JSON.parse(response.target.response);
+    const imageForBeanLesson = document.getElementById('beanLessonImage');
+    const beanLessonExample = document.querySelector('.bean-lesson');
+    const sectionBean = document.querySelector('.bean');
 
     beanLessonExample.innerHTML = '';
-    beanLessonExample.innerHTML = bean.lesson.example;
-    beanQuestion.innerHTML = bean.question;
+    beanLessonExample.innerHTML = responseBean.lesson.example;
     // We still have our Bean object, and what do our objects have?
     // Collections! And we can iterate over them like so
-    beanAnswers.innerHTML = '';
-    bean.answers.forEach((answer) => {
-      beanAnswers.innerHTML += `
-      <label id="${bean.id}" class="bean-label" for="radioGroup">
-        <input class="bean-answer" name="radioGroup" type="radio" value="${bean.questionNum}">
+    sectionBean.innerHTML = '';
+    sectionBean.innerHTML = responseBean.question;
+    responseBean.answers.forEach((answer) => {
+      sectionBean.innerHTML += `
+      <label id="${responseBean.id}" class="bean-label" for="radioGroup">
+        <input class="rdo-bean-answer" name="radioGroup" type="radio" value="${responseBean.questionNum}">
           ${answer}
         </input>
       </label>`;
     });
-
+    
+    if (responseBean.lesson.image != null) {
+      imageForBeanLesson.setAttribute('src', responseBean.lesson.image);
+      beanLessonExample.firstChild.classList.add('bean-lesson-with-image');
+    } else {
+      beanLessonExample.firstChild.classList.remove('bean-lesson-with-image');
+    }
+    
     addEventListenersForButtons();
     document.getElementById('slide-out-lesson').classList.toggle('closedLesson');
 
     // Grab the strong tag from it's id
     const currentQuestionNum = document.getElementById('currentQuestionNum');
     // Set the innerHTML to the next bean's question num
-    currentQuestionNum.innerText = bean.questionNum;
+    currentQuestionNum.innerText = responseBean.questionNum;
     document.getElementById('bean-tree').src = `/images/bean-${currentQuestionNum.innerText}.png`;
 
-    // document.getElementById('submitAnswer').setAttribute('disabled', 'disabled');
     document.getElementById('nextQuestionButton').setAttribute('disabled', 'disabled');
-    const beanLabels = document.querySelectorAll('.bean-label');
-    if (beanLabels[0]) {
-      beanLabels.forEach((label) => {
-        label.addEventListener('click', checkRadio);
-      });
-    }
-
   }
 }
 
@@ -54,12 +48,7 @@ function getNextBeanQuestion() {
   } else {
     document.querySelector('.modal-screen').classList.remove('modal-open');
     const xhr = new XMLHttpRequest();
-    // since the class has a list of classes for the,
-    // we grab the second class for the cluster ID
-    const clusterId = document.querySelector('.clusterBeans').id;
-    // clusterId = parseInt(clusterId, 10);
-    // Grab current question number from the inputs value,
-    // since the inputs value is set to the question number
+    const clusterId = document.querySelector('.cluster-beans').id;
     const beanQuestionNum = document.getElementById('currentQuestionNum').innerText;
     xhr.open('GET', `/api/clusters/${clusterId}/getnextbean?currentBeanQuestionNum=${beanQuestionNum}`, true);
     xhr.addEventListener('readystatechange', renderBean);

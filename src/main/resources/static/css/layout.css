@@ -36,11 +36,10 @@ nav {
   align-items: center;
   background-color: #80bf74;
   display: grid;
+  grid-area: 1 / 1 / 2 / -1;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100%;
   height: 3.5rem;
   justify-items: center;
-  width: 100%;
 }
 
 .logo-figure {

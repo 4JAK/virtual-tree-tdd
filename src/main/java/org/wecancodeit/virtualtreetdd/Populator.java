@@ -208,7 +208,7 @@ public class Populator implements CommandLineRunner {
 
   private String strAnswerTrue = "True";
   private String strAnswerFalse = "False";
-  
+
   public Collection<String> getTreeImages() {
     ArrayList<String> treeImages = new ArrayList<String>();
     treeImages.add("/images/pre-tree.png");
@@ -250,16 +250,16 @@ public class Populator implements CommandLineRunner {
   public String getLesson2Tdd() {
     return "<h1>Lesson 2</h1>"
         + "<h2>Why do we use TDD?</h2>"
-		+ "<ol>"
+        + "<ol>"
         + "<li>TDD creates documentation of our work and ensures that our code is doing what we expect it to do.</li>"
         + "<li>TDD emphasises focusing on one piece of code at a time and is used to make code transmutable.</li>"
         + "<li>This allows the programmer to write manageable code that is able to change as the program develops.</li>"
         + "<li>TDD provides a roadmap of tested code for other programmers to reference and utilize for future testing and production.</li>"
-    	+ "</ol>";
+        + "</ol>";
   }
 
   public String getLesson3Tdd() {
-    return "<h2>Lesson 3</h2>"
+    return "<h1>Lesson 3</h1>"
         + "<p>The 1st of the 3 A&#39;s of TDD is to arrange. When you arrange, you are initializing and setting the values of the variables that you are about to test for in that block of code. For example:</p>"
         + "<pre class=\"code\">"
         + "<p><span class='purple'>public class</span> ArrangeExample {</p>"
@@ -279,7 +279,8 @@ public class Populator implements CommandLineRunner {
 
   public String getLesson4Tdd() {
     return "<h1>Lesson 4</h1>"
-        + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged. For example, we can call a method that modifies one of the variables.</p>"
+        + "<p>The 2nd of the 3 A&#39;s of TDD is to act. To act is to do something with the instantiated variables that we previously arranged.</p>"
+        + "<p>For example, we can call a method that modifies one of the variables.</p>"
         + "<pre class=\"code\">"
         + "<p><span class='purple'>public class</span> ActExample { </p>"
         + "<strong>	@Test</strong>"
@@ -303,7 +304,7 @@ public class Populator implements CommandLineRunner {
         + "<p>The 3rd of the 3 A&#39;s of TDD is to assert. To assert is to verify that the action of the method is doing what we expected it to do .</p>"
         + "<pre class=\"code\">"
         + "<p><span class='purple'>public class</span> AssertExample {</p>"
-        + "<strong>	@Test</strong>"
+        + "<p>	@Test</p>"
         + "<p><span class='purple'>	public void</span> wateringShouldGiveGrowthToYourTree() {</p>"
         + "<p class=\"triple-aaa-tdd\">		//arrange</p>"
         + "<p>		int currentGrowth = 10;</p>"
@@ -321,23 +322,26 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getQuestion1Tdd() {
-    return "What is TDD?";
+    return "<h1 id=\"beanQuestion\">What is TDD?</h1>";
   }
 
   public String getQuestion2Tdd() {
-    return "Why do we use TDD?";
+    return "<h1 id=\"beanQuestion\">Why do we use TDD?</h1>";
   }
 
   public String getQuestion3Tdd() {
-    return "The 1st of the 3 A&#39;s of TDD is to _____. When you _____ in the context of TDD you are initializing and setting the values of the variables that you are about to test for in that block of code.";
+    return "<h1 id=\"beanQuestion\">The 1st of the 3 A&#39;s of TDD is to _____.</h1>"
+        + "<h2>When you _____ in the context of TDD you are initializing and setting the values of the variables that you are about to test for in that block of code.</h2>";
   }
 
   public String getQuestion4Tdd() {
-    return "The 2nd of the 3 A&#39;s of  TDD is to _____. To _____ is to call the method which we intend to test.";
+    return "<h1 id=\"beanQuestion\">The 2nd of the 3 A&#39;s of  TDD is to _____.</h1>"
+        + "<h2>To _____ is to call the method which we intend to test.</h2>";
   }
 
   public String getQuestion5Tdd() {
-    return "assertThat(actualAnswer, is(equalTo(expectedAnswer))); will give us a passing test.";
+    return "<h1 id=\"beanQuestion\">Based on the current lesson, the following code snippet will give us a passing test.</h1>"
+        + "<h2>assertThat(actualAnswer, is(equalTo(expectedAnswer)));</h2>";
   }
 
   public String getCorrectAnswer1Tdd() {
@@ -362,62 +366,45 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersFor1Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "TDD is a programming language.";
-    String answer2 =
-        "TDD is keeping your test as failing even though your code is working as you expect it to.";
-    String answer3 = "TDD is a style of writing code and then testing it.";
-    String answer4 =
-        "TDD is the discipline of writing failing tests before production code throughout the entire application.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("TDD is a programming language.");
+    answers.add(
+        "TDD is keeping your test as failing even though your code is working as you expect it to.");
+    answers.add("TDD is a style of writing code and then testing it.");
+    answers.add(
+        "TDD is the discipline of writing failing tests before production code throughout the entire application.");
     return answers;
   }
 
   public Collection<String> getAnswersFor2Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 =
-        "We use TDD so that the code we produce is immutable and nothing can be added to the code.";
-    String answer2 =
-        "We use TDD to decrease the speed in which it takes for a project to be developed";
-    String answer3 = "We use TDD to use less programmers when developing a project.";
-    String answer4 = "We use TDD to make sure that our code is doing what we expect it to do.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add(
+        "We use TDD so that the code we produce is immutable and nothing can be added to the code.");
+    answers.add("We use TDD to decrease the speed in which it takes for a project to be developed");
+    answers.add("We use TDD to use less programmers when developing a project.");
+    answers.add("We use TDD to make sure that our code is doing what we expect it to do.");
     return answers;
   }
 
   public Collection<String> getAnswersFor3Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "arrange";
-    String answer3 = "act";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
+    answers.add("assert");
+    answers.add("act");
+    answers.add("arrange");
     return answers;
   }
 
   public Collection<String> getAnswersFor4Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "arrange";
-    String answer3 = "act";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
+    answers.add("act");
+    answers.add("arrange");
+    answers.add("assert");
     return answers;
   }
 
   public Collection<String> getAnswersFor5Tdd() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer = "true";
-    String answer2 = "false";
-    answers.add(answer);
-    answers.add(answer2);
+    answers.add(strAnswerTrue);
+    answers.add(strAnswerFalse);
     return answers;
   }
 
@@ -441,15 +428,16 @@ public class Populator implements CommandLineRunner {
 
   // Questions JUnit
   public String getLesson1Question1JUnit() {
-    return "What color does a failing JUnit test return in the JUnit console?";
+    return "<h1 id=\"beanQuestion\">What color does a failing JUnit test return in the JUnit console?</h1>";
   }
 
   public String getLesson1Question2JUnit() {
-    return "If the class doesn't exist, the object instantiated will be equal to null and asserting that the Object is equal to null will make the test fail in JUnit.";
+    return "<h1 id=\"beanQuestion\">If the class doesn't exist, the object instantiated will be equal to null and asserting that the Object is equal to null will make the test fail in JUnit.</h1>";
   }
 
   public String getLesson1Question3JUnit() {
-    return "<pre>"
+    return "<h1 id=\"beanQuestion\">What annotation should be placed in the underlined section below?</h1>"
+        + "<pre class=\"code\">"
         + "<p>____</p>"
         + "<p><span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {</p>"
         + "<p>	Branch branch = new Branch();</p>"
@@ -459,8 +447,9 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson1Question4JUnit() {
-    return "<pre>"
-        + "<strong>@Test</strong><p></p>"
+    return "<h1 id=\"beanQuestion\">Which code snippet below would make our test valid if placed in the underlined section below?</h1>"
+        + "<pre class=\"code\">"
+        + "<p>@Test</p>"
         + "<p><span class='purple'>public void</span> shouldBeAbleToInstantiateClass() {</p>"
         + "<p>	Cluster cluster = new Cluster()</p>"
         + "<p>	______NotNull(cluster);</p>"
@@ -468,13 +457,12 @@ public class Populator implements CommandLineRunner {
         + "</pre>";
   }
 
-
   public String getLesson1Question5JUnit() {
-    return "JUnit is a testing framework used in an IDE to determine if code being tested is doing what it is expected to do.";
+    return "<h1 id=\"beanQuestion\">JUnit is a testing framework used in an IDE to determine if code being tested is doing what it is expected to do.</h1>";
   }
 
   public String getLesson1Question6JUnit() {
-    return "Our first passing test should always be the result of creating a new class.";
+    return "<h1 id=\"beanQuestion\">Our first passing test should always be the result of creating a new class.</h1>";
   }
 
   public String getCorrectAnswerLesson1Answer1JUnit() {
@@ -503,14 +491,10 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer1JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "Red";
-    String answer2 = "Blue";
-    String answer3 = "Yellow";
-    String answer4 = "Green";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("Red");
+    answers.add("Blue");
+    answers.add("Yellow");
+    answers.add("Green");
     return answers;
   }
 
@@ -523,29 +507,19 @@ public class Populator implements CommandLineRunner {
 
   public Collection<String> getAnswersForLesson1Answer3JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "@Test";
-    String answer2 = "@Annotation";
-    String answer3 = "@Build";
-    String answer4 = "@GeneratedValue";
-
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
-
+    answers.add("@Test");
+    answers.add("@Annotation");
+    answers.add("@Build");
+    answers.add("@GeneratedValue");
     return answers;
   }
 
   public Collection<String> getAnswersForLesson1Answer4JUnit() {
     ArrayList<String> answers = new ArrayList<String>();
-    String answer1 = "assert";
-    String answer2 = "if()";
-    String answer3 = "assertIf";
-    String answer4 = "this.";
-    answers.add(answer1);
-    answers.add(answer2);
-    answers.add(answer3);
-    answers.add(answer4);
+    answers.add("assert");
+    answers.add("if ()");
+    answers.add("assertIf");
+    answers.add("this.");
     return answers;
   }
 
@@ -566,12 +540,12 @@ public class Populator implements CommandLineRunner {
   // Questions JUnit/Hamcrest Beans
 
   public String getLesson1JUnitHamcrest() {
-    return "<h2>Lesson 8</h2>"
+    return "<h1>Lesson 8</h1>"
         + "<p>Our 2nd test demonstrated here is failing as expected because our class does not have the getName() method, a constructor that can be built with a String parameter, or a String variable in our class to store the data.</p>";
   }
 
   public String getLesson2JUnitHamcrest() {
-    return "<h2>Lesson 9</h2>"
+    return "<h1>Lesson 9</h1>"
         + "<ol class=\"noCode\">"
         + "<li>We are testing to check the properties of our object treeTest. The new method assertThat() uses Matchers from the Hamcrest library. The hamcrest library is used in conjunction with JUnit to make more flexible expressions of intent. For example, we use: assertThat([value] , [Matcher Statement]). The Matcher statement contains another value being compared.</li>"
         + "<li>The VirtualTree class is empty and contains no methods or constructors. We want the getName method, so we create a failing test first.</li>"
@@ -581,31 +555,31 @@ public class Populator implements CommandLineRunner {
   }
 
   public String getLesson3JUnitHamcrest() {
-    return "<h2>Lesson 10</h2>"
+    return "<h1>Lesson 10</h1>"
         + "<p>Once we add the constructor with a String parameter, the method getName() and we pass Java Tree as our String , the assertThat method will return a passing test.</p>";
   }
 
   // Lesson1
   // True or false
   public String getLesson1Question1JUnitHamcrest() {
-    return "We run a failing test before we create a method (getter) necessary to retrieve information from other classes.";
+    return "<h1 id=\"beanQuestion\">We run a failing test before we create a method (getter) necessary to retrieve information from other classes.</h1>";
   }
 
   // Lesson 2
   public String getLesson2Question1JUnitHamcrest() {
-    return "What is required, at minimum, in the assertThat() JUnit method?";
+    return "<h1 id=\"beanQuestion\">What is required, at minimum, in the assertThat() JUnit method?</h1>";
   }
 
   public String getLesson2Question2JUnitHamcrest() {
-    return "We can write the method getName() before our initial failing test.";
+    return "<h1 id=\"beanQuestion\">We can write the method getName() before our initial failing test.</h1>";
   }
 
   public String getLesson2Question3JUnitHamcrest() {
-    return "We can chain Matcher statements to express different requirements.";
+    return "<h1 id=\"beanQuestion\">We can chain Matcher statements to express different requirements.</h1>";
   }
 
   public String getLesson2Question4JUnitHamcrest() {
-    return "What is the Hamcrest Library used for?";
+    return "<h1 id=\"beanQuestion\">What is the Hamcrest Library used for?</h1>";
   }
 
   // Correct Answer match Strings
