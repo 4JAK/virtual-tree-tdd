@@ -38,6 +38,7 @@ nav {
   display: grid;
   grid-area: 1 / 1 / 2 / -1;
   grid-template-columns: repeat(3, 1fr);
+  height: 3.5rem;
   justify-items: center;
 }
 
